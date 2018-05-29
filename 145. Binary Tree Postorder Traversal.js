@@ -45,7 +45,7 @@ function postorderTraversal(node) {
 
   if (node) stack.push(node);
 
-  while(stack.length) {
+  while (stack.length) {
     node = stack.pop();
 
     res.unshift(node.val);
@@ -57,21 +57,21 @@ function postorderTraversal(node) {
   return res;
 }
 
-/** Level Order Traversal */
+/** Level Order Traversal / BFS */
 // Iterating method using Queue
 function levelOrderTraversal(node) {
-  let stack = [];
+  let queue = [];
   let res = [];
 
-  if (node) stack.push(node);
+  if (node) queue.push(node);
 
-  while(stack.length) {
-    node = stack.shift();
+  while (queue.length) {
+    node = queue.shift();
 
     res.push(node.val);
 
-    if (node.left) stack.push(node.left);
-    if (node.right) stack.push(node.right);
+    if (node.left) queue.push(node.left);
+    if (node.right) queue.push(node.right);
   }
 
   return res;
