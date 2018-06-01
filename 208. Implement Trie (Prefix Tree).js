@@ -16,8 +16,8 @@ class Trie {
   insert(word) {
     let node = this.root;
 
-    // word.split('').forEach(ch => node = node[ch] = node[ch] || {});
-    word.split('').forEach(ch => node = (node[ch] ? node[ch] : node[ch] = {}));
+    // word.split('').forEach(c => node = node[c] = node[c] || {});
+    word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {}));
 
     node.isWord = true;
   }
@@ -25,8 +25,8 @@ class Trie {
   traverse(word) {
     let node = this.root;
 
-    for (let ch of word) {
-      node = node[ch];
+    for (let c of word) {
+      node = node[c];
       if (!node) return null;
     }
 

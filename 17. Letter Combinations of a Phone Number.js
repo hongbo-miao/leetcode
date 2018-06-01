@@ -41,5 +41,6 @@ function letterCombinations(digits) {
   }
 
   if (digits.length) dfs(0);
+
   return res;
 }

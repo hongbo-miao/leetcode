@@ -20,5 +20,6 @@ function lengthOfLongestSubstring(s) {
     chars = chars.slice(chars.indexOf(c) + 1);  // remove everything before when find duplicate one, e.g. awke + w -> ke + w
     max = Math.max(chars.push(c), max);   // push returns the array length
   }
+
   return max;
 }

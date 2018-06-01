@@ -39,6 +39,6 @@ function myPow(x, n) {
     return x * myPow(x, n - 1);
   } else {
     const m = myPow(x, n / 2);
-    return m * m
+    return m * m;
   }
 }

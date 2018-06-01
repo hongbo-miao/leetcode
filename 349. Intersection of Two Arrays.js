@@ -14,18 +14,18 @@
  */
 function intersect(nums1, nums2) {
   let intersect = [];
-  let obj = {};
+  let map = {};
 
   for (let n of nums1) {
-    if (!obj[n]) obj[n] = 0;
+    if (!map[n]) map[n] = 0;
 
-    obj[n]++;
+    map[n]++;
   }
 
   for (let n of nums2) {
-    if (obj[n] > 0) {
+    if (map[n] > 0) {
       intersect.push(n);
-      obj[n]--;
+      map[n]--;
     }
   }
 

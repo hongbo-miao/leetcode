@@ -48,10 +48,10 @@ class RandomizedSet {
     if (this.pos[val] === undefined) {
       this.nums.push(val);
       this.pos[val] = this.nums.length - 1;
-      return true
+      return true;
     }
     
-    return false
+    return false;
   }
 
   /**

@@ -45,6 +45,7 @@ function rob2(nums) {
   if (nums.length === 1) return nums[0];
 
   const totals = [nums[0], Math.max(nums[0], nums[1])];
+
   for (let i = 2; i < nums.length; i++) {
     totals.push(Math.max(totals[i - 2] + nums[i], totals[i - 1]));
   }
@@ -52,7 +53,7 @@ function rob2(nums) {
   return totals[totals.length - 1];
 }
 
-// 2) time complexity O(n), space complexity O(n)
+// 2) time complexity O(n), space complexity O(1)
 function rob(nums) {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];

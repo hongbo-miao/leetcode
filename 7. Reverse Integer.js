@@ -23,7 +23,11 @@
  * @return {number}
  */
 function reverse(x) {
-  const res = parseInt(String(x).split('').reverse().join('')) * Math.sign(x);
+  const res = Math.sign(x) *
+    parseInt(String(x)
+      .split('')
+      .reverse()
+      .join(''));
 
   if (res > Math.pow(2, 31) || res < -Math.pow(2, 31) - 1) return 0;
   return res;

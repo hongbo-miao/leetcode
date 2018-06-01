@@ -20,7 +20,7 @@
  */
 export function mergeTwoLists(l1, l2) {
   let list = new ListNode(null);
-  let head = list;
+  const before = list;
 
   while (l1 && l2) {
     if (l1.val <= l2.val) {
@@ -36,5 +36,5 @@ export function mergeTwoLists(l1, l2) {
 
   list.next = l1 || l2;
 
-  return head.next;
+  return before.next;
 }

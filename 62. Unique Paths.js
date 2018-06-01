@@ -28,7 +28,7 @@
  */
 
 // Dynamic programming
-// yime complexity O(m * n)
+// Time complexity O(mn)
 // Space complexity O(n)
 
 // 1   1  (1)  1  1  1  (initialize to 1)

@@ -22,35 +22,35 @@
 // cache.get(4);       // returns 4
 
 
-class LRUCache1 {
-  constructor(capacity) {
-    this.cache = {};
-    this.capacity = capacity;
-  }
-
-  get(key) {
-    if (!this.cache['k' + key]) return -1;
-
-    const value = this.cache['k' + key];
-    delete this.cache['k' + key];
-
-    this.cache['k' + key] = value;
-
-    return this.cache['k' + key];
-  };
-
-  put(key, value) {
-    if (this.cache['k' + key]) {
-      delete this.cache['k' + key];
-    }
-
-    this.cache['k' + key] = value;
-
-    if (Object.keys(this.cache).length > this.capacity) {
-      delete this.cache[Object.keys(this.cache)[0]];
-    }
-  };
-}
+// class LRUCache {
+//   constructor(capacity) {
+//     this.cache = {};
+//     this.capacity = capacity;
+//   }
+//
+//   get(key) {
+//     if (!this.cache['k' + key]) return -1;
+//
+//     const value = this.cache['k' + key];
+//     delete this.cache['k' + key];
+//
+//     this.cache['k' + key] = value;
+//
+//     return this.cache['k' + key];
+//   };
+//
+//   put(key, value) {
+//     if (this.cache['k' + key]) {
+//       delete this.cache['k' + key];
+//     }
+//
+//     this.cache['k' + key] = value;
+//
+//     if (Object.keys(this.cache).length > this.capacity) {
+//       delete this.cache[Object.keys(this.cache)[0]];
+//     }
+//   };
+// }
 
 class LRUCache {
   /**

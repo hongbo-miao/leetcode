@@ -14,7 +14,6 @@
 //      /  \
 //     15   7
 // return its depth = 3.
-//
 
 /**
  * Definition for a binary tree node.

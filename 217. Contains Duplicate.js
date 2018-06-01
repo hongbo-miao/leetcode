@@ -22,12 +22,12 @@
  * @return {boolean}
  */
 function containsDuplicate(nums) {
-  let obj = {};
+  let map = {};
 
   for (let num of nums) {
-    if (obj[num]) return true;
+    if (map[num]) return true;
 
-    obj[num] = true;
+    map[num] = true;
   }
 
   return false;

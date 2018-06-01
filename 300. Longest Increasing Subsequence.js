@@ -19,8 +19,7 @@
  */
 // Time complexity O(n^2)
 // nums: [10,9,2,5,3,7,101,18]
-// arr:
-// [ 1,1,1,2,2,3,  4, 4]
+// arr:  [ 1,1,1,2,2,3,  4, 4]
 // res:  4
 function lengthOfLIS(nums) {
   if (!nums.length) return 0;

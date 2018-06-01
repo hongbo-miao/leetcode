@@ -25,12 +25,12 @@ function twoSum1(nums, target) {
 }
 
 function twoSum(nums, target) {
-  let obj = {};
+  let map = {};
 
   for (let i = 0; i < nums.length; i++) {
-    const difference = target - nums[i];
+    const diff = target - nums[i];
 
-    if (obj[difference] !== undefined) return [obj[difference], i];
-    obj[nums[i]] = i;
+    if (map[diff] !== undefined) return [map[diff], i];
+    map[nums[i]] = i;
   }
 }

@@ -51,19 +51,19 @@
  * @return {number}
  */
 function romanToInt(s) {
-  const romanToDecMap = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+  const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
 
-  let previousDecValue = 0;
+  let prevNum = 0;
   let sum = 0;
 
   for (let i = 0; i < s.length; i++) {
-    const decValue = romanToDecMap[s[i]];
+    const num = map[s[i]];
 
-    sum = previousDecValue >= decValue
-      ? sum + decValue
-      : sum + decValue - previousDecValue * 2;
+    sum = prevNum >= num
+      ? sum + num
+      : sum + num - prevNum * 2;
 
-    previousDecValue = decValue;
+    prevNum = num;
   }
 
   return sum;

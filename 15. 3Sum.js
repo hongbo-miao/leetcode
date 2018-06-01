@@ -25,12 +25,12 @@
 function threeSum(nums) {
   let result = [];
 
-  nums = nums.sort((x, y) => x - y);  // sort() only will cause [-1, -2, -3, 1, 2, 3]
+  nums = nums.sort((x, y) => x - y);  // if sort() only will cause [-1, -2, -3, 1, 2, 3]
 
   for (let i = 0; i < nums.length - 2; i++) {
     const a = nums[i];
 
-    if (i > 0 && a === nums[i - 1]) continue; // move a to next different one to avoid duplicate results
+    if (i >= 1 && a === nums[i - 1]) continue; // move a to next different one to avoid duplicate results
 
     let left = i + 1;
     let right = nums.length - 1;

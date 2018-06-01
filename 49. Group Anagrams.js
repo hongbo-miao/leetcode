@@ -25,7 +25,10 @@ function groupAnagrams(strs) {
   for (let str of strs) {
     const key = str.split('').sort().join('');
 
-    groups[key] = [...groups[key] || [], str];
+    groups[key] = [
+      ...groups[key] || [],
+      str
+    ];
   }
 
   return Object.values(groups);
