@@ -24,6 +24,7 @@
  * @param {character[][]} grid
  * @return {number}
  */
+/** DFS */
 function numIslands(grid) {
   let count = 0;
 
