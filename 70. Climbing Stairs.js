@@ -50,7 +50,7 @@ function climb(n, cache) {
   return cache[n];
 }
 
-/** Dynamic Programming - Fibonacci */
+/** Dynamic programming - Fibonacci */
 // 1) time complexity O(n), space complexity O(n)
 function climbStairs3(n) {
   let array = [1, 1];

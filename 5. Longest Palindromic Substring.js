@@ -15,10 +15,13 @@
  * @param {string} s
  * @return {string}
  */
-// Expand around center
+
+/** Expand around center */
 // https://www.youtube.com/watch?v=m2Mk9JN5T4A
-// Time complexity: O(n^2). Since expanding a palindrome around its center could take O(n) time, the overall complexity is O(n^2)
-// Space complexity: O(1).
+//
+// Time complexity: O(n^2). Expanding a palindrome around its center takes O(n) time, so the overall complexity is O(n^2)
+// Space complexity: O(1)
+
 function longestPalindrome(s) {
   let result = '';
 

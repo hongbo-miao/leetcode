@@ -27,11 +27,13 @@
  * @return {number}
  */
 
-// Dynamic programming
-// Time complexity O(mn)
-// Space complexity O(n)
-
-// 1   1  (1)  1  1  1  (initialize to 1)
+/** Dynamic programming */
+// Complexity
+// time O(mn)
+// space O(n)
+//
+// Example
+// 1   1  (1)  1  1  1  (init to 1)
 // 1  (2) (3)  4  5  6  (2 + 1 = 3)
 // 1   3   6  10 15 21  (return last one 21)
 function uniquePaths(m, n) {

@@ -17,7 +17,11 @@
  * @param {number[]} nums
  * @return {number}
  */
-// Time complexity O(n^2)
+
+// Complexity
+// time O(n^2)
+//
+// Example
 // nums: [10,9,2,5,3,7,101,18]
 // arr:  [ 1,1,1,2,2,3,  4, 4]
 // res:  4

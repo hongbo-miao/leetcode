@@ -23,8 +23,9 @@
 // Input: matrix, target = 20
 // Output: false
 
-// Search from top right corner
-// Time complexity O(m + n), rule out one row or one column each time
+/** Search from top right corner */
+// Complexity
+// time O(m + n), rule out one row or one column each time
 function searchMatrix(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;
 

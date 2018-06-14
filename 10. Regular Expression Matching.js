@@ -55,55 +55,84 @@
  * @return {boolean}
  */
 
+/** 2D dynamic programming */
 // https://www.youtube.com/watch?v=qza1UKNHAys
 //
+// Idea
 // 1. if p[j] === s[i]
-//    dp[i][j] = dp[i - 1][j - 1]
+//    sp[i][j] = sp[i - 1][j - 1]
 //
 // 2. if p[j] === '.'
-//    dp[i][j] = dp[i - 1][j - 1]
+//    sp[i][j] = sp[i - 1][j - 1]
 //
 // 3. if p[j] === '*'
-//    1) if p[j - 1] !== s[i] && p[j - 1] !== '.'   // a ab* && not a a.*
-//       dp[i][j] = dp[i][j - 2]                    // e.g. a ab* -> p remove 'b*' which is j - 2
+//    1) if p[j - 1] !== s[i] and p[j - 1] !== '.'  // a ab* and not a a.*
+//       sp[i][j] = sp[i][j - 2]                    // e.g. a ab* -> p remove 'b*' which is j - 2
 //
 //    2) if p[i - 1] === s[i] or p[i - 1] == '.'
-//       a) dp[i][j] = dp[i][j - 2]                 // c* - empty, e.g. ab ab.*
-//       b) dp[i][j] = dp[i][j - 1]                 // c* - single c, e.g. abc abc*
-//       c) dp[i][j] = dp[i - 1][j]                 // c* - multiple c, e.g. abcc abc*
+//       a) sp[i][j] = sp[i][j - 2]                 // c* - empty, e.g. ab ab.*
+//       b) sp[i][j] = sp[i][j - 1]                 // c* - single c, e.g. abc abc*
+//       c) sp[i][j] = sp[i - 1][j]                 // c* - multiple c, e.g. abccc abc*
+//
+// Example 1
+// s = 'abcd', p = 'a*.cd'
+//
+//       p 0 1 2 3 4
+//       0 1 2 3 4 5
+// s 0     a * . c d
+// 0 1   T F T F F F
+// 1 2 a F T T T F F
+// 2 3 b F F F T F F
+// 3 4 c F F F F T F
+// 4 5 d F F F F F T
+//
+// Example 2
+// s = 'abaa', p = 'ab.*'
+//
+//     p 0 1 2 3 4
+//     0 1 2 3 4 5
+// s 0     a b . *
+// 0 1   T F F F F
+// 1 2 a F T F F F
+// 2 3 b F F T F T
+// 3 4 a F F F T T
+// 4 5 a F F F F T
 
 function isMatch(s, p) {
-  let dp = [];
+  let sp = [];
 
-  // initialize dp[s.length][p.length] to false
+  // init 2D matrix sp[s.length][p.length] to false
   for (let i = 0; i <= s.length; i++) {
-    let tmp = [];
-    for (let j = 0; j <= p.length; j++) tmp.push(false);
-    dp.push(tmp);
+    let row = [];
+    for (let j = 0; j <= p.length; j++) row.push(false);
+    sp.push(row);
   }
 
-  dp[0][0] = true;
+  // init sp[0][0]
+  sp[0][0] = true;
 
-  for (let i = 0; i < p.length; i++) {
-    if (p[i] === '*' && dp[0][i - 1]) {
-      dp[0][i + 1] = true;
+  // init sp[0][i] to true if p[i] is *
+  for (let i = 1; i < p.length; i++) {
+    if (p[i] === '*' && sp[0][i - 1]) {
+      sp[0][i + 1] = true;
     }
   }
 
   for (let i = 0 ; i < s.length; i++) {
     for (let j = 0; j < p.length; j++) {
       if (p[j] === s[i]) {
-        dp[i + 1][j + 1] = dp[i][j];
+        sp[i + 1][j + 1] = sp[i][j];
       } else if (p[j] === '.') {
-        dp[i + 1][j + 1] = dp[i][j];
+        sp[i + 1][j + 1] = sp[i][j];
       } else if (p[j] === '*') {
         if (p[j - 1] !== s[i] && p[j - 1] !== '.') {
-          dp[i + 1][j + 1] = dp[i + 1][j - 1];
+          sp[i + 1][j + 1] = sp[i + 1][j - 1];
         } else {
-          dp[i + 1][j + 1] = dp[i + 1][j - 1] || dp[i + 1][j] || dp[i][j + 1];
+          sp[i + 1][j + 1] = sp[i + 1][j - 1] || sp[i + 1][j] || sp[i][j + 1];
         }
       }
     }
   }
-  return dp[s.length][p.length];
+
+  return sp[s.length][p.length];
 }
