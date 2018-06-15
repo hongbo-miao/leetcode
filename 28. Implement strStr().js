@@ -23,19 +23,20 @@
  * @param {string} needle
  * @return {number}
  */
+
+/** 1) Cheating */
 function strStr1(haystack, needle) {
-  if (!needle) return 0;
   return haystack.indexOf(needle);
 }
 
-function strStr(haystack, needle) {
-  if (!needle) return 0;
-
+/** 2) Brute force */
+function strStr2(haystack, needle) {
   for (let i = 0; i < haystack.length - needle.length + 1; i++) {
-    if (haystack.substr(i, needle.length) === needle) {
-      return i;
-    }
+    if (haystack.substr(i, needle.length) === needle) return i;
   }
 
   return -1;
 }
+
+/** 3) KMP */
+// https://www.zhihu.com/question/21923021

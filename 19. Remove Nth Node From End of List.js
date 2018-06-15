@@ -22,11 +22,15 @@
  * @param {number} n
  * @return {ListNode}
  */
-function removeNthFromEnd(head, n) {
-  let before = new ListNode(null);  // for removing the only 1 node in list case
-  before.next = head;
 
-  let slow = before;
+/** Two pointers slow and fast */
+// time O(n)
+// space O(1)
+function removeNthFromEnd(head, n) {
+  let preHead = new ListNode(null);  // for removing the only 1 node in list case
+  preHead.next = head;
+
+  let slow = preHead;
   let fast = head;
 
   while (n--) {
@@ -40,5 +44,5 @@ function removeNthFromEnd(head, n) {
 
   slow.next = slow.next.next;
 
-  return before.next;
+  return preHead.next;
 }

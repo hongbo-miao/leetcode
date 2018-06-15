@@ -15,6 +15,8 @@
  * @param {string} digits
  * @return {string[]}
  */
+
+/** DFS */
 function letterCombinations(digits) {
   const letters = {
     2: 'abc',
@@ -30,17 +32,17 @@ function letterCombinations(digits) {
   let prefix = [];
   let res = [];
 
-  function dfs(i) {
+  function find(i) {
     if (i === digits.length) return res.push(prefix.join(''));
 
     for (let c of letters[digits[i]]) {
       prefix.push(c);
-      dfs(i + 1);
+      find(i + 1);
       prefix.pop();
     }
   }
 
-  if (digits.length) dfs(0);
+  if (digits.length) find(0);
 
   return res;
 }

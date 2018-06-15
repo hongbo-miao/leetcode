@@ -27,9 +27,8 @@ import { mergeTwoLists } from './';
 function mergeKLists(lists) {
   if (lists.length === 0) return lists;
   if (lists.length === 1) return lists[0];
-  if (lists.length === 2) return mergeTwoLists(lists[0], lists[1]);
 
-  const mid = Math.ceil(lists.length / 2);
+  const mid = lists.length / 2;
 
   return mergeTwoLists(
     mergeKLists(lists.slice(0, mid)),

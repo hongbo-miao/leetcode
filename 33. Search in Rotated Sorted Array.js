@@ -23,10 +23,14 @@
  * @param {number} target
  * @return {number}
  */
+
+/** 1) Cheating */
 function search1(nums, target) {
   return nums.indexOf(target);
 }
 
+/** 2) Binary search */
+// time O(log(n))
 function search(nums, target) {
   let l = 0;
   let r = nums.length - 1;

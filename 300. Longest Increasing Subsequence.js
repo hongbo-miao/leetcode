@@ -18,7 +18,6 @@
  * @return {number}
  */
 
-// Complexity
 // time O(n^2)
 //
 // Example

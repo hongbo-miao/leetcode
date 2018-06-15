@@ -14,21 +14,19 @@
  * @param {number} n
  * @return {string[]}
  */
+
+/** Backtracking */
 function generateParenthesis(n) {
   let res = [];
-  compose(n, n, '', res);
+  generate(n, n, '', res);
   return res;
 }
 
-// backtracking
-function compose(left, right, s, res) { // left: left remaining, right: right remaining
-  if (left > right) return;   // e.g. ))(
+function generate(l, r, s, res) { // l: left remaining, r: right remaining
+  if (l > r) return;  // e.g. ))(
 
-  if (!left && !right) {
-    res.push(s);
-    return;
-  }
+  if (!l && !r) return res.push(s);
 
-  if (left) compose(left - 1, right, s + '(', res);
-  if (right) compose(left, right - 1, s + ')', res);
+  if (l) generate(l - 1, r, s + '(', res);
+  if (r) generate(l, r - 1, s + ')', res);
 }

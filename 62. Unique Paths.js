@@ -27,10 +27,7 @@
  * @return {number}
  */
 
-/** Dynamic programming */
-// Complexity
-// time O(mn)
-// space O(n)
+/** Dynamic programming */``
 //
 // Example
 // 1   1  (1)  1  1  1  (init to 1)

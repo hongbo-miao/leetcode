@@ -20,7 +20,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-/** recursive */
+/** Recursion */
 // time complexity O(n), space complexity O(n)
 function rob1(nums) {
   return count(nums.length - 1, [], nums)
@@ -38,7 +38,7 @@ function count(n, cache, nums) {
   return cache[n];
 }
 
-/** iterative */
+/** Iteration */
 // 1) time complexity O(n), space complexity O(n)
 function rob2(nums) {
   if (nums.length === 0) return 0;

@@ -39,18 +39,21 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+/** Two pointers slow and fast */
+// time O(n)
+// space O(1)
 function removeDuplicates(nums) {
   let slow = 0;
-  let fast = 0;
+  let fast = 1;
 
   while (fast < nums.length) {
-    if (nums[slow] === nums[fast]) {
-      fast++;
-    } else {
+    if (nums[slow] !== nums[fast]) {
       slow++;
       nums[slow] = nums[fast];
-      fast++;
     }
+
+    fast++;
   }
 
   return slow + 1;

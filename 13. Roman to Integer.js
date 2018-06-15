@@ -56,8 +56,8 @@ function romanToInt(s) {
   let prevNum = 0;
   let sum = 0;
 
-  for (let i = 0; i < s.length; i++) {
-    const num = map[s[i]];
+  for (let c of s) {
+    const num = map[c];
 
     sum = prevNum >= num
       ? sum + num

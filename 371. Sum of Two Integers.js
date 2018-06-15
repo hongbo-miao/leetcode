@@ -8,7 +8,7 @@
  * @param {number} b
  * @return {number}
  */
-/** 1) iterative */
+/** 1) Iteration */
 function getSum1(a, b) {
   while (b !== 0) {
     const carry = a & b;  // carry over
@@ -19,7 +19,7 @@ function getSum1(a, b) {
   return a;
 }
 
-/** 2) recursive */
+/** 2) Recursion */
 function getSum(a, b) {
   if (b === 0) return a;
   return getSum(a ^ b, (a & b) << 1);

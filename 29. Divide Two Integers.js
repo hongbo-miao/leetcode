@@ -18,21 +18,24 @@
 //
 // Both dividend and divisor will be 32-bit signed integers.
 // The divisor will never be 0.
-// Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 231 − 1 when the division res overflows.
+// Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function returns 2^31 − 1 when the division res overflows.
 
 /**
  * @param {number} dividend
  * @param {number} divisor
  * @return {number}
  */
+
+/** 1) Cheating */
 function divide1(dividend, divisor) {
-  if (dividend === -2147483648 && divisor === -1) return 2147483647;
+  if (dividend === -Math.pow(2, 31) && divisor === -1) return Math.pow(2, 31) - 1;
   return ~~(dividend / divisor);
 }
 
-// explanation https://leetcode.com/problems/divide-two-integers/discuss/13407/Detailed-Explained-8ms-C++-solution
+/** 2) */
+// https://leetcode.com/problems/divide-two-integers/discuss/13407/Detailed-Explained-8ms-C++-solution
 function divide(dividend, divisor) {
-  if (dividend === -2147483648 && divisor === -1) return 2147483647;
+  if (dividend === -Math.pow(2, 31) && divisor === -1) return Math.pow(2, 31) - 1;
 
   const sign = Math.sign(dividend) * Math.sign(divisor);
 
