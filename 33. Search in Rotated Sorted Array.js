@@ -30,7 +30,7 @@ function search1(nums, target) {
 }
 
 /** 2) Binary search */
-// time O(log(n))
+// time O(log n)
 function search(nums, target) {
   let l = 0;
   let r = nums.length - 1;

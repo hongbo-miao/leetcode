@@ -34,7 +34,7 @@
 // 1  (2) (3)  4  5  6  (2 + 1 = 3)
 // 1   3   6  10 15 21  (return last one 21)
 function uniquePaths(m, n) {
-  let currentRow = new Array(n).fill(1);
+  let currentRow = Array(n).fill(1);
 
   for (let i = 1; i < m; i++) {
     for (let j = 1; j < n; j++) {

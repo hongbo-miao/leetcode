@@ -1,4 +1,4 @@
-// Implement pow(x, n), which calculates x raised to the power n (xn).
+// Implement pow(x, n), which calculates x raised to the power n (x^n).
 //
 // Example 1:
 //
@@ -26,19 +26,21 @@
  * @param {number} n
  * @return {number}
  */
+
+/** 1) Cheating */
 function myPow1(x, n) {
   return Math.pow(x, n);
 }
 
+/** 2) */
 function myPow(x, n) {
   if (n === 0) return 1;
-  if (n === 1) return x;
   if (n === -1) return 1 / x;
 
   if (n % 2) {
-    return x * myPow(x, n - 1);
+    return x * myPow(x, n - 1); // 3^5 -> 3 * 3^4
   } else {
-    const m = myPow(x, n / 2);
+    const m = myPow(x, n / 2);  // 3^4 -> 3^2 * 3^2
     return m * m;
   }
 }

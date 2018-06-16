@@ -23,14 +23,17 @@
  * @param {number[]} nums
  * @return {number}
  */
+// Idea
 // Put each number in its right place.
 // When we find n, then swap it with nums[n - 1].
 // At last, the first place where its number is not right, return the place + 1.
 //
-// Time complexity O(n)
-// Space complexity O(1)
+// Complexity
+// time O(n)
+// space O(1)
 function firstMissingPositive(nums) {
   let i = 0;
+
   while (i < nums.length) {
     if (nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] !== nums[i]) {
       [nums[nums[i] - 1], nums[i]] = [nums[i], nums[nums[i] - 1]];

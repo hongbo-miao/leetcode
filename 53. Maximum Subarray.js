@@ -1,10 +1,10 @@
-// Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+// Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest currMax and return its currMax.
 //
 // Example:
 //
 // Input: [-2,1,-3,4,-1,2,1,-5,4],
 // Output: 6
-// Explanation: [4,-1,2,1] has the largest sum = 6.
+// Explanation: [4,-1,2,1] has the largest currMax = 6.
 //
 // Follow up:
 //
@@ -14,19 +14,16 @@
  * @param {number[]} nums
  * @return {number}
  */
-// Kadane's algorithm, time complexity O(n)
-// Suppose we've solved the problem for A[1 .. i - 1]; how can we extend that to A[1 .. i]?
-function maxSubArray(nums) {
-  let sum = nums[0];
-  let max = nums[0];
 
-  for (let i = 1; i < nums.length; i++) {
-    sum = Math.max(sum + nums[i], nums[i]); // if nums[i] is bigger, recalculate from nums[i]
-    max = Math.max(max, sum);
-  }
-  
-  return max;
-}
+/** Kadane's algorithm */
+// Complexity
+// time O(n)
+// space O(1)
+//
+// Idea
+// Suppose we've solved the problem for A[1 .. i - 1]; how can we extend that to A[1 .. i]?
+//
+// Example
 // 5 -12 10
 //
 // 5
@@ -35,3 +32,14 @@ function maxSubArray(nums) {
 //     5
 //       10 (recalculate from nums[i])
 //       10
+function maxSubArray(nums) {
+  let currMax = nums[0];
+  let max = nums[0];
+
+  for (let i = 1; i < nums.length; i++) {
+    currMax = Math.max(currMax + nums[i], nums[i]); // if nums[i] is bigger, recalculate from nums[i]
+    max = Math.max(max, currMax);
+  }
+  
+  return max;
+}

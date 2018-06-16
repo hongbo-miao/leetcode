@@ -17,33 +17,18 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-// function permute(nums) {
-//   if (nums.length === 1) return [nums];
-//
-//   let res = [];
-//
-//   nums.forEach(num =>
-//     permute(nums.filter(n => n !== num))
-//       .forEach(arr => res.push([...arr, num]))
-//   );
-//
-//   return res;
-// }
 
-// backtracking
+/** Backtracking */
 function permute(nums) {
   let res = [];
 
-  function find(curr, remaining) {
-    if (!remaining.length) {
-      res.push(curr);
-      return;
-    }
+  function find(curr, rest) {
+    if (!rest.length) return res.push(curr);
 
-    for (let i = 0; i < remaining.length; i++) {
+    for (let i = 0; i < rest.length; i++) {
       find(
-        [...curr, remaining[i]],
-        [...remaining.slice(0, i), ...remaining.slice(i + 1)]
+        [...curr, rest[i]],
+        [...rest.slice(0, i), ...rest.slice(i + 1)]
       );
     }
   }

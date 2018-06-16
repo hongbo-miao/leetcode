@@ -27,7 +27,7 @@
 function lengthOfLIS(nums) {
   if (!nums.length) return 0;
 
-  let arr = new Array(nums.length).fill(1);
+  let arr = Array(nums.length).fill(1);
 
   for (let i = 1; i < nums.length; i++) {
     for (let j = 0; j < i; j++) {

@@ -19,19 +19,22 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
+
+/** Categorize by sorted string */
+// time O(NK log K), where N is the length of strs, and K is the maximum length of a string in strs
+//   The outer loop has complexity O(N) as we iterate through each string. Then, we sort each string in O(K log K) time
+// space O(NK), the total information content stored in groups.
 function groupAnagrams(strs) {
   const groups = {};
 
-  for (let str of strs) {
-    const key = str.split('').sort().join('');
+  for (let s of strs) {
+    const key = s.split('').sort().join('');
 
     groups[key] = [
-      ...groups[key] || [],
-      str
+      ...(groups[key] || []),
+      s
     ];
   }
 
   return Object.values(groups);
 }
-// Time complexity O(NKlog(K)), where N is the length of strs, and K is the maximum length of a string in strs. The outer loop has complexity O(N) as we iterate through each string. Then, we sort each string in O(KlogK) time.
-// Space complexity O(N * K), the total information content stored in groups.
