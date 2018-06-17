@@ -60,6 +60,8 @@
  * @param {number} maxWidth
  * @return {string[]}
  */
+
+// https://leetcode.com/problems/text-justification/discuss/24898/Short-JavaScript-O(n)-solution
 function fullJustify(words, maxWidth) {
   let res = [[]];
   res[0].letters = 0;

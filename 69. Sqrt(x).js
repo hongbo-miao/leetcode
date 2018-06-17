@@ -20,14 +20,26 @@
  * @param {number} x
  * @return {number}
  */
-/** 1) */
+/** 1) Cheating */
 function mySqrt1(x) {
   return Math.floor(Math.sqrt(x));
 }
 
-/** 2) Integer square root */
-// https://en.wikipedia.org/wiki/Integer_square_root
+/** 2) */
+// time O(n)
+// space O(1)
 function mySqrt2(x) {
+  for (let i = 0; i <= x; i++) {
+    if (i * i === x) return i;
+    else if (i * i > x) return i - 1;
+  }
+
+  return x;
+}
+
+/** 3) Integer square root */
+// https://en.wikipedia.org/wiki/Integer_square_root
+function mySqrt3(x) {
   let r = x;
 
   while (r * r > x) {
@@ -37,7 +49,9 @@ function mySqrt2(x) {
   return r;
 }
 
-/** 3) Binary search */
+/** 4) Binary search */
+// time O(log n)
+// space O(1)
 function mySqrt(x) {
   let start = 1;
   let end = x;
@@ -45,13 +59,9 @@ function mySqrt(x) {
   while (start < end - 1) {   // if start < end, x = 8, at some point, start = 2, end = 3, will enter loop
     const mid = Math.floor((start + end) / 2);
 
-    if (mid * mid < x) {
-      start = mid;
-    } else if (mid * mid > x) {
-      end = mid;
-    } else {
-      return mid;
-    }
+    if (mid * mid < x) start = mid;
+    else if (mid * mid > x) end = mid;
+    else return mid;
   }
 
   return Math.min(start, end);

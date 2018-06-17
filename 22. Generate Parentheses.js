@@ -22,7 +22,7 @@ function generateParenthesis(n) {
   return res;
 }
 
-function generate(l, r, s, res) { // l: left remaining, r: right remaining
+function generate(l, r, s, res) { // l: left rest, r: right rest
   if (l > r) return;  // e.g. ))(
 
   if (!l && !r) return res.push(s);

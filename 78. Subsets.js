@@ -21,17 +21,19 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-// base question: 46. Permutations
+
+/** Backtracking */
+// Similar to 46. Permutations
 function subsets(nums) {
   let res = [];
 
-  function search(curr, remaining, start) {
+  function find(curr, rest, start) {
     res.push(curr);
 
-    for (let i = start; i < remaining.length; i++) {
-      search(
-        [...curr, remaining[i]],
-        [...remaining.slice(0, i), ...remaining.slice(i + 1)],
+    for (let i = start; i < rest.length; i++) {
+      find(
+        [...curr, rest[i]],
+        [...rest.slice(0, i), ...rest.slice(i + 1)],
         start
       );
 
@@ -39,7 +41,7 @@ function subsets(nums) {
     }
   }
 
-  search([], nums, 0);
+  find([], nums, 0);
 
   return res;
 }

@@ -30,5 +30,5 @@ function isHappy(n) {
 function sumOfSquares(num) {
   return String(num)
     .split('')
-    .reduce((sum, n) => sum + Math.pow(Number(n), 2), 0);
+    .reduce((sum, n) => sum + Number(n) ** 2, 0);
 }

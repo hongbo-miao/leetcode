@@ -66,8 +66,8 @@ function myAtoi(str) {
 
   const num = Number(match[1]); // regex uses capturing group, so here uses match[1]
 
-  if (num < -Math.pow(2, 31)) return -Math.pow(2, 31);
-  if (num > Math.pow(2, 31) - 1) return Math.pow(2, 31) - 1;
+  if (num < -(2 ** 31)) return -(2 ** 31);
+  if (num > 2 ** 31 - 1) return 2 ** 31 - 1;
 
   return num;
 }

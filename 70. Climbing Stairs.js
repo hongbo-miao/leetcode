@@ -26,8 +26,9 @@
  * @return {number}
  */
 
-/** Recursion */
-// 1) time complexity O(2^n), space complexity O(n) - O(recursion depth)
+/** 1) Recursion */
+// time O(2^n) - O(branch ^ recursion depth)
+// space O(n) - O(recursion depth)
 function climbStairs1(n) {
   return climb(n);
 }
@@ -37,8 +38,9 @@ function climb(n) {
   return climb(n - 2) + climb(n - 1);
 }
 
-// 2) memoization
-// time complexity O(n), space complexity O(n)
+/** 2) Recursion (memoization) */
+// time O(n)
+// space O(n)
 function climbStairs2(n) {
   return climb(n, [1, 1]);
 }
@@ -50,8 +52,9 @@ function climb(n, cache) {
   return cache[n];
 }
 
-/** Dynamic programming - Fibonacci */
-// 1) time complexity O(n), space complexity O(n)
+/** 3) Dynamic programming - Fibonacci */
+// time O(n)
+// space O(n)
 function climbStairs3(n) {
   let array = [1, 1];
 
@@ -62,16 +65,23 @@ function climbStairs3(n) {
   return array[n];
 }
 
-// 2) time complexity O(n), space complexity O(1)
+/** 4) Dynamic programming - Fibonacci (optimization) */
+// time O(n)
+// space O(1)
 function climbStairs(n) {
   let a = 1;
   let b = 1;
 
   for (let i = 2; i <= n; i++) {
-    let c = a + b;
+    const c = a + b;
     a = b;
     b = c;
   }
 
   return b;
 }
+
+/** 5) Binet's Fibonacci number formula */
+// time O(log n)
+// space O(1)
+// https://leetcode.com/problems/climbing-stairs/solution/

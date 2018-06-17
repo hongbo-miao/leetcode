@@ -15,28 +15,31 @@
  * @param {string} t
  * @return {string}
  */
+
+/** 1) */
 // https://www.youtube.com/watch?v=9qFR2WQGqkU
-function minWindow(s, t) {
-  let minStr = '';
+function minWindow1(s, t) {
+  let res = '';
 
-  // e.g. { A: 1, B: 1, C: 1 }
+  // e.g. ABC -> { A: 1, B: 1, C: 1 }
   let map = {};
-  t.split('').forEach(ch => map[ch] = (map[ch] || 0) + 1);
+  t.split('').forEach(c => map[c] = (map[c] || 0) + 1);
 
-  let remainingMatchCount = Object.keys(map).length;
+  let count = Object.keys(map).length;  // rest matching count
   let l = 0;
   let r = -1;
 
   while (r < s.length) {
     // good condition, l ~ r contains t
-    if (remainingMatchCount === 0) {
-      // update minStr
-      if (!minStr || r - l + 1 < minStr.length) minStr = s.slice(l, r + 1);
+    if (count === 0) {
+      // update res
+      if (!res || r - l + 1 < res.length) res = s.slice(l, r + 1);
 
       // remove current c and move l
       const c = s[l];
+
       if (map[c] !== undefined) map[c]++;
-      if (map[c] > 0) remainingMatchCount++;
+      if (map[c] > 0) count++;
 
       l++;
     } else {
@@ -45,10 +48,41 @@ function minWindow(s, t) {
       r++;
 
       const c = s[r];
+
       if (map[c] !== undefined) map[c]--;
-      if (map[c] === 0) remainingMatchCount--;
+      if (map[c] === 0) count--;
     }
   }
 
-  return minStr;
+  return res;
+}
+
+/** 2) */
+// https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
+function minWindow(s, t) {
+  let map = {};
+  t.split('').forEach(c => map[c] = (map[c] || 0) + 1);
+
+  let count = t.length;   // rest matching count
+
+  let l = 0;
+  let r = 0;
+
+  let start = 0;
+  let minLen = Infinity;
+
+  while (r < s.length) {
+    if (map[s[r++]]-- > 0) count--;
+
+    while (count === 0) {   // valid
+      if (r - l < minLen) {
+        minLen = r - l;
+        start = l;
+      }
+
+      if (map[s[l++]]++ === 0) count++; // make it invalid
+    }
+  }
+
+  return minLen === Infinity ? '' : s.substr(start, minLen);
 }

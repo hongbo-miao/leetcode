@@ -29,7 +29,7 @@
 
 /** 1) Cheating */
 function myPow1(x, n) {
-  return Math.pow(x, n);
+  return x ** n;
 }
 
 /** 2) */

@@ -20,38 +20,33 @@
  * @param {string} word
  * @return {boolean}
  */
+
 // https://www.youtube.com/watch?v=oUeGFKZvoo4
-// Time complexity O(m * n * 4^l), l = word.length
-// Space complexity O(m * n + l)
+//
+// time O(mn * 4^l), l = word.length
+// space O(mn + l)
 function exist(board, word) {
-  function search(row, col, k){
-    if (
-      row < 0 ||
-      col < 0 ||
-      row === board.length ||
-      col === board[0].length ||
-      board[row][col] !== word[k]
-    ) return false;
+  function find(i, j, k) {
+    if (i < 0 || j < 0 || i > board.length - 1 || j > board[0].length - 1) return false;
+    if (board[i][j] !== word[k]) return false;
 
     if (k === word.length - 1) return true;
 
-    // mark as visited
-    board[row][col] = '*';
+    board[i][j] = '*';      // mark as visited
 
-    if (search(row - 1, col, k + 1)) return true;  // up
-    if (search(row + 1, col, k + 1)) return true;  // down
-    if (search(row, col - 1, k + 1)) return true;  // left
-    if (search(row, col + 1, k + 1)) return true;  // right
+    if (find(i - 1, j, k + 1)) return true;  // up
+    if (find(i + 1, j, k + 1)) return true;  // down
+    if (find(i, j - 1, k + 1)) return true;  // left
+    if (find(i, j + 1, k + 1)) return true;  // right
 
-    // reset
-    board[row][col] = word[k];
+    board[i][j] = word[k];  // reset
 
     return false;
   }
 
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
-      if (search(i, j, 0)) return true;
+      if (find(i, j, 0)) return true;
     }
   }
 

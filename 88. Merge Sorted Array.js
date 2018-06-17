@@ -20,16 +20,18 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
+
+// time O(n)
 function merge(nums1, m, nums2, n) {
-  let len = m + n;
+  let i = m + n;
   m--;
   n--;
 
-  while (len--) {
-    if (n < 0 || nums1[m] > nums2[n]) {
-      nums1[len] = nums1[m--];
+  while (i--) {
+    if (n < 0 || nums1[m] > nums2[n]) { // n < 0 is for the case that all nums2 has been merged, merging the rest of nums1
+      nums1[i] = nums1[m--];
     } else {
-      nums1[len] = nums2[n--];
+      nums1[i] = nums2[n--];
     }
   }
 }

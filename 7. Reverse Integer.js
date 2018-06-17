@@ -31,7 +31,7 @@ function reverse1(x) {
       .reverse()
       .join(''));
 
-  if (res < -Math.pow(2, 31) || res > Math.pow(2, 31) - 1) return 0;
+  if (res < -(2 ** 31) || res > 2 ** 31 - 1) return 0;
   return res;
 }
 
@@ -45,7 +45,7 @@ function reverse(x) {
     res = res * 10 + x % 10;
     x = ~~(x / 10);
 
-    if (res < -Math.pow(2, 31) || res > Math.pow(2, 31) - 1) return 0;
+    if (res < -(2 ** 31) || res > 2 ** 31 - 1) return 0;
   }
 
   return res;

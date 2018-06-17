@@ -24,6 +24,10 @@
  * @param {number[][]} matrix
  * @return {number[]}
  */
+
+/** Directions */
+// https://leetcode.com/problems/spiral-matrix/discuss/20573/A-concise-C++-implementation-based-on-Directions
+//
 // When traversing the matrix in the spiral order, at any time we follow one out of the following four directions: RIGHT DOWN LEFT UP. Suppose we are working on a 5 x 3 matrix as such:
 // 0  1  2  3  4  5
 //    6  7  8  9 10

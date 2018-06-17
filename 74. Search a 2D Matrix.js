@@ -30,8 +30,9 @@
  * @param {number} target
  * @return {boolean}
  */
-// 1) Treat 2d matrix as a long array
-// Time complexity O(log(mn))
+
+/** 1) Binary search twice, treat 2d matrix as a long array */
+// time O(log(mn))
 function searchMatrix1(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;
   
@@ -49,14 +50,15 @@ function searchMatrix1(matrix, target) {
     const j = mid - i * n;
 
     if (matrix[i][j] === target) return true;
-    matrix[i][j] < target ? start = mid + 1 : end = mid - 1;
+    else if (matrix[i][j] < target) start = mid + 1;
+    else if (matrix[i][j] > target) end = mid - 1;
   }
 
   return false;
 }
 
-// 2) Binary search twice, locate row first, then column
-// Time complexity O(log(m) + log(n))
+/** 2) Binary search twice, locate row first, then column */
+// time O(log(m) + log(n))
 function searchMatrix2(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;
 
@@ -73,7 +75,8 @@ function searchMatrix2(matrix, target) {
     mid = Math.floor((start + end) / 2);
 
     if (matrix[mid][0] === target) return true;
-    matrix[mid][0] > target ? end = mid - 1 : start = mid + 1;
+    else if (matrix[mid][0] < target) start = mid + 1;
+    else if (matrix[mid][0] > target) end = mid - 1;
   }
 
   const row = end;
@@ -84,14 +87,15 @@ function searchMatrix2(matrix, target) {
     mid = Math.floor((start + end) / 2);
 
     if (matrix[row][mid] === target) return true;
-    matrix[row][mid] > target ? end = mid - 1 : start = mid + 1;
+    else if (matrix[row][mid] < target) start = mid + 1;
+    else if (matrix[row][mid] > target) end = mid - 1;
   }
 
   return false;
 }
 
-// 3) Search from top right corner
-// Time complexity O(m + n), rule out one row or one column each time
+/** 3) Search from top right corner */
+// time O(m + n), rule out one row or one column each time
 function searchMatrix(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;
 

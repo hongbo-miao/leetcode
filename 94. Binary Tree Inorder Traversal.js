@@ -24,9 +24,10 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-// 1) Recursive
-// Time complexity O(n). The time complexity is O(n) because the recursive function is T(n) = 2*T(n/2)+1.
-// Space complexity The worst case space required is O(n), and in the average case it's O(log n) where n is number of nodes.
+
+/** 1) Recursive */
+// time O(n), the time complexity is O(n) because the recursive function is T(n) = 2 * T(n / 2) + 1
+// space O(log n), n is number of nodes. The worst case space is O(n)
 function inorderTraversal1(node) {
   let res = [];
   helper(node, res);
@@ -41,9 +42,9 @@ function helper(node, res) {
   helper(node.right, res);
 }
 
-// 2) Iterating method using Stack
-// Time complexity O(n)
-// Space complexity O(n)
+/** 2) Iterating method using Stack */
+// time O(n)
+// space O(n)
 function inorderTraversal(node) {
   let stack = [];
   let res = [];
