@@ -17,10 +17,10 @@
  * @return {boolean}
  */
 function isPalindrome(s) {
-  const s2 = s.replace(/\W/g, '').toLowerCase();
+  s = s.replace(/\W/g, '').toLowerCase();
 
-  for (let i = 0; i < s2.length / 2; i++) {
-    if (s2[i] !== s2[s2.length - i - 1]) return false
+  for (let i = 0; i < s.length / 2; i++) {
+    if (s[i] !== s[s.length - i - 1]) return false;
   }
 
   return true;

@@ -23,7 +23,7 @@
  */
 
 /** Merge sort */
-// Time complexity O(nlogn)
+// time O(n log n)
 function sortList(head) {
   if (!head || !head.next) return head;
 
@@ -36,17 +36,17 @@ function sortList(head) {
 }
 
 function split(head) {
-  let prevSlow = null;
+  let preSlow;
   let slow = head;
   let fast = head;
 
   while (fast && fast.next) {
-    prevSlow = slow;
+    preSlow = slow;
     slow = slow.next;
     fast = fast.next.next;
   }
 
-  prevSlow.next = null;
+  preSlow.next = null;
 
   return { left: head, right: slow };
 }

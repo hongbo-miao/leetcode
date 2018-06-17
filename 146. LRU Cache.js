@@ -21,37 +21,6 @@
 // cache.get(3);       // returns 3
 // cache.get(4);       // returns 4
 
-
-// class LRUCache {
-//   constructor(capacity) {
-//     this.cache = {};
-//     this.capacity = capacity;
-//   }
-//
-//   get(key) {
-//     if (!this.cache['k' + key]) return -1;
-//
-//     const value = this.cache['k' + key];
-//     delete this.cache['k' + key];
-//
-//     this.cache['k' + key] = value;
-//
-//     return this.cache['k' + key];
-//   };
-//
-//   put(key, value) {
-//     if (this.cache['k' + key]) {
-//       delete this.cache['k' + key];
-//     }
-//
-//     this.cache['k' + key] = value;
-//
-//     if (Object.keys(this.cache).length > this.capacity) {
-//       delete this.cache[Object.keys(this.cache)[0]];
-//     }
-//   };
-// }
-
 class LRUCache {
   /**
    * @param {number} capacity
@@ -66,14 +35,12 @@ class LRUCache {
    * @return {number}
    */
   get(key) {
-    if (!this.cache.has(key)) {
-      return -1;
-    } else {
-      const value = this.cache.get(key);
-      this.cache.delete(key);
-      this.cache.set(key, value);
-      return this.cache.get(key);
-    }
+    if (!this.cache.has(key)) return -1;
+
+    const value = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, value);
+    return this.cache.get(key);
   };
 
 
@@ -83,11 +50,8 @@ class LRUCache {
    * @return {void}
    */
   put(key, value) {
-    if (this.cache.has(key)) {
-      this.cache.delete(key);
-    }
-
+    if (this.cache.has(key)) this.cache.delete(key);
     this.cache.set(key, value);
-    if (this.cache.size > this.capacity) this.cache.delete(this.cache.keys().next().value); // keys().next().value -> first item key
+    if (this.cache.size > this.capacity) this.cache.delete(this.cache.keys().next().value); // keys().next().value is first item's key
   };
 }

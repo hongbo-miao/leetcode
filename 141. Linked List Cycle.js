@@ -15,6 +15,8 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+
+/** Two pointers slow and fast */
 function hasCycle(head) {
   if (!head) return false;
 

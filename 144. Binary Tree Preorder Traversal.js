@@ -24,22 +24,23 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-// 1) Recursive
+
+/** 1) Recursion */
 function preorderTraversal1(node) {
   let res = [];
-  helper(node, res);
+  go(node, res);
   return res;
 }
 
-function helper(node, res) {
+function go(node, res) {
   if (!node) return;
 
   res.push(node.val);
-  helper(node.left, res);
-  helper(node.right, res);
+  go(node.left, res);
+  go(node.right, res);
 }
 
-// 2) Iterating method using Stack
+/** 2) Iteration using stack */
 function preorderTraversal(node) {
   let stack = [];
   let res = [];

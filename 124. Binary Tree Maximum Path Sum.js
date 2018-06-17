@@ -35,19 +35,19 @@
  * @param {TreeNode} root
  * @return {number}
  */
-// Time complexity O(n)
+// time O(n)
 function maxPathSum(root) {
   let max = -Infinity;
 
   function getMaxSum(node) {
     if (!node) return 0;
 
-    const lSum = getMaxSum(node.left);
-    const rSum = getMaxSum(node.right);
+    const l = getMaxSum(node.left);   // left max
+    const r = getMaxSum(node.right);  // right max
 
-    max = Math.max(max, node.val + lSum + rSum);
+    max = Math.max(max, node.val + l + r);
 
-    return Math.max(0, node.val + lSum, node.val + rSum);
+    return Math.max(node.val + l, node.val + r, 0); // if smaller than 0, returning 0 means ignoring this branch
   }
 
   getMaxSum(root);

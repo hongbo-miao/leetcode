@@ -28,16 +28,19 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
+
+// preorder = (3) 9 20 15 7
+// inorder = 9 (3) 15 20 7
 function buildTree(preorder, inorder) {
-  function build(left, right) {
-    if (left > right) return null;
+  function build(l, r) {
+    if (l > r) return null;
 
     const val = preorder.shift();
-    const idx = inorder.indexOf(val);
+    const i = inorder.indexOf(val);
     const root = new TreeNode(val);
 
-    root.left = build(left, idx - 1);
-    root.right = build(idx + 1, right);
+    root.l = build(l, i - 1);
+    root.r = build(i + 1, r);
 
     return root;
   }

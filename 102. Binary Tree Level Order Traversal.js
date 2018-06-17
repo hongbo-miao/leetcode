@@ -25,18 +25,22 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
+
+/** DFS - preorder traversal */
+// Similar
+// 103. Binary Tree Zigzag Level Order Traversal
 function levelOrder(root) {
   let res = [];
-  helper(root, 0, res);
+  go(root, 0, res);
   return res;
 }
 
-function helper(node, level, res) {
+function go(node, level, res) {
   if (!node) return;
 
   if (res.length === level) res.push([]);
   res[level].push(node.val);
 
-  helper(node.left, level + 1, res);
-  helper(node.right, level + 1, res);
+  go(node.left, level + 1, res);
+  go(node.right, level + 1, res);
 }

@@ -31,11 +31,11 @@
  * @return {number}
  */
 function titleToNumber(s) {
-  let res = 0;
+  let n = 0;
 
-  for (let i = 0; i < s.length; i++) {
-    res = res * 26 + (s.charCodeAt(i) - 'A'.charCodeAt(0) + 1);
+  for (let c of s) {
+    n = n * 26 + (c.charCodeAt(0) - 'A'.charCodeAt(0) + 1);
   }
 
-  return res;
+  return n;
 }

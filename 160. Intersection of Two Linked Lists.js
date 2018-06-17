@@ -32,9 +32,9 @@
  * @return {ListNode}
  */
 
-/** 1) Hash table */
-// Time complexity O(m + n)
-// Space complexity O(m) or O(n)
+/** 1) Hash map */
+// time O(m + n)
+// space O(m) or O(n)
 function getIntersectionNode1(headA, headB) {
   let map = {};
   
@@ -52,8 +52,8 @@ function getIntersectionNode1(headA, headB) {
 }
 
 /** 2) Two pointers */
-// Time complexity O(m + n)
-// Space complexity O(1)
+// time O(m + n)
+// space O(1)
 function getIntersectionNode(headA, headB) {
   let a = headA;
   let b = headB;

@@ -28,8 +28,8 @@
  * @return {number}
  */
 // 1) Linear scan
-// Time complexity O(n)
-// Space complexity O(1)
+// time O(n)
+// space O(1)
 function findPeakElement1(nums) {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] > nums[i + 1]) return i;
@@ -38,9 +38,9 @@ function findPeakElement1(nums) {
   return nums.length - 1;
 }
 
-// 2) Binary search (recursive)
-// Time complexity O(log2(n)). We reduce the search space in half at every step. Thus, the total search space will be consumed in log2(n) steps. n refers to the size of nums array
-// Space complexity O(log2(n)). We reduce the search space in half at every step. Thus, the total search space will be consumed in log2(n) steps. Thus, the depth of recursion tree will go up to log2(n)
+// 2) Binary search (recursion)
+// time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
+// space O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. Thus, the depth of recursion tree will go up to log(n)
 function findPeakElement2(nums) {
   return search(nums, 0, nums.length - 1);
 }
@@ -49,14 +49,14 @@ function search(nums, l, r) {
   if (l === r) return l;
 
   const mid = Math.floor((l + r) / 2);
-  if (nums[mid] > nums[mid + 1]) return search(nums, l, mid);
 
-  return search(nums, mid + 1, r);
+  if (nums[mid] > nums[mid + 1]) return search(nums, l, mid);
+  else return search(nums, mid + 1, r);
 }
 
-// 3) Binary search (iterative)
-// Time complexity O(log2(n)). We reduce the search space in half at every step. Thus, the total search space will be consumed in log2(n) steps. n refers to the size of nums array
-// Space complexity O(1)
+// 3) Binary search (iteration)
+// time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
+// space O(1)
 function findPeakElement(nums) {
   let l = 0;
   let r = nums.length - 1;
@@ -64,11 +64,9 @@ function findPeakElement(nums) {
   while (l < r) {
     const mid = Math.floor((l + r) / 2);
 
-    if (nums[mid] > nums[mid + 1]) {
-      r = mid;
-    } else {
-      l = mid + 1;
-    }
+    if (nums[mid] > nums[mid + 1]) r = mid;
+    else l = mid + 1;
   }
+
   return l;
 }

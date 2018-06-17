@@ -14,20 +14,22 @@
  * @param {RandomListNode} head
  * @return {RandomListNode}
  */
+
+/** Recursion */
 function copyRandomList(head) {
   return copy(head, {});
 }
 
 function copy(node, map)   {
   if (!node) return node;
-
   if (map[node.label]) return map[node.label];
 
-  let newNode = new RandomListNode(node.label);
-  map[node.label] = newNode;
+  let n = new RandomListNode(node.label);
 
-  newNode.next = copy(node.next, map);
-  newNode.random = copy(node.random, map);
+  map[node.label] = n;
 
-  return newNode;
+  n.next = copy(node.next, map);
+  n.random = copy(node.random, map);
+
+  return n;
 }

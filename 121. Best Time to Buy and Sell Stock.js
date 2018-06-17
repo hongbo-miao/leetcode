@@ -21,6 +21,9 @@
  * @param {number[]} prices
  * @return {number}
  */
+
+// time O(n)
+// space O(1)
 function maxProfit(prices) {
   let min = Infinity;
   let max = 0;

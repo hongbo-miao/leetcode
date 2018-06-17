@@ -25,34 +25,34 @@
  * @return {void} Do not return anything, modify board in-place instead.
  */
 
-/** BFS */
-// Check four borders. If it is O, change it and all its neighbor to temporary #
-// Change all O to X
-// Change all # to O
+// Idea
+// 1) Check four borders. If it is O, change it and all its neighbor to temporary #
+// 2) Change all O to X
+// 3) Change all # to O
 //
-// e.g.
+// Example
 // X X X X      X X X X      X X X X
 // X X O X  ->  X X O X  ->  X X X X
-// X O X X      X 1 X X      X O X X
-// X O X X      X 1 X X      X O X X
+// X O X X      X # X X      X O X X
+// X O X X      X # X X      X O X X
 function solve(board) {
-  if (board.length === 0) return;
+  if (!board.length) return;
 
-  // mark every square connected to top and bottom borders O -> temporary #
-  for (let i = 0; i < board[0].length; i++) {
-    bfs(board, 0, i);
-    bfs(board, board.length - 1, i);
+  // change every square connected to left and right borders from O to temporary #
+  for (let i = 0; i < board.length; i++) {
+    mark(board, i, 0);
+    mark(board, i, board[0].length - 1);
   }
 
-  // mark every square connected to left and right borders O -> temporary #
-  for (let i = 0; i < board.length; i++) {
-    bfs(board, i, 0);
-    bfs(board, i, board[0].length - 1);
+  // change every square connected to top and bottom borders from O to temporary #
+  for (let i = 1; i < board[0].length - 1; i++) {
+    mark(board, 0, i);
+    mark(board, board.length - 1, i);
   }
 
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[0].length; j++) {
-      // change the rest of O -> X
+      // change the rest of O to X
       if (board[i][j] === 'O') board[i][j] = 'X';
 
       // change temporary # back to O
@@ -61,13 +61,14 @@ function solve(board) {
   }
 }
 
-function bfs(board, i ,j) {
+function mark(board, i ,j) {
+  if (i < 0 || i > board.length - 1 || j < 0 || j > board[0].length - 1) return;
   if (board[i][j] !== 'O') return;
 
   board[i][j] = '#';
 
-  if (i - 1 > 0 && i - 1 < board.length) bfs(board, i - 1, j);
-  if (i + 1 > 0 && i + 1 < board.length) bfs(board, i + 1, j);
-  if (j - 1 > 0 && j - 1 < board[0].length) bfs(board, i, j - 1);
-  if (j + 1 > 0 && j + 1 < board[0].length) bfs(board, i, j + 1);
+  mark(board, i - 1, j);
+  mark(board, i + 1, j);
+  mark(board, i, j - 1);
+  mark(board, i, j + 1);
 }

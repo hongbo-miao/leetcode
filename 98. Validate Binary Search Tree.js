@@ -36,6 +36,8 @@
  * @param {TreeNode} node
  * @return {boolean}
  */
+
+/** Recursion */
 function isValidBST(node, min = -Infinity, max = Infinity) {
   if (!node) return true;
   if (node.val <= min || node.val >= max) return false;

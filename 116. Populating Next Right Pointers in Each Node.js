@@ -18,7 +18,7 @@
 //
 // Example:
 //
-//   Given the following perfect binary tree,
+// Given the following perfect binary tree,
 //
 //     1
 //    /  \

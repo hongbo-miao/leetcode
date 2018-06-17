@@ -17,9 +17,10 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-// Cycle detection - Floyd's Tortoise and Hare
-// Time complexity O(n)
-// Space complexity O(1)
+
+/** Cycle detection - Floyd's Tortoise and Hare */
+// time O(n)
+// space O(1)
 function detectCycle(head) {
   if (!head || !head.next || !head.next.next) return null;
 
@@ -32,7 +33,7 @@ function detectCycle(head) {
     fast = fast.next.next;
   }
 
-  fast = head;
+  slow = head;
 
   while (slow !== fast) {
     slow = slow.next;

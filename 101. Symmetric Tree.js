@@ -29,10 +29,12 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+
+/** Recursion */
+// time O(n). Since traversing the entire input tree once, the total run time is O(n)
+// space O(n). The number of recursive calls is bound by the height of the tree. In the worst case, the tree is linear and the height is in O(n)
 function isSymmetric(root) {
   if (!root) return true;
-
-  // BFS recursive
   return isMirror(root.left, root.right);
 }
 
