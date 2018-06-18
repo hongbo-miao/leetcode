@@ -15,36 +15,38 @@
  */
 
 /** 1) */
-// Time complexity O(n)
-// Space complexity O(n)
-
+// Complexity
+// time O(n)
+// space O(n)
+//
+// Idea
 // The trick is to construct the arrays (in the case for 4 elements)
 // [             1,       a[0],  a[0]*a[1],  a[0]*a[1]*a[2]]
 // [a[1]*a[2]*a[3],  a[2]*a[3],       a[3],               1]
 function productExceptSelf1(nums) {
-  let left = [];
+  let l = [];
   for (let i = 0, p = 1; i < nums.length; i++) {
-    left[i] = p;
+    l[i] = p;
     p *= nums[i];
   }
 
-  let right = [];
+  let r = [];
   for (let i = nums.length - 1, p = 1; i >= 0; i--) {
-    right[i] = p;
+    r[i] = p;
     p *= nums[i];
   }
 
   let res = [];
   for (let i = 0; i < nums.length; i++) {
-    res[i] = left[i] * right[i];
+    res[i] = l[i] * r[i];
   }
   
   return res;
 }
 
 /** 2) Improvement by saving some space which is less clear */
-// Time complexity O(n)
-// Space complexity O(1)
+// time O(n)
+// space O(1)
 function productExceptSelf(nums) {
   let res = [1];
 

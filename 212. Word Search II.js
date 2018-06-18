@@ -41,8 +41,7 @@ function buildTrie(words) {
 
   for (let word of words) {
     let node = root;
-
-    word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {}));
+    word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {})); // word.split('').forEach(c => node = node[c] = node[c] || {});
     node.word = word;
   }
 
@@ -52,7 +51,7 @@ function buildTrie(words) {
 function searchWord(node, i, j, board, res) {
   if (node.word) {
     res.push(node.word);
-    node.word = null;
+    node.word = null;   // make sure only print one time for each word
   }
 
   if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;

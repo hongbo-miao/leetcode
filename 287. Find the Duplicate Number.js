@@ -21,10 +21,13 @@
  * @param {number[]} nums
  * @return {number}
  */
-// Refer to 142. Linked List Cycle II
-// Cycle detection - Floyd's Tortoise and Hare
-// Time complexity O(n)
-// Space complexity O(1)
+/** Cycle detection - Floyd's Tortoise and Hare */
+// Similar
+// 142. Linked List Cycle II
+//
+// Complexity
+// time O(n)
+// space O(1)
 function findDuplicate(nums) {
   let slow = nums[0];
   let fast = nums[nums[0]];
@@ -34,7 +37,7 @@ function findDuplicate(nums) {
     fast = nums[nums[fast]];
   }
 
-  fast = 0;
+  slow = 0;
 
   while (slow !== fast) {
     slow = nums[slow];

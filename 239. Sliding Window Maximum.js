@@ -30,8 +30,12 @@
 /** Monotonic queue */
 // https://www.youtube.com/watch?v=2SXqBsTR6a8
 //
-// Time complexity O(n)
-// Space complexity O(k)
+// Complexity
+// time O(n)
+// space O(k)
+//
+// Idea
+// push an element in the queue will pop all elements smaller than it
 //
 // Monotonic queue   max
 // [ 1 ]              -
@@ -46,10 +50,8 @@ function maxSlidingWindow(nums, k) {
   let res = [];
   let q = [];
 
-  for (let i = 0; i < nums.length; ++i) {
-    while (q.length && nums[i] > q[q.length - 1]) {
-      q.pop();
-    }
+  for (let i = 0; i < nums.length; i++) {
+    while (q.length && nums[i] > q[q.length - 1]) q.pop();
 
     q.push(nums[i]);
 

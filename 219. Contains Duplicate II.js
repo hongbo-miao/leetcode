@@ -20,6 +20,10 @@
  * @param {number} k
  * @return {boolean}
  */
+
+/** Hash map */
+// time O(n)
+// space O(n)
 function containsNearbyDuplicate(nums, k) {
   let map = {};
 

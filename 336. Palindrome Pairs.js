@@ -17,10 +17,14 @@
 
 // https://leetcode.com/problems/palindrome-pairs/discuss/79215/Easy-to-understand-AC-C++-solution-O(n*k2)-using-map
 //
-// Time complexity O(n * k^2), k is the average length of words
+// Idea
+// Build a map whose key is the reversed string, value is index in array
+//
+// Complexity
+// time O(n * k^2), k is the average length of words
 //   In the main logic, the outer loop is O(n) since it's iterating through all the words in array.
 //   In the inner loop, split into left part and right part have k possibilities, let k be the average length of words, then when using isPalindrome for each combination, it's also k time in average, so in total it's n * (k * k)
-// Space complexity O(n)
+// space O(n)
 
 function palindromePairs(words) {
   let map = {};

@@ -14,8 +14,8 @@
  */
 
 // Bucket sorting
-// Time complexity O(n)
-// Space complexity O(n) array -> O(k) hashtable
+// time O(n)
+// space O(n) array -> O(k) hashtable
 function topKFrequent(nums, k) {
   let map = {};
   let bucket = [];

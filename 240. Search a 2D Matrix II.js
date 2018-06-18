@@ -24,6 +24,9 @@
 // Output: false
 
 /** Search from top right corner */
+// Similar
+// 74. Search a 2D Matrix
+//
 // time O(m + n), rule out one row or one column each time
 function searchMatrix(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;

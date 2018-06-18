@@ -18,6 +18,7 @@
  * @param {number} n
  * @return {number}
  */
+
 // https://leetcode.com/problems/task-scheduler/discuss/104496/concise-Java-Solution-O(N)-time-O(26)-space
 function leastInterval(tasks, n) {
   let arr = Array(26).fill(0);

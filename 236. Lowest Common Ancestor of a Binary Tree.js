@@ -2,7 +2,7 @@
 //
 // According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
 //
-// Given the following binary search tree:  root = [3,5,1,6,2,0,8,null,null,7,4]
+// Given the following binary search tree: root = [3,5,1,6,2,0,8,null,null,7,4]
 //
 //        3
 //       /  \
@@ -16,7 +16,7 @@
 //
 // Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
 // Output: 3
-// Explanation: The LCA of of nodes 5 and 1 is 3.
+// Explanation: The LCA of nodes 5 and 1 is 3.
 //
 // Example 2:
 //
@@ -34,7 +34,7 @@
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
- *     this.left = this.right = null;
+ *     this.l = this.r = null;
  * }
  */
 /**
@@ -46,11 +46,11 @@
 function lowestCommonAncestor(root, p, q) {
   if (!root || root === p || root === q) return root;
 
-  const left = lowestCommonAncestor(root.left, p, q);
-  const right = lowestCommonAncestor(root.right, p, q);
+  const l = lowestCommonAncestor(root.l, p, q);
+  const r = lowestCommonAncestor(root.r, p, q);
 
-  if (!left) return right;  // p and q are both in the right side
-  if (!right) return left;  // p and q are both in the left side
+  if (!l) return r; // p and q are both in the right side
+  if (!r) return l; // p and q are both in the left side
 
-  return root;              // p and q are in different sides
+  return root;      // p and q are in different sides
 }

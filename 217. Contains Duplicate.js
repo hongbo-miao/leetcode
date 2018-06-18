@@ -21,13 +21,17 @@
  * @param {number[]} nums
  * @return {boolean}
  */
+
+/** Hash map */
+// time O(n)
+// space O(n)
 function containsDuplicate(nums) {
   let map = {};
 
-  for (let num of nums) {
-    if (map[num]) return true;
+  for (let n of nums) {
+    if (map[n]) return true;
 
-    map[num] = true;
+    map[n] = true;
   }
 
   return false;

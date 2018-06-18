@@ -19,12 +19,12 @@
  * @return {boolean}
  */
 function increasingTriplet(nums) {
-  let m;  // min
-  let m2; // second min
+  let a;  // min
+  let b;  // second min
 
   for (let n of nums) {
-    if (m === undefined || n <= m) m = n;
-    else if (m2 === undefined || n <= m2) m2 = n;
+    if (a === undefined || n <= a) a = n;
+    else if (b === undefined || n <= b) b = n;
     else return true;
   }
 

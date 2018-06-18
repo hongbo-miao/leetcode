@@ -95,6 +95,9 @@ function searchMatrix2(matrix, target) {
 }
 
 /** 3) Search from top right corner */
+// Similar
+// 240. Search a 2D Matrix II
+//
 // time O(m + n), rule out one row or one column each time
 function searchMatrix(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;

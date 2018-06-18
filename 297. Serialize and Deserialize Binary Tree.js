@@ -33,19 +33,19 @@
  * @return {string}
  */
 function serialize(node) {
-  let queue = [];
+  let q = [];
   let res = [];
 
-  if (node) queue.push(node);
+  if (node) q.push(node);
 
-  while (queue.length) {
-    node = queue.shift();
+  while (q.length) {
+    node = q.shift();
 
     if (node) {
       res.push(node.val);
 
-      queue.push(node.left || null);
-      queue.push(node.right || null);
+      q.push(node.left || null);
+      q.push(node.right || null);
     } else {
       res.push(null);
     }
@@ -65,10 +65,10 @@ function deserialize(data) {
   if (!arr.length) return null;
 
   const root = new TreeNode(arr.shift());
-  const queue = [root];
+  const q = [root];
 
-  while (queue.length) {
-    const node = queue.shift();
+  while (q.length) {
+    const node = q.shift();
 
     let val = arr.shift();
     node.left = val !== null ? new TreeNode(val) : null;
@@ -76,8 +76,8 @@ function deserialize(data) {
     val = arr.shift();
     node.right = val !== null ? new TreeNode(val) : null;
 
-    if (node.left) queue.push(node.left);
-    if (node.right) queue.push(node.right);
+    if (node.left) q.push(node.left);
+    if (node.right) q.push(node.right);
   }
 
   return root;

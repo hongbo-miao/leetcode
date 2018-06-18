@@ -18,6 +18,16 @@
  * @param {number} k
  * @return {number}
  */
+
+/** 1) Sorting */
+// time O(n log n)
+// space O(1)
 function findKthLargest(nums, k) {
   return nums.sort((a, b) => a - b)[nums.length - k];
 }
+
+/** 2) */
+// time O(n)
+// space O(1)
+//
+// https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained

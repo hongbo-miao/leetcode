@@ -16,15 +16,21 @@
  * @return {number}
  */
 
+/** Dynamic programming */
 // https://leetcode.com/problems/maximal-square/discuss/61803/Easy-DP-solution-in-C++-with-detailed-explanations-(8ms-O(n2)-time-and-O(n)-space)
 //
-// Dynamic programming
-// Time complexity O(n^2)
-// Space complexity O(n^2), can be optimized to O(n)
+// 1. topmost row: P[0][j] = matrix[0][j]
+// 2. leftmost column: P[i][0] = matrix[i][0]
+// 3. For i > 0 and j > 0
+//   1) if matrix[i][j] = 0, P[i][j] = 0
+//   2) if matrix[i][j] = 1, P[i][j] = min(P[i - 1][j], P[i][j - 1], P[i - 1][j - 1]) + 1
+//
+// time O(n^2)
+// space O(n^2), can be optimized to O(n)
 function maximalSquare(matrix) {
   if (!matrix.length) return 0;
 
-  // initialize 2d sizes to 0
+  // init 2d sizes to 0
   let sizes = [];
   for (let i = 0; i < matrix.length; i++) {
     let row = [];

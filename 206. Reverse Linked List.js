@@ -20,14 +20,16 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-// iterative
+
+/** 1) Iteration */
 function reverseList1(head) {
   let prev = null;
   let curr = head;
 
   while (curr) {
-    let next = curr.next;
+    const next = curr.next;
     curr.next = prev;
+
     prev = curr;
     curr = next;
   }
@@ -35,12 +37,12 @@ function reverseList1(head) {
   return prev;
 }
 
-// recursive
+/** 2) Recursion */
 // https://leetcode.com/problems/reverse-linked-list/solution/
 function reverseList(head) {
   if (!head || !head.next) return head;
 
-  let newHead = reverseList(head.next);
+  const newHead = reverseList(head.next);
   head.next.next = head;
   head.next = null;
 

@@ -32,14 +32,16 @@
  * @param {number[][]} M
  * @return {number}
  */
+
 /** DFS */
-// Refer to 200. Number of Islands
+// Similar
+// 200. Number of Islands
 function findCircleNum(M) {
   let count = 0;
 
   for (let i = 0; i < M.length; i++) {
     if (M[i][i] === 1) {
-      dfs(M, i);
+      find(M, i);
       count++;
     }
   }
@@ -47,14 +49,14 @@ function findCircleNum(M) {
   return count;
 }
 
-function dfs(M, curr) {
+function find(M, curr) {
   // visit all friends
   for (let i = 0; i < M.length; i++) {
     if (M[curr][i] === 1) {
       M[curr][i] = '*'; // mark as visited
       M[i][curr] = '*'; // mark as visited
 
-      dfs(M, i);
+      find(M, i);
     }
   }
 }

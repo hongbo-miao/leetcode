@@ -24,14 +24,17 @@
  * @param {character[][]} grid
  * @return {number}
  */
+
 /** DFS */
+// Similar
+// 547. Friend Circles
 function numIslands(grid) {
   let count = 0;
 
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === '1') {
-        dfs(grid, i, j);
+        mark(grid, i, j);
         count++;
       }
     }
@@ -40,13 +43,13 @@ function numIslands(grid) {
   return count;
 }
 
-function dfs(grid, row, col) {
+function mark(grid, row, col) {
   if (grid[row][col] === '1') {
     grid[row][col] = '*'; // mark land piece as visited
 
-    if (row > 0) dfs(grid, row - 1, col); // up
-    if (row < grid.length - 1) dfs(grid, row + 1, col); // down
-    if (col > 0) dfs(grid, row, col - 1); // left
-    if (col < grid[row].length - 1) dfs(grid, row, col + 1);  // right
+    if (row > 0) mark(grid, row - 1, col); // up
+    if (row < grid.length - 1) mark(grid, row + 1, col); // down
+    if (col > 0) mark(grid, row, col - 1); // left
+    if (col < grid[row].length - 1) mark(grid, row, col + 1);  // right
   }
 }

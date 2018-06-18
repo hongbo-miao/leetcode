@@ -28,19 +28,21 @@
  * @param {function} isBadVersion()
  * @return {function}
  */
+
+/** Binary search */
 function solution(isBadVersion) {
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
   return function (n) {
-    return bs(1, n);
+    return find(1, n);
   };
 
-  function bs(left, right){
-    if (left === right) return left;
+  function find(l, r){
+    if (l === r) return l;
 
-    const mid = Math.floor((left + right) / 2);
-    return isBadVersion(mid) ? bs(left, mid) : bs(mid + 1, right);
+    const mid = Math.floor((l + r) / 2);
+    return isBadVersion(mid) ? find(l, mid) : find(mid + 1, r);
   }
 }

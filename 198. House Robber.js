@@ -20,8 +20,10 @@
  * @param {number[]} nums
  * @return {number}
  */
-/** Recursion */
-// time complexity O(n), space complexity O(n)
+
+/** 1) Recursion */
+// time O(n)
+// space O(n)
 function rob1(nums) {
   return count(nums.length - 1, [], nums)
 }
@@ -38,8 +40,9 @@ function count(n, cache, nums) {
   return cache[n];
 }
 
-/** Iteration */
-// 1) time complexity O(n), space complexity O(n)
+/** 2) Iteration */
+// time O(n)
+// space O(n)
 function rob2(nums) {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
@@ -53,19 +56,36 @@ function rob2(nums) {
   return totals[totals.length - 1];
 }
 
-// 2) time complexity O(n), space complexity O(1)
-function rob(nums) {
+/** 3) Iteration */
+// time O(n)
+// space O(1)
+function rob3(nums) {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
 
-  let slow = nums[0];
-  let fast = Math.max(nums[0], nums[1]);
+  let a = nums[0];
+  let b = Math.max(nums[0], nums[1]);
 
   for (let i = 2; i < nums.length; i++) {
-    const max = Math.max(slow + nums[i], fast);
-    slow = fast;
-    fast = max;
+    const max = Math.max(a + nums[i], b);
+    a = b;
+    b = max;
   }
 
-  return fast;
+  return b;
+}
+
+/** 4) Iteration */
+// time O(n)
+// space O(1)
+function rob(nums) {
+  let a = 0;
+  let b = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (i % 2 === 0) a = Math.max(a + nums[i], b);
+    else b = Math.max(a, b + nums[i]);
+  }
+
+  return Math.max(a, b);
 }

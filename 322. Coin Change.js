@@ -25,7 +25,7 @@ function coinChange(coins, amount) {
 
   let res = Infinity;
 
-  function helper(k, amount, count) {
+  function find(k, amount, count) {
     const coin = coins[k];
 
     // last smallest coin
@@ -34,13 +34,13 @@ function coinChange(coins, amount) {
         res = Math.min(res, count + Math.floor(amount / coin));
       }
     } else {
-      for (let i = Math.floor(amount / coin); i >= 0 && count + i < res; i--) {   // count + i < res is for pruning, avoid unnecessary calculation
-        helper(k + 1, amount - coin * i, count + i);
+      for (let i = Math.floor(amount / coin); i >= 0 && count + i < res; i--) { // count + i < res is for pruning, avoid unnecessary calculation
+        find(k + 1, amount - coin * i, count + i);
       }
     }
   }
 
-  helper(0, amount, 0);
+  find(0, amount, 0);
 
   return res === Infinity ? -1 : res;
 }

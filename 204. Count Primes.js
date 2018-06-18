@@ -10,21 +10,23 @@
  * @param {number} n
  * @return {number}
  */
-// Sieve of Eratosthenes, https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+/** Sieve of Eratosthenes*/
+// https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 function countPrimes(n) {
-  let flagArray = [];
+  let map = [];
   let count = 0;
 
   for (let i = 2; i < n; i++){
-    if (flagArray[i] === 0) continue;
+    if (map[i] === 0) continue;
 
     // mark as prime
-    flagArray[i] = 1;
+    map[i] = 1;
     count++;
 
     // mark as not prime
     for (let j = 2; i * j < n; j++) {
-      flagArray[i * j] = 0;
+      map[i * j] = 0;
     }
   }
 
