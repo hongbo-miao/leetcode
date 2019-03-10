@@ -17,11 +17,11 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        map = {}
+        cache = {}
         for i in range(len(nums)):
             if nums[i] not in map:
-                map[target - nums[i]] = i
+                cache[target - nums[i]] = i
             else:
-                return map[nums[i]], i
+                return cache[nums[i]], i
 
         return -1, -1
