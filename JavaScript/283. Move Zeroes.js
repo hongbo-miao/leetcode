@@ -15,7 +15,10 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 function moveZeroes(nums) {
-  for (let i = nums.length - 1; i >= 0; i--) {  // cannot from 0 to length - 1
-    if (nums[i] === 0) nums.push(...nums.splice(i, 1));
+  // cannot from 0 to length - 1
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (nums[i] === 0) {
+      nums.push(...nums.splice(i, 1));
+    }
   }
 }
