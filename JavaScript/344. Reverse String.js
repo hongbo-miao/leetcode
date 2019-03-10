@@ -7,6 +7,8 @@
  * @param {string} s
  * @return {string}
  */
+
+/** Cheating */
 function reverseString(s) {
   return s.split('').reverse().join('');
 }
