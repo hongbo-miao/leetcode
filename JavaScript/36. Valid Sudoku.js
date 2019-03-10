@@ -52,7 +52,7 @@
  * @return {boolean}
  */
 function isValidSudoku(board) {
-  // let row = Array(9).fill({}); // wrong, all points to same {} reference
+  // let row = Array(9).fill({});  // wrong, all will point to same {} reference
   // let row = [{}, {}, {}, {}, {}, {}, {}, {}, {}];  // correct
   let row = Array.from(Array(9), () => ({}));
   let column = Array.from(Array(9), () => ({}));
@@ -64,13 +64,13 @@ function isValidSudoku(board) {
 
       if (c === '.') continue;
 
-      const blockIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+      const blockIdx = Math.floor(i / 3) * 3 + Math.floor(j / 3);
 
-      if (row[i][c] || column[j][c] || block[blockIndex][c]) return false;
+      if (row[i][c] || column[j][c] || block[blockIdx][c]) return false;
 
       row[i][c] = true;
       column[j][c] = true;
-      block[blockIndex][c] = true;
+      block[blockIdx][c] = true;
     }
   }
 
