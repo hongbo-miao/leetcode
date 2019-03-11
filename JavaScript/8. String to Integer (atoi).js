@@ -50,24 +50,28 @@
  * @return {number}
  */
 function myAtoi(str) {
-  // (abc) capture group
+  // (abc)  capture group
   //
-  // [abc]	any of a, b, or c
-  // [^abc]	not a, b, or c
+  // [abc]  any of a, b, or c
+  // [^abc]  not a, b, or c
   //
-  // a{5} a{2,}	exactly five, two or more
-  // a{1,3}	between one & three
+  // a{5} a{2,}  exactly five, two or more
+  // a{1,3}  between one & three
   //
-  // \w \d \s	word, digit, whitespace
-  // \W \D \S	not word, digit, whitespace
+  // \w \d \s  word, digit, whitespace
+  // \W \D \S  not word, digit, whitespace
   const match = str.match(/^ *([+-]{0,1}\d+)/);
 
   if (!match) return 0;
 
-  const num = Number(match[1]); // regex uses capturing group, so here uses match[1]
+  // only care about text in capturing group, so here uses match[1]
+  const n = Number(match[1]);
 
-  if (num < -(2 ** 31)) return -(2 ** 31);
-  if (num > 2 ** 31 - 1) return 2 ** 31 - 1;
+  const min = -(2 ** 31);
+  const max = 2 ** 31 - 1;
 
-  return num;
+  if (n < min) return min;
+  if (n > max) return max;
+
+  return n;
 }
