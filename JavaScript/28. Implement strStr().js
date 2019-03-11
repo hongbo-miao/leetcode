@@ -30,7 +30,7 @@ function strStr1(haystack, needle) {
 }
 
 /** 2) Brute force */
-function strStr2(haystack, needle) {
+function strStr(haystack, needle) {
   for (let i = 0; i < haystack.length - needle.length + 1; i++) {
     if (haystack.substr(i, needle.length) === needle) return i;
   }
