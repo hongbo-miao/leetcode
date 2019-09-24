@@ -22,7 +22,7 @@ function minWindow1(s, t) {
   let res = '';
 
   // e.g. ABC -> { A: 1, B: 1, C: 1 }
-  let map = {};
+  const map = {};
   t.split('').forEach(c => map[c] = (map[c] || 0) + 1);
 
   let count = Object.keys(map).length;  // rest matching count
@@ -60,7 +60,7 @@ function minWindow1(s, t) {
 /** 2) */
 // https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
 function minWindow(s, t) {
-  let map = {};
+  const map = {};
   t.split('').forEach(c => map[c] = (map[c] || 0) + 1);
 
   let count = t.length;   // rest matching count

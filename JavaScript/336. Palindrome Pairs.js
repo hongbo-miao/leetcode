@@ -27,7 +27,7 @@
 // space O(n)
 
 function palindromePairs(words) {
-  let map = {};
+  const map = {};
 
   for (let i = 0; i < words.length; i++) {
     const reversed = words[i].split('').reverse().join('');

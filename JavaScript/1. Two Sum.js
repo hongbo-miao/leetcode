@@ -25,7 +25,7 @@ function twoSum1(nums, target) {
 }
 
 function twoSum(nums, target) {
-  let map = {};
+  const map = {};
 
   for (let i = 0; i < nums.length; i++) {
     const diff = target - nums[i];

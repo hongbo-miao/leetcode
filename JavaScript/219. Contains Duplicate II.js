@@ -25,7 +25,7 @@
 // time O(n)
 // space O(n)
 function containsNearbyDuplicate(nums, k) {
-  let map = {};
+  const map = {};
 
   for (let i = 0; i < nums.length; i++) {
     if (map[nums[i]] !== undefined && i - map[nums[i]] <= k) return true;

@@ -17,7 +17,7 @@
 // time O(n)
 // space O(n) array -> O(k) hashtable
 function topKFrequent(nums, k) {
-  let map = {};
+  const map = {};
   let bucket = [];
   let res = [];
 

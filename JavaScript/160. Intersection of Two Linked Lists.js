@@ -36,13 +36,13 @@
 // time O(m + n)
 // space O(m) or O(n)
 function getIntersectionNode1(headA, headB) {
-  let map = {};
-  
+  const map = {};
+
   while (headA) {
     map[headA.val] = true;
     headA = headA.next;
   }
-  
+
   while (headB) {
     if (map[headB.val]) return headB;
     headB = headB.next;

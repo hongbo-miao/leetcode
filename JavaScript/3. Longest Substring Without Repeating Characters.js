@@ -37,7 +37,7 @@ function lengthOfLongestSubstring1(s) {
 // map { p: 1, w: 6, k: 4, e: 5 }
 function lengthOfLongestSubstring(s) {
   let max = 0;
-  let map = {};
+  const map = {};
 
   for (let i = 0, j = 0; j < s.length; j++) {
     const c = s[j];

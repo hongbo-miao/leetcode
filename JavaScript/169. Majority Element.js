@@ -28,7 +28,7 @@ function majorityElement(nums) {
 // time O(n)
 // space O(n)
 function majorityElement1(nums) {
-  let map = {};
+  const map = {};
 
   for (let i = 0; i < nums.length; i++) {
     map[nums[i]] = (map[nums[i]] || 0) + 1;

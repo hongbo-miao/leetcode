@@ -26,7 +26,7 @@
 // time O(n)
 // space O(n)
 function containsDuplicate(nums) {
-  let map = {};
+  const map = {};
 
   for (let n of nums) {
     if (map[n]) return true;

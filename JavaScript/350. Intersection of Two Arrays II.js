@@ -19,13 +19,13 @@
  */
 
 function intersect1(nums1, nums2) {
-  let map1 = {};
+  const map1 = {};
   for (let n of nums1) {
     if (map1[n] == null) map1[n] = 0;
     map1[n]++;
   }
 
-  let map2 = {};
+  const map2 = {};
   for (let n of nums2) {
     if (map2[n] == null) map2[n] = 0;
     map2[n]++;
@@ -44,7 +44,7 @@ function intersect1(nums1, nums2) {
 
 function intersect(nums1, nums2) {
   let res = [];
-  let map = {};
+  const map = {};
 
   for (let n of nums1) {
     if (map[n] == null) map[n] = 0;

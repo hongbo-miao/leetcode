@@ -19,7 +19,7 @@
  * @return {number}
  */
 function singleNumber1(nums) {
-  let map = {};
+  const map = {};
   for (let n of nums) {
     if (map[n]) map[n] = false;  // second time mark to false
     else map[n] = true;  // first time mark to true

@@ -40,7 +40,7 @@ function fractionToDecimal(numerator, denominator) {
 
   res += '.';
 
-  let map = {};
+  const map = {};
 
   while (n !== 0) {
     map[n] = res.length;
