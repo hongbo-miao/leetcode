@@ -14,6 +14,21 @@
  * @param {string} s
  * @return {number}
  */
+function firstUniqChar1(s) {
+  const map = {};
+
+  for (let c of s) {
+    if (map[c] == null) map[c] = 1;
+    else map[c]++;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    if (map[s[i]] === 1) return i;
+  }
+
+  return -1;
+}
+
 function firstUniqChar(s) {
   for (let i = 0; i < s.length; i++){
     if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) return i;
