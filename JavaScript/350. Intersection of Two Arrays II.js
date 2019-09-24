@@ -17,13 +17,37 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
+
+function intersect1(nums1, nums2) {
+  let map1 = {};
+  for (let n of nums1) {
+    if (map1[n] == null) map1[n] = 0;
+    map1[n]++;
+  }
+
+  let map2 = {};
+  for (let n of nums2) {
+    if (map2[n] == null) map2[n] = 0;
+    map2[n]++;
+  }
+
+  let res = [];
+  Object.keys(map1).forEach(k => {
+    if (map1[k] != null && map2[k] != null) {
+      let min = Math.min(map1[k], map2[k]);
+      while(min--) res.push(k);
+    }
+  });
+
+  return res;
+}
+
 function intersect(nums1, nums2) {
   let res = [];
   let map = {};
 
   for (let n of nums1) {
-    if (!map[n]) map[n] = 0;
-
+    if (map[n] == null) map[n] = 0;
     map[n]++;
   }
 
