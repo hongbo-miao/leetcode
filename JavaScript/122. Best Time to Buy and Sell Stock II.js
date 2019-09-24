@@ -30,6 +30,24 @@
  * @return {number}
  */
 
+// first time meet set to true, second time set to false
+function maxProfit1(prices) {
+  let profit = 0;
+  let slow = 0;
+  let fast = 1;
+
+  while (slow < prices.length) {
+    while (prices[fast] > prices[fast - 1]) {
+      fast++;
+    }
+    profit += prices[fast - 1] - prices[slow];
+    slow = fast;
+    fast = slow + 1;
+  }
+
+  return profit;
+}
+
 // time O(n)
 // space O(1)
 function maxProfit(prices) {
