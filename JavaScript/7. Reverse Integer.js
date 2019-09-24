@@ -25,28 +25,28 @@
 
 /** 1) */
 function reverse1(x) {
-  const res = Math.sign(x) *
+  const n = Math.sign(x) *
     parseInt(String(x)
       .split('')
       .reverse()
       .join(''));
 
-  if (res < -(2 ** 31) || res > 2 ** 31 - 1) return 0;
-  return res;
+  if (n < -(2 ** 31) || n > 2 ** 31 - 1) return 0;
+  return n;
 }
 
 /** 2) */
 // Time complexity O(n)
 // Space complexity O(1)
 function reverse(x) {
-  let res = 0;
+  let n = 0;
 
   while (x !== 0) {
-    res = res * 10 + x % 10;
+    n = n * 10 + x % 10;
     x = ~~(x / 10);
 
-    if (res < -(2 ** 31) || res > 2 ** 31 - 1) return 0;
+    if (n < -(2 ** 31) || n > 2 ** 31 - 1) return 0;
   }
 
-  return res;
+  return n;
 }
