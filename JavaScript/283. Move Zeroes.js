@@ -14,8 +14,19 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+// left to right
+function moveZeroes1(nums) {
+  let r = nums.length;
+  for (let i = 0; i < nums.length - 1, r--; i++) {
+    if (nums[i] === 0) {
+      nums.push(...nums.splice(i, 1));
+      i--;
+    }
+  }
+}
+
+// right to left
 function moveZeroes(nums) {
-  // cannot from 0 to length - 1
   for (let i = nums.length - 1; i >= 0; i--) {
     if (nums[i] === 0) {
       nums.push(...nums.splice(i, 1));
