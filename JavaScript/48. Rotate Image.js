@@ -71,7 +71,24 @@ function swap(m, x1, y1, x2, y2) {
   [m[x1][y1], m[x2][y2]] = [m[x2][y2], m[x1][y1]];
 }
 
-/** 2) Reverse up to down, then swap the symmetry */
+/** 2) */
+function rotate2(matrix) {
+  const last = matrix.length - 1;
+
+  for (let i = 0; i < Math.floor(matrix.length / 2); i++) {
+    for (let j = 0; j < matrix.length / 2; j++) {
+      swap(matrix, i, j, j, last - i);
+      swap(matrix, i, j, last - i, last - j);
+      swap(matrix, i, j, last - j, i);
+    }
+  }
+}
+
+function swap(m, x1, y1, x2, y2) {
+  [m[x1][y1], m[x2][y2]] = [m[x2][y2], m[x1][y1]];
+}
+
+/** 3) Reverse up to down, then swap the symmetry */
 // Idea
 // To clockwise rotate, reverse up to down, then swap the symmetry
 // (To anticlockwise rotate, reverse left to right, then swap the symmetry)
