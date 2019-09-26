@@ -28,6 +28,36 @@ function merge(nums1, m, nums2, n) {
   n--;
 
   while (i--) {
+    const n1 = nums1[m];
+    const n2 = nums2[n];
+
+    if (n1 != null && n2 != null) {
+      if (n1 > n2) {
+        nums1[i] = n1;
+        m--;
+      } else {
+        nums1[i] = n2;
+        n--;
+      }
+    } else {
+      if (n1 != null) {
+        nums1[i] = n1;
+        m--;
+      } else {
+        nums1[i] = n2;
+        n--;
+      }
+    }
+  }
+}
+
+// time O(n)
+function merge(nums1, m, nums2, n) {
+  let i = m + n;
+  m--;
+  n--;
+
+  while (i--) {
     if (n < 0 || nums1[m] > nums2[n]) { // n < 0 is for the case that all nums2 has been merged, merging the rest of nums1
       nums1[i] = nums1[m--];
     } else {
