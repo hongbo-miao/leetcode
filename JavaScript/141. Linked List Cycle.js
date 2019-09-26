@@ -17,7 +17,7 @@
  */
 
 /** Two pointers slow and fast */
-function hasCycle(head) {
+function hasCycle1(head) {
   if (!head) return false;
 
   let slow = head;
@@ -32,4 +32,18 @@ function hasCycle(head) {
   }
 
   return false;
+}
+
+function hasCycle(head) {
+  let slow = head;
+  let fast = head;
+
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
+    if (!fast) return false;
+    if (fast === slow) return true;
+  }
+
+  return false
 }
