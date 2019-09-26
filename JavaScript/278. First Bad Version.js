@@ -29,20 +29,38 @@
  * @return {function}
  */
 
-/** Binary search */
+/** 1) Binary search */
 function solution(isBadVersion) {
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
   return function (n) {
-    return find(1, n);
+    return find(1, n);  // or find(0, n);
   };
 
-  function find(l, r){
-    if (l === r) return l;
+  function find(l, r) {
+    if (l === r) return r;
 
     const mid = Math.floor((l + r) / 2);
     return isBadVersion(mid) ? find(l, mid) : find(mid + 1, r);
+  }
+}
+
+/** 2) */
+function solution(isBadVersion) {
+  /**
+   * @param {integer} n Total versions
+   * @return {integer} The first bad version
+   */
+  return function (n) {
+    return find(0, n);
+  };
+
+  function find(l, r) {
+    if (l === r || l + 1 === r) return r;
+
+    const mid = Math.floor((l + r) / 2);
+    return isBadVersion(mid) ? find(l, mid) : find(mid, r);
   }
 }
