@@ -49,7 +49,7 @@
  * @param {string} str
  * @return {number}
  */
-function myAtoi(str) {
+function myAtoi1(str) {
   // (abc)  capture group
   //
   // [abc]  any of a, b, or c
@@ -74,4 +74,20 @@ function myAtoi(str) {
   if (n > max) return max;
 
   return n;
+}
+
+function myAtoi(str) {
+  const s = str.replace(/\s*/, '').match(/^[-+\d]*/);
+  const n = parseInt(s);
+
+  if (!isNaN(n)) {
+    const min = -(2 ** 31);
+    const max = 2 ** 31 - 1;
+
+    if (n < min) return min;
+    if (n > max) return max;
+    return n;
+  }
+
+  return 0;
 }
