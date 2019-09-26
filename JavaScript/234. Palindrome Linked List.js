@@ -25,11 +25,11 @@
  * @return {boolean}
  */
 function isPalindrome(head) {
-  if (head === null) return true;
-  
+  if (head == null) return true;
+
   let stack = [];
   let oldHead = head;
-  
+
   while (head) {
     stack.push(head.val);
     head = head.next;
