@@ -30,7 +30,7 @@
 // Similar
 // 103. Binary Tree Zigzag Level Order Traversal
 function levelOrder(root) {
-  let res = [];
+  const res = [];
   go(root, 0, res);
   return res;
 }
