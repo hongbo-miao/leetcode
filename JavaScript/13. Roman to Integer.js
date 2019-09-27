@@ -59,10 +59,11 @@ function romanToInt(s) {
   for (let c of s) {
     const num = map[c];
 
-    sum = prevNum >= num
-      ? sum + num
-      : sum + num - prevNum * 2;
-
+    sum += num;
+    if (prevNum < num) {
+      sum -= prevNum * 2;
+    }
+    
     prevNum = num;
   }
 
