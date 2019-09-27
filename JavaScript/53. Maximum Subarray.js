@@ -15,7 +15,23 @@
  * @return {number}
  */
 
-/** Kadane's algorithm */
+/** 1) Slow way */
+function maxSubArray1(nums) {
+  let max = -Infinity;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i; j < nums.length; j++) {
+      let sum = 0;
+      for (let k = i; k <= j; k++) {
+        sum += nums[k];
+      }
+      if (sum > max) max = sum;
+    }
+  }
+
+  return max;
+}
+
+/** 2) Kadane's algorithm */
 // Complexity
 // time O(n)
 // space O(1)
@@ -32,14 +48,31 @@
 //     5
 //       10 (recalculate from nums[i])
 //       10
-function maxSubArray(nums) {
+function maxSubArray2(nums) {
   let currMax = nums[0];
   let max = nums[0];
 
   for (let i = 1; i < nums.length; i++) {
-    currMax = Math.max(currMax + nums[i], nums[i]); // if nums[i] is bigger, recalculate from nums[i]
+    currMax = Math.max(currMax + nums[i], nums[i]);  // if nums[i] is bigger, recalculate from nums[i]
     max = Math.max(max, currMax);
   }
-  
+
+  return max;
+}
+
+/** 3) Same to 2 */
+function maxSubArray(nums) {
+  let currMax = -Infinity;
+  let max = -Infinity;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] + currMax < nums[i]) {
+      currMax = nums[i];
+    } else {
+      currMax += nums[i];
+    }
+    max = Math.max(max, currMax);
+  }
+
   return max;
 }
