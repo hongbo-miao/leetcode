@@ -15,5 +15,12 @@
  * @return {number} - a positive integer
  */
 function reverseBits(n) {
-  return parseInt(n.toString(2).padStart(32, '0').split('').reverse().join(''), 2);
+  return parseInt(  // Binary string to decimal, parseInt('101', 2) -> 5
+    n
+      .toString(2)
+      .padStart(32, '0')  // Padding 0 to the front, '10'.padStart(5, 0) -> '00010'
+      .split('')
+      .reverse()
+      .join(''),
+    2);
 }

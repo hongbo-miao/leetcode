@@ -63,7 +63,7 @@ function romanToInt(s) {
     if (prevNum < num) {
       sum -= prevNum * 2;
     }
-    
+
     prevNum = num;
   }
 
