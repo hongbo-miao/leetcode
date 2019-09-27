@@ -16,6 +16,14 @@
  * @param {number} n - a positive integer
  * @return {number}
  */
-function hammingWeight(n) {
+function hammingWeight1(n) {
   return n.toString(2).split('0').join('').length;
+}
+
+function hammingWeight(n) {
+  let w = 0;
+  for (let c of n.toString(2)) {
+    if (c === '1') w++;
+  }
+  return w;
 }
