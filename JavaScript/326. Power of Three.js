@@ -7,6 +7,14 @@
  * @param {number} n
  * @return {boolean}
  */
+function isPowerOfThree1(n) {
+  for (let i = 0; i < n; i++) {
+    if (3 ** i === n) return true;
+    else if (3 ** i > n) return false;
+  }
+  return false;
+}
+
 function isPowerOfThree(n) {
   return /^10*$/.test(n.toString(3));
 }
