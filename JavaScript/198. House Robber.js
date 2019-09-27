@@ -25,19 +25,19 @@
 // time O(n)
 // space O(n)
 function rob1(nums) {
-  return count(nums.length - 1, [], nums)
+  return count(nums.length - 1, {}, nums)
 }
 
-function count(n, cache, nums) {
+function count(n, map, nums) {
   if (n < 0) return 0;
-  if (cache[n] !== undefined) return cache[n];
+  if (map[n] != null) return map[n];
 
-  cache[n] = Math.max(
-    count(n - 2, cache, nums) + nums[n],
-    count(n - 1, cache, nums)
+  map[n] = Math.max(
+    count(n - 2, map, nums) + nums[n],
+    count(n - 1, map, nums)
   );
 
-  return cache[n];
+  return map[n];
 }
 
 /** 2) Iteration */
