@@ -18,15 +18,15 @@ function countPrimes(n) {
   let count = 0;
 
   for (let i = 2; i < n; i++){
-    if (map[i] === 0) continue;
+    if (map[i] === false) continue;
 
     // mark as prime
-    map[i] = 1;
+    map[i] = true;
     count++;
 
     // mark as not prime
     for (let j = 2; i * j < n; j++) {
-      map[i * j] = 0;
+      map[i * j] = false;
     }
   }
 
