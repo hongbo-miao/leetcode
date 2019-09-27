@@ -22,6 +22,20 @@
  * @return {number}
  */
 
+function maxProfit1(prices) {
+  let max = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    for (let j = i + 1; j < prices.length; j++) {
+      const diff = prices[j] - prices[i];
+      if (diff > max) max = diff;
+    }
+  }
+
+  return max;
+}
+
+
 // time O(n)
 // space O(1)
 function maxProfit(prices) {
