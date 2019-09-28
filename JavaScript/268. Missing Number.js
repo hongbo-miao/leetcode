@@ -19,5 +19,5 @@
  */
 function missingNumber(nums) {
   const sum = nums.reduce((a, b) => a + b);
-  return (1 + nums.length) * nums.length / 2 - sum;
+  return nums.length * (nums.length + 1) / 2 - sum;
 }

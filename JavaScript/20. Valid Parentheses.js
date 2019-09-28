@@ -43,7 +43,7 @@ function isValid(s) {
     '{': '}'
   };
 
-  let stack = [];
+  const stack = [];
 
   for (let c of s) {
     if (map[c]) {

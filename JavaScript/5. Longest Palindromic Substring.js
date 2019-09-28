@@ -23,24 +23,23 @@
 // Space complexity: O(1)
 
 function longestPalindrome(s) {
-  let result = '';
+  let res = '';
 
   for (let i = 0; i < s.length; i++) {
-    const s1 = expandAroundCenter(s, i, i, result);       // situation 1: aba
-    result = s1.length > result.length ? s1 : result;
+    const s1 = expandFromCenter(s, i, i);  // case 1: aba
+    if (s1.length > res.length) res = s1;
 
-    const s2 = expandAroundCenter(s, i, i + 1, result);   // situation 2: abba
-    result = s2.length > result.length ? s2 : result;
+    const s2 = expandFromCenter(s, i, i + 1);  // case 2: abba
+    if (s2.length > res.length) res = s2;
   }
 
-  return result;
+  return res;
 }
 
-function expandAroundCenter(s, left, right) {
-  while (left >= 0 && right < s.length && s[left] === s[right]) {
-    left--;
-    right++;
+function expandFromCenter(s, l, r) {
+  while (l >= 0 && r < s.length && s[l] === s[r]) {
+    l--;
+    r++;
   }
-
-  return s.substring(left + 1, right);
+  return s.substring(l + 1, r);
 }

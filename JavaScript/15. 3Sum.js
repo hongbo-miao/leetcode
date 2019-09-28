@@ -39,7 +39,7 @@ function threeSum(nums) {
   for (let i = 0; i < nums.length - 2; i++) { // nums.length - 2 because 3 pointers a, b, c
     const a = nums[i];
 
-    if (i > 0 && a === nums[i - 1]) continue; // move a to next different one to avoid duplicate results
+    if (i > 0 && a === nums[i - 1]) continue;  // move a to next different one to avoid duplicate results
 
     let l = i + 1;
     let r = nums.length - 1;
@@ -56,10 +56,10 @@ function threeSum(nums) {
         res.push([a, b, c]);
 
         l++;
-        while (l < r && nums[l] === nums[l - 1]) l++; // move b to next different one
+        while (l < r && nums[l] === nums[l - 1]) l++;  // move b to next different one
 
         r--;
-        while (l < r && nums[r] === nums[r + 1]) r--; // move c to previous different one
+        while (l < r && nums[r] === nums[r + 1]) r--;  // move c to previous different one
       }
     }
   }
