@@ -106,7 +106,7 @@ function setZeroes2(matrix) {
   }
 }
 
-/** 3) similar to method 2), but not compact */
+/** 3) similar to method 2), but less compact */
 function setZeroes(matrix) {
   const h = matrix.length;
   const w = matrix[0].length;
