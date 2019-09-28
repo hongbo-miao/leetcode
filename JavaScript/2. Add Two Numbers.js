@@ -20,30 +20,66 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-function addTwoNumbers(l1, l2) {
-  let node = new ListNode(null);
-  let preHead = node;
+
+/** 1) */
+function addTwoNumbers1(l1, l2) {
+  let l = new ListNode(null);
+  const preHead = l;
   let carry = 0;
 
   while (l1 || l2 || carry) {
-    let value = 0;
+    let n = 0;
 
     if (l1) {
-      value += l1.val;
+      n += l1.val;
       l1 = l1.next;
     }
 
     if (l2) {
-      value += l2.val;
+      n += l2.val;
       l2 = l2.next;
     }
 
-    value += carry;
+    n += carry;
 
-    node.next = new ListNode(value % 10);
-    carry = value > 9 ? 1 : 0;
+    l.next = new ListNode(n % 10);
+    carry = n > 9 ? 1 : 0;
 
-    node = node.next;
+    l = l.next;
+  }
+
+  return preHead.next;
+}
+
+/** 2) same to 1), less compact, but easy to understand carry */
+function addTwoNumbers(l1, l2) {
+  let l = new ListNode(null);
+  const preHead = l;
+  let carry = 0;
+
+  while (l1 || l2) {
+    let n = 0;
+
+    if (l1) {
+      n += l1.val;
+      l1 = l1.next;
+    }
+
+    if (l2) {
+      n += l2.val;
+      l2 = l2.next;
+    }
+
+    n += carry;
+
+    l.next = new ListNode(n % 10);
+    carry = n > 9 ? 1 : 0;
+
+    l = l.next;
+  }
+
+  if (carry) {
+    l.next = new ListNode(1)
   }
 
   return preHead.next;
