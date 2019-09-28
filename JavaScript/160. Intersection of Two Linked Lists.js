@@ -36,7 +36,7 @@
 // time O(m + n)
 // space O(m) or O(n)
 function getIntersectionNode1(headA, headB) {
-  let map = new Map();  // {} won't work here, since the key does not support ListNode
+  let map = new Map();  // {} does not work here, since the key does not support ListNode
 
   while (headA) {
     map.set(headA, true);
@@ -51,14 +51,33 @@ function getIntersectionNode1(headA, headB) {
   return null;
 }
 
-/** 2) Two pointers */
+/** 2) Two pointers (slow version) */
+function getIntersectionNode2(headA, headB) {
+  let a = headA;
+  let b = headB;
+
+  while (a !== b) {
+    a = a ? a.next : headA;  // no exchange which is why it is slow
+    b = b ? b.next : headB;
+  }
+
+  return a;
+}
+
+/** 3) Two pointers (fast version) */
 // time O(m + n)
 // space O(1)
+//
+// To see why the above trick would work, consider the following two lists: A = {1,3,5,7,9,11} and B = {2,4,9,11},
+// which are intersected at node '9'. Since B.length (=4) < A.length (=6), b would reach the end of the merged list
+// first, because b traverses exactly 2 nodes less than a does. By redirecting b to head A, and a to head B, we now ask
+// b to travel exactly 2 more nodes than a would. So in the second iteration, they are guaranteed to reach the
+// intersection node at the same time.
 function getIntersectionNode(headA, headB) {
   let a = headA;
   let b = headB;
 
-  // a === b happens at the connecting point or when they are both null at the end
+  // a === b happens at the connecting point or when they are both null at the end which means no intersection
   while (a !== b) {
     a = a ? a.next : headB;  // move a to head of b if at end
     b = b ? b.next : headA;  // move b to head of a if at end
