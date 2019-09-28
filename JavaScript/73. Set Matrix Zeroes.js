@@ -60,8 +60,12 @@ function setZeroes1(matrix) {
     for (let j = 0; j < width; j++) {
       if (!Object.is(matrix[i][j], 0)) continue;
 
-      for (let x = 0; x < height; x++) matrix[x][j] = matrix[x][j] && -0;
-      for (let y = 0; y < width; y++) matrix[i][y] = matrix[i][y] && -0;
+      for (let x = 0; x < height; x++) {
+        matrix[x][j] = matrix[x][j] && -0;
+      }
+      for (let y = 0; y < width; y++) {
+        matrix[i][y] = matrix[i][y] && -0;
+      }
     }
   }
 }
@@ -75,25 +79,90 @@ function setZeroes1(matrix) {
 //
 // In the first phase, use matrix elements to set states in a top-down way
 // In the second phase, use states to set matrix elements in a bottom-up way
-function setZeroes(matrix) {
-  const height = matrix.length;
-  const width = matrix[0].length;
+function setZeroes2(matrix) {
+  const h = matrix.length;
+  const w = matrix[0].length;
 
   let col0 = 1;
 
-  for (let i = 0; i < height; i++) {
+  for (let i = 0; i < h; i++) {
     if (matrix[i][0] === 0) col0 = 0;
 
-    for (let j = 1; j < width; j++) {
-      if (matrix[i][j] === 0) matrix[i][0] = matrix[0][j] = 0;
+    for (let j = 1; j < w; j++) {
+      if (matrix[i][j] === 0) {
+        matrix[i][0] = matrix[0][j] = 0;
+      }
     }
   }
 
-  for (let i = height - 1; i >= 0; i--) {
-    for (let j = width - 1; j >= 1; j--) {
-      if (matrix[i][0] === 0 || matrix[0][j] === 0) matrix[i][j] = 0;
+  for (let i = h - 1; i >= 0; i--) {
+    for (let j = w - 1; j >= 1; j--) {
+      if (matrix[i][0] === 0 || matrix[0][j] === 0) {
+        matrix[i][j] = 0;
+      }
     }
 
     if (col0 === 0) matrix[i][0] = 0;
   }
 }
+
+/** 3) similar to method 2), but not compact */
+function setZeroes(matrix) {
+  const h = matrix.length;
+  const w = matrix[0].length;
+
+  let col0 = false;
+  let row0 = false;
+
+  // Set flags
+  for (let i = 0; i < h; i++) {
+    if (matrix[i][0] === 0) {
+      col0 = true
+    }
+  }
+  for (let j = 0; j < w; j++) {
+    if (matrix[0][j] === 0) {
+      row0 = true
+    }
+  }
+
+  // Store states of each row in the first of that row, and store states of each col in the first of that col
+  for (let i = 1; i < h; i++) {
+    for (let j = 1; j < w; j++) {
+      if (matrix[i][j] === 0) {
+        matrix[0][j] = 0;
+        matrix[i][0] = 0;
+      }
+    }
+  }
+
+  // Set the rest to 0 if meet requirements based on the first col and first row
+  for (let i = 1; i < h; i++) {
+    if (matrix[i][0] === 0) {
+      for (let k = 0; k < w; k++) {
+        matrix[i][k] = 0;
+      }
+    }
+  }
+  for (let j = 1; j < w; j++) {
+    if (matrix[0][j] === 0) {
+      for (let k = 0; k < h; k++) {
+        matrix[k][j] = 0;
+      }
+    }
+  }
+
+  // Set the first col and first row based on the flags col0 and row0
+  if (col0) {
+    for (let i = 0; i < h; i++) {
+      matrix[i][0] = 0;
+    }
+  }
+  if (row0) {
+    for (let j = 0; j < w; j++) {
+      matrix[0][j] = 0;
+    }
+  }
+
+  return matrix;
+};
