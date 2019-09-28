@@ -21,20 +21,43 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+
+/** 1) */
+function oddEvenList1(head) {
+  if (!head) return head;
+
+  let odd = head;
+  const evenHead = head.next;
+
+  while (odd.next && odd.next.next) {
+    const even = odd.next;
+    odd.next = odd.next.next;
+    odd = odd.next;
+    even.next = odd.next;
+  }
+
+  odd.next = evenHead;
+
+  return head;
+}
+
+/** 2) Similar to 1), but less compact */
 function oddEvenList(head) {
   if (!head) return head;
 
   let odd = head;
-  let even = head.next;
+  let even = new ListNode(null);
+  const evenHead = head.next;
 
-  while (odd.next && odd.next.next) {
-    let tmp = odd.next;
+  while (odd && odd.next) {
+    even.next = odd.next;
     odd.next = odd.next.next;
-    odd = odd.next;
-    tmp.next = odd.next;
+
+    even = even.next;
+    if (odd.next) odd = odd.next;  // stop before odd becomes null
   }
 
-  odd.next = even;
-
+  even.next = null;  // cut the rest of odd after even
+  odd.next = evenHead;
   return head;
 }
