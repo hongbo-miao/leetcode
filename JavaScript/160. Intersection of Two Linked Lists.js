@@ -36,15 +36,15 @@
 // time O(m + n)
 // space O(m) or O(n)
 function getIntersectionNode1(headA, headB) {
-  const map = {};
+  let map = new Map();  // {} won't work here, since the key does not support ListNode
 
   while (headA) {
-    map[headA.val] = true;
+    map.set(headA, true);
     headA = headA.next;
   }
 
   while (headB) {
-    if (map[headB.val]) return headB;
+    if (map.has(headB)) return headB;
     headB = headB.next;
   }
 
