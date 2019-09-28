@@ -41,10 +41,9 @@ function addTwoNumbers1(l1, l2) {
     }
 
     n += carry;
-
-    l.next = new ListNode(n % 10);
     carry = n > 9 ? 1 : 0;
 
+    l.next = new ListNode(n % 10);
     l = l.next;
   }
 
@@ -71,10 +70,9 @@ function addTwoNumbers(l1, l2) {
     }
 
     n += carry;
-
-    l.next = new ListNode(n % 10);
     carry = n > 9 ? 1 : 0;
 
+    l.next = new ListNode(n % 10);
     l = l.next;
   }
 
