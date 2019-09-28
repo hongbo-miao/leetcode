@@ -16,6 +16,25 @@
 /** 1) */
 function lengthOfLongestSubstring1(s) {
   let max = 0;
+  let localMax = 0;
+  let str = '';
+
+  for (let c of s) {
+    if (!str.includes(c)) {
+      str += c;
+      localMax++;
+    } else {
+      str = str.slice(str.indexOf(c) + 1) + c;
+      localMax = str.length;
+    }
+    max = Math.max(localMax, max);
+  }
+
+  return max;
+}
+
+function lengthOfLongestSubstring2(s) {
+  let max = 0;
   let chars = [];
 
   for (let c of s) {
