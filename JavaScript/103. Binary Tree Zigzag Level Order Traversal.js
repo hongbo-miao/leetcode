@@ -44,7 +44,7 @@ function go(node, l, res) {  // l means level
   }
 
   if (l % 2 === 0) {
-    res[l].push(node.val)
+    res[l].push(node.val);
   } else {
     res[l].unshift(node.val);
   }
