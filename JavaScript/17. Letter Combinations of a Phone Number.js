@@ -16,9 +16,11 @@
  * @return {string[]}
  */
 
-/** DFS */
+/** 1) DFS */
 function letterCombinations(digits) {
-  const letters = {
+  if (digits.length === 0) return [];
+
+  const map = {
     2: 'abc',
     3: 'def',
     4: 'ghi',
@@ -32,17 +34,50 @@ function letterCombinations(digits) {
   let prefix = [];
   let res = [];
 
-  function find(i) {
-    if (i === digits.length) return res.push(prefix.join(''));
+  function go(i) {
+    if (i === digits.length) {
+      res.push(prefix.join(''));
+      return;
+    }
 
-    for (let c of letters[digits[i]]) {
+    for (let c of map[digits[i]]) {
       prefix.push(c);
-      find(i + 1);
+      go(i + 1);
       prefix.pop();
     }
   }
 
-  if (digits.length) find(0);
+  go(0);
+  return res;
+}
 
+/** 2) Similar to 1), but easier to understand */
+function letterCombinations(digits) {
+  if (digits.length === 0) return [];
+
+  const map = {
+    2: 'abc',
+    3: 'def',
+    4: 'ghi',
+    5: 'jkl',
+    6: 'mno',
+    7: 'pqrs',
+    8: 'tuv',
+    9: 'wxyz',
+  };
+
+  let res = [];
+  function go(i, s) {
+    if (i === digits.length) {
+      res.push(s);
+      return;
+    }
+
+    for (let c of map[digits[i]]) {
+      go(i + 1, s + c);
+    }
+  }
+
+  go(0, '');
   return res;
 }
