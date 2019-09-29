@@ -37,12 +37,12 @@ function buildTree(preorder, inorder) {
 
     const val = preorder.shift();
     const i = inorder.indexOf(val);
-    const root = new TreeNode(val);
+    const node = new TreeNode(val);
 
-    root.l = build(l, i - 1);
-    root.r = build(i + 1, r);
+    node.left = build(l, i - 1);
+    node.right = build(i + 1, r);
 
-    return root;
+    return node;
   }
 
   return build(0, inorder.length - 1);
