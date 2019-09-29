@@ -17,16 +17,20 @@
 
 /** Backtracking */
 function generateParenthesis(n) {
-  let res = [];
-  generate(n, n, '', res);
+  const res = [];
+
+  function go(l, r, s) {  // l: left remaining, r: right remaining
+    if (l > r) return;  // e.g. the number of ( should be >= ) at any moment
+
+    if (l === 0 && r === 0) {
+      res.push(s);
+      return;
+    }
+
+    if (l > 0) go(l - 1, r, s + '(');
+    if (r > 0) go(l, r - 1, s + ')');
+  }
+
+  go(n, n, '', res);
   return res;
-}
-
-function generate(l, r, s, res) { // l: left rest, r: right rest
-  if (l > r) return;  // e.g. ))(
-
-  if (!l && !r) return res.push(s);
-
-  if (l) generate(l - 1, r, s + '(', res);
-  if (r) generate(l, r - 1, s + ')', res);
 }
