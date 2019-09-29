@@ -28,16 +28,33 @@
  * @param {number} k
  * @return {number}
  */
-function kthSmallest(root, k) {
-  return getOrderedArray(root)[k - 1];
+/** 1) */
+function kthSmallest1(root, k) {
+  return go(root)[k - 1];
 }
 
-function getOrderedArray(node) {
-  if (!node) return [];
+function go(node) {
+  if (node == null) return [];
 
   return [
-    ...getOrderedArray(node.left),
+    ...go(node.left),
     node.val,
-    ...getOrderedArray(node.right)
+    ...go(node.right)
   ];
+}
+
+/** 2) Similar to 1 */
+function kthSmallest(root, k) {
+  const arr = [];
+
+  function go(node) {
+    if (node == null) return;
+
+    go(node.left);
+    arr.push(node.val);
+    go(node.right);
+  }
+
+  go(root, k);
+  return arr[k-1];
 }
