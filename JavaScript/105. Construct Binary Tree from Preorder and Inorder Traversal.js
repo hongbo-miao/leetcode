@@ -29,19 +29,18 @@
  * @return {TreeNode}
  */
 
-// preorder = (3) 9 20 15 7
-// inorder = 9 (3) 15 20 7
+// preorder: (3) 9 20 15 7
+// inorder: 9 (3) 15 20 7
 function buildTree(preorder, inorder) {
   function build(l, r) {
     if (l > r) return null;
 
     const val = preorder.shift();
     const i = inorder.indexOf(val);
-    const node = new TreeNode(val);
 
+    const node = new TreeNode(val);
     node.left = build(l, i - 1);
     node.right = build(i + 1, r);
-
     return node;
   }
 
