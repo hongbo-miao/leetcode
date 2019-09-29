@@ -36,12 +36,19 @@ function zigzagLevelOrder(root) {
   return res;
 }
 
-function go(node, level, res) {
+function go(node, l, res) {  // l means level
   if (!node) return;
 
-  if (res.length === level) res.push([]);
-  level % 2 ? res[level].push(node.val) : res[level].unshift(node.val);
+  if (res[l] == null) {
+    res.push([]);
+  }
 
-  go(node.left, level + 1, res);
-  go(node.right, level + 1, res);
+  if (l % 2 === 0) {
+    res[l].push(node.val)
+  } else {
+    res[l].unshift(node.val);
+  }
+
+  go(node.left, l + 1, res);
+  go(node.right, l + 1, res);
 }
