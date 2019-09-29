@@ -20,7 +20,7 @@ function generateParenthesis(n) {
   const res = [];
 
   function go(l, r, s) {  // l: left remaining, r: right remaining
-    if (l > r) return;  // e.g. the number of ( should be >= ) at any moment
+    if (l > r) return;  // The number of '(' should be always >= ')'
 
     if (l === 0 && r === 0) {
       res.push(s);
