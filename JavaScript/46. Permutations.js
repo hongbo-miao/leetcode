@@ -22,7 +22,7 @@
 // Similar
 // 78. Subsets
 function permute(nums) {
-  let res = [];
+  const res = [];
 
   function go(curr, rest) {
     if (!rest.length) {
@@ -31,9 +31,10 @@ function permute(nums) {
     }
 
     for (let i = 0; i < rest.length; i++) {
+      // note if using array push and splice here, it will cause mutation
       go(
         [...curr, rest[i]],
-        [...rest.slice(0, i), ...rest.slice(i + 1)],  // note if using splice here, it will cause mutation
+        [...rest.slice(0, i), ...rest.slice(i + 1)],
       );
     }
   }
