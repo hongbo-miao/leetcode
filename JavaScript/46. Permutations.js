@@ -24,18 +24,20 @@
 function permute(nums) {
   let res = [];
 
-  function find(curr, rest) {
-    if (!rest.length) return res.push(curr);
+  function go(curr, rest) {
+    if (!rest.length) {
+      res.push(curr);
+      return;
+    }
 
     for (let i = 0; i < rest.length; i++) {
-      find(
+      go(
         [...curr, rest[i]],
-        [...rest.slice(0, i), ...rest.slice(i + 1)]
+        [...rest.slice(0, i), ...rest.slice(i + 1)],  // note if using splice here, it will cause mutation
       );
     }
   }
 
-  find([], nums);
-
+  go([], nums);
   return res;
 }
