@@ -24,21 +24,25 @@
 // 0 0 | 1 | 2 1 | 2
 //   l       i     r
 function sortColors(nums) {
+  function swap(i, j) {
+    [nums[i], nums[j]] = [nums[j], nums[i]];
+  }
+
   let l = 0;
   let r = nums.length - 1;
-
   let i = 0;
 
   while (i <= r) {
-    if (nums[i] === 0) {
-      [nums[i], nums[l]] = [nums[l], nums[i]];
+    const n = nums[i];
+    if (n === 0) {
+      swap(i, l);
       l++;
       i++;
-    } else if (nums[i] === 1) {
-      i++;
-    } else if (nums[i] === 2) {
-      [nums[i], nums[r]] = [nums[r], nums[i]];
+    } else if (n === 2) {
+      swap(i, r);
       r--;
+    } else {
+      i++;
     }
   }
 }
