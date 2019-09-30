@@ -22,27 +22,52 @@
  * @return {number[][]}
  */
 
-/** Backtracking */
+/** 1) Backtracking */
 // Similar
 // 46. Permutations
-function subsets(nums) {
-  let res = [];
+function subsets1(nums) {
+  const res = [];
 
-  function find(curr, rest, start) {
+  function go(curr, rest, start) {
     res.push(curr);
 
     for (let i = start; i < rest.length; i++) {
-      find(
+      go(
         [...curr, rest[i]],
         [...rest.slice(0, i), ...rest.slice(i + 1)],
-        start
+        start,
       );
 
       start++;
     }
   }
 
-  find([], nums, 0);
+  go([], nums, 0);
+  return res;
+}
+
+/** 2) Similar to 1) */
+function subsets(nums) {
+  const res = [];
+
+  function go(curr, rest, l) {
+    if (l === curr.length) {
+      res.push(curr);
+      return;
+    }
+
+    for (let i = 0; i < rest.length; i++) {
+      go(
+        [...curr, rest[i]],
+        [...rest.slice(i + 1)],
+        l,
+      );
+    }
+  }
+
+  for (let i = 0; i <= nums.length; i++) {
+    go([], nums, i);
+  }
 
   return res;
 }
