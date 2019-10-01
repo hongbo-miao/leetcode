@@ -21,30 +21,30 @@
  */
 
 /**
- * @param {Interval[]} intervals
- * @return {Interval[]}
+ * @param {number[][]} intervals
+ * @return {number[][]}
  */
 
 /** Sorting */
 // time O(n log n), other than the sort invocation, we do a simple linear scan of the list, so the runtime is dominated by the O(n log n) complexity of sorting
 // space O(1)
 function merge(intervals) {
-  if (!intervals.length) return intervals;
+  if (intervals.length === 0) return intervals;
 
-  intervals.sort((a, b) => a.start !== b.start ? a.start - b.start : a.end - b.end);
+  intervals.sort((a, b) => a[0] - b[0]);
 
-  let prev = { ...intervals[0] };   // shallow copy, otherwise when we change prev, it will also change intervals, although it won't affect res
+  let prev = intervals[0];
   let res = [prev];
 
   for (let i = 1; i < intervals.length; i++) {
     const curr = intervals[i];
 
-    if (prev.end >= curr.start) {   // e.g. [1, 3], [2, 6] or [[1, 3], [3, 6]]
-
-      prev.end = Math.max(prev.end, curr.end);  // here will change prev in res which is what we want
-    } else {                        // e.g. [1, 2], [4, 6]
+    if (prev[1] >= curr[0]) {
+      // e.g. [1, 3], [2, 6] or [[1, 3], [3, 6]]
+      prev[1] = Math.max(prev[1], curr[1]);  // here will change prev in res which is what we want
+    } else {
+      // e.g. [1, 2], [4, 6]
       res = [...res, curr];
-
       prev = curr;
     }
   }
