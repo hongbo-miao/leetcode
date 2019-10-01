@@ -39,20 +39,35 @@ function findPeakElement1(nums) {
 }
 
 // 2) Binary search (recursion)
+// Consider that each local maximum is one valid peak.
+//             5
+//            / \
+//           /   -∞
+//          3
+//     2   /
+//    / \ /
+//   1   1
+//  /
+// -∞
+//   0 1 2  3  4
+//   l   m     r     l = 0, m = 2, r = 4
+//          lm r     l = 3, m = 3, r = 4
+//             lr    l = 4,        r = 4
 // time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
 // space O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. Thus, the depth of recursion tree will go up to log(n)
 function findPeakElement2(nums) {
-  return search(nums, 0, nums.length - 1);
+  function go(l, r) {
+    if (l === r) return l;
+
+    const m = Math.floor((l + r) / 2);
+
+    if (nums[m] > nums[m + 1]) return go(l, m);
+    else go(m + 1, r);
+  }
+
+  return go(0, nums.length - 1);
 }
 
-function search(nums, l, r) {
-  if (l === r) return l;
-
-  const mid = Math.floor((l + r) / 2);
-
-  if (nums[mid] > nums[mid + 1]) return search(nums, l, mid);
-  else return search(nums, mid + 1, r);
-}
 
 // 3) Binary search (iteration)
 // time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
@@ -62,10 +77,10 @@ function findPeakElement(nums) {
   let r = nums.length - 1;
 
   while (l < r) {
-    const mid = Math.floor((l + r) / 2);
+    const m = Math.floor((l + r) / 2);
 
-    if (nums[mid] > nums[mid + 1]) r = mid;
-    else l = mid + 1;
+    if (nums[m] > nums[m + 1]) r = m;
+    else l = m + 1;
   }
 
   return l;
