@@ -30,22 +30,66 @@ function search1(nums, target) {
 }
 
 /** 2) Binary search */
+// https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/273622/Javascript-Simple-O(log-N)-Binary-Search-Solution
+//
 // time O(log n)
+//
+// e.g. [1, 2, 3, 4, 5, 6, 7]
+//
+// When you divide the rotated array into two halves, using mid index, at least one of them should remain sorted ALWAYS.
+//
+// [3, 4, 5] [ 6, 7, 1, 2] the left side remains sorted
+// [6, 7, 1] [2, 3, 4, 5] the right side remains sorted
+// [1, 2, 3] [4, 5, 6, 7] Both sides remain sorted.
+//
+// If you know one side is sorted, the rest of logic becomes very simple.
+// If one side is sorted, check if the target is in the boundary, otherwise it's on the other side.
+//
+// IF smallest <= target <= biggest
+//   then target is here
+// ELSE
+//   then target is on the other side
+function search2(nums, target) {
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l <= r) {
+    let m = Math.floor((l + r) / 2);
+
+    if (nums[m] === target) {
+      return m;
+    }
+
+    // When dividing the rotated array into two halves, one must be sorted
+    // Check if the left side is sorted
+    if (nums[l] <= nums[m]) {
+      if (nums[l] <= target && target <= nums[m]) r = m - 1;  // target is in the left
+      else l = m + 1;  // target is in the right
+    } else {
+      if (nums[m] <= target && target <= nums[r]) l = m + 1;  // target is in the right
+      else r = m - 1;  // target is in the left
+    }
+  }
+
+  return -1;
+}
+
+/** 3) Similar to 2) */
 function search(nums, target) {
   let l = 0;
   let r = nums.length - 1;
 
   while (l + 1 < r) {
-    const mid = Math.floor((l + r) / 2);
+    const m = Math.floor((l + r) / 2);
 
-    if (nums[mid] === target) return mid;
+    if (nums[m] === target) return m;
 
-    if (nums[l] < nums[mid]) {  // e.g. 4, 5, 6, 7
-      if (nums[l] <= target && target <= nums[mid]) r = mid;
-      else l = mid;
+    if (nums[l] < nums[m]) {  // e.g. 4, 5, 6, 7
+      if (nums[l] <= target && target <= nums[m]) r = m;
+      else l = m;
     } else {  // e.g. 7, 0, 1, 2
-      if (nums[mid] <= target && target <= nums[r]) l = mid;
-      else r = mid;
+      if (nums[m] <= target && target <= nums[r]) l = m;
+      else r = m;
     }
   }
 
