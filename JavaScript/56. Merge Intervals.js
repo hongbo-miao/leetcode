@@ -25,7 +25,7 @@
  * @return {number[][]}
  */
 
-/** Sorting */
+/** 1) Sorting */
 // time O(n log n), other than the sort invocation, we do a simple linear scan of the list, so the runtime is dominated by the O(n log n) complexity of sorting
 // space O(1)
 function merge(intervals) {
@@ -50,4 +50,25 @@ function merge(intervals) {
   }
 
   return res;
+}
+
+/** 2) Similar to 1, but slower */
+function merge(intervals) {
+  if (intervals.length === 0) return intervals;
+
+  intervals.sort((a, b) => a[0] - b[0]);
+
+  let i = 0;
+  while (i < intervals.length - 1) {
+    if (intervals[i][1] >= intervals[i + 1][0]) {
+      intervals = [
+        ...intervals.slice(0, i),
+        [intervals[i][0], Math.max(intervals[i][1], intervals[i + 1][1])],
+        ...intervals.slice(i + 2),
+      ];
+    } else {
+      i++;
+    }
+  }
+  return intervals;
 }
