@@ -23,7 +23,7 @@
 // time O(n log n)
 // space O(1)
 function findKthLargest(nums, k) {
-  return nums.sort((a, b) => a - b)[nums.length - k];
+  return nums.sort((a, b) => b - a)[k - 1];
 }
 
 /** 2) */
@@ -31,3 +31,39 @@ function findKthLargest(nums, k) {
 // space O(1)
 //
 // https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
+
+/** 3) Quick sort idea */
+function findKthLargest(nums, k) {
+  function swap(i, j) {
+    [nums[i], nums[j]] = [nums[j], nums[i]];
+  }
+
+  function quickSelect(l, r, k) {
+    // Quick sort idea
+    // put nums that are <= pivot to the left
+    // put nums that are > pivot to the right
+    let p = l;
+    for (let j = l; j < r; j++) {
+      if (nums[j] <= nums[r]) {
+        swap(p, j);
+        p++;
+      }
+    }
+    swap(p, r);
+
+    // count the nums that are > pivot
+    const count = r - p + 1;
+
+    if (count > k) {
+      // pivot is too small, so it must be on the right
+      return quickSelect(p + 1, r, k);
+    } else if (count < k) {
+      // pivot is too big, so it must be on the left
+      return quickSelect(l, p - 1, k - count);
+    } else {
+      return nums[p];
+    }
+  }
+
+  return quickSelect(0, nums.length - 1, k);
+}
