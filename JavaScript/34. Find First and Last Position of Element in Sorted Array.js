@@ -28,7 +28,7 @@ function searchRange1(nums, target) {
 /** 2) Binary search */
 // time O(log n)
 // space O(1)
-function searchRange(nums, target) {
+function searchRange2(nums, target) {
   let res = [-1, -1];
 
   // find the left
@@ -36,10 +36,10 @@ function searchRange(nums, target) {
   let r = nums.length - 1;
 
   while (l < r) {
-    const mid = Math.floor((l + r) / 2);  // note using Math.floor
+    const m = Math.floor((l + r) / 2);  // note using Math.floor
 
-    if (nums[mid] < target) l = mid + 1;
-    else r = mid;
+    if (nums[m] < target) l = m + 1;
+    else r = m;
   }
 
   if (nums[l] !== target) return res;
@@ -49,13 +49,46 @@ function searchRange(nums, target) {
   r = nums.length - 1;  // no need to set l to 0
 
   while (l < r) {
-    const mid = Math.ceil((l + r) / 2);   // note using Math.ceil
+    const m = Math.ceil((l + r) / 2);   // note using Math.ceil
 
-    if (nums[mid] > target) r = mid - 1;
-    else l = mid;
+    if (nums[m] > target) r = m - 1;
+    else l = m;
   }
 
   res[1] = r;
+
+  return res;
+}
+
+/** 3) Similar to 2), not optimized, but easier to understand */
+function searchRange(nums, target) {
+  const res = [-1, -1];
+
+  // find the left
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l < r) {
+    const m = Math.floor((l + r) / 2);  // note using Math.floor
+
+    if (nums[m] < target) l = m + 1;
+    else r = m;
+  }
+
+  if (nums[l] === target) res[0] = l;
+
+  // find the right
+  l = 0;
+  r = nums.length - 1;
+
+  while (l < r) {
+    const m = Math.ceil((l + r) / 2);   // note using Math.ceil
+
+    if (nums[m] > target) r = m - 1;
+    else l = m;
+  }
+
+  if (nums[r] === target) res[1] = r;
 
   return res;
 }
