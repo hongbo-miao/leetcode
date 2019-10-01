@@ -23,22 +23,43 @@
 // Input: matrix, target = 20
 // Output: false
 
-/** Search from top right corner */
+/** 1) Search from top right corner */
 // Similar
 // 74. Search a 2D Matrix
 //
 // time O(m + n), rule out one row or one column each time
-function searchMatrix(matrix, target) {
-  if (!matrix.length || !matrix[0].length) return false;
+function searchMatrix1(matrix, target) {
+  if (matrix.length === 0 || matrix[0].length === 0) return false;
 
-  let row = 0;
-  let col = matrix[0].length - 1;
+  let i = 0;
+  let j = matrix[0].length - 1;
 
-  while (col >= 0 && row <= matrix.length - 1) {
-    if (matrix[row][col] === target) return true;
-    else if (matrix[row][col] > target) col--;
-    else if (matrix[row][col] < target) row++;
+  while (j >= 0 && i < matrix.length) {
+    if (matrix[i][j] === target) return true;
+    else if (matrix[i][j] > target) j--;
+    else i++;
   }
 
   return false;
+}
+
+/** 2) Slower than 1) */
+function searchMatrix(matrix, target) {
+  if (matrix.length === 0 || matrix[0].length === 0) return false;
+
+  function go(i, j) {
+    if (
+      i > matrix.length - 1
+      || j > matrix[0].length - 1
+      || matrix[i][j] > target
+      || matrix[i][j] === '*'
+    ) return false;
+
+    if (matrix[i][j] === target) return true;
+
+    matrix[i][j] = '*';  // mark visited
+    return go(i + 1, j) || go(i, j + 1);
+  }
+
+  return go(0, 0)
 }
