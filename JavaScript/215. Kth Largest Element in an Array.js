@@ -22,7 +22,7 @@
 /** 1) Sorting */
 // time O(n log n)
 // space O(1)
-function findKthLargest(nums, k) {
+function findKthLargest1(nums, k) {
   return nums.sort((a, b) => b - a)[k - 1];
 }
 
