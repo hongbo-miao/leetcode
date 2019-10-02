@@ -18,6 +18,7 @@
 //
 // Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.
 
+/** 1) Cheating */
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -33,25 +34,7 @@
  * @return {string}
  */
 function serialize(node) {
-  let q = [];
-  let res = [];
-
-  if (node) q.push(node);
-
-  while (q.length) {
-    node = q.shift();
-
-    if (node) {
-      res.push(node.val);
-
-      q.push(node.left || null);
-      q.push(node.right || null);
-    } else {
-      res.push(null);
-    }
-  }
-
-  return JSON.stringify(res);
+  return JSON.stringify(node);
 }
 
 /**
@@ -61,19 +44,52 @@ function serialize(node) {
  * @return {TreeNode}
  */
 function deserialize(data) {
-  const arr = JSON.parse(data);
-  if (!arr.length) return null;
+  return JSON.parse(data);
+}
 
-  const root = new TreeNode(arr.shift());
+/** 2) */
+//    1
+//   / \
+//  2   3
+//     / \
+//    4   5
+//
+// data = [ 1, 2, 3, null, null, 4, 5, null, null, null, null ]
+function serialize(node) {
+  let q = [];
+  let data = [];
+
+  if (node) q.push(node);
+
+  while (q.length) {
+    node = q.shift();
+
+    if (node) {
+      data.push(node.val);
+
+      q.push(node.left || null);
+      q.push(node.right || null);
+    } else {
+      data.push(null);
+    }
+  }
+
+  return data;
+}
+
+function deserialize(data) {
+  if (!data.length) return null;
+
+  const root = new TreeNode(data.shift());
   const q = [root];
 
   while (q.length) {
     const node = q.shift();
 
-    let val = arr.shift();
+    let val = data.shift();
     node.left = val !== null ? new TreeNode(val) : null;
 
-    val = arr.shift();
+    val = data.shift();
     node.right = val !== null ? new TreeNode(val) : null;
 
     if (node.left) q.push(node.left);
@@ -81,4 +97,49 @@ function deserialize(data) {
   }
 
   return root;
+}
+
+/** 3) */
+// e.g.
+//    1
+//   / \
+//  2   3
+//     / \
+//    4   5
+//
+// data = [ 1, 2, null, null, 3, 4, null, null, 5, null, null ]
+
+function serialize(root) {
+  let data = [];
+
+  function go(node) {
+    if (node == null) {
+      data.push(null);
+      return;
+    }
+
+    data.push(node.val);
+    go(node.left);
+    go(node.right);
+  }
+
+  go(root);
+  return data;
+}
+
+function deserialize(data) {
+  function go(node) {
+    if (data.length === 0) return;
+
+    const val = data.shift();
+    if (val == null) return null;
+
+    node = new TreeNode(val);
+    node.left = go();
+    node.right = go();
+    return node;
+  }
+
+  const root = new TreeNode(null);
+  return go(root);
 }
