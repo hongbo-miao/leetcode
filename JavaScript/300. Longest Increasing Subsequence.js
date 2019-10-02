@@ -18,7 +18,10 @@
  * @return {number}
  */
 
-/** 1) */
+/** 1) Dynamic programming */
+// Similar
+// 322. Coin Change
+//
 // time O(n^2)
 // space O(n)
 //
@@ -27,13 +30,15 @@
 // arr:  [ 1,1,1,2,2,3,  4, 4]
 // res:  4
 function lengthOfLIS1(nums) {
-  if (!nums.length) return 0;
+  if (nums.length === 0) return 0;
 
-  let arr = Array(nums.length).fill(1);
+  const arr = new Array(nums.length).fill(1);
 
   for (let i = 1; i < nums.length; i++) {
     for (let j = 0; j < i; j++) {
-      if (nums[j] < nums[i]) arr[i] = Math.max(arr[i], arr[j] + 1);
+      if (nums[j] < nums[i]) {
+        arr[i] = Math.max(arr[i], arr[j] + 1);
+      }
     }
   }
 
@@ -45,10 +50,23 @@ function lengthOfLIS1(nums) {
 //
 // time O(n log n)
 // space O(n)
+//
+// Example
+// nums = [10, 9, 2, 5, 3, 7, 101, 18]
+//
+// tails =
+// [10]
+// [9]
+// [2]
+// [2, 5]
+// [2, 3]
+// [2, 3, 7]
+// [2, 3, 7, 101]
+// [2, 3, 7, 18]
 function lengthOfLIS(nums) {
-  if (!nums.length) return 0;
+  if (nums.length === 0) return 0;
 
-  let tails = [nums[0]];
+  const tails = [nums[0]];
 
   for (let n of nums) {
     let i = 0;
