@@ -27,7 +27,7 @@
  * @return {number}
  */
 
-/** Dynamic programming */
+/** 1) Dynamic programming */
 // Complexity
 // time O(mn)
 // space O(n)
@@ -36,14 +36,38 @@
 // 1   1  (1)  1  1  1  (init current row to 1)
 // 1  (2) (3)  4  5  6  (e.g. 3 = 1 + 2)
 // 1   3   6  10 15 21  (return the last number in the last row which is 21)
-function uniquePaths(m, n) {
-  let currentRow = Array(n).fill(1);
+function uniquePaths1(m, n) {
+  const row = new Array(n).fill(1);
 
   for (let i = 1; i < m; i++) {
     for (let j = 1; j < n; j++) {
-      currentRow[j] += currentRow[j - 1];
+      row[j] += row[j - 1];
     }
   }
 
-  return currentRow[n - 1];
+  return row[n - 1];
+}
+
+/** 2) */
+// Complexity
+// time O(mn)
+// space O(mn)
+function uniquePaths(m, n) {
+  // init first row and col to 1, and the rest to 0
+  const matrix = [];
+  for (let i = 0; i < m; i++) {
+    const row = [];
+    for (let j = 0; j < n; j++) {
+      if (i === 0 || j === 0) row.push(1);
+      else row.push(0);
+    }
+    matrix.push(row);
+  }
+
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1];
+    }
+  }
+  return matrix[m - 1][n - 1];
 }
