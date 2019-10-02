@@ -54,7 +54,7 @@ function deserialize(data) {
 //     / \
 //    4   5
 //
-// data = [ 1, 2, 3, null, null, 4, 5, null, null, null, null ]
+// data = [1, 2, 3, null, null, 4, 5, null, null, null, null]
 function serialize(node) {
   let q = [];
   let data = [];
@@ -99,7 +99,7 @@ function deserialize(data) {
   return root;
 }
 
-/** 3) */
+/** 3) Faster and cleaner than 2) */
 // e.g.
 //    1
 //   / \
@@ -107,8 +107,7 @@ function deserialize(data) {
 //     / \
 //    4   5
 //
-// data = [ 1, 2, null, null, 3, 4, null, null, 5, null, null ]
-
+// data = [1, 2, null, null, 3, 4, null, null, 5, null, null]
 function serialize(root) {
   let data = [];
 
@@ -128,18 +127,17 @@ function serialize(root) {
 }
 
 function deserialize(data) {
-  function go(node) {
+  function go() {
     if (data.length === 0) return;
 
     const val = data.shift();
     if (val == null) return null;
 
-    node = new TreeNode(val);
+    const node = new TreeNode(val);
     node.left = go();
     node.right = go();
     return node;
   }
 
-  const root = new TreeNode(null);
-  return go(root);
+  return go();
 }
