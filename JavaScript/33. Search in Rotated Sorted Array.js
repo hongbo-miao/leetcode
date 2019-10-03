@@ -79,7 +79,7 @@ function search(nums, target) {
   let l = 0;
   let r = nums.length - 1;
 
-  while (l + 1 < r) {
+  while (l < r - 1) {
     const m = Math.floor((l + r) / 2);
 
     if (nums[m] === target) return m;
