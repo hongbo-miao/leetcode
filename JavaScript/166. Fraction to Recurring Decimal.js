@@ -23,35 +23,37 @@
  * @return {string}
  */
 
-// Use hash map to store the remainder and its index while dividing. Whenever a same remainder shows, it is repeating fraction
+// Use hash map to store the remainder and its index while dividing.
+// Whenever a same remainder shows, it is repeating fraction.
 function fractionToDecimal(numerator, denominator) {
+  // To avoid if numerator = 0, denominator = 1, then Math.sign(numerator) = 0, Math.sign(denominator) = 1, s = '-0'
   if (numerator === 0) return '0';
-  let res = '';
 
-  if (Math.sign(numerator) !== Math.sign(denominator)) res += '-';
+  let s = '';
+  if (Math.sign(numerator) !== Math.sign(denominator)) s += '-';
 
   let n = Math.abs(numerator);
   const d = Math.abs(denominator);
 
-  res += Math.floor(n / d);
+  s += Math.floor(n / d);
   n %= d;
 
-  if (n === 0) return res;
+  if (n === 0) return s;
 
-  res += '.';
+  s += '.';
 
   const map = {};
 
   while (n !== 0) {
-    map[n] = res.length;
+    map[n] = s.length;
 
     n *= 10;
-    res += Math.floor(n / d);
+    s += Math.floor(n / d);
     n %= d;
 
-    const i = map[n]; // repeat starting index
-    if (i !== undefined) return `${res.substr(0, i)}(${res.substr(i)})`;
+    const i = map[n];  // repeat starting index
+    if (i != null) return `${s.slice(0, i)}(${s.slice(i)})`;
   }
 
-  return res;
+  return s;
 }
