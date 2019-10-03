@@ -45,13 +45,11 @@ class RandomizedSet {
    * @return {boolean}
    */
   insert(val) {
-    if (this.pos[val] === undefined) {
-      this.nums.push(val);
-      this.pos[val] = this.nums.length - 1;
-      return true;
-    }
-    
-    return false;
+    if (this.pos[val] != null) return false;
+
+    this.nums.push(val);
+    this.pos[val] = this.nums.length - 1;
+    return true;
   }
 
   /**
@@ -60,14 +58,14 @@ class RandomizedSet {
    * @return {boolean}
    */
   remove(val) {
-    if (this.pos[val] === undefined) return false;
+    if (this.pos[val] == null) return false;
 
-    const idx = this.pos[val];
+    const i = this.pos[val];
     const lastNum = this.nums[this.nums.length - 1];
 
     // swap the last num with val
-    this.nums[idx] = lastNum;
-    this.pos[lastNum] = idx;
+    this.nums[i] = lastNum;
+    this.pos[lastNum] = i;
 
     // remove val
     this.nums.pop();
@@ -81,7 +79,7 @@ class RandomizedSet {
    * @return {number}
    */
   getRandom() {
-    const idx = Math.floor(Math.random() * this.nums.length);
-    return this.nums[idx]
+    const i = Math.floor(Math.random() * this.nums.length);
+    return this.nums[i]
   }
 }
