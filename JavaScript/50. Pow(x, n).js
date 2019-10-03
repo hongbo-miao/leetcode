@@ -37,7 +37,7 @@ function myPow(x, n) {
   if (n === 0) return 1;
   if (n === -1) return 1 / x;
 
-  if (n % 2) {
+  if (n % 2) {  // cannot be n % 2 === 1 because the result can be negative
     return x * myPow(x, n - 1); // 3^5 -> 3 * 3^4
   } else {
     const m = myPow(x, n / 2);  // 3^4 -> 3^2 * 3^2
