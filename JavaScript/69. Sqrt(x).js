@@ -53,16 +53,16 @@ function mySqrt3(x) {
 // time O(log n)
 // space O(1)
 function mySqrt(x) {
-  let start = 1;
-  let end = x;
+  let l = 1;
+  let r = x;
 
-  while (start < end - 1) {   // if start < end, x = 8, at some point, start = 2, end = 3, will enter loop
-    const mid = Math.floor((start + end) / 2);
+  while (l < r - 1) {   // if l < r, x = 8, at some point, l = 2, r = 3, will enter loop
+    const m = Math.floor((l + r) / 2);
 
-    if (mid * mid < x) start = mid;
-    else if (mid * mid > x) end = mid;
-    else return mid;
+    if (m * m === x) return m;
+    else if (m * m < x) l = m;
+    else r = m;
   }
 
-  return Math.min(start, end);
+  return Math.min(l, r);
 }
