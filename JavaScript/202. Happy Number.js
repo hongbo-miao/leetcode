@@ -16,11 +16,12 @@
  * @param {number} n
  * @return {boolean}
  */
-function isHappy(n) {
-  let seen = {};
+/** 1) */
+function isHappy1(n) {
+  const map = {};
 
-  while (n !== 1 && !seen[n]) {
-    seen[n] = true;
+  while (n !== 1 && map[n] == null) {
+    map[n] = true;
     n = sumOfSquares(n);
   }
 
@@ -31,4 +32,24 @@ function sumOfSquares(num) {
   return String(num)
     .split('')
     .reduce((sum, n) => sum + Number(n) ** 2, 0);
+}
+
+/** 2) */
+function isHappy(n) {
+  const map = {};
+
+  function go(num) {
+    if (num === 1) return true;
+    if (map[num] != null) return false;
+    map[num] = true;
+
+    const s = String(num).split('');
+    let sum = 0;
+    for (let i = 0; i < s.length; i++) {
+      sum += Number(s[i]) ** 2;
+    }
+    return go(sum);
+  }
+
+  return go(n);
 }
