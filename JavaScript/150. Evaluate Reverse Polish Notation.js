@@ -36,6 +36,7 @@
  * @param {string[]} tokens
  * @return {number}
  */
+/** 1) */
 function evalRPN(tokens) {
   const ops = {
     '+': (a, b) => a + b,
@@ -44,10 +45,10 @@ function evalRPN(tokens) {
     '/': (a, b) => ~~(a / b)
   };
 
-  let stack = [];
+  const stack = [];
 
   for (let n of tokens) {
-    if (ops[n]) {
+    if (ops[n] != null) {
       const fn = ops[n];
       const b = stack.pop();
       const a = stack.pop();
@@ -59,4 +60,34 @@ function evalRPN(tokens) {
   }
 
   return stack[0];
+}
+
+/** 2) Slower than 1) */
+function evalRPN(tokens) {
+  if (tokens.length === 1) return Number(tokens[0]);
+
+  const ops = {
+    '+': (a, b) => Number(a) + Number(b),
+    '-': (a, b) => Number(a) - Number(b),
+    '*': (a, b) => Number(a) * Number(b),
+    '/': (a, b) => ~~(Number(a) / Number(b)),
+  };
+
+  let i = 2;
+  while (tokens.length > 1) {
+    const a = tokens[i - 2];
+    const b = tokens[i - 1];
+    const c = tokens[i];
+
+    if (ops[c] != null) {
+      tokens = [
+        ...tokens.slice(0, i - 2),
+        String(ops[c](a, b)), ...tokens.slice(i + 1),
+      ];
+      i--;
+    } else {
+      i++;
+    }
+  }
+  return tokens[0]
 }
