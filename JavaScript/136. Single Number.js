@@ -18,19 +18,20 @@
  * @param {number[]} nums
  * @return {number}
  */
+/** 1) */
 function singleNumber1(nums) {
-  const map = {};
-  for (let n of nums) {
-    if (map[n]) map[n] = false;  // second time mark to false
-    else map[n] = true;  // first time mark to true
-  }
-
-  for (let i = 0, keys = Object.keys(map); i < keys.length; i++) {
-    const key = keys[i];
-    if (map[key]) return Number(key);
-  }
+  return nums.reduce((sum, num) => sum ^ num);  // ^ is XOR
 }
 
+/** 2) */
 function singleNumber(nums) {
-  return nums.reduce((sum, num) => sum ^ num);  // ^ is XOR
+  const map = {};
+  for (let n of nums) {
+    if (map[n] == null) map[n] = 0;
+    map[n]++;
+  }
+
+  for (let k in map) {
+    if (map[k] === 1) return Number(k);
+  }
 }
