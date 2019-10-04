@@ -53,9 +53,9 @@ function topKFrequent(nums, k) {
   }
 
   const arr = [];
-  Object.keys(map).forEach(n => {
+  for (let n in map) {
     arr.push({ n, count: map[n] });
-  });
+  }
 
   return arr
     .sort((a, b) => b.count - a.count)
