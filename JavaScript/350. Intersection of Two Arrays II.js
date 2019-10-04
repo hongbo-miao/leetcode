@@ -32,12 +32,12 @@ function intersect1(nums1, nums2) {
   }
 
   let res = [];
-  Object.keys(map1).forEach(k => {
+  for (let k in map1) {
     if (map1[k] != null && map2[k] != null) {
-      let min = Math.min(map1[k], map2[k]);
-      while(min--) res.push(k);
+      let count = Math.min(map1[k], map2[k]);
+      while(count--) res.push(Number(k));
     }
-  });
+  }
 
   return res;
 }
