@@ -19,9 +19,10 @@
  * @return {number}
  */
 
+/** 1) */
 // https://leetcode.com/problems/task-scheduler/discuss/104496/concise-Java-Solution-O(N)-time-O(26)-space
-function leastInterval(tasks, n) {
-  let arr = Array(26).fill(0);
+function leastInterval1(tasks, n) {
+  const arr = new Array(26).fill(0);
 
   for (let t of tasks) {
     arr[t.charCodeAt(0) - 'A'.charCodeAt(0)]++;
@@ -30,8 +31,43 @@ function leastInterval(tasks, n) {
   arr.sort((a, b) => a - b);
 
   let i = 25;
-
-  while (i >= 0 && arr[i] === arr[25]) i--;
+  while (i >= 0 && arr[i] === arr[25]) {
+    i--;
+  }
 
   return Math.max(tasks.length, (arr[25] - 1) * (n + 1) + 25 - i);
+}
+
+/** 2) */
+function leastInterval(tasks, n) {
+  if (n === 0) return tasks.length;
+
+  const map = {};
+  for (let t of tasks) {
+    if (map[t] == null) map[t] = 0;
+    map[t]++;
+  }
+
+  let max = 0;  // task max frequency
+  for (let t in map) {
+    max = Math.max(max, map[t]);
+  }
+
+  let count = 0;  // the number of tasks with same max frequency
+  for (let t in map) {
+    if (map[t] === max) {
+      count++;
+    }
+  }
+
+  return Math.max(
+    // case 1
+    // AB...AB... = (max - 1) * (n + 1)
+    // AB...AB...AB = (max - 1) * (n + 1) + count
+    (max - 1) * (n + 1) + count,
+
+    // case 2
+    // e.g. ABC ABD ABEF
+    tasks.length,
+  )
 }
