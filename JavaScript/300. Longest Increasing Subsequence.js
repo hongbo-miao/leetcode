@@ -20,6 +20,8 @@
 
 /** 1) Dynamic programming */
 // Similar
+// 279. Perfect Squares
+// 300. Longest Increasing Subsequence
 // 322. Coin Change
 //
 // time O(n^2)
@@ -37,7 +39,10 @@ function lengthOfLIS1(nums) {
   for (let i = 1; i < nums.length; i++) {
     for (let j = 0; j < i; j++) {
       if (nums[j] < nums[i]) {
-        arr[i] = Math.max(arr[i], arr[j] + 1);
+        arr[i] = Math.max(
+          arr[i],
+          arr[j] + 1,
+        );
       }
     }
   }

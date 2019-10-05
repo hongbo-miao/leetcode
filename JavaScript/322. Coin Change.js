@@ -20,7 +20,9 @@
  */
 /** 1) Dynamic programming */
 // Similar
+// 279. Perfect Squares
 // 300. Longest Increasing Subsequence
+// 322. Coin Change
 //
 // https://leetcode.com/problems/coin-change/discuss/77377/Javascript-Solution-(faster-than-90%2B-submissions)-*added-explanation
 // changes is an array to store the least amount of coins we need to make up a certain amount of money, the index of
@@ -45,31 +47,34 @@
 // to the next coin, and if all coins values are greater than the amount to make up (changes[amount] will equal to
 // Infinity), that means we don't have any coin to make up that amount, so return -1
 //
-// e.g. coins = [1,2,5], amount = 11
-// arr =
-// [ 0, 1, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, 2, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, 2, 2, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, 2, 2, 1, Infinity, Infinity, Infinity, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, 2, 2, 1, 2, Infinity, Infinity, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, 2, 2, 1, 2, 2, Infinity, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, 2, 2, 1, 2, 2, 3, Infinity, Infinity, Infinity ]
-// [ 0, 1, 1, 2, 2, 1, 2, 2, 3, 3, Infinity, Infinity ]
-// [ 0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, Infinity ]
-// [ 0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3 ]
+// e.g. coins = [1, 2, 5], amount = 11
+// dp =
+// [0, 1, I, I, I, I, I, I, I, I, I, I]  // I stands for Infinity
+// [0, 1, 1, I, I, I, I, I, I, I, I, I]
+// [0, 1, 1, 2, I, I, I, I, I, I, I, I]
+// [0, 1, 1, 2, 2, I, I, I, I, I, I, I]
+// [0, 1, 1, 2, 2, 1, I, I, I, I, I, I]
+// [0, 1, 1, 2, 2, 1, 2, I, I, I, I, I]
+// [0, 1, 1, 2, 2, 1, 2, 2, I, I, I, I]
+// [0, 1, 1, 2, 2, 1, 2, 2, 3, I, I, I]
+// [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, I, I]
+// [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, I]
+// [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3]
 function coinChange(coins, amount) {
-  // arr[i] represents the least amount of coins that can make the value equals to the i
-  const arr = new Array(amount + 1).fill(Infinity);
-  arr[0] = 0;
+  // dp[i] represents the least amount of coins that can make the value equals to the i
+  const dp = new Array(amount + 1).fill(Infinity);
+  dp[0] = 0;
   for (let i = 1; i <= amount; i++) {
     for (let j = 0; j < coins.length; j++) {
       if (i - coins[j] >= 0) {
-        arr[i] = Math.min(arr[i - coins[j]] + 1, arr[i]);
+        dp[i] = Math.min(
+          dp[i],
+          dp[i - coins[j]] + 1,
+        );
       }
     }
   }
-  return arr[amount] === Infinity ? -1 : arr[amount];
+  return dp[amount] === Infinity ? -1 : dp[amount];
 }
 
 /** 2) DFS + greedy + pruning */
