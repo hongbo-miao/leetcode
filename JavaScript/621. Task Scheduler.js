@@ -35,7 +35,16 @@ function leastInterval1(tasks, n) {
     i--;
   }
 
-  return Math.max(tasks.length, (arr[25] - 1) * (n + 1) + 25 - i);
+  return Math.max(
+    // case 1
+    // AB...AB... = (arr[25] - 1) * (n + 1)
+    // AB...AB...AB = (arr[25] - 1) * (n + 1) + (25 - i)
+    (arr[25] - 1) * (n + 1) + (25 - i),
+
+    // case 2
+    // e.g. (ABC)(ABD)(ABEF)
+    tasks.length,
+  );
 }
 
 /** 2) */
@@ -67,7 +76,7 @@ function leastInterval(tasks, n) {
     (max - 1) * (n + 1) + count,
 
     // case 2
-    // e.g. ABC ABD ABEF
+    // e.g. (ABC)(ABD)(ABEF)
     tasks.length,
-  )
+  );
 }
