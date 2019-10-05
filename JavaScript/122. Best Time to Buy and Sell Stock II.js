@@ -30,7 +30,6 @@
  * @return {number}
  */
 
-// first time meet set to true, second time set to false
 function maxProfit1(prices) {
   let profit = 0;
   let slow = 0;

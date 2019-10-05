@@ -22,6 +22,7 @@
  * @return {number}
  */
 
+/** 1) */
 function maxProfit1(prices) {
   let max = 0;
 
@@ -35,7 +36,7 @@ function maxProfit1(prices) {
   return max;
 }
 
-
+/** 2) */
 // time O(n)
 // space O(1)
 function maxProfit(prices) {

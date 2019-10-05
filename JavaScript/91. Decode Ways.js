@@ -22,6 +22,8 @@
  * @param {string} s
  * @return {number}
  */
+
+/** Dynamic programming */
 // e.g. '226'
 // dp =
 // [1, 1, 0, 0]
