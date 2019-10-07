@@ -17,7 +17,11 @@ class Trie {
     let node = this.root;
 
     // word.split('').forEach(c => node = node[c] = node[c] || {});
-    word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {}));
+    // word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {}));
+    for (let c of word) {
+      if (node[c] == null) node[c] = {};
+      node = node[c];
+    }
 
     node.isWord = true;
   }
@@ -27,7 +31,7 @@ class Trie {
 
     for (let c of word) {
       node = node[c];
-      if (!node) return null;
+      if (node == null) return null;
     }
 
     return node;
@@ -40,7 +44,7 @@ class Trie {
    */
   search(word) {
     const node = this.traverse(word);
-    return !!(node && node.isWord);
+    return node != null && node.isWord === true;
   }
 
   /**
@@ -49,6 +53,6 @@ class Trie {
    * @return {boolean}
    */
   startsWith(prefix) {
-    return !!this.traverse(prefix);
+    return this.traverse(prefix) != null;
   }
 }
