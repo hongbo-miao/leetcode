@@ -37,12 +37,11 @@ class LRUCache {
   get(key) {
     if (!this.cache.has(key)) return -1;
 
-    const value = this.cache.get(key);
+    const v = this.cache.get(key);
     this.cache.delete(key);
-    this.cache.set(key, value);
+    this.cache.set(key, v);
     return this.cache.get(key);
   };
-
 
   /**
    * @param {number} key
@@ -50,8 +49,12 @@ class LRUCache {
    * @return {void}
    */
   put(key, value) {
-    if (this.cache.has(key)) this.cache.delete(key);
+    if (this.cache.has(key)) {
+      this.cache.delete(key);
+    }
     this.cache.set(key, value);
-    if (this.cache.size > this.capacity) this.cache.delete(this.cache.keys().next().value); // keys().next().value is first item's key
+    if (this.cache.size > this.capacity) {
+      this.cache.delete(this.cache.keys().next().value);  // keys().next().value returns first item's key
+    }
   };
 }

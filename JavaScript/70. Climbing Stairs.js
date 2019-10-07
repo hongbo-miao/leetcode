@@ -56,7 +56,7 @@ function climb(n, cache) {
 // time O(n)
 // space O(n)
 function climbStairs3(n) {
-  let array = [1, 1];
+  const array = [1, 1];
 
   for (let i = 2; i <= n; i++) {
     array[i] = array[i - 2] + array[i - 1];
