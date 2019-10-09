@@ -18,7 +18,7 @@
  * }
  */
 
-import { mergeTwoLists } from './';
+import { mergeTwoLists } from './021. Merge Two Sorted Lists';
 
 /**
  * @param {ListNode[]} lists
