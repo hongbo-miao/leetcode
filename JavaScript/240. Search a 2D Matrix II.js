@@ -27,7 +27,7 @@
 // Similar
 // 74. Search a 2D Matrix
 //
-// time O(m + n), rule out one row or one column each time
+// Time O(m + n), rule out one row or one column each time
 function searchMatrix1(matrix, target) {
   if (matrix.length === 0 || matrix[0].length === 0) return false;
 

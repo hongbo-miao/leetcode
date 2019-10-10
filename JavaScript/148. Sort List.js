@@ -23,7 +23,7 @@
  */
 
 /** Merge sort */
-// time O(n log n)
+// Time O(n log n)
 function sortList(head) {
   if (!head || !head.next) return head;
 

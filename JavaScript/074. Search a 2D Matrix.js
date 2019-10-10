@@ -32,13 +32,13 @@
  */
 
 /** 1) Binary search twice, treat 2d matrix as a long array */
-// time O(log(mn))
+// Time O(log(mn))
 function searchMatrix1(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;
-  
+
   const m = matrix.length;
   const n = matrix[0].length;
-  
+
   let start = 0;
   let end = m * n - 1;
   let mid = 0;
@@ -58,7 +58,7 @@ function searchMatrix1(matrix, target) {
 }
 
 /** 2) Binary search twice, locate row first, then column */
-// time O(log(m) + log(n))
+// Time O(log(m) + log(n))
 function searchMatrix2(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;
 
@@ -98,7 +98,7 @@ function searchMatrix2(matrix, target) {
 // Similar
 // 240. Search a 2D Matrix II
 //
-// time O(m + n), rule out one row or one column each time
+// Time O(m + n), rule out one row or one column each time
 function searchMatrix(matrix, target) {
   if (!matrix.length || !matrix[0].length) return false;
 

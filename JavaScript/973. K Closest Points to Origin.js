@@ -31,7 +31,7 @@
  */
 
 /** 1) Sort */
-// time O(n log n)
+// Time O(n log n)
 function kClosest1(points, K) {
   const dist = ([x, y]) => x ** 2 + y ** 2;
 
@@ -41,7 +41,7 @@ function kClosest1(points, K) {
 }
 
 /** 2) Sort */
-// time O(n)
+// Time O(n)
 function kClosest(points, K) {
   const dist = ([x, y]) => x ** 2 + y ** 2;
 

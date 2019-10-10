@@ -19,8 +19,8 @@
  */
 
 /** Cycle detection - Floyd's Tortoise and Hare */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function detectCycle(head) {
   if (!head || !head.next || !head.next.next) return null;
 

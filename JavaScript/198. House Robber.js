@@ -22,8 +22,8 @@
  */
 
 /** 1) Recursion */
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function rob1(nums) {
   return count(nums.length - 1, {}, nums)
 }
@@ -41,8 +41,8 @@ function count(n, map, nums) {
 }
 
 /** 2) Iteration */
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function rob2(nums) {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
@@ -57,8 +57,8 @@ function rob2(nums) {
 }
 
 /** 3) Iteration */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function rob3(nums) {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
@@ -76,8 +76,8 @@ function rob3(nums) {
 }
 
 /** 4) Iteration */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function rob(nums) {
   let a = 0;
   let b = 0;

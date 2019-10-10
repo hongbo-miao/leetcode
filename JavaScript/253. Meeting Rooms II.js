@@ -17,8 +17,8 @@
  */
 
 /** Chronological ordering */
-// time O(log n)
-// space O(n)
+// Time O(log n)
+// Space O(n)
 function minMeetingRooms(intervals) {
   const starts = intervals
     .concat()  // make sure shallow copy, otherwise when sort ends, starts will change too

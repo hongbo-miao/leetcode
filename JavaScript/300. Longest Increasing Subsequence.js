@@ -24,8 +24,8 @@
 // 300. Longest Increasing Subsequence
 // 322. Coin Change
 //
-// time O(n^2)
-// space O(n)
+// Time O(n^2)
+// Space O(n)
 //
 // Example
 // nums: [10,9,2,5,3,7,101,18]
@@ -53,8 +53,8 @@ function lengthOfLIS1(nums) {
 /** 2) Dynamic programming with binary search */
 // https://leetcode.com/problems/longest-increasing-subsequence/discuss/74824/JavaPython-Binary-search-O(nlogn)-time-with-explanation
 //
-// time O(n log n)
-// space O(n)
+// Time O(n log n)
+// Space O(n)
 //
 // Example
 // nums = [10, 9, 2, 5, 3, 7, 101, 18]

@@ -3,17 +3,38 @@
 // Find two lines, which together with x-axis forms a container, such that the container contains the most water.
 //
 // Note: You may not slant the container and n is at least 2.
+//
+// Example:
+//
+// Input: [1,8,6,2,5,4,8,3,7]
+// Output: 49
+// Explanation: In this case, the max area of water (between the second 8 and 7) the container can contain is 49.
 
 /**
  * @param {number[]} height
  * @return {number}
  */
 
-/** Two pointers */
-// Complexity
-// time O(n)
-// space O(1)
-
+/** 1) Brute force */
+// Time O(n^2)
+// Space O(1)
+function maxArea1(heights) {
+  let max = 0;
+  for (let i = 0; i < heights.length; i++) {
+    for (let j = i + 1; j < heights.length; j++) {
+      max = Math.max(
+        max,
+        Math.min(heights[i], heights[j]) * (j - i),
+      );
+    }
+  }
+  return max;
+}
+/** 2) Two pointers */
+// Time O(n)
+// Space O(1)
+//
+// This is done since a relatively longer line obtained by moving the shorter line's pointer might overcome the reduction in area caused by the width reduction.
 // Proof (https://leetcode.com/problems/container-with-most-water/discuss/6099/Yet-another-way-to-see-what-happens-in-the-O(n)-algorithm)
 //
 // Draw a matrix where the row is the first line, and the column is the second line. For example, say n=6.
@@ -60,8 +81,10 @@ function maxArea(heights) {
   let r = heights.length - 1;
 
   while (l < r) {
-    const area = Math.min(heights[l], heights[r]) * (r - l);
-    max = Math.max(max, area);
+    max = Math.max(
+      max,
+      Math.min(heights[l], heights[r]) * (r - l),
+    );
 
     if (heights[l] < heights[r]) l++;
     else r--;

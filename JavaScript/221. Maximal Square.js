@@ -25,8 +25,8 @@
 //   1) if matrix[i][j] = 0, P[i][j] = 0
 //   2) if matrix[i][j] = 1, P[i][j] = min(P[i - 1][j], P[i][j - 1], P[i - 1][j - 1]) + 1
 //
-// time O(n^2)
-// space O(n^2), can be optimized to O(n)
+// Time O(n^2)
+// Space O(n^2), can be optimized to O(n)
 function maximalSquare(matrix) {
   if (!matrix.length) return 0;
 
@@ -37,7 +37,7 @@ function maximalSquare(matrix) {
     for (let j = 0; j < matrix[0].length; j++) row.push(0);
     sizes.push(row);
   }
-  
+
   let max = 0;
 
   for (let j = 0; j < matrix[0].length; j++) {

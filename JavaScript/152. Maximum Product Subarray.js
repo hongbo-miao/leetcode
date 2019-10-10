@@ -18,8 +18,8 @@
  */
 
 /** 1) */
-// time O(n^2)
-// space O(1)
+// Time O(n^2)
+// Space O(1)
 function maxProduct1(nums) {
   if (nums.length === 1) return nums[0];
 
@@ -38,8 +38,8 @@ function maxProduct1(nums) {
 }
 
 /** 2) */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function maxProduct(nums) {
   let res = -Infinity;
   let min = 1;

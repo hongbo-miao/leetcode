@@ -32,9 +32,8 @@ function maxSubArray1(nums) {
 }
 
 /** 2) Kadane's algorithm */
-// Complexity
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 //
 // Idea
 // Suppose we've solved the problem for A[1 .. i - 1]; how can we extend that to A[1 .. i]?

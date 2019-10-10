@@ -26,8 +26,8 @@ function mySqrt1(x) {
 }
 
 /** 2) */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function mySqrt2(x) {
   for (let i = 0; i <= x; i++) {
     if (i * i === x) return i;
@@ -50,8 +50,8 @@ function mySqrt3(x) {
 }
 
 /** 4) Binary search */
-// time O(log n)
-// space O(1)
+// Time O(log n)
+// Space O(1)
 function mySqrt(x) {
   let l = 1;
   let r = x;

@@ -32,7 +32,7 @@ function search1(nums, target) {
 /** 2) Binary search */
 // https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/273622/Javascript-Simple-O(log-N)-Binary-Search-Solution
 //
-// time O(log n)
+// Time O(log n)
 //
 // e.g. [1, 2, 3, 4, 5, 6, 7]
 //

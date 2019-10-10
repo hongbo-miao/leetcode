@@ -20,15 +20,15 @@
  */
 
 /** 1) Sorting */
-// time O(n log n)
-// space O(1)
+// Time O(n log n)
+// Space O(1)
 function findKthLargest1(nums, k) {
   return nums.sort((a, b) => b - a)[k - 1];
 }
 
 /** 2) */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 //
 // https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
 

@@ -46,9 +46,9 @@
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-// Complexity
-// time O(n)
-// space O(1)
+
+// Time O(n)
+// Space O(1)
 function connect(root) {
   if (root == null || root.left == null) return root;
 

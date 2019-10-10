@@ -24,8 +24,8 @@ function singleNumber1(nums) {
 }
 
 /** 2) */
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function singleNumber2(nums) {
   const map = {};
   for (let n of nums) {
@@ -39,8 +39,8 @@ function singleNumber2(nums) {
 }
 
 /** 3) */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function singleNumber(nums) {
   let num = 0;
   for (let n of nums) {

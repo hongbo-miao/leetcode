@@ -51,7 +51,7 @@
 // Could you do better than O(n2) per move() operation?
 
 // https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solution-easy-to-understand
-// time O(1)
+// Time O(1)
 class TicTacToe {
   /**
    * Initialize your data structure here.

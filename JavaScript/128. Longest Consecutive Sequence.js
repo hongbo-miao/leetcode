@@ -15,8 +15,7 @@
 
 // https://leetcode.com/problems/longest-consecutive-sequence/discuss/41055/My-really-simple-Java-O(n)-solution-Accepted
 //
-// Complexity
-// time O(n)
+// Time O(n)
 //
 // Idea
 // Only store the sequence length to the boundary points of the sequence
@@ -33,7 +32,7 @@
 function longestConsecutive(nums) {
   let max = 0;
   let lens = {};
-  
+
   for (let n of nums) {
     if (lens[n] !== undefined) continue;
 

@@ -26,8 +26,8 @@
  */
 
 /** 1) Sorting */
-// time O(n log n), other than the sort invocation, we do a simple linear scan of the list, so the runtime is dominated by the O(n log n) complexity of sorting
-// space O(1)
+// Time O(n log n), other than the sort invocation, we do a simple linear scan of the list, so the runtime is dominated by the O(n log n) complexity of sorting
+// Space O(1)
 function merge(intervals) {
   if (intervals.length === 0) return intervals;
 

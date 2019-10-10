@@ -47,8 +47,8 @@ function maxProfit1(prices) {
   return profit;
 }
 
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function maxProfit(prices) {
   let profit = 0;
 

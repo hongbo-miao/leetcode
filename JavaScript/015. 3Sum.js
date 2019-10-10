@@ -19,27 +19,26 @@
  * @return {number[][]}
  */
 
-/** Two pointers */
+/** Three pointers */
 // https://www.youtube.com/watch?v=y-zBV7uUkyI
 //
 // Idea
 // Select a first, move b to right, and move c to left
 //
-// Complexity
-// time O(n^2)
+// Time O(n^2)
 //
 // Example
 // -1, 0, 1, 2, -1, -4
 //  a  b             c
 function threeSum(nums) {
-  let res = [];
-
+  if (nums == null || nums.length === 0) return [];
   nums = nums.sort((a, b) => a - b);  // if sort() only will cause [-1, -2, -3, 1, 2, 3]
 
-  for (let i = 0; i < nums.length - 2; i++) { // nums.length - 2 because 3 pointers a, b, c
+  let res = [];
+  for (let i = 0; i < nums.length - 2; i++) {  // nums.length - 2 because 3 pointers a, b, c
     const a = nums[i];
 
-    if (i > 0 && a === nums[i - 1]) continue;  // move a to next different one to avoid duplicate results
+    if (i - 1 >= 0 && a === nums[i - 1]) continue;  // move a to next different one to avoid duplicate results
 
     let l = i + 1;
     let r = nums.length - 1;
@@ -52,7 +51,7 @@ function threeSum(nums) {
 
       if (sum < 0) l++;
       else if (sum > 0) r--;
-      else if (sum === 0) {
+      else {
         res.push([a, b, c]);
 
         l++;

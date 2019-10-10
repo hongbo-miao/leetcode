@@ -23,11 +23,10 @@
  */
 
 /** 1) Vertical scanning */
-// Complexity
-// time O(S), where S is the sum of all characters in all strings
+// Time O(S), where S is the sum of all characters in all strings
 //   In the worst case there will be nn equal strings with length mm and the algorithm performs S = m * n character comparisons
 //   In the best case there are at most n * minLen comparisons where minLen is the length of the shortest string in the array
-// space O(1)
+// Space O(1)
 function longestCommonPrefix1(strs) {
   if (strs.length === 0) return '';
 
@@ -46,11 +45,18 @@ function longestCommonPrefix1(strs) {
 }
 
 /** 2) Binary search */
-// Complexity
-// time O(S * log(n)), where S is the sum of all characters in all strings.
+// Time O(S * log(n)), where S is the sum of all characters in all strings.
 //   The algorithm makes log(n) iterations, for each of them there are S = m * n comparisons, which gives in total O(S * log(n)) time complexity.
-// space O(1)
+// Space O(1)
 function longestCommonPrefix(strs) {
+  function isCommonPrefix(len) {
+    const prefix = strs[0].slice(0, len);
+    for (let i = 1; i < strs.length; i++) {
+      if (!strs[i].startsWith(prefix)) return false;
+    }
+    return true;
+  }
+
   if (strs.length === 0) return '';
 
   let minLen = Infinity;
@@ -62,21 +68,11 @@ function longestCommonPrefix(strs) {
   let r = minLen;
 
   while (l <= r) {
-    const mid = Math.floor((l + r) / 2);
+    const m = Math.floor((l + r) / 2);
 
-    if (isCommonPrefix(strs, mid)) l = mid + 1;
-    else r = mid - 1;
+    if (isCommonPrefix(m)) l = m + 1;
+    else r = m - 1;
   }
 
   return strs[0].slice(0, Math.floor((l + r) / 2));
-}
-
-function isCommonPrefix(strs, len) {
-  const prefix = strs[0].slice(0, len);
-
-  for (let i = 1; i < strs.length; i++) {
-    if (!strs[i].startsWith(prefix)) return false;
-  }
-
-  return true;
 }

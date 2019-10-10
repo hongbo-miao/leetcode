@@ -22,8 +22,8 @@
  */
 
 /** Hash map */
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function containsNearbyDuplicate(nums, k) {
   const map = {};
 

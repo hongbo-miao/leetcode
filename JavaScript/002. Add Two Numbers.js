@@ -22,6 +22,8 @@
  */
 
 /** 1) */
+// Time O(n)
+// Space O(1)
 function addTwoNumbers1(l1, l2) {
   let l = new ListNode(null);
   const preHead = l;
@@ -51,6 +53,8 @@ function addTwoNumbers1(l1, l2) {
 }
 
 /** 2) same to 1), less compact, but easy to understand carry */
+// Time O(n)
+// Space O(1)
 function addTwoNumbers(l1, l2) {
   let l = new ListNode(null);
   const preHead = l;

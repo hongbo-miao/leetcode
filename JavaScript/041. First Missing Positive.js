@@ -28,9 +28,8 @@
 // When we find n, then swap it with nums[n - 1].
 // At last, the first place where its number is not right, return the place + 1.
 //
-// Complexity
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function firstMissingPositive(nums) {
   let i = 0;
 
@@ -45,6 +44,6 @@ function firstMissingPositive(nums) {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] !== i + 1) return i + 1;
   }
-  
+
   return nums.length + 1;
 }

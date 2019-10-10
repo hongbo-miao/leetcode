@@ -35,7 +35,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-// time O(n)
+// Time O(n)
 function maxPathSum(root) {
   let max = -Infinity;
 

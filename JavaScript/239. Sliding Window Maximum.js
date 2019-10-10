@@ -30,9 +30,8 @@
 /** Monotonic queue */
 // https://www.youtube.com/watch?v=2SXqBsTR6a8
 //
-// Complexity
-// time O(n)
-// space O(k)
+// Time O(n)
+// Space O(k)
 //
 // Idea
 // push an element in the queue will pop all elements smaller than it

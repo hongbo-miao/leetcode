@@ -14,6 +14,10 @@
  * @param {number} target
  * @return {number[]}
  */
+
+/** 1) Brute force */
+// Time O(n^2)
+// Space O(1)
 function twoSum1(nums, target) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
@@ -24,6 +28,9 @@ function twoSum1(nums, target) {
   }
 }
 
+/** 2) */
+// Time O(n)
+// Space O(n)
 function twoSum(nums, target) {
   const map = {};
 

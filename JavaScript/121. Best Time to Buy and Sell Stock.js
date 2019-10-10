@@ -37,8 +37,8 @@ function maxProfit1(prices) {
 }
 
 /** 2) */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function maxProfit(prices) {
   let min = Infinity;
   let max = 0;

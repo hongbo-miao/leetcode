@@ -25,9 +25,8 @@
 // Similar
 // 142. Linked List Cycle II
 //
-// Complexity
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function findDuplicate(nums) {
   let slow = nums[0];
   let fast = nums[nums[0]];

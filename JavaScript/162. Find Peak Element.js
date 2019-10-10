@@ -28,8 +28,8 @@
  * @return {number}
  */
 // 1) Linear scan
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function findPeakElement1(nums) {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] > nums[i + 1]) return i;
@@ -53,8 +53,8 @@ function findPeakElement1(nums) {
 //   l   m     r     l = 0, m = 2, r = 4
 //          lm r     l = 3, m = 3, r = 4
 //             lr    l = 4,        r = 4
-// time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
-// space O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. Thus, the depth of recursion tree will go up to log(n)
+// Time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
+// Space O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. Thus, the depth of recursion tree will go up to log(n)
 function findPeakElement2(nums) {
   function go(l, r) {
     if (l === r) return l;
@@ -70,8 +70,8 @@ function findPeakElement2(nums) {
 
 
 // 3) Binary search (iteration)
-// time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
-// space O(1)
+// Time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
+// Space O(1)
 function findPeakElement(nums) {
   let l = 0;
   let r = nums.length - 1;

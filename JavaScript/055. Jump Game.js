@@ -22,8 +22,8 @@
  * @return {boolean}
  */
 
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function canJump(nums) {
   let max = nums[0];
 

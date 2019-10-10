@@ -23,8 +23,8 @@
  */
 
 /** Hash map */
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function containsDuplicate(nums) {
   const map = {};
 

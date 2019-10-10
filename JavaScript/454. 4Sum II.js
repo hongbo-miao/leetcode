@@ -30,8 +30,8 @@
 // The paths through the column vectors A, B, C, and D with zero sum can be found by
 // first counting the paths halfway through with sum A[i] + B[j] and then checking if their additive inverses exist as C[k] + D[l].
 //
-// time O(n^2)
-// space O(n^2)
+// Time O(n^2)
+// Space O(n^2)
 function fourSumCount(A, B, C, D) {
   const map = {};
 

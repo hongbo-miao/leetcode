@@ -28,9 +28,8 @@
  */
 
 /** 1) Dynamic programming */
-// Complexity
-// time O(mn)
-// space O(n)
+// Time O(mn)
+// Space O(n)
 //
 // Example
 // 1   1  (1)  1  1  1  (init current row to 1)
@@ -49,9 +48,8 @@ function uniquePaths1(m, n) {
 }
 
 /** 2) */
-// Complexity
-// time O(mn)
-// space O(mn)
+// Time O(mn)
+// Space O(mn)
 function uniquePaths(m, n) {
   // init first row and col to 1, and the rest to 0
   const matrix = [];

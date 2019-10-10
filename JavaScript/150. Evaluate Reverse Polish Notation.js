@@ -45,21 +45,21 @@ function evalRPN(tokens) {
     '/': (a, b) => ~~(a / b)
   };
 
-  const stack = [];
+  const st = [];
 
   for (let n of tokens) {
     if (ops[n] != null) {
       const fn = ops[n];
-      const b = stack.pop();
-      const a = stack.pop();
+      const b = st.pop();
+      const a = st.pop();
 
-      stack.push(fn(a, b));
+      st.push(fn(a, b));
     } else {
-      stack.push(Number(n));
+      st.push(Number(n));
     }
   }
 
-  return stack[0];
+  return st[0];
 }
 
 /** 2) Slower than 1) */

@@ -23,8 +23,8 @@
 
 // https://www.youtube.com/watch?v=oUeGFKZvoo4
 //
-// time O(mn * 4^l), l = word.length
-// space O(mn + l)
+// Time O(mn * 4^l), l = word.length
+// Space O(mn + l)
 function exist(board, word) {
   if (board.length === 0) return false;
 

@@ -14,8 +14,8 @@
  */
 
 /** 1) Bucket sorting */
-// time O(n)
-// space O(n) array -> O(k) hashtable
+// Time O(n)
+// Space O(n) array -> O(k) hashtable
 function topKFrequent1(nums, k) {
   // number frequency map
   const map = {};

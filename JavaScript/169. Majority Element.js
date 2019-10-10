@@ -17,16 +17,16 @@
  */
 
 /** 1) Sorting */
-// time O(n log n)
-// space O(1)
+// Time O(n log n)
+// Space O(1)
 function majorityElement1(nums) {
   nums.sort((a, b) => a - b);
   return nums[Math.floor(nums.length / 2)];
 }
 
 /** 2) Hash map */
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function majorityElement(nums) {
   const map = {};
   for (let n of nums) {

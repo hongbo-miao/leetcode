@@ -26,8 +26,8 @@ function searchRange1(nums, target) {
 }
 
 /** 2) Binary search */
-// time O(log n)
-// space O(1)
+// Time O(log n)
+// Space O(1)
 function searchRange2(nums, target) {
   let res = [-1, -1];
 

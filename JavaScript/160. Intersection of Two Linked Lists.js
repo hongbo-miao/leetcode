@@ -33,8 +33,8 @@
  */
 
 /** 1) Hash map */
-// time O(m + n)
-// space O(m) or O(n)
+// Time O(m + n)
+// Space O(m) or O(n)
 function getIntersectionNode1(headA, headB) {
   let map = new Map();  // {} does not work here, since the key does not support ListNode
 
@@ -65,8 +65,8 @@ function getIntersectionNode2(headA, headB) {
 }
 
 /** 3) Two pointers (fast version) */
-// time O(m + n)
-// space O(1)
+// Time O(m + n)
+// Space O(1)
 //
 // To see why the above trick would work, consider the following two lists: A = {1,3,5,7,9,11} and B = {2,4,9,11},
 // which are intersected at node '9'. Since B.length (=4) < A.length (=6), b would reach the end of the merged list

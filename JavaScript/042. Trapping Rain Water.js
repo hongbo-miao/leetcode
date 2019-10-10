@@ -18,8 +18,8 @@
  */
 
 /** 1) Brute force */
-// time O(n^2)
-// space O(1)
+// Time O(n^2)
+// Space O(1)
 function trap1(height) {
   if (height == null || height.length === 0) return 0;
 
@@ -43,8 +43,8 @@ function trap1(height) {
 }
 
 /** 2) Dynamic programming */
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function trap2(height) {
   if (height == null || height.length === 0) return 0;
 
@@ -72,8 +72,8 @@ function trap2(height) {
 
 /** 3) Stack */
 // https://www.youtube.com/watch?v=78R14lKv_pE
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function trap3(height) {
   let res = 0;
   let i = 0;
@@ -97,8 +97,8 @@ function trap3(height) {
 }
 
 /** 4) Two pointers */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function trap(height) {
   if (height == null || height.length === 0) return 0;
 

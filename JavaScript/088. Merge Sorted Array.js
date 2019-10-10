@@ -21,7 +21,7 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 
-// time O(n)
+// Time O(n)
 function merge(nums1, m, nums2, n) {
   let i = m + n;
   m--;
@@ -51,7 +51,7 @@ function merge(nums1, m, nums2, n) {
   }
 }
 
-// time O(n)
+// Time O(n)
 function merge(nums1, m, nums2, n) {
   let i = m + n;
   m--;

@@ -18,8 +18,8 @@
 
 /** 1) Dynamic programming - state machine */
 // Check the state machine image at https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75928/Share-my-DP-solution-(By-State-Machine-Thinking)
-// time O(n)
-// space O(n)
+// Time O(n)
+// Space O(n)
 function maxProfit1(prices) {
   if (prices == null || prices.length === 0) return 0;
 
@@ -41,8 +41,8 @@ function maxProfit1(prices) {
 }
 
 /** 2) Improved version of 1) */
-// time O(n)
-// space O(1)
+// Time O(n)
+// Space O(1)
 function maxProfit(prices) {
   if (prices == null || prices.length === 0) return 0;
 
