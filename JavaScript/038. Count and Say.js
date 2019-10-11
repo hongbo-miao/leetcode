@@ -29,26 +29,24 @@
  */
 function countAndSay(n) {
   let res = '1';
-
   for (let i = 1; i < n; i++) {
     res = say(res);
   }
-
   return res;
 }
 
-function say(str) {
+function say(s) {
   let res = '';
   let count = 0;
-  let num = str[0];
+  let num = s[0];
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === num) {
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === num) {
       count++;
     } else {
-      res += count + str[i - 1];
+      res += count + s[i - 1];
       count = 1;
-      num = str[i];
+      num = s[i];
     }
   }
 

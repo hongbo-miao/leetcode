@@ -55,6 +55,10 @@
  * @param {character[][]} board
  * @return {boolean}
  */
+
+/** 1) Three iterations */
+// Time O(1), since it is const 81 cells
+// Space O(1)
 function isValidSudoku1(board) {
   // row
   for (let i = 0; i < 9; i++) {
@@ -90,12 +94,15 @@ function isValidSudoku1(board) {
   return true;
 }
 
+/** 2) One iterations */
+// Time O(1), since all we do here is just one iteration over the board with 81 cells
+// Space O(1)
 function isValidSudoku(board) {
-  // let row = Array(9).fill({});  // wrong, all will point to same {} reference
-  // let row = [{}, {}, {}, {}, {}, {}, {}, {}, {}];  // correct
-  let row = Array.from(Array(9), () => ({}));
-  let column = Array.from(Array(9), () => ({}));
-  let block = Array.from(Array(9), () => ({}));
+  // const row = Array(9).fill({});  // wrong, all will point to same {} reference
+  // const row = [{}, {}, {}, {}, {}, {}, {}, {}, {}];  // correct
+  const row = Array.from(new Array(9), () => ({}));
+  const column = Array.from(new Array(9), () => ({}));
+  const block = Array.from(new Array(9), () => ({}));
 
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {

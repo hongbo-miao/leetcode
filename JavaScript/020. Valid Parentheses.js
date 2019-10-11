@@ -36,11 +36,15 @@
  * @param {string} s
  * @return {boolean}
  */
+
+// Time O(n)
+// Space O(n), as we push all opening brackets onto the stack and in the worst case, we will end up pushing all the
+//   brackets onto the stack. e.g. ((((((((((.
 function isValid(s) {
   const map = {
     '(': ')',
     '[': ']',
-    '{': '}'
+    '{': '}',
   };
 
   const stack = [];
@@ -53,5 +57,5 @@ function isValid(s) {
     }
   }
 
-  return !stack.length;
+  return stack.length === 0;
 }

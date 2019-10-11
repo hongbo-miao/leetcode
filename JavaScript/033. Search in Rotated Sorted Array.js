@@ -25,20 +25,27 @@
  */
 
 /** 1) Cheating */
+// Time O(n)
+// Space O(1)
 function search1(nums, target) {
   return nums.indexOf(target);
 }
 
-/** 2) Binary search */
+/** 2) Brute force / Linear scan */
+// Time O(n)
+// Space O(1)
+
+/** 3) Binary search */
 // https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/273622/Javascript-Simple-O(log-N)-Binary-Search-Solution
 //
 // Time O(log n)
+// Space O(1)
 //
 // e.g. [1, 2, 3, 4, 5, 6, 7]
 //
 // When you divide the rotated array into two halves, using mid index, at least one of them should remain sorted ALWAYS.
 //
-// [3, 4, 5] [ 6, 7, 1, 2] the left side remains sorted
+// [3, 4, 5] [6, 7, 1, 2] the left side remains sorted
 // [6, 7, 1] [2, 3, 4, 5] the right side remains sorted
 // [1, 2, 3] [4, 5, 6, 7] Both sides remain sorted.
 //
@@ -49,16 +56,14 @@ function search1(nums, target) {
 //   then target is here
 // ELSE
 //   then target is on the other side
-function search2(nums, target) {
+function search3(nums, target) {
   let l = 0;
   let r = nums.length - 1;
 
   while (l <= r) {
-    let m = Math.floor((l + r) / 2);
+    const m = Math.floor((l + r) / 2);
 
-    if (nums[m] === target) {
-      return m;
-    }
+    if (nums[m] === target) return m;
 
     // When dividing the rotated array into two halves, one must be sorted
     // Check if the left side is sorted
@@ -74,7 +79,7 @@ function search2(nums, target) {
   return -1;
 }
 
-/** 3) Similar to 2) */
+/** 4) Similar to 3) */
 function search(nums, target) {
   let l = 0;
   let r = nums.length - 1;

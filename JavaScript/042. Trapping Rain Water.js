@@ -20,6 +20,9 @@
 /** 1) Brute force */
 // Time O(n^2)
 // Space O(1)
+//
+// Do as directed in question. For each element in the array, we find the maximum level of water it can trap after the
+// rain, which is equal to the minimum of maximum height of bars on both the sides minus its own height.
 function trap1(height) {
   if (height == null || height.length === 0) return 0;
 
@@ -45,6 +48,9 @@ function trap1(height) {
 /** 2) Dynamic programming */
 // Time O(n)
 // Space O(n)
+//
+// In brute force, we iterate over the left and right parts again and again just to find the highest bar size upto
+// that index. But, this could be stored. Voila, dynamic programming.
 function trap2(height) {
   if (height == null || height.length === 0) return 0;
 
@@ -80,7 +86,7 @@ function trap3(height) {
   const st = [];
 
   while (i < height.length) {
-    while (st.length !== 0 && height[i] > height[st[st.length - 1]]) {
+    while (st.length >= 1 && height[i] > height[st[st.length - 1]]) {
       const top = st[st.length - 1];
       st.pop();
 

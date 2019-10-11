@@ -21,14 +21,20 @@
  */
 
 /** 1) Cheating */
+// Time O(n)
+// Space O(1)
 function searchRange1(nums, target) {
   return [nums.indexOf(target), nums.lastIndexOf(target)];
 }
 
-/** 2) Binary search */
+/** 2) Brute force / Linear scan */
+// Time O(n)
+// Space O(1)
+
+/** 3) Binary search */
 // Time O(log n)
 // Space O(1)
-function searchRange2(nums, target) {
+function searchRange3(nums, target) {
   let res = [-1, -1];
 
   // find the left
@@ -60,7 +66,7 @@ function searchRange2(nums, target) {
   return res;
 }
 
-/** 3) Similar to 2), not optimized, but easier to understand */
+/** 4) Similar to 3), not optimized, but easier to understand */
 function searchRange(nums, target) {
   const res = [-1, -1];
 

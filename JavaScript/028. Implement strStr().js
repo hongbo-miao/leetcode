@@ -38,11 +38,11 @@ function strStr2(haystack, needle) {
   return -1;
 }
 
-/** 3) */
+/** 3) Same to 2) */
 function strStr(haystack, needle) {
   if (needle == null || needle === '') return 0;
 
-  for (let i = 0; i < haystack.length; i++) {
+  for (let i = 0; i < haystack.length - needle.length + 1; i++) {
     for (let j = 0; j < needle.length; j++) {
       if (haystack[i + j] !== needle[j]) break;
       if (j === needle.length - 1) return i;
