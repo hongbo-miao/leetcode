@@ -28,18 +28,19 @@
 /** 1) Recursion */
 // Time O(n), the time complexity is O(n) because the recursive function is T(n) = 2 * T(n / 2) + 1
 // Space O(log n), n is number of nodes. The worst case space is O(n)
-function inorderTraversal1(node) {
-  let res = [];
-  go(node, res);
+function inorderTraversal1(root) {
+  const res = [];
+
+  function go(node) {
+    if (node == null) return;
+
+    go(node.left, res);
+    res.push(node.val);
+    go(node.right, res);
+  }
+
+  go(root);
   return res;
-}
-
-function go(node, res) {
-  if (!node) return;
-
-  go(node.left, res);
-  res.push(node.val);
-  go(node.right, res);
 }
 
 /** 2) Iteration using stack */

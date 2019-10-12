@@ -27,7 +27,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-// 1) Linear scan
+/** 1) Linear scan */
 // Time O(n)
 // Space O(1)
 function findPeakElement1(nums) {
@@ -38,7 +38,7 @@ function findPeakElement1(nums) {
   return nums.length - 1;
 }
 
-// 2) Binary search (recursion)
+/** 2) Binary search (recursion) */
 // Consider that each local maximum is one valid peak.
 //             5
 //            / \
@@ -69,10 +69,10 @@ function findPeakElement2(nums) {
 }
 
 
-// 3) Binary search (iteration)
+/** 3) Binary search (iteration) */
 // Time O(log n). We reduce the search space in half at every step. Thus, the total search space will be consumed in log(n) steps. n refers to the size of nums array
 // Space O(1)
-function findPeakElement(nums) {
+function findPeakElement3(nums) {
   let l = 0;
   let r = nums.length - 1;
 
@@ -82,6 +82,24 @@ function findPeakElement(nums) {
     if (nums[m] > nums[m + 1]) r = m;
     else l = m + 1;
   }
+
+  return l;
+}
+
+/** 4) Binary search (iteration), similar to 3) */
+function findPeakElement(nums) {
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l + 1 < r) {
+    const m = Math.floor((l + r) / 2);
+
+    if (nums[m] > nums[m + 1]) r = m;
+    else l = m;
+  }
+
+  if (nums[l] > nums[l + 1]) return l;
+  if (nums[r] > nums[r - 1]) return r;
 
   return l;
 }
