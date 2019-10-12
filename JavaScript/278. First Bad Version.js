@@ -29,7 +29,7 @@
  * @return {function}
  */
 
-/** 1) Binary search */
+/** 1) Binary search (recursion) */
 function solution(isBadVersion) {
   /**
    * @param {integer} n Total versions
@@ -42,25 +42,28 @@ function solution(isBadVersion) {
   function find(l, r) {
     if (l === r) return r;
 
-    const mid = Math.floor((l + r) / 2);
-    return isBadVersion(mid) ? find(l, mid) : find(mid + 1, r);
+    const m = Math.floor((l + r) / 2);
+    return isBadVersion(m) ? find(l, m) : find(m + 1, r);
   }
 }
 
-/** 2) */
+/** 2) Binary search (iteration) */
 function solution(isBadVersion) {
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
   return function (n) {
-    return find(0, n);
-  };
-
-  function find(l, r) {
-    if (l === r || l + 1 === r) return r;
-
-    const mid = Math.floor((l + r) / 2);
-    return isBadVersion(mid) ? find(l, mid) : find(mid, r);
+    let l = 0;
+    let r = n;
+    while (l < r) {
+      const m = Math.floor((l + r) / 2);
+      if (isBadVersion(m)) {
+        r = m;
+      } else {
+        l = m + 1;
+      }
+    }
+    return l;
   }
 }
