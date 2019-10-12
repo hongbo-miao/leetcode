@@ -23,18 +23,16 @@
 
 /** 1) Iteration */
 function reverseList1(head) {
-  let prev = null;
+  if (head == null) return head;
+
   let curr = head;
-
-  while (curr) {
-    const next = curr.next;
-    curr.next = prev;
-
-    prev = curr;
-    curr = next;
+  while (head.next != null) {
+    const p = head.next;
+    head.next = p.next;
+    p.next = curr;
+    curr = p;
   }
-
-  return prev;
+  return curr;
 }
 
 /** 2) Recursion */
