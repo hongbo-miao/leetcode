@@ -15,7 +15,9 @@
  * @return {number}
  */
 
-/** 1) Slow way */
+/** 1) Brute force (time limit exceeded) */
+// Time O(n^3)
+// Space O(1)
 function maxSubArray1(nums) {
   let max = -Infinity;
   for (let i = 0; i < nums.length; i++) {

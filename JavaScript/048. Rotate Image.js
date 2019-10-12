@@ -45,63 +45,91 @@
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
 
-/** 1) Swap three times from outside to inside */
+/** 1) Reverse up to down, then swap the symmetry */
+// Time O(n^2)
+// Space O(1)
+//
+// To clockwise rotate, reverse up to down, then swap the symmetry
+// (To anticlockwise rotate, reverse left to right, then swap the symmetry)
+//
+// e.g.
+// 1 2 3    7 8 9    7 4 1
+// 4 5 6 -> 4 5 6 -> 8 5 2
+// 7 8 9    1 2 3    9 6 3
+function rotate1(matrix) {
+  matrix.reverse();
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = i + 1; j < matrix[i].length; j++)
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+  }
+}
+
+/** 2) Swap three times from outside to inside */
+// Time O(n^2)
+// Space O(1)
+//
 // https://youtu.be/Jtu6dJ0Cb94?t=2m20s
 //
-// Example
+// e.g.
 // Step 1: 1 -> 3 -> 9 -> 7, then 2 -> 6 -> 8 -> 4
 // 1 2 3    3 2 1    9 2 1    7 2 1
 // 4 5 6 -> 4 5 6 => 4 5 6 -> 4 5 6
 // 7 8 9    7 8 9    7 8 3    9 8 3
 //
 // Step 2: from outside to inside
-function rotate1(matrix) {
+function rotate2(matrix) {
+  function swap(x1, y1, x2, y2) {
+    [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
+  }
+
   const last = matrix.length - 1;
 
-  for (let i = 0; i < matrix.length / 2; i++) { // i is layer level
+  for (let i = 0; i < matrix.length / 2; i++) {  // i is layer level
     for (let j = i; j < last - i; j++) {
-      swap(matrix, i, j, j, last - i);
-      swap(matrix, i, j, last - i, last - j);
-      swap(matrix, i, j, last - j, i);
+      swap(i, j, j, last - i);
+      swap(i, j, last - i, last - j);
+      swap(i, j, last - j, i);
     }
   }
 }
 
-function swap(m, x1, y1, x2, y2) {
-  [m[x1][y1], m[x2][y2]] = [m[x2][y2], m[x1][y1]];
-}
+/** 3) Similar to 2) */
+// Time O(n^2)
+// Space O(1)
+function rotate3(matrix) {
+  function swap(x1, y1, x2, y2) {
+    [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
+  }
 
-/** 2) */
-function rotate2(matrix) {
   const last = matrix.length - 1;
 
   for (let i = 0; i < Math.floor(matrix.length / 2); i++) {
     for (let j = 0; j < matrix.length / 2; j++) {
-      swap(matrix, i, j, j, last - i);
-      swap(matrix, i, j, last - i, last - j);
-      swap(matrix, i, j, last - j, i);
+      swap(i, j, j, last - i);
+      swap(i, j, last - i, last - j);
+      swap(i, j, last - j, i);
     }
   }
 }
 
-function swap(m, x1, y1, x2, y2) {
-  [m[x1][y1], m[x2][y2]] = [m[x2][y2], m[x1][y1]];
-}
-
-/** 3) Reverse up to down, then swap the symmetry */
-// Idea
-// To clockwise rotate, reverse up to down, then swap the symmetry
-// (To anticlockwise rotate, reverse left to right, then swap the symmetry)
-//
-// Example
-// 1 2 3    7 8 9    7 4 1
-// 4 5 6 -> 4 5 6 -> 8 5 2
-// 7 8 9    1 2 3    9 6 3
+/** 4) Rotate four rectangles, easier to understand than 2) and 3) */
+// Time O(n^2)
+// Space O(1)
 function rotate(matrix) {
-  matrix.reverse();
+  function swap(x1, y1, x2, y2) {
+    [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
+  }
 
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = i + 1; j < matrix[i].length; j++)
-    [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+  const last = matrix.length - 1;
+
+  for (let i = 0; i < Math.floor(matrix.length / 2); i++) {
+    for (let j = 0; j < matrix.length / 2; j++) {
+      const tmp = matrix[i][j];
+      swap(i, j, last - j, i);
+      swap(last - j, i, last - i, last - j);
+      swap(last - i, last - j, j, last -i);
+      matrix[j][last - i] = tmp;
+    }
   }
 }
