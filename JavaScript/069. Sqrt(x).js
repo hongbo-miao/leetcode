@@ -56,12 +56,13 @@ function mySqrt(x) {
   let l = 1;
   let r = x;
 
-  while (l < r - 1) {   // if l < r, x = 8, at some point, l = 2, r = 3, will enter loop
+  while (l <= r) {
     const m = Math.floor((l + r) / 2);
 
     if (m * m === x) return m;
-    else if (m * m < x) l = m;
-    else r = m;
+
+    if (m * m < x) l = m + 1;
+    else r = m - 1;
   }
 
   return Math.min(l, r);
