@@ -34,13 +34,14 @@
 // Time O(n). Since traversing the entire input tree once, the total run time is O(n)
 // Space O(n). The number of recursive calls is bound by the height of the tree. In the worst case, the tree is linear and the height is in O(n)
 function isSymmetric(root) {
-  if (!root) return true;
+  if (root == null) return true;
+
+  function isMirror(a, b) {
+    if (a == null && b == null) return true;
+    if (a == null || b == null || a.val !== b.val) return false;
+
+    return isMirror(a.left, b.right) && isMirror(a.right, b.left);
+  }
+
   return isMirror(root.left, root.right);
-}
-
-function isMirror(a, b) {
-  if(!a && !b) return true;
-  if(!a || !b || a.val !== b.val) return false;
-
-  return isMirror(a.left, b.right) && isMirror(a.right, b.left);
 }

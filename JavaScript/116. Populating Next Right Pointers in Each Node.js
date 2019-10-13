@@ -35,21 +35,23 @@
 // 4->5->6->7 -> NULL
 
 /**
- * Definition for binary tree with next pointer.
- * function TreeLinkNode(val) {
- *     this.val = val;
- *     this.left = this.right = this.next = null;
- * }
+ * // Definition for a Node.
+ * function Node(val,left,right,next) {
+ *    this.val = val;
+ *    this.left = left;
+ *    this.right = right;
+ *    this.next = next;
+ * };
  */
-
 /**
- * @param {TreeLinkNode} root
- * @return {void} Do not return anything, modify tree in-place instead.
+ * @param {Node} root
+ * @return {Node}
  */
 
+/** 1) */
 // Time O(n)
 // Space O(1)
-function connect(root) {
+function connect1(root) {
   if (root == null || root.left == null) return root;
 
   root.left.next = root.right;  // connect left -> right
@@ -58,5 +60,29 @@ function connect(root) {
   connect(root.left);
   connect(root.right);
 
-  return root
+  return root;
+}
+
+/** 2) BFS - level-order traversal */
+// Similar
+// 102. Binary Tree Level Order Traversal
+//
+// Time O(n)
+function connect(root) {
+  if (root == null) return null;
+
+  let q = [root];
+
+  while (q.length) {
+    const nodes = [...q];
+    q = [];
+    while (nodes.length) {
+      const node = nodes.shift();
+      node.next = nodes.length ? nodes[0] : null;
+
+      if (node.left) q.push(node.left);
+      if (node.right) q.push(node.right);
+    }
+  }
+  return root;
 }

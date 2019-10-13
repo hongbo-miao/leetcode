@@ -59,7 +59,7 @@ function numDecodings(s) {
   for (let i = 2; i <= s.length; i++) {
     const a = Number(s.slice(i - 1, i));  // last one digit
     if (a >= 1 && a <= 9) {
-      dp[i] += dp[i - 1];
+      dp[i] = dp[i - 1];
     }
 
     const b = Number(s.slice(i - 2, i));  // last two digits

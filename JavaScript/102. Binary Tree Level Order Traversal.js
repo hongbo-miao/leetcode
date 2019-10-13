@@ -29,10 +29,11 @@
 /** DFS - preorder traversal */
 // Similar
 // 103. Binary Tree Zigzag Level Order Traversal
+// 116. Populating Next Right Pointers in Each Node
 //
 // Time O(n)
 // Space O(n)
-function levelOrder(root) {
+function levelOrder1(root) {
   const res = [];
 
   function go(node, lvl) {
@@ -46,5 +47,30 @@ function levelOrder(root) {
   }
 
   go(root, 0);
+  return res;
+}
+
+/** BFS - level-order traversal */
+function levelOrder(root) {
+  if (root == null) return [];
+
+  const res = [];
+
+  let q = [root];
+  while (q.length) {
+    const nodes = [...q];
+    q = [];
+
+    const row = [];
+    while (nodes.length) {
+      const node = nodes.shift();
+      row.push(node.val);
+      if (node.left) q.push(node.left);
+      if (node.right) q.push(node.right);
+    }
+
+    res.push(row);
+  }
+
   return res;
 }
