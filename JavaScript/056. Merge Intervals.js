@@ -28,7 +28,7 @@
 /** 1) Sorting */
 // Time O(n log n), other than the sort invocation, we do a simple linear scan of the list, so the runtime is dominated by the O(n log n) complexity of sorting
 // Space O(1)
-function merge(intervals) {
+function merge1(intervals) {
   if (intervals.length === 0) return intervals;
 
   intervals.sort((a, b) => a[0] - b[0]);

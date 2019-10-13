@@ -33,7 +33,7 @@ function maxSubArray1(nums) {
   return max;
 }
 
-/** 2) Kadane's algorithm */
+/** 2) Dynamic programming - Kadane's algorithm */
 // Time O(n)
 // Space O(1)
 //

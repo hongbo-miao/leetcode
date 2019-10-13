@@ -65,5 +65,5 @@ function mySqrt(x) {
     else r = m - 1;
   }
 
-  return Math.min(l, r);
+  return r;
 }

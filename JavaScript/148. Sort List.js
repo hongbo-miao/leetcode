@@ -52,7 +52,7 @@ function split(head) {
 }
 
 function merge(l1, l2) {
-  let preHead = new ListNode(null);
+  const preHead = new ListNode(null);
   let p = preHead;
 
   while (l1 && l2) {

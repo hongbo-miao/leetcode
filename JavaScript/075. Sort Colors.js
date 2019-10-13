@@ -20,7 +20,9 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
-// Example
+// Time O(n)
+// Space O(1)
+//
 // 0 0 | 1 | 2 1 | 2
 //   l       i     r
 function sortColors(nums) {

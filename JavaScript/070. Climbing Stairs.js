@@ -26,16 +26,12 @@
  * @return {number}
  */
 
-/** 1) Recursion */
+/** 1) Recursion (time limit exceeded) */
 // Time O(2^n) - O(branch ^ recursion depth)
 // Space O(n) - O(recursion depth)
 function climbStairs1(n) {
-  return climb(n);
-}
-
-function climb(n) {
   if (n < 2) return 1;
-  return climb(n - 2) + climb(n - 1);
+  return climbStairs(n - 2) + climbStairs(n - 1);
 }
 
 /** 2) Recursion (memoization) */
@@ -56,13 +52,13 @@ function climb(n, cache) {
 // Time O(n)
 // Space O(n)
 function climbStairs3(n) {
-  const array = [1, 1];
+  const dp = [1, 1];
 
   for (let i = 2; i <= n; i++) {
-    array[i] = array[i - 2] + array[i - 1];
+    dp[i] = dp[i - 2] + dp[i - 1];
   }
 
-  return array[n];
+  return dp[n];
 }
 
 /** 4) Dynamic programming - Fibonacci (optimization) */

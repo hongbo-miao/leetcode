@@ -39,19 +39,19 @@ function searchMatrix1(matrix, target) {
   const m = matrix.length;
   const n = matrix[0].length;
 
-  let start = 0;
-  let end = m * n - 1;
+  let l = 0;
+  let r = m * n - 1;
   let mid = 0;
 
-  while (start <= end) {
-    mid = Math.floor((start + end) / 2);
+  while (l <= r) {
+    mid = Math.floor((l + r) / 2);
 
-    const i = Math.floor((mid / n));
-    const j = mid - i * n;
+    const i = Math.floor((mid / n));  // row
+    const j = mid % n;  // col
 
     if (matrix[i][j] === target) return true;
-    else if (matrix[i][j] < target) start = mid + 1;
-    else if (matrix[i][j] > target) end = mid - 1;
+    else if (matrix[i][j] < target) l = mid + 1;
+    else r = mid - 1;
   }
 
   return false;
@@ -67,28 +67,27 @@ function searchMatrix2(matrix, target) {
 
   if (target < matrix[0][0] || target > matrix[m - 1][n - 1]) return false;
 
-  let start = 0;
-  let end = m - 1;
-  let mid = 0;
+  let l = 0;
+  let r = m - 1;
 
-  while (start <= end) {
-    mid = Math.floor((start + end) / 2);
+  while (l <= r) {
+    const mid = Math.floor((l + r) / 2);
 
     if (matrix[mid][0] === target) return true;
-    else if (matrix[mid][0] < target) start = mid + 1;
-    else if (matrix[mid][0] > target) end = mid - 1;
+    else if (matrix[mid][0] < target) l = mid + 1;
+    else r = mid - 1;
   }
 
-  const row = end;
-  start = 0;
-  end = n - 1;
+  const row = r;
+  l = 0;
+  r = n - 1;
 
-  while (start <= end) {
-    mid = Math.floor((start + end) / 2);
+  while (l <= r) {
+    const mid = Math.floor((l + r) / 2);
 
     if (matrix[row][mid] === target) return true;
-    else if (matrix[row][mid] < target) start = mid + 1;
-    else if (matrix[row][mid] > target) end = mid - 1;
+    else if (matrix[row][mid] < target) l = mid + 1;
+    else r = mid - 1;
   }
 
   return false;
@@ -106,9 +105,9 @@ function searchMatrix(matrix, target) {
   let col = matrix[0].length - 1;
 
   while (col >= 0 && row <= matrix.length - 1) {
-    if (matrix[row][col] === target) return true;
-    else if (matrix[row][col] > target) col--;
-    else if (matrix[row][col] < target) row++;
+    if (target === matrix[row][col]) return true;
+    else if (target < matrix[row][col]) col--;
+    else if (target > matrix[row][col]) row++;
   }
 
   return false;
