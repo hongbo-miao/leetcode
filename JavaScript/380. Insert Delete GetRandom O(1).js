@@ -79,7 +79,7 @@ class RandomizedSet {
    * @return {number}
    */
   getRandom() {
-    const i = Math.floor(Math.random() * this.nums.length);
+    const i = ~~(Math.random() * this.nums.length);
     return this.nums[i]
   }
 }

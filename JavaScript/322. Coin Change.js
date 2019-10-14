@@ -90,10 +90,10 @@ function coinChange1(coins, amount) {
     // last smallest coin
     if (k === coins.length - 1) {
       if (amount % coin === 0) {
-        res = Math.min(res, count + Math.floor(amount / coin));
+        res = Math.min(res, count + ~~(amount / coin));
       }
     } else {
-      for (let i = Math.floor(amount / coin); i >= 0 && count + i < res; i--) { // count + i < res is for pruning, avoid unnecessary calculation
+      for (let i = ~~(amount / coin); i >= 0 && count + i < res; i--) { // count + i < res is for pruning, avoid unnecessary calculation
         find(k + 1, amount - coin * i, count + i);
       }
     }

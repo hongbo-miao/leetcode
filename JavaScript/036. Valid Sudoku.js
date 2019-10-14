@@ -110,7 +110,7 @@ function isValidSudoku(board) {
 
       if (c === '.') continue;
 
-      const blockIdx = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+      const blockIdx = ~~(i / 3) * 3 + ~~(j / 3);
 
       if (row[i][c] || column[j][c] || block[blockIdx][c]) return false;
 

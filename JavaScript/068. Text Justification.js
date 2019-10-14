@@ -87,7 +87,7 @@ function fullJustify(words, maxWidth) {
       res[i] = row.join(' ') + ' '.repeat(maxWidth - row.letters - row.length + 1);
     } else {
       const spaces = maxWidth - row.letters;
-      const minSpaces = ' '.repeat(Math.floor(spaces / (row.length - 1)));
+      const minSpaces = ' '.repeat(~~(spaces / (row.length - 1)));
       const addSpace = spaces % (row.length - 1);
 
       let line = row[0];

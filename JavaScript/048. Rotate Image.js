@@ -104,7 +104,7 @@ function rotate3(matrix) {
 
   const last = matrix.length - 1;
 
-  for (let i = 0; i < Math.floor(matrix.length / 2); i++) {
+  for (let i = 0; i < ~~(matrix.length / 2); i++) {
     for (let j = 0; j < matrix.length / 2; j++) {
       swap(i, j, j, last - i);
       swap(i, j, last - i, last - j);
@@ -123,7 +123,7 @@ function rotate(matrix) {
 
   const last = matrix.length - 1;
 
-  for (let i = 0; i < Math.floor(matrix.length / 2); i++) {
+  for (let i = 0; i < ~~(matrix.length / 2); i++) {
     for (let j = 0; j < matrix.length / 2; j++) {
       const tmp = matrix[i][j];
       swap(i, j, last - j, i);

@@ -78,7 +78,7 @@ function lengthOfLIS(nums) {
     let j = tails.length;
 
     while (j > i) {
-      const mid = Math.floor((i + j) / 2);
+      const mid = ~~((i + j) / 2);
 
       if (tails[mid] < n) i = mid + 1;
       else j = mid;

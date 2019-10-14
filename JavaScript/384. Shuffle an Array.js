@@ -40,7 +40,7 @@ class Solution {
     let i = nums.length;
 
     while (i--) {
-      const n = Math.floor(Math.random() * nums.length);
+      const n = ~~(Math.random() * nums.length);
       [nums[i], nums[n]] = [nums[n], nums[i]];
     }
 

@@ -22,7 +22,7 @@
  */
 /** 1) Cheating */
 function mySqrt1(x) {
-  return Math.floor(Math.sqrt(x));
+  return ~~(x ** 0.5);
 }
 
 /** 2) */

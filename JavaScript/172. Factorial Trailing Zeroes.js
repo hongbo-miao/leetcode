@@ -23,8 +23,8 @@
 // e.g. 26, res = (25 / 5) + (5 / 5) = 6
 function trailingZeroes1(n) {
   let count = 0;
-  for (let i = n; i > 0; i = Math.floor(i / 5)) {
-    count += Math.floor(i / 5);
+  for (let i = n; i > 0; i = ~~(i / 5)) {
+    count += ~~(i / 5);
   }
   return count;
 }
@@ -33,5 +33,5 @@ function trailingZeroes1(n) {
 function trailingZeroes(n) {
   return n === 0 ?
     0 :
-    Math.floor(n / 5) + trailingZeroes(Math.floor(n / 5));
+    ~~(n / 5) + trailingZeroes(~~(n / 5));
 }

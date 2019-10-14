@@ -95,7 +95,7 @@ function myPow(x, n) {
 
   let res = 1;
   let product = x;
-  for (let i = n; i > 0; i = Math.floor(i / 2)) {
+  for (let i = n; i > 0; i = ~~(i / 2)) {
     if (i % 2 === 1) {
       res = res * product;
     }

@@ -35,7 +35,7 @@ function fractionToDecimal(numerator, denominator) {
   let n = Math.abs(numerator);
   const d = Math.abs(denominator);
 
-  s += Math.floor(n / d);
+  s += ~~(n / d);
   n %= d;
 
   if (n === 0) return s;
@@ -48,7 +48,7 @@ function fractionToDecimal(numerator, denominator) {
     map[n] = s.length;
 
     n *= 10;
-    s += Math.floor(n / d);
+    s += ~~(n / d);
     n %= d;
 
     const i = map[n];  // repeat starting index

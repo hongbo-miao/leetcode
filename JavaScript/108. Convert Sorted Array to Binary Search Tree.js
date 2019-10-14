@@ -28,11 +28,10 @@
 function sortedArrayToBST(nums) {
   if (!nums.length) return null;
 
-  const mid = Math.floor(nums.length / 2);
+  const m = ~~(nums.length / 2);
 
-  const node = new TreeNode(nums[mid]);
-  node.left = sortedArrayToBST(nums.slice(0, mid));
-  node.right = sortedArrayToBST(nums.slice(mid + 1));   // make sure + 1, because mid number is root node, so need skip it
-
+  const node = new TreeNode(nums[m]);
+  node.left = sortedArrayToBST(nums.slice(0, m));
+  node.right = sortedArrayToBST(nums.slice(m + 1));   // make sure + 1, because middle number is root node, so need skip it
   return node;
 }

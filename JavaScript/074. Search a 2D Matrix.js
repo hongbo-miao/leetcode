@@ -46,7 +46,7 @@ function searchMatrix1(matrix, target) {
   while (l <= r) {
     mid = ~~((l + r) / 2);
 
-    const i = Math.floor((mid / n));  // row
+    const i = ~~(mid / n);  // row
     const j = mid % n;  // col
 
     if (matrix[i][j] === target) return true;

@@ -8,14 +8,15 @@
  * @return {string}
  */
 
-/** Cheating */
+/** 1) Cheating */
 function reverseString1(s) {
   return s.split('').reverse().join('');
 }
 
+/** 2) */
 function reverseString(s) {
   const l = s.length - 1;
-  for (let i = 0; i < Math.floor(s.length / 2); i++) {
+  for (let i = 0; i < ~~(s.length / 2); i++) {
     [s[i], s[l - i]] = [s[l - i], s[i]];
   }
 }

@@ -42,8 +42,7 @@ function searchRange3(nums, target) {
   let r = nums.length - 1;
 
   while (l < r) {
-    const m = ~~((l + r) / 2);  // note using Math.floor
-
+    const m = ~~((l + r) / 2);
     if (nums[m] < target) l = m + 1;
     else r = m;
   }
@@ -75,8 +74,7 @@ function searchRange(nums, target) {
   let r = nums.length - 1;
 
   while (l < r) {
-    const m = ~~((l + r) / 2);  // note using Math.floor
-
+    const m = ~~((l + r) / 2);
     if (nums[m] < target) l = m + 1;
     else r = m;
   }

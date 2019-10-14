@@ -21,7 +21,7 @@
 // Space O(1)
 function majorityElement1(nums) {
   nums.sort((a, b) => a - b);
-  return nums[Math.floor(nums.length / 2)];
+  return nums[~~(nums.length / 2)];
 }
 
 /** 2) Hash map */
