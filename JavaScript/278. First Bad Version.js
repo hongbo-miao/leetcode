@@ -42,7 +42,7 @@ function solution(isBadVersion) {
   function find(l, r) {
     if (l === r) return r;
 
-    const m = Math.floor((l + r) / 2);
+    const m = ~~((l + r) / 2);
     return isBadVersion(m) ? find(l, m) : find(m + 1, r);
   }
 }
@@ -57,7 +57,7 @@ function solution(isBadVersion) {
     let l = 0;
     let r = n;
     while (l < r) {
-      const m = Math.floor((l + r) / 2);
+      const m = ~~((l + r) / 2);
       if (isBadVersion(m)) {
         r = m;
       } else {

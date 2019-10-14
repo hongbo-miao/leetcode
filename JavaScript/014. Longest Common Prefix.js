@@ -68,11 +68,11 @@ function longestCommonPrefix(strs) {
   let r = minLen;
 
   while (l <= r) {
-    const m = Math.floor((l + r) / 2);
+    const m = ~~((l + r) / 2);
 
     if (isCommonPrefix(m)) l = m + 1;
     else r = m - 1;
   }
 
-  return strs[0].slice(0, Math.floor((l + r) / 2));
+  return strs[0].slice(0, ~~((l + r) / 2));
 }

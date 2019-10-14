@@ -61,7 +61,7 @@ function search3(nums, target) {
   let r = nums.length - 1;
 
   while (l <= r) {
-    const m = Math.floor((l + r) / 2);
+    const m = ~~((l + r) / 2);
 
     if (nums[m] === target) return m;
 
@@ -85,7 +85,7 @@ function search(nums, target) {
   let r = nums.length - 1;
 
   while (l + 1 < r) {
-    const m = Math.floor((l + r) / 2);
+    const m = ~~((l + r) / 2);
 
     if (nums[m] === target) return m;
 

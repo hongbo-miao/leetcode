@@ -44,7 +44,7 @@ function searchMatrix1(matrix, target) {
   let mid = 0;
 
   while (l <= r) {
-    mid = Math.floor((l + r) / 2);
+    mid = ~~((l + r) / 2);
 
     const i = Math.floor((mid / n));  // row
     const j = mid % n;  // col
@@ -71,7 +71,7 @@ function searchMatrix2(matrix, target) {
   let r = m - 1;
 
   while (l <= r) {
-    const mid = Math.floor((l + r) / 2);
+    const mid = ~~((l + r) / 2);
 
     if (matrix[mid][0] === target) return true;
     else if (matrix[mid][0] < target) l = mid + 1;
@@ -83,7 +83,7 @@ function searchMatrix2(matrix, target) {
   r = n - 1;
 
   while (l <= r) {
-    const mid = Math.floor((l + r) / 2);
+    const mid = ~~((l + r) / 2);
 
     if (matrix[row][mid] === target) return true;
     else if (matrix[row][mid] < target) l = mid + 1;
