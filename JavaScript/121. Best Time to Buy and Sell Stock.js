@@ -22,7 +22,9 @@
  * @return {number}
  */
 
-/** 1) */
+/** 1) Brute force */
+// Time O(n^2)
+// Space O(1)
 function maxProfit1(prices) {
   let max = 0;
 
@@ -36,7 +38,7 @@ function maxProfit1(prices) {
   return max;
 }
 
-/** 2) */
+/** 2) One pass using min and max */
 // Time O(n)
 // Space O(1)
 function maxProfit(prices) {

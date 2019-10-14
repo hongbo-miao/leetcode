@@ -41,7 +41,13 @@
  * @return {number}
  */
 
-/** BFS */
+/** 1) BFS */
+// Time O(M * N), where M is the length of words and N is the total number of words in the input word list. Finding
+//   out all the transformations takes M iterations for each of the N words. Also, breadth first search in the worst
+//   case might go to each of the N words.
+//
+// Space O(M * N), to store all M transformations for each of the N words, in the all_combo_dict dictionary. Visited
+// dictionary is of N size. Queue for BFS in worst case would need space for all N words.
 function ladderLength(beginWord, endWord, wordList) {
   const dict = new Set(wordList);
   let step = 1;
@@ -69,3 +75,13 @@ function ladderLength(beginWord, endWord, wordList) {
 
   return 0;
 }
+
+/** 2) Bidirectional BFS */
+// https://leetcode.com/problems/word-ladder/solution/
+//
+// Time O(M * N), where M is the length of words and NN is the total number of words in the input word list. Similar
+//   to one directional, bidirectional also takes M*N for finding out all the transformations. But the search time
+//   reduces to half, since the two parallel searches meet somewhere in the middle.
+//
+// Space O(M * N), to store all MM transformations for each of the N words, in the all_combo_dict dictionary, same
+//   as one directional. But bidirectional reduces the search space. It narrows down because of meeting in the middle.

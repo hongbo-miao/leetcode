@@ -35,22 +35,24 @@
  * @param {TreeNode} root
  * @return {number}
  */
-// Time O(n)
+
+/** Recursion */
+// Time O(N) where N is number of nodes, since we visit each node not more than 2 times.
+// Space O(log(N)). We have to keep a recursion stack of the size of the tree height, which is O(log(N)) for the binary tree.
 function maxPathSum(root) {
   let max = -Infinity;
 
-  function getMaxSum(node) {
-    if (!node) return 0;
+  function getMaxGain(node) {
+    if (node == null) return 0;
 
-    const l = getMaxSum(node.left);   // left max
-    const r = getMaxSum(node.right);  // right max
+    const l = Math.max(0, getMaxGain(node.left));  // left max gain. If < 0, returning 0 means ignoring this branch
+
+    const r = Math.max(0, getMaxGain(node.right));  // right max gain
 
     max = Math.max(max, node.val + l + r);
-
-    return Math.max(node.val + l, node.val + r, 0); // if smaller than 0, returning 0 means ignoring this branch
+    return node.val + Math.max(l, r);
   }
 
-  getMaxSum(root);
-
+  getMaxGain(root);
   return max;
 }

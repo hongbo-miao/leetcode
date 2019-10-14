@@ -38,7 +38,7 @@ function singleNumber2(nums) {
   }
 }
 
-/** 3) */
+/** 3) Bit manipulation */
 // Time O(n)
 // Space O(1)
 function singleNumber(nums) {
