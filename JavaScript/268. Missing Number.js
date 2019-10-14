@@ -17,7 +17,22 @@
  * @param {number[]} nums
  * @return {number}
  */
-function missingNumber(nums) {
+
+/** 1) Gauss' Formula */
+// Time O(n)
+// Space O(1)
+ function missingNumber1(nums) {
   const sum = nums.reduce((a, b) => a + b);
-  return nums.length * (nums.length + 1) / 2 - sum;
+  return (1 + nums.length) * nums.length / 2 - sum;
+}
+
+/** 2) Hash Set */
+// Time O(n)
+// Space O(n)
+function missingNumber(nums) {
+  const set = new Set(nums);
+  for (let i = 0; i <= nums.length; i++) {
+    if (!set.has(i)) return i;
+  }
+  return -1;
 }

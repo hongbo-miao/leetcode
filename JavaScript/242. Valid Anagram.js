@@ -21,6 +21,31 @@
  * @param {string} t
  * @return {boolean}
  */
-function isAnagram(s, t) {
+
+/** 1) Sorting */
+// Time O(n log n)
+// Space O(1). Space depends on the sorting implementation which, usually, costs O(1)O(1) auxiliary space if heapsort is used.
+function isAnagram1(s, t) {
   return s.split('').sort().join('') === t.split('').sort().join('');
+}
+
+/** 2) Hash map */
+// Time O(n)
+// Space O(n)
+function isAnagram(s, t) {
+  if (s.length !== t.length) return false;
+
+  const map = {};
+
+  for (let c of s) {
+    if (map[c] == null) map[c] = 0;
+    map[c]++;
+  }
+
+  for (let c of t) {
+    if (map[c] != null) map[c]--;
+    else return false;
+  }
+
+  return true;
 }

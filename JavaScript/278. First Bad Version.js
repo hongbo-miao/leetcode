@@ -30,21 +30,19 @@
  */
 
 /** 1) Binary search (recursion) */
-function solution(isBadVersion) {
+function solution1(isBadVersion) {
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
   return function (n) {
+    function find(l, r) {
+      if (l === r) return r;
+      const m = ~~((l + r) / 2);
+      return isBadVersion(m) ? find(l, m) : find(m + 1, r);
+    }
     return find(1, n);  // or find(0, n);
   };
-
-  function find(l, r) {
-    if (l === r) return r;
-
-    const m = ~~((l + r) / 2);
-    return isBadVersion(m) ? find(l, m) : find(m + 1, r);
-  }
 }
 
 /** 2) Binary search (iteration) */
@@ -58,11 +56,8 @@ function solution(isBadVersion) {
     let r = n;
     while (l < r) {
       const m = ~~((l + r) / 2);
-      if (isBadVersion(m)) {
-        r = m;
-      } else {
-        l = m + 1;
-      }
+      if (!isBadVersion(m)) l = m + 1;
+      else r = m;
     }
     return l;
   }

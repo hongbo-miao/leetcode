@@ -17,11 +17,14 @@
  */
 
 /** Chronological ordering */
-// Time O(log n)
+// https://leetcode.com/problems/meeting-rooms-ii/discuss/67855/Explanation-of-%22Super-Easy-Java-Solution-Beats-98.8%22-from-%40pinkfloyda
+// For simulation, check @JobQ' comment under the post.
+//
+// Time O(n log n)
 // Space O(n)
 function minMeetingRooms(intervals) {
   const starts = intervals
-    .concat()  // make sure shallow copy, otherwise when sort ends, starts will change too
+    .concat()  // make sure shallow copy, otherwise when sort 'ends', 'starts' will change too
     .map(a => a[0])
     .sort((a, b) => a - b);
 
@@ -29,14 +32,14 @@ function minMeetingRooms(intervals) {
     .map(a => a[1])
     .sort((a, b) => a - b);
 
-  let rooms = 0;
-  let end = 0;
+  let room = 0;
+  let endIdx = 0;
   for (let i = 0; i < intervals.length; i++) {
-    if (starts[i] < ends[end]) {
-      rooms++;
+    if (starts[i] < ends[endIdx]) {
+      room++;
     } else {
-      end++;
+      endIdx++;
     }
   }
-  return rooms;
+  return room;
 }

@@ -58,7 +58,7 @@ function alienOrder(words) {
   for (let w of words) {
     for (let c of w) {
       inDegree[c] = 0;
-      graph[c] = [];
+      graph[c] = new Set();
     }
   }
 
@@ -72,8 +72,8 @@ function alienOrder(words) {
       const c2 = w2[j];
 
       if (c1 !== c2) {
-        if (!graph[c1].includes(c2)) {
-          graph[c1].push(c2);
+        if (!graph[c1].has(c2)) {
+          graph[c1].add(c2);
           inDegree[c2]++;
         }
         break;
@@ -90,7 +90,7 @@ function alienOrder(words) {
   }
 
   while (q.length) {
-    const c1 = q.shift();  // If use pop() here, it will be DFS
+    const c1 = q.shift();
     s += c1;
     for (const c2 of graph[c1]) {
       inDegree[c2]--;
