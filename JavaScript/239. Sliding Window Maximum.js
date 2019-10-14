@@ -27,40 +27,67 @@
  * @return {number[]}
  */
 
-/** Monotonic queue */
+/** 1) Monotonic queue */
 // https://www.youtube.com/watch?v=2SXqBsTR6a8
 //
 // Time O(n)
 // Space O(k)
 //
-// Idea
-// push an element in the queue will pop all elements smaller than it
+// Using monotonic queue to push an element in the queue will pop all elements smaller than it.
 //
-// Monotonic queue   max
-// [ 1 ]              -
-// [ 3 ]              -
-// [ 3, -1 ]          3
-// [ 3, -1, -3 ]      3
-// [ 5 ]              5
-// [ 5, 3 ]           5
-// [ 6 ]              6
-// [ 7 ]              7
-function maxSlidingWindow(nums, k) {
-  let res = [];
-  let q = [];
+// e.g. nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3
+//
+// Monotonic queue  max
+// [1]              -
+// [3]              -
+// [3, -1]          3
+// [3, -1, -3]      3
+// [5]              5
+// [5, 3]           5
+// [6]              6
+// [7]              7
+function maxSlidingWindow1(nums, k) {
+  const res = [];
+  const q = [];
 
   for (let i = 0; i < nums.length; i++) {
-    while (q.length && nums[i] > q[q.length - 1]) q.pop();
-
+    while (q.length - 1 >= 0 && nums[i] > q[q.length - 1]) q.pop();
     q.push(nums[i]);
 
-    const startIdx = i - k + 1;
+    // When i + 1 - k >= 0, the window is fully overlapping nums
+    const j = i + 1 - k;
+    if (j >= 0) {
+      res.push(q[0]);
+      if (nums[j] === q[0]) q.shift();  // If the biggest element in q is about to exit window, remove it from q
+    }
+  }
+  return res;
+}
 
-    if (startIdx < 0) continue;
+/** 2) Dynamic programming */
+function maxSlidingWindow(nums, k) {
+  let n = nums.length;
+  if (n === 0) return [];
+  if (n * k === 0) return [0];
+  if (k === 1) return nums;
 
-    res.push(q[0]);
-    if (nums[startIdx] === q[0]) q.shift(); // make sure no duplicated one
+  const left = [nums[0]];
+  const right = [];
+  right[n - 1] = nums[n - 1];
+  for (let i = 1; i < n; i++) {
+    // from left to right
+    if (i % k === 0) left[i] = nums[i];  // block_start
+    else left[i] = Math.max(left[i - 1], nums[i]);
+
+    // from right to left
+    const j = n - i - 1;
+    if ((j + 1) % k === 0) right[j] = nums[j];  // block_end
+    else right[j] = Math.max(right[j + 1], nums[j]);
   }
 
-  return res;
+  const output = [];
+  for (let i = 0; i < n - k + 1; i++)
+  output[i] = Math.max(left[i + k - 1], right[i]);
+
+  return output;
 }
