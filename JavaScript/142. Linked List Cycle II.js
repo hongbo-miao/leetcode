@@ -18,27 +18,49 @@
  * @return {ListNode}
  */
 
-/** Cycle detection - Floyd's Tortoise and Hare */
+/** 1) Hash set */
+// Time O(n)
+// Space O(n)
+function detectCycle1(head) {
+  const visited = new Set();
+
+  let node = head;
+  while (node != null) {
+    if (visited.has(node)) return node;
+    visited.add(node);
+    node = node.next;
+  }
+
+  return null;
+}
+
+/** 2) Floyd's Tortoise and Hare */
 // Time O(n)
 // Space O(1)
 function detectCycle(head) {
-  if (!head || !head.next || !head.next.next) return null;
+  if (head == null) return null;
 
-  let slow = head.next;
-  let fast = head.next.next;
+  function getIntersect(head) {
+    let slow = head;
+    let fast = head;
 
-  while (slow !== fast) {
-    slow = slow.next;
-    if (!fast.next || !fast.next.next) return null;
-    fast = fast.next.next;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow === fast) return fast;
+    }
+    return null;
   }
 
-  slow = head;
+  const intersect = getIntersect(head);
+  if (intersect == null) return null;
+
+  let slow = head;
+  let fast = intersect;
 
   while (slow !== fast) {
     slow = slow.next;
     fast = fast.next;
   }
-
-  return slow;
+  return fast;
 }

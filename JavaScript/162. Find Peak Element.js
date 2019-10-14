@@ -62,7 +62,7 @@ function findPeakElement2(nums) {
     const m = Math.floor((l + r) / 2);
 
     if (nums[m] > nums[m + 1]) return go(l, m);
-    else go(m + 1, r);
+    else return go(m + 1, r);
   }
 
   return go(0, nums.length - 1);

@@ -28,20 +28,26 @@
 /** 1) DFS */
 // Similar
 // 547. Friend Circles
+//
+// Time O(M * N) where M is the number of rows and NN is the number of columns.
+// Space O(M * N). Worst case O(M * N) in case that the grid map is filled with lands where DFS goes by M * N deep.
 function numIslands(grid) {
+  if (grid.length === 0) return 0;
+
+  const h = grid.length;
+  const w = grid[0].length;
+
   function go(i, j) {
-    if (grid[i][j] !== '1') return;
+    if (i < 0 || i >= h || j < 0 || j >= w || grid[i][j] !== '1') return;
 
     grid[i][j] = '*';  // go land piece as visited
-
-    if (i > 0) go(i - 1, j);  // up
-    if (i < grid.length - 1) go(i + 1, j);  // down
-    if (j > 0) go(i, j - 1);  // left
-    if (j < grid[i].length - 1) go(i, j + 1);  // right
+    go(i - 1, j);
+    go(i + 1, j);
+    go(i, j - 1);
+    go(i, j + 1);
   }
 
   let count = 0;
-
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === '1') {
@@ -50,39 +56,16 @@ function numIslands(grid) {
       }
     }
   }
-
   return count;
 }
 
+/** 2) BFS */
+// https://leetcode.com/problems/number-of-islands/solution/
+// Time O(M * N) where M is the number of rows and N is the number of columns.
+// Space O(min(M, N)) because in worst case where the grid is filled with lands, the size of queue can grow up to min(M,N).
 
-/** 2) Similar to 1) */
-function numIslands(grid) {
-  if (grid.length === 0) return 0;
 
-  const h = grid.length;
-  const w = grid[0].length;
-
-  function go(i, j) {
-    if (i < 0 || i >= h || j < 0 || j >= w || grid[i][j] !== '1') {
-      return false;
-    }
-
-    grid[i][j] = '*';
-    go(i - 1, j);
-    go(i + 1, j);
-    go(i, j - 1);
-    go(i, j + 1);
-    return true;
-  }
-
-  let count = 0;
-  for (let i = 0; i < h; i++) {
-    for (let j = 0; j < w; j++) {
-      if (go(i, j) === true) {
-        count++;
-      }
-    }
-  }
-
-  return count;
-}
+/** 3) Union Find */
+// Time O(M * N) where M is the number of rows and N is the number of columns. Note that Union operation takes
+//   essentially constant time[1] when UnionFind is implemented with both path compression and union by rank.
+// Space O(M * N) as required by UnionFind data structure.

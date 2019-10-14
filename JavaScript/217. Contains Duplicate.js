@@ -22,17 +22,14 @@
  * @return {boolean}
  */
 
-/** Hash map */
+/** Hash set */
 // Time O(n)
 // Space O(n)
 function containsDuplicate(nums) {
-  const map = {};
-
+  const set = new Set();
   for (let n of nums) {
-    if (map[n]) return true;
-
-    map[n] = true;
+    if (set.has(n)) return true;
+    set.add(n);
   }
-
   return false;
 }

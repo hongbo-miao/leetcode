@@ -17,7 +17,7 @@
  * @return {number}
  */
 
-/** 1) */
+/** 1) Brute force */
 // Time O(n^2)
 // Space O(1)
 function maxProduct1(nums) {
@@ -38,18 +38,21 @@ function maxProduct1(nums) {
 }
 
 /** 2) */
+// Similar
+// 53. Maximum Subarray
+//
 // Time O(n)
 // Space O(1)
 function maxProduct(nums) {
-  let res = -Infinity;
-  let min = 1;
-  let max = 1;
+  let max = -Infinity;
+  let currMin = 1;
+  let currMax = 1;
   for (let n of nums) {
-    [min, max] = [
-      Math.min(n, min * n, max * n),
-      Math.max(n, min * n, max * n),
+    [currMin, currMax] = [
+      Math.min(n, currMin * n, currMax * n),
+      Math.max(n, currMin * n, currMax * n),
     ];
-    res = Math.max(res, max);
+    max = Math.max(max, currMax);
   }
-  return res;
+  return max;
 }

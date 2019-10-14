@@ -25,41 +25,42 @@
 // Time O(n)
 // Space O(n)
 function rob1(nums) {
-  return count(nums.length - 1, {}, nums)
+  const map = {};
+
+  function count(n) {
+    if (n < 0) return 0;
+    if (map[n] != null) return map[n];
+
+    map[n] = Math.max(
+      count(n - 2) + nums[n],
+      count(n - 1),
+    );
+    return map[n];
+  }
+
+  return count(nums.length - 1)
 }
 
-function count(n, map, nums) {
-  if (n < 0) return 0;
-  if (map[n] != null) return map[n];
 
-  map[n] = Math.max(
-    count(n - 2, map, nums) + nums[n],
-    count(n - 1, map, nums)
-  );
-
-  return map[n];
-}
-
-/** 2) Iteration */
+/** 2) Iteration (dynamic programming) */
 // Time O(n)
 // Space O(n)
 function rob2(nums) {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
 
-  const totals = [nums[0], Math.max(nums[0], nums[1])];
+  const dp = [nums[0], Math.max(nums[0], nums[1])];
 
   for (let i = 2; i < nums.length; i++) {
-    totals.push(Math.max(totals[i - 2] + nums[i], totals[i - 1]));
+    dp.push(Math.max(dp[i - 2] + nums[i], dp[i - 1]));
   }
-
-  return totals[totals.length - 1];
+  return dp[dp.length - 1];
 }
 
 /** 3) Iteration */
 // Time O(n)
 // Space O(1)
-function rob3(nums) {
+function rob(nums) {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
 
@@ -71,21 +72,5 @@ function rob3(nums) {
     a = b;
     b = max;
   }
-
   return b;
-}
-
-/** 4) Iteration */
-// Time O(n)
-// Space O(1)
-function rob(nums) {
-  let a = 0;
-  let b = 0;
-
-  for (let i = 0; i < nums.length; i++) {
-    if (i % 2 === 0) a = Math.max(a + nums[i], b);
-    else b = Math.max(a, b + nums[i]);
-  }
-
-  return Math.max(a, b);
 }

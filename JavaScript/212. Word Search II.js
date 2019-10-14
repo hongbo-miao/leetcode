@@ -23,48 +23,47 @@
  * @param {string[]} words
  * @return {string[]}
  */
+
+/** Backtracking + Trie */
 function findWords(board, words) {
-  const root = buildTrie(words);
   let res = [];
 
+  function buildTrie() {
+    const root = {};
+    for (let w of words) {
+      let node = root;
+      for (let c of w) {
+        if (node[c] == null) node[c] = {};
+        node = node[c];
+      }
+      node.word = w;
+    }
+    return root;
+  }
+
+  function search(node, i, j) {
+    if (node.word != null) {
+      res.push(node.word);
+      node.word = null;   // make sure only print one time for each word
+    }
+
+    if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;
+    if (node[board[i][j]] == null) return;
+
+    const c = board[i][j];
+    board[i][j] = '#';  // mark visited
+    search(node[c], i + 1, j);
+    search(node[c], i - 1, j);
+    search(node[c], i, j + 1);
+    search(node[c], i, j - 1);
+    board[i][j] = c;  // reset
+  }
+
+  const root = buildTrie();
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[0].length; j++) {
-      searchWord(root, i, j, board, res);
+      search(root, i, j);
     }
   }
-
   return res;
-}
-
-function buildTrie(words) {
-  let root = {};
-
-  for (let word of words) {
-    let node = root;
-    word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {})); // word.split('').forEach(c => node = node[c] = node[c] || {});
-    node.word = word;
-  }
-
-  return root;
-}
-
-function searchWord(node, i, j, board, res) {
-  if (node.word) {
-    res.push(node.word);
-    node.word = null;   // make sure only print one time for each word
-  }
-
-  if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;
-  if (board[i][j] === '#' || !node[board[i][j]]) return;
-
-  const c = board[i][j];
-
-  board[i][j] = '#'; // mark visited
-
-  searchWord(node[c], i + 1, j, board, res);
-  searchWord(node[c], i - 1, j, board, res);
-  searchWord(node[c], i, j + 1, board, res);
-  searchWord(node[c], i, j - 1, board, res);
-
-  board[i][j] = c;  // reset
 }

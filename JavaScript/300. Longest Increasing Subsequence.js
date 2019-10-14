@@ -29,25 +29,25 @@
 //
 // Example
 // nums: [10,9,2,5,3,7,101,18]
-// arr:  [ 1,1,1,2,2,3,  4, 4]
+// dp:   [ 1,1,1,2,2,3,  4, 4]
 // res:  4
 function lengthOfLIS1(nums) {
   if (nums.length === 0) return 0;
 
-  const arr = new Array(nums.length).fill(1);
+  const dp = new Array(nums.length).fill(1);
 
   for (let i = 1; i < nums.length; i++) {
     for (let j = 0; j < i; j++) {
       if (nums[j] < nums[i]) {
-        arr[i] = Math.max(
-          arr[i],
-          arr[j] + 1,
+        dp[i] = Math.max(
+          dp[i],
+          dp[j] + 1,
         );
       }
     }
   }
 
-  return Math.max(...arr);
+  return Math.max(...dp);
 }
 
 /** 2) Dynamic programming with binary search */

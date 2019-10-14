@@ -24,6 +24,7 @@
 
 /** Merge sort */
 // Time O(n log n)
+// Space O(n)
 function sortList(head) {
   if (!head || !head.next) return head;
 

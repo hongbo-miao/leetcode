@@ -17,7 +17,7 @@
 function reverseBits(n) {
   return parseInt(  // Binary string to decimal, parseInt('101', 2) -> 5
     n
-      .toString(2)
+      .toString(2)  // '5'.toString(2) -> '101'
       .padStart(32, '0')  // Padding 0 to the front, '10'.padStart(5, 0) -> '00010'
       .split('')
       .reverse()

@@ -27,10 +27,12 @@
  * @return {number}
  */
 function calculate(s) {
+  if (s == null || s.length === 0) return 0;
+
   // remove space
   s = s.replace(/\s/g, '');
 
-  let nums = [];
+  let st = [];
   let num = 0;
   let sign = '+';
 
@@ -44,22 +46,16 @@ function calculate(s) {
     }
 
     // sign or last number
-    if ((/\D/.test(c)) || i === s.length - 1) {
-      if (sign === '-') nums.push(-num);
-      if (sign === '+') nums.push(num);
-      if (sign === '*') nums.push(nums.pop() * num);
-      if (sign === '/') nums.push(~~(nums.pop() / num));
+    if (/\D/.test(c) || i === s.length - 1) {
+      if (sign === '-') st.push(-num);
+      else if (sign === '+') st.push(num);
+      else if (sign === '*') st.push(st.pop() * num);
+      else if (sign === '/') st.push(~~(st.pop() / num));
 
       sign = c;
       num = 0;
     }
   }
 
-  let res = 0;
-
-  for (let n of nums) {
-    res += n;
-  }
-
-  return res;
+  return st.reduce((a, b) => a + b);
 }

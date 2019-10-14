@@ -17,7 +17,7 @@ class BSTIterator {
    * @param {TreeNode} root - root of the binary search tree
    */
   constructor(root) {
-    this.stack = [];
+    this.st = [];
     this.pushLeft(root);
   }
 
@@ -26,7 +26,7 @@ class BSTIterator {
    * @returns {boolean} - whether we have a next smallest number
    */
   hasNext() {
-    return this.stack.length > 0;
+    return this.st.length > 0;
   }
 
   /**
@@ -35,7 +35,7 @@ class BSTIterator {
    */
   next() {
     if (this.hasNext()) {
-      const node = this.stack.pop();
+      const node = this.st.pop();
 
       if (node.right) this.pushLeft(node.right);
       return node.val;
@@ -44,8 +44,7 @@ class BSTIterator {
 
   pushLeft(node) {
     while (node) {
-      this.stack.push(node);
-
+      this.st.push(node);
       node = node.left;
     }
   };

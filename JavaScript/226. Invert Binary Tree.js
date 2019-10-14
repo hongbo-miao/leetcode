@@ -54,13 +54,13 @@ function invertTree3(root) {
 
 /** 3) DFS */
 function invertTree4(root) {
-  const stack = [root];
+  const st = [root];
 
-  while (stack.length) {
-    const n = stack.pop();
+  while (st.length) {
+    const n = st.pop();
     if (n != null) {
       [n.left, n.right] = [n.right, n.left];
-      stack.push(n.left, n.right);
+      st.push(n.left, n.right);
     }
   }
 
@@ -69,13 +69,13 @@ function invertTree4(root) {
 
 /** 4) BFS */
 function invertTree(root) {
-  const queue = [root];
+  const q = [root];
 
-  while (queue.length) {
-    const n = queue.shift();  // the only difference with DFS is here
+  while (q.length) {
+    const n = q.shift();  // the only difference with DFS is here
     if (n != null) {
       [n.left, n.right] = [n.right, n.left];
-      queue.push(n.left, n.right);
+      q.push(n.left, n.right);
     }
   }
 

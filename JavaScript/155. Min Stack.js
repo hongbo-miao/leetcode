@@ -31,7 +31,7 @@ class MinStack {
   push(x) {
     this.stack.push(x);
 
-    if (!this.minStack.length || x <= this.minStack[this.minStack.length - 1]) {
+    if (this.minStack.length === 0 || x <= this.minStack[this.minStack.length - 1]) {
       this.minStack.push(x);
     }
   }

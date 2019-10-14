@@ -34,6 +34,9 @@ function maxSubArray1(nums) {
 }
 
 /** 2) Dynamic programming - Kadane's algorithm */
+// Similar
+// 152. Maximum Product Subarray
+//
 // Time O(n)
 // Space O(1)
 //

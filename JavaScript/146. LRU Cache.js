@@ -37,9 +37,9 @@ class LRUCache {
   get(key) {
     if (!this.cache.has(key)) return -1;
 
-    const v = this.cache.get(key);
+    const val = this.cache.get(key);
     this.cache.delete(key);
-    this.cache.set(key, v);
+    this.cache.set(key, val);
     return this.cache.get(key);
   };
 

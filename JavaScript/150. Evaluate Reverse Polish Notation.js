@@ -37,7 +37,7 @@
  * @return {number}
  */
 /** 1) */
-function evalRPN(tokens) {
+function evalRPN1(tokens) {
   const ops = {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
