@@ -23,19 +23,19 @@
 // [             1,       a[0],  a[0]*a[1],  a[0]*a[1]*a[2]]
 // [a[1]*a[2]*a[3],  a[2]*a[3],       a[3],               1]
 function productExceptSelf1(nums) {
-  let l = [];
+  const l = [];
   for (let i = 0, p = 1; i < nums.length; i++) {
     l[i] = p;
     p *= nums[i];
   }
 
-  let r = [];
+  const r = [];
   for (let i = nums.length - 1, p = 1; i >= 0; i--) {
     r[i] = p;
     p *= nums[i];
   }
 
-  let res = [];
+  const res = [];
   for (let i = 0; i < nums.length; i++) {
     res[i] = l[i] * r[i];
   }
@@ -47,7 +47,7 @@ function productExceptSelf1(nums) {
 // Time O(n)
 // Space O(1)
 function productExceptSelf(nums) {
-  let res = [1];
+  const res = [1];
 
   for (let i = 1; i < nums.length; i++) {
     res[i] = res[i - 1] * nums[i - 1];

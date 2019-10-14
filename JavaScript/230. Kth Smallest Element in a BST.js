@@ -28,19 +28,19 @@
  * @param {number} k
  * @return {number}
  */
-/** 1) */
+/** 1) In-order traversal, DFS */
 function kthSmallest1(root, k) {
+  function go(node) {
+    if (node == null) return [];
+
+    return [
+      ...go(node.left),
+      node.val,
+      ...go(node.right)
+    ];
+  }
+
   return go(root)[k - 1];
-}
-
-function go(node) {
-  if (node == null) return [];
-
-  return [
-    ...go(node.left),
-    node.val,
-    ...go(node.right)
-  ];
 }
 
 /** 2) Similar to 1 */
@@ -56,5 +56,5 @@ function kthSmallest(root, k) {
   }
 
   go(root, k);
-  return arr[k-1];
+  return arr[k - 1];
 }
