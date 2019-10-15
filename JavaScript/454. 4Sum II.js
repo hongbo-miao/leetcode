@@ -34,20 +34,20 @@
 // Space O(n^2)
 function fourSumCount(A, B, C, D) {
   const map = {};
-
   for (let a of A) {
     for (let b of B) {
-      map[a + b] = (map[a + b] || 0) + 1;
+      if (map[a + b] == null) map[a + b] = 0;
+      map[a + b]++;
     }
   }
 
   let count = 0;
-
   for (let c of C) {
     for (let d of D) {
-      count += map[-c - d] || 0;
+      if (map[- c - d] != null) {
+        count += map[- c - d];
+      }
     }
   }
-
   return count;
 }

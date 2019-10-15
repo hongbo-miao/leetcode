@@ -9,6 +9,9 @@
  * @return {number}
  */
 /** 1) Iteration */
+// e.g. 3 + 1
+// 0b11 & 0b01 = 0b01
+// 0b11 ^ 0b01 = 0b10
 function getSum1(a, b) {
   while (b !== 0) {
     const carry = a & b;  // carry over

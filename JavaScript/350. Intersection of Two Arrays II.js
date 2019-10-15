@@ -18,30 +18,6 @@
  * @return {number[]}
  */
 
-function intersect1(nums1, nums2) {
-  const map1 = {};
-  for (let n of nums1) {
-    if (map1[n] == null) map1[n] = 0;
-    map1[n]++;
-  }
-
-  const map2 = {};
-  for (let n of nums2) {
-    if (map2[n] == null) map2[n] = 0;
-    map2[n]++;
-  }
-
-  let res = [];
-  for (let k in map1) {
-    if (map1[k] != null && map2[k] != null) {
-      let count = Math.min(map1[k], map2[k]);
-      while(count--) res.push(Number(k));
-    }
-  }
-
-  return res;
-}
-
 function intersect(nums1, nums2) {
   let res = [];
   const map = {};
@@ -57,6 +33,5 @@ function intersect(nums1, nums2) {
       map[n]--;
     }
   }
-
   return res;
 }

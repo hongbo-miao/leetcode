@@ -40,7 +40,7 @@ function kClosest1(points, K) {
     .slice(0, K);
 }
 
-/** 2) Sort */
+/** 2) Quick sort */
 // Time O(n)
 function kClosest(points, K) {
   const dist = ([x, y]) => x ** 2 + y ** 2;

@@ -36,12 +36,12 @@ class Solution {
    * @return {number[]}
    */
   shuffle() {
-    let nums = [...this.nums];
+    const nums = [...this.nums];
     let i = nums.length;
 
     while (i--) {
-      const n = ~~(Math.random() * nums.length);
-      [nums[i], nums[n]] = [nums[n], nums[i]];
+      const j = ~~(Math.random() * nums.length);
+      [nums[i], nums[j]] = [nums[j], nums[i]];
     }
 
     return nums;

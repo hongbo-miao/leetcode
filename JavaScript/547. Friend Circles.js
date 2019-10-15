@@ -9,7 +9,7 @@
 //    [1,1,0],
 //    [0,0,1]]
 // Output: 2
-// Explanation:The 0th and 1st students are direct friends, so they are in a friend circle.
+// Explanation: The 0th and 1st students are direct friends, so they are in a friend circle.
 //   The 2nd student himself is in a friend circle. So return 2.
 //
 // Example 2:
@@ -19,14 +19,13 @@
 //    [1,1,1],
 //    [0,1,1]]
 // Output: 1
-// Explanation:The 0th and 1st students are direct friends, the 1st and 2nd students are direct friends,
+// Explanation: The 0th and 1st students are direct friends, the 1st and 2nd students are direct friends,
 //   so the 0th and 2nd students are indirect friends. All of them are in the same friend circle, so return 1.
 //
 // Note:
-//
-//   N is in range [1,200].
-//   M[i][i] = 1 for all students.
-//   If M[i][j] = 1, then M[j][i] = 1.
+// N is in range [1,200].
+// M[i][i] = 1 for all students.
+// If M[i][j] = 1, then M[j][i] = 1.
 
 /**
  * @param {number[][]} M
@@ -36,27 +35,25 @@
 /** DFS */
 // Similar
 // 200. Number of Islands
+// 547. Friend Circles
 function findCircleNum(M) {
-  let count = 0;
+  function go(i) {
+    // visit all friends
+    for (let j = 0; j < M.length; j++) {
+      if (M[i][j] === 1) {
+        M[i][j] = '*';  // mark as visited
+        M[j][i] = '*';  // mark as visited
+        go(j);  // visit friend's friends
+      }
+    }
+  }
 
+  let count = 0;
   for (let i = 0; i < M.length; i++) {
     if (M[i][i] === 1) {
-      find(M, i);
+      go(i);
       count++;
     }
   }
-
   return count;
-}
-
-function find(M, curr) {
-  // visit all friends
-  for (let i = 0; i < M.length; i++) {
-    if (M[curr][i] === 1) {
-      M[curr][i] = '*'; // mark as visited
-      M[i][curr] = '*'; // mark as visited
-
-      find(M, i);
-    }
-  }
 }

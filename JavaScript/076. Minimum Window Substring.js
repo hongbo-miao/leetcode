@@ -38,7 +38,7 @@ function minWindow1(s, t) {
       // remove current c and move l
       const c = s[l];
 
-      if (map[c] !== undefined) map[c]++;
+      if (map[c] != null) map[c]++;
       if (map[c] > 0) count++;
 
       l++;
@@ -49,7 +49,7 @@ function minWindow1(s, t) {
 
       const c = s[r];
 
-      if (map[c] !== undefined) map[c]--;
+      if (map[c] != null) map[c]--;
       if (map[c] === 0) count--;
     }
   }

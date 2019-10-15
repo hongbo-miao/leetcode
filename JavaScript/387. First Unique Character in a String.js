@@ -14,7 +14,19 @@
  * @param {string} s
  * @return {number}
  */
+
+/** 1) */
 function firstUniqChar1(s) {
+  for (let i = 0; i < s.length; i++){
+    if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) return i;
+  }
+  return -1;
+}
+
+/** 2) Hash map */
+// Time O(n)
+// Space O(n)
+function firstUniqChar(s) {
   const map = {};
 
   for (let c of s) {
@@ -25,14 +37,5 @@ function firstUniqChar1(s) {
   for (let i = 0; i < s.length; i++) {
     if (map[s[i]] === 1) return i;
   }
-
-  return -1;
-}
-
-function firstUniqChar(s) {
-  for (let i = 0; i < s.length; i++){
-    if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) return i;
-  }
-
   return -1;
 }

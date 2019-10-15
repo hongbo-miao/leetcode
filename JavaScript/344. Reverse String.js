@@ -13,7 +13,7 @@ function reverseString1(s) {
   return s.split('').reverse().join('');
 }
 
-/** 2) */
+/** 2) Two pointers */
 function reverseString(s) {
   const l = s.length - 1;
   for (let i = 0; i < ~~(s.length / 2); i++) {
