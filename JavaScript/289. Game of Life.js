@@ -44,14 +44,25 @@
 //   board[i][j] >> 1
 
 function gameOfLife(board) {
-  if (!board || !board.length) return;
+  if (board == null || board.length === 0) return;
 
-  const m = board.length;
-  const n = board[0].length;
+  const h = board.length;
+  const w = board[0].length;
 
-  for (let i = 0; i < m; i++) {
-    for (let j = 0; j < n; j++) {
-      const lives = liveNeighbors(board, m, n, i, j);
+  function liveNeighbors(x, y) {
+    let lives = 0;
+    for (let i = Math.max(x - 1, 0); i <= Math.min(x + 1, h - 1); i++) {
+      for (let j = Math.max(y - 1, 0); j <= Math.min(y + 1, w - 1); j++) {
+        lives += board[i][j] & 1;  // Get 1st bit
+      }
+    }
+    lives -= board[x][y] & 1;  // subtract itself
+    return lives;
+  }
+
+  for (let i = 0; i < h; i++) {
+    for (let j = 0; j < w; j++) {
+      const lives = liveNeighbors(i, j);
 
       // In the beginning, every 2nd bit is 0
       // So we only need to care about when will the 2nd bit become 1
@@ -64,23 +75,9 @@ function gameOfLife(board) {
     }
   }
 
-  for (let i = 0; i < m; i++) {
-    for (let j = 0; j < n; j++) {
-      board[i][j] >>= 1;  // Get the 2nd state
+  for (let i = 0; i < h; i++) {
+    for (let j = 0; j < w; j++) {
+      board[i][j] >>= 1;  // Get the 2nd bit
     }
   }
-}
-
-function liveNeighbors(board, m, n, i, j) {
-  let lives = 0;
-
-  for (let x = Math.max(i - 1, 0); x <= Math.min(i + 1, m - 1); x++) {
-    for (let y = Math.max(j - 1, 0); y <= Math.min(j + 1, n - 1); y++) {
-      lives += board[x][y] & 1;
-    }
-  }
-
-  lives -= board[i][j] & 1;
-
-  return lives;
 }

@@ -47,7 +47,7 @@ function deserialize(data) {
   return JSON.parse(data);
 }
 
-/** 2) */
+/** 2) BFS */
 //    1
 //   / \
 //  2   3
@@ -64,7 +64,7 @@ function serialize(node) {
   while (q.length) {
     node = q.shift();
 
-    if (node) {
+    if (node != null) {
       data.push(node.val);
 
       q.push(node.left || null);
@@ -92,14 +92,17 @@ function deserialize(data) {
     val = data.shift();
     node.right = val !== null ? new TreeNode(val) : null;
 
-    if (node.left) q.push(node.left);
-    if (node.right) q.push(node.right);
+    if (node.left != null) q.push(node.left);
+    if (node.right != null) q.push(node.right);
   }
 
   return root;
 }
 
-/** 3) Faster and cleaner than 2) */
+/** 3) DFS */
+// Time O(n)
+// Space O(n)
+//
 // e.g.
 //    1
 //   / \
