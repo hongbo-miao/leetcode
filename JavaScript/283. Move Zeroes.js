@@ -14,22 +14,36 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-// left to right
+
+
+/** 1) */
+// Time O(n)
+// Space O(1)
 function moveZeroes1(nums) {
-  let r = nums.length;
-  for (let i = 0; i < nums.length - 1, r--; i++) {
-    if (nums[i] === 0) {
-      nums.push(...nums.splice(i, 1));
-      i--;
+  // If the current element is not 0, then we need to append it just in front of last non 0 element we found.
+  let pos = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[pos] = nums[i];
+      pos++;
     }
+  }
+  // After we have finished processing new elements, all the non-zero elements are already at beginning of array.
+  // We just need to fill remaining array with 0's.
+  for (let i = pos; i < nums.length; i++) {
+    nums[i] = 0;
   }
 }
 
-// right to left
+/** 2) Similar to 1), but hard to understand */
+// Time O(n)
+// Space O(1)
 function moveZeroes(nums) {
-  for (let i = nums.length - 1; i >= 0; i--) {
-    if (nums[i] === 0) {
-      nums.push(...nums.splice(i, 1));
+  let pos = 0;  // last non 0 element found
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      [nums[pos], nums[i]] = [nums[i], nums[pos]];
+      pos++;
     }
   }
 }

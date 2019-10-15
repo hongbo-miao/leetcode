@@ -77,13 +77,13 @@ function inorderSuccessor2(root, p) {
     return inorderSuccessor(root.right, p);
   } else {
     const left = inorderSuccessor(root.left, p);
-    return (left != null) ? left : root;
+    return left != null ? left : root;
   }
 }
 
 /** 3) */
 // Time O(h), h is the depth of the result node. In a balanced BST O(h) = O(log n). In the worst case, O(h) = O(n)
-// Space O(1)
+// Space O(1)1b
 function inorderSuccessor(root, p) {
   let succ = null;
   while (root != null) {
