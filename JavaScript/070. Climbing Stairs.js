@@ -38,14 +38,14 @@ function climbStairs1(n) {
 // Time O(n)
 // Space O(n)
 function climbStairs2(n) {
-  return climb(n, [1, 1]);
-}
-
-function climb(n, cache) {
-  if (cache[n]) return cache[n];
-
-  cache[n] = climb(n - 2, cache) + climb(n - 1, cache);
-  return cache[n];
+  const map = {};
+  function go(n) {
+    if (n < 2) return 1;
+    if (map[n] != null) return map[n];
+    map[n] = go(n - 2) + go(n - 1);
+    return map[n];
+  }
+  return go(n);
 }
 
 /** 3) Dynamic programming - Fibonacci */
@@ -53,11 +53,9 @@ function climb(n, cache) {
 // Space O(n)
 function climbStairs3(n) {
   const dp = [1, 1];
-
   for (let i = 2; i <= n; i++) {
     dp[i] = dp[i - 2] + dp[i - 1];
   }
-
   return dp[n];
 }
 
@@ -73,7 +71,6 @@ function climbStairs(n) {
     a = b;
     b = c;
   }
-
   return b;
 }
 
