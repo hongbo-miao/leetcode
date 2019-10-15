@@ -62,7 +62,7 @@
 // [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3]
 function coinChange(coins, amount) {
   // dp[i] represents the least amount of coins that can make the value equals to the i
-  const dp = new Array(amount + 1).fill(Infinity);
+  const dp = Array(amount + 1).fill(Infinity);
   dp[0] = 0;
   for (let i = 1; i <= amount; i++) {
     for (let j = 0; j < coins.length; j++) {
@@ -93,13 +93,12 @@ function coinChange1(coins, amount) {
         res = Math.min(res, count + ~~(amount / coin));
       }
     } else {
-      for (let i = ~~(amount / coin); i >= 0 && count + i < res; i--) { // count + i < res is for pruning, avoid unnecessary calculation
+      for (let i = ~~(amount / coin); i >= 0 && count + i < res; i--) {  // count + i < res is for pruning, avoid unnecessary calculation
         find(k + 1, amount - coin * i, count + i);
       }
     }
   }
 
   find(0, amount, 0);
-
   return res === Infinity ? -1 : res;
 }

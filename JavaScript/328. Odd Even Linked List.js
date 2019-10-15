@@ -22,9 +22,36 @@
  * @return {ListNode}
  */
 
-/** 1) */
+// Time O(n)
+// Space O(1)
+//
+//                odd
+// Step 0  head -> 1 -> 2 -> 3 -> 4 -> 5 -> null
+//                     even
+//
+//          evenHead -> 2
+//
+//
+//                     odd
+// Step 1  head -> 1 -> 3 -> 4 -> 5 -> null
+//                          even
+//
+//          evenHead -> 2 -> 4
+//
+//
+//                          odd
+// Step 2  head -> 1 -> 3 -> 5 -> null
+//                                even
+//
+//          evenHead -> 2 -> 4 -> null
+//
+//
+//                          odd
+//  Final  head -> 1 -> 3 -> 5 -> 2 -> 4 -> null
+//                             evenHead     even
+//
 function oddEvenList1(head) {
-  if (!head) return head;
+  if (head == null) return null;
 
   let odd = head;
   const evenHead = head.next;
@@ -36,28 +63,6 @@ function oddEvenList1(head) {
     even.next = odd.next;
   }
 
-  odd.next = evenHead;
-
-  return head;
-}
-
-/** 2) Similar to 1), but less compact */
-function oddEvenList(head) {
-  if (!head) return head;
-
-  let odd = head;
-  let even = new ListNode(null);
-  const evenHead = head.next;
-
-  while (odd && odd.next) {
-    even.next = odd.next;
-    odd.next = odd.next.next;
-
-    even = even.next;
-    if (odd.next) odd = odd.next;  // stop before odd becomes null
-  }
-
-  even.next = null;  // cut the rest of odd after even
   odd.next = evenHead;
   return head;
 }

@@ -60,8 +60,8 @@ class TicTacToe {
   constructor(n) {
     this.len = n;
 
-    this.rows = new Array(n).fill(0);
-    this.cols = new Array(n).fill(0);
+    this.rows = Array(n).fill(0);
+    this.cols = Array(n).fill(0);
     this.dia = 0;
     this.antiDia = 0;
   }

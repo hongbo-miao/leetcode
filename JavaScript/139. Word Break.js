@@ -149,7 +149,7 @@ function wordBreak3(s, wordDict) {
 // dp = [true, false, false, false, true, false, false, false, true]
 function wordBreak(s, wordDict) {
   const set = new Set(wordDict);
-  const dp = new Array(s.length + 1).fill(false);
+  const dp = Array(s.length + 1).fill(false);
   dp[0] = true;
 
   for (let i = 1; i <= s.length; i++) {

@@ -51,7 +51,7 @@ function numDecodings(s) {
   if (s == null || s.length === 0) return 0;
   if (s[0] === '0') return 0;
 
-  const dp = new Array(s.length + 1).fill(0);
+  const dp = Array(s.length + 1).fill(0);
 
   dp[0] = 1;
   dp[1] = 1;

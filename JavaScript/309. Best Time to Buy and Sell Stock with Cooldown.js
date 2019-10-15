@@ -23,9 +23,9 @@
 function maxProfit1(prices) {
   if (prices == null || prices.length === 0) return 0;
 
-  const s0 = new Array(prices.length).fill(0);
-  const s1 = new Array(prices.length).fill(0);
-  const s2 = new Array(prices.length).fill(0);
+  const s0 = Array(prices.length).fill(0);
+  const s1 = Array(prices.length).fill(0);
+  const s2 = Array(prices.length).fill(0);
 
   s0[0] = 0;  // You don't have any stock if you just rest
   s1[0] = -prices[0];  // After buy, you should have -prices[0] profit

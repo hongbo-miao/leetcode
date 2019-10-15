@@ -36,7 +36,7 @@
 // 1  (2) (3)  4  5  6  (e.g. 3 = 1 + 2)
 // 1   3   6  10 15 21  (return the last number in the last row which is 21)
 function uniquePaths1(m, n) {
-  const row = new Array(n).fill(1);
+  const row = Array(n).fill(1);
 
   for (let i = 1; i < m; i++) {
     for (let j = 1; j < n; j++) {

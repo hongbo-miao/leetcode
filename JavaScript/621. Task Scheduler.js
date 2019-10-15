@@ -22,7 +22,7 @@
 /** 1) */
 // https://leetcode.com/problems/task-scheduler/discuss/104496/concise-Java-Solution-O(N)-time-O(26)-space
 function leastInterval1(tasks, n) {
-  const arr = new Array(26).fill(0);
+  const arr = Array(26).fill(0);
 
   for (let t of tasks) {
     arr[t.charCodeAt(0) - 'A'.charCodeAt(0)]++;

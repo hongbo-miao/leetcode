@@ -23,7 +23,7 @@
 // 300. Longest Increasing Subsequence
 // 322. Coin Change
 function numSquares(n) {
-  const dp = new Array(n + 1).fill(Infinity);
+  const dp = Array(n + 1).fill(Infinity);
   dp[0] = 0;
 
   for (let i = 1; i <= n; i++) {

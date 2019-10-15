@@ -100,9 +100,9 @@ function isValidSudoku1(board) {
 function isValidSudoku(board) {
   // const row = Array(9).fill({});  // wrong, all will point to same {} reference
   // const row = [{}, {}, {}, {}, {}, {}, {}, {}, {}];  // correct
-  const row = Array.from(new Array(9), () => ({}));
-  const column = Array.from(new Array(9), () => ({}));
-  const block = Array.from(new Array(9), () => ({}));
+  const row = Array.from(Array(9), () => ({}));
+  const column = Array.from(Array(9), () => ({}));
+  const block = Array.from(Array(9), () => ({}));
 
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
