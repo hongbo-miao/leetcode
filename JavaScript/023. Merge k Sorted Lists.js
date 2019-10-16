@@ -1,3 +1,5 @@
+import mergeTwoLists from './021. Merge Two Sorted Lists';
+
 // Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 //
 // Example:
@@ -17,9 +19,6 @@
  *     this.next = null;
  * }
  */
-
-import { mergeTwoLists } from './021. Merge Two Sorted Lists';
-
 /**
  * @param {ListNode[]} lists
  * @return {ListNode}
@@ -73,8 +72,7 @@ function mergeKLists4(lists) {
   if (lists.length === 0) return null;
   if (lists.length === 1) return lists[0];
 
-  const m = lists.length / 2;
-
+  const m = ~~(lists.length / 2);
   return mergeTwoLists(
     mergeKLists(lists.slice(0, m)),
     mergeKLists(lists.slice(m)),

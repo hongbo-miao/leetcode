@@ -47,7 +47,7 @@ function mergeTwoLists1(l1, l2) {
 // Time O(n + m)
 // Space O(n + m). The first call to mergeTwoLists does not return until the ends of both l1 and l2 have been reached,
 //   so n + mn+m stack frames consume O(n + m) space.
-export function mergeTwoLists(l1, l2) {
+function mergeTwoLists(l1, l2) {
   if (l1 == null || l2 == null) return l1 || l2;
 
   if (l1.val < l2.val) {
@@ -58,3 +58,5 @@ export function mergeTwoLists(l1, l2) {
     return l2;
   }
 }
+
+export default mergeTwoLists;
