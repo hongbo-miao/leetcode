@@ -29,6 +29,9 @@
 function calculate(s) {
   if (s == null || s.length === 0) return null;
 
+  const isNumber = c => /\d/.test(c);
+  const isSign = c => /\D/.test(c);
+
   // remove space
   s = s.replace(/\s/g, '');
 
@@ -40,10 +43,10 @@ function calculate(s) {
     const c = s[i];
 
     // number
-    if (/\d/.test(c)) n = n * 10 + Number(c);  // e.g. '14' -> 1 * 10 + 4
+    if (isNumber(c)) n = n * 10 + Number(c);  // e.g. '14' -> 1 * 10 + 4
 
     // sign or last number
-    if (/\D/.test(c) || i === s.length - 1) {
+    if (isSign(c) || i === s.length - 1) {
       if (sign === '-') st.push(-n);
       else if (sign === '+') st.push(n);
       else if (sign === '*') st.push(st.pop() * n);
