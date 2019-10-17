@@ -30,7 +30,7 @@
 // 200. Number of Islands
 // 547. Friend Circles
 //
-// Time O(M * N) where M is the number of rows and NN is the number of columns.
+// Time O(M * N) where M is the number of rows and N is the number of columns.
 // Space O(M * N). Worst case O(M * N) in case that the grid map is filled with lands where DFS goes by M * N deep.
 function numIslands(grid) {
   if (grid.length === 0) return 0;

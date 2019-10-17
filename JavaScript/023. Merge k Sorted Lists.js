@@ -72,7 +72,7 @@ function mergeKLists4(lists) {
   if (lists.length === 0) return null;
   if (lists.length === 1) return lists[0];
 
-  const m = ~~(lists.length / 2);
+  const m = lists.length / 2;  // no need Math.floor or ~~ because it will be used in slice
   return mergeTwoLists(
     mergeKLists(lists.slice(0, m)),
     mergeKLists(lists.slice(m)),

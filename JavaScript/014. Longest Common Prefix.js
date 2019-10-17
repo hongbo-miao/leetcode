@@ -24,23 +24,19 @@
 
 /** 1) Vertical scanning */
 // Time O(S), where S is the sum of all characters in all strings
-//   In the worst case there will be nn equal strings with length mm and the algorithm performs S = m * n character comparisons
+//   In the worst case there will be nn equal strings with length m and the algorithm performs S = m * n character comparisons
 //   In the best case there are at most n * minLen comparisons where minLen is the length of the shortest string in the array
 // Space O(1)
 function longestCommonPrefix1(strs) {
-  if (strs.length === 0) return '';
+  if (strs == null || strs.length === 0) return '';
 
   const str0 = strs[0];
-
   for (let i = 0; i < str0.length; i++) {
     const c = str0[i];
-
-    for (let j = 1; j < strs.length; j++) {
-      const s = strs[j];
+    for (let s of strs) {
       if (s[i] !== c) return str0.slice(0, i);
     }
   }
-
   return str0;
 }
 
@@ -49,6 +45,8 @@ function longestCommonPrefix1(strs) {
 //   The algorithm makes log(n) iterations, for each of them there are S = m * n comparisons, which gives in total O(S * log(n)) time complexity.
 // Space O(1)
 function longestCommonPrefix(strs) {
+  if (strs == null || strs.length === 0) return '';
+
   function isCommonPrefix(len) {
     const prefix = strs[0].slice(0, len);
     for (let i = 1; i < strs.length; i++) {
@@ -57,8 +55,6 @@ function longestCommonPrefix(strs) {
     return true;
   }
 
-  if (strs.length === 0) return '';
-
   let minLen = Infinity;
   for (let s of strs) {
     minLen = Math.min(minLen, s.length);
@@ -66,13 +62,10 @@ function longestCommonPrefix(strs) {
 
   let l = 0;
   let r = minLen;
-
   while (l <= r) {
     const m = ~~((l + r) / 2);
-
     if (isCommonPrefix(m)) l = m + 1;
     else r = m - 1;
   }
-
-  return strs[0].slice(0, ~~((l + r) / 2));
+  return strs[0].slice(0, (l + r) / 2);  // no need Math.floor or ~~ because it will be used in slice
 }

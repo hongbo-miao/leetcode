@@ -92,7 +92,7 @@ function alienOrder(words) {
   while (q.length) {
     const c1 = q.shift();
     s += c1;
-    for (const c2 of graph[c1]) {
+    for (let c2 of graph[c1]) {
       inDegree[c2]--;
       if (inDegree[c2] === 0) {
         q.push(c2);

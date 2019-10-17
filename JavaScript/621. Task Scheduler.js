@@ -47,7 +47,7 @@ function leastInterval1(tasks, n) {
   );
 }
 
-/** 2) */
+/** 2) Similar to 1), but easier to understand */
 function leastInterval(tasks, n) {
   if (n === 0) return tasks.length;
 
