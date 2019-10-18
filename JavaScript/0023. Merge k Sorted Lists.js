@@ -1,4 +1,4 @@
-import mergeTwoLists from './021. Merge Two Sorted Lists';
+import mergeTwoLists from './0021. Merge Two Sorted Lists';
 
 // Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 //
