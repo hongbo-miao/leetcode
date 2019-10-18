@@ -28,8 +28,9 @@
 
 /** DFS - preorder traversal */
 // Similar
+// 102. Binary Tree Level Order Traversal
 // 103. Binary Tree Zigzag Level Order Traversal
-// 116. Populating Next Right Pointers in Each Node
+// 1161. Maximum Level Sum of a Binary Tree
 //
 // Time O(n)
 // Space O(n)
@@ -51,6 +52,9 @@ function levelOrder1(root) {
 }
 
 /** BFS - level-order traversal */
+// Similar
+// 102. Binary Tree Level Order Traversal
+// 116. Populating Next Right Pointers in Each Node
 function levelOrder(root) {
   if (root == null) return [];
 
@@ -68,9 +72,7 @@ function levelOrder(root) {
       if (node.left) q.push(node.left);
       if (node.right) q.push(node.right);
     }
-
     res.push(row);
   }
-
   return res;
 }

@@ -66,6 +66,7 @@ function connect1(root) {
 /** 2) BFS - level-order traversal */
 // Similar
 // 102. Binary Tree Level Order Traversal
+// 116. Populating Next Right Pointers in Each Node
 //
 // Time O(n)
 function connect(root) {
