@@ -26,6 +26,10 @@
  */
 
 /** Directions */
+// Similar
+// 54. Spiral Matrix
+// 59. Spiral Matrix II
+//
 // https://leetcode.com/problems/spiral-matrix/discuss/20573/A-concise-C++-implementation-based-on-Directions
 //
 // When traversing the matrix in the spiral order, at any time we follow one out of the following four directions:
@@ -54,17 +58,16 @@ function spiralOrder(matrix) {
   const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];  // right, down, left, up
   const steps = [matrix[0].length, matrix.length - 1];
 
-  const res = [];
   let dir = 0;
-  let r = 0;
-  let c = -1;
+  let x = 0;
+  let y = -1;
+  const res = [];
 
   while (steps[dir % 2] > 0) {
     for (let i = 0; i < steps[dir % 2]; i++) {
-      r += dirs[dir][0];
-      c += dirs[dir][1];
-
-      res.push(matrix[r][c]);
+      x += dirs[dir][0];
+      y += dirs[dir][1];
+      res.push(matrix[x][y]);
     }
 
     steps[dir % 2]--;

@@ -1,14 +1,11 @@
 // In a row of trees, the i-th tree produces fruit with type tree[i].
-//
 // You start at any tree of your choice, then repeatedly perform the following steps:
 //
-// 1. Add one piece of fruit from this tree to your baskets.  If you cannot, stop.
-// 2. Move to the next tree to the right of the current tree.  If there is no tree to the right, stop.
+// 1. Add one piece of fruit from this tree to your baskets. If you cannot, stop.
+// 2. Move to the next tree to the right of the current tree. If there is no tree to the right, stop.
 //
 // Note that you do not have any choice after the initial choice of starting tree: you must perform step 1, then step 2, then back to step 1, then step 2, and so on until you stop.
-//
 // You have two baskets, and each basket can carry any quantity of fruit, but you want each basket to only carry one type of fruit each.
-//
 // What is the total amount of fruit you can collect with this procedure?
 //
 // Example 1:
@@ -49,21 +46,26 @@
  */
 
 /** Sliding window + hash map */
+// Similar
+// 3. Longest Substring Without Repeating Characters
+// 904. Fruit Into Baskets
+// 992. Subarrays with K Different Integers
+//
 // https://www.youtube.com/watch?v=wy5nQ75WBJI
 //
 // Time O(n), where n is the length of tree
 // Space O(n)
 function totalFruit(tree) {
-  const map = {};
+  const count = {};
   let max = 0;
   let l = 0;
   for (let r = 0; r < tree.length; r++) {
-    if (map[tree[r]] == null) map[tree[r]] = 0;
-    map[tree[r]]++;
+    if (count[tree[r]] == null) count[tree[r]] = 0;
+    count[tree[r]]++;
 
-    while (Object.keys(map).length > 2) {
-      map[tree[l]]--;  // map[tree[l]] saves the number of the first fruit
-      if (map[tree[l]] === 0) delete map[tree[l]];
+    while (Object.keys(count).length > 2) {
+      count[tree[l]]--;  // count[tree[l]] saves the number of the first fruit
+      if (count[tree[l]] === 0) delete count[tree[l]];
       l++;
     }
     max = Math.max(max, r - l + 1);

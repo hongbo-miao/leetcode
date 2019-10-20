@@ -3,9 +3,7 @@
 // Examples:
 //
 // Given "abcabcbb", the answer is "abc", which the length is 3.
-//
 // Given "bbbbb", the answer is "b", with the length of 1.
-//
 // Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 /**
@@ -73,7 +71,12 @@ function lengthOfLongestSubstring3(s) {
   return max;
 }
 
-/** 4) Sliding Window */
+/** 4) Sliding window + hash map */
+// Similar
+// 3. Longest Substring Without Repeating Characters
+// 904. Fruit Into Baskets
+// 992. Subarrays with K Different Integers
+//
 // Time O(2n) = O(n). In the worst case each character will be visited twice by l and r.
 // Space O(min(m, n)). We need O(k) space for the sliding window, where k is the size of the Set. The size of the Set is
 //   upper bounded by the size of the string nn and the size of the charset/alphabet m.
@@ -99,7 +102,7 @@ function lengthOfLongestSubstring4(s) {
   return max;
 }
 
-/** 5) Sliding Window (Optimized) */
+/** 5) Sliding window (optimized) */
 // Time O(n)
 // Space O(min(m, n)), m is the size of the hash map
 //
