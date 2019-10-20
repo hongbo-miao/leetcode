@@ -21,4 +21,9 @@
  */
 
 /** Priority queue */
+// Similar
+// 358. Rearrange String k Distance Apart
+// 767. Reorganize String
+// 1054. Distant Barcodes
+//
 // JavaScript is lack of priority queue, check Python version

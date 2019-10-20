@@ -50,17 +50,19 @@ from collections import Counter
 
 class Solution:
     def reorganizeString(self, S: str) -> str:
-        res = ""
         q = [(-count, c) for c, count in Counter(S).items()]
         heapq.heapify(q)
+
+        res = ""
         pre_count, pre_c = 0, ""
         while q:
             count, c = heapq.heappop(q)
             res += c
-            if pre_count < 0:
+            if pre_count < 0:  # if c still has left
                 heapq.heappush(q, (pre_count, pre_c))
             count += 1
             pre_count, pre_c = count, c
 
-        if len(res) != len(S): return ""
+        if len(res) != len(S):
+            return ""
         return res

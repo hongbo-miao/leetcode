@@ -33,20 +33,25 @@ class Solution:
     def rearrangeString(self, s: str, k: int) -> str:
         q = [(-count, c) for c, count in Counter(s).items()]
         heapq.heapify(q)
+
         res = []
         while len(res) < len(s):
-            if not q: return ""
-            freq, char = heapq.heappop(q)
-            stack = []
-            res.append(char)
-            for j in range(k - 1):
-                if len(res) == len(s): return "".join(res)
-                if not q: return ""
-                fre, nex = heapq.heappop(q)
-                res.append(nex)
-                if fre < -1:
-                    stack.append((fre + 1, nex))
-            while stack:
-                heapq.heappush(q, stack.pop())
-            heapq.heappush(q, (freq + 1, char))
+            count, c = heapq.heappop(q)
+            st = []
+            res.append(c)
+
+            for _ in range(k - 1):
+                if len(res) == len(s):
+                    return "".join(res)
+                if not q:
+                    return ""
+                count2, c2 = heapq.heappop(q)
+                res.append(c2)
+                if count2 + 1 < 0:  # if c2 still has left
+                    st.append((count2 + 1, c2))
+
+            while st:
+                heapq.heappush(q, st.pop())
+            heapq.heappush(q, (count + 1, c))
+
         return "".join(res)

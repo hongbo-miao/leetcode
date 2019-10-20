@@ -44,7 +44,7 @@ function findWords(board, words) {
   function search(node, i, j) {
     if (node.word != null) {
       res.push(node.word);
-      node.word = null;   // make sure only print one time for each word
+      node.word = null;  // make sure only print one time for each word
     }
 
     if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;

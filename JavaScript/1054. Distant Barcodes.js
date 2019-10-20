@@ -20,6 +20,7 @@
  * @return {number[]}
  */
 
+/** 1) */
 // Time O(max(KlogK, N))
 //
 // map { '1': 2, '2': 3 }
@@ -49,3 +50,11 @@ function rearrangeBarcodes(barcodes) {
 
   return barcodes;
 }
+
+/** 2) Priority queue */
+// Similar
+// 358. Rearrange String k Distance Apart
+// 767. Reorganize String
+// 1054. Distant Barcodes
+//
+// JavaScript is lack of priority queue
