@@ -69,10 +69,6 @@ function criticalConnections(n, connections) {
     }
   }
 
-  for (let i = 0; i < n; i++) {
-    if (disc[i] === Infinity) {
-      dfs(i, i);
-    }
-  }
+  dfs(0, -1);
   return res;
 }
