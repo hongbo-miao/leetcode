@@ -17,6 +17,14 @@
 # 1 <= sticks.length <= 10^4
 # 1 <= sticks[i] <= 10^4
 
+
+"""
+Priority queue
+"""
+import heapq
+from collections import Counter
+
+
 class Solution:
     def connectSticks(self, sticks: List[int]) -> int:
         heapq.heapify(sticks)

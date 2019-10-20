@@ -28,7 +28,7 @@
  */
 
 /** Tarjan's strongly connected components algorithm */
-// Introduction of Tarjan's strongly connected components algorithm
+// Introduction to Tarjan's strongly connected components algorithm
 // https://www.youtube.com/watch?v=TyWtx7q2D7Y
 function criticalConnections(n, connections) {
   // Build graph

@@ -30,7 +30,6 @@
 // Space O(1)
 function merge1(intervals) {
   if (intervals.length === 0) return intervals;
-
   intervals.sort((a, b) => a[0] - b[0]);
 
   let prev = intervals[0];
@@ -55,15 +54,16 @@ function merge1(intervals) {
 /** 2) Similar to 1, but slower */
 function merge(intervals) {
   if (intervals.length === 0) return intervals;
-
   intervals.sort((a, b) => a[0] - b[0]);
 
   let i = 0;
   while (i < intervals.length - 1) {
-    if (intervals[i][1] >= intervals[i + 1][0]) {
+    const a = intervals[i];
+    const b = intervals[i + 1];
+    if (a[1] >= b[0]) {
       intervals = [
         ...intervals.slice(0, i),
-        [intervals[i][0], Math.max(intervals[i][1], intervals[i + 1][1])],
+        [a[0], Math.max(a[1], b[1])],
         ...intervals.slice(i + 2),
       ];
     } else {

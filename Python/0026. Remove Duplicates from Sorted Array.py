@@ -36,12 +36,14 @@
 #     }
 
 
+"""
+Two pointers slow and fast
+"""
+# time O(n)
+# space O(1)
+
+
 class Solution:
-    """
-    Two pointers slow and fast
-    time O(n)
-    space O(1)
-    """
     def removeDuplicates(self, nums: List[int]) -> int:
         if not nums:
             return 0
