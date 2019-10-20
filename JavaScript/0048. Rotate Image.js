@@ -85,7 +85,7 @@ function rotate2(matrix) {
 
   const last = matrix.length - 1;
 
-  for (let i = 0; i < matrix.length / 2; i++) {  // i is layer level
+  for (let i = 0; i < matrix.length / 2; i++) { // i is layer level
     for (let j = i; j < last - i; j++) {
       swap(i, j, j, last - i);
       swap(i, j, last - i, last - j);

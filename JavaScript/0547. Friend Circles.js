@@ -41,9 +41,9 @@ function findCircleNum(M) {
     // visit all friends
     for (let j = 0; j < M.length; j++) {
       if (M[i][j] === 1) {
-        M[i][j] = '*';  // mark as visited
-        M[j][i] = '*';  // mark as visited
-        go(j);  // visit friend's friends
+        M[i][j] = '*'; // mark as visited
+        M[j][i] = '*'; // mark as visited
+        go(j); // visit friend's friends
       }
     }
   }

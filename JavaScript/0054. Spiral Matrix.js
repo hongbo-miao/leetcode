@@ -55,7 +55,7 @@
 function spiralOrder(matrix) {
   if (matrix == null || matrix.length === 0) return [];
 
-  const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];  // right, down, left, up
+  const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]; // right, down, left, up
   const steps = [matrix[0].length, matrix.length - 1];
 
   let dir = 0;

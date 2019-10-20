@@ -54,8 +54,8 @@
 function connect1(root) {
   if (root == null || root.left == null) return root;
 
-  root.left.next = root.right;  // connect left -> right
-  root.right.next = root.next ? root.next.left : null;  // connect right -> next's left
+  root.left.next = root.right; // connect left -> right
+  root.right.next = root.next ? root.next.left : null; // connect right -> next's left
 
   connect(root.left);
   connect(root.right);

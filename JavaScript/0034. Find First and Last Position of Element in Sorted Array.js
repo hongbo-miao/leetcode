@@ -51,7 +51,7 @@ function searchRange3(nums, target) {
   else res[0] = l;
 
   // find the right
-  r = nums.length - 1;  // no need to set l to 0
+  r = nums.length - 1; // no need to set l to 0
 
   while (l < r) {
     const m = Math.ceil((l + r) / 2);   // note using Math.ceil

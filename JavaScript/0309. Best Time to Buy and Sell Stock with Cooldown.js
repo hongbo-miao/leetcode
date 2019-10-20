@@ -27,14 +27,14 @@ function maxProfit1(prices) {
   const s1 = Array(prices.length).fill(0);
   const s2 = Array(prices.length).fill(0);
 
-  s0[0] = 0;  // You don't have any stock if you just rest
-  s1[0] = -prices[0];  // After buy, you should have -prices[0] profit
+  s0[0] = 0; // You don't have any stock if you just rest
+  s1[0] = -prices[0]; // After buy, you should have -prices[0] profit
   s2[0] = -Infinity;
 
   for (let i = 1; i < prices.length; i++) {
-    s0[i] = Math.max(s0[i - 1], s2[i - 1]);  // Stay at s0, or rest from s2
-    s1[i] = Math.max(s1[i - 1], s0[i - 1] - prices[i]);  // Stay at s1, or buy from s0
-    s2[i] = s1[i - 1] + prices[i];  // Only one way from s1
+    s0[i] = Math.max(s0[i - 1], s2[i - 1]); // Stay at s0, or rest from s2
+    s1[i] = Math.max(s1[i - 1], s0[i - 1] - prices[i]); // Stay at s1, or buy from s0
+    s2[i] = s1[i - 1] + prices[i]; // Only one way from s1
   }
 
   return Math.max(s0[prices.length - 1], s2[prices.length - 1]);

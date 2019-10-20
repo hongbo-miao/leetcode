@@ -34,5 +34,5 @@ function rotate1(nums, k) {
 }
 
 function rotate(nums, k) {
-  nums.unshift(...nums.splice(nums.length - k, k));  // splice mutates original array, and also return removed items
+  nums.unshift(...nums.splice(nums.length - k, k)); // splice mutates original array, and also return removed items
 }

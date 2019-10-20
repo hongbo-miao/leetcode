@@ -51,7 +51,7 @@ function fractionToDecimal(numerator, denominator) {
     s += ~~(n / d);
     n %= d;
 
-    const i = map[n];  // repeat starting index
+    const i = map[n]; // repeat starting index
     if (i != null) return `${s.slice(0, i)}(${s.slice(i)})`;
   }
 

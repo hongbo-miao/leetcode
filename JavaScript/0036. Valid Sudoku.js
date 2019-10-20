@@ -98,8 +98,8 @@ function isValidSudoku1(board) {
 // Time O(1), since all we do here is just one iteration over the board with 81 cells
 // Space O(1)
 function isValidSudoku(board) {
-  // const row = Array(9).fill({});  // wrong, all will point to same {} reference
-  // const row = [{}, {}, {}, {}, {}, {}, {}, {}, {}];  // correct
+  // const row = Array(9).fill({}); // wrong, all will point to same {} reference
+  // const row = [{}, {}, {}, {}, {}, {}, {}, {}, {}]; // correct
   const row = Array.from(Array(9), () => ({}));
   const column = Array.from(Array(9), () => ({}));
   const block = Array.from(Array(9), () => ({}));

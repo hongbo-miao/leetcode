@@ -44,7 +44,7 @@ function findPairs1(nums, k) {
   nums.sort((a, b) => a - b);
   let count = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === nums[i - 1]) continue;  // avoid duplicates to get unique pairs
+    if (nums[i] === nums[i - 1]) continue; // avoid duplicates to get unique pairs
     if (binarySearch(i + 1, nums.length - 1, nums[i] + k)) {
       count++;
     }

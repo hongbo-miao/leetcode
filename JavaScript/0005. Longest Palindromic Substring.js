@@ -50,10 +50,10 @@ function longestPalindrome(s) {
   let res = '';
 
   for (let i = 0; i < s.length; i++) {
-    const s1 = expandFromCenter(s, i, i);  // case 1: aba
+    const s1 = expandFromCenter(s, i, i); // case 1: aba
     if (s1.length > res.length) res = s1;
 
-    const s2 = expandFromCenter(s, i, i + 1);  // case 2: abba
+    const s2 = expandFromCenter(s, i, i + 1); // case 2: abba
     if (s2.length > res.length) res = s2;
   }
 

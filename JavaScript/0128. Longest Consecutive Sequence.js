@@ -59,7 +59,7 @@ function longestConsecutive2(nums) {
   let max = 0;
 
   for (let num of set) {
-    if (set.has(num - 1)) continue;  // make sure starting from the beginning of sequence
+    if (set.has(num - 1)) continue; // make sure starting from the beginning of sequence
 
     let currNum = num;
     let currMax = 1;

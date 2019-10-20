@@ -41,7 +41,7 @@ function solution1(isBadVersion) {
       const m = ~~((l + r) / 2);
       return isBadVersion(m) ? find(l, m) : find(m + 1, r);
     }
-    return find(1, n);  // or find(0, n);
+    return find(1, n); // or find(0, n);
   };
 }
 

@@ -38,7 +38,7 @@ function zigzagLevelOrder(root) {
   return res;
 }
 
-function go(node, l, res) {  // l means level
+function go(node, l, res) { // l means level
   if (!node) return;
 
   if (res[l] == null) {

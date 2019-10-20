@@ -72,7 +72,7 @@ function minimumCost(N, connections) {
   // Find root
   function find(u) {
     if (u === parents[u]) return u;
-    parents[u] = find(parents[u]);  // path compression
+    parents[u] = find(parents[u]); // path compression
     return parents[u];
   }
 

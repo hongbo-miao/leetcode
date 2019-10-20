@@ -20,7 +20,7 @@
  */
 /** 1) */
 function singleNumber1(nums) {
-  return nums.reduce((sum, num) => sum ^ num);  // ^ is XOR
+  return nums.reduce((sum, num) => sum ^ num); // ^ is XOR
 }
 
 /** 2) */

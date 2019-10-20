@@ -64,7 +64,7 @@ function totalFruit(tree) {
     count[tree[r]]++;
 
     while (Object.keys(count).length > 2) {
-      count[tree[l]]--;  // count[tree[l]] saves the number of the first fruit
+      count[tree[l]]--; // count[tree[l]] saves the number of the first fruit
       if (count[tree[l]] === 0) delete count[tree[l]];
       l++;
     }

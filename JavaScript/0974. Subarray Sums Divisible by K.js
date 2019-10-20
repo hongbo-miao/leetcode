@@ -38,7 +38,7 @@ function subarraysDivByK1(A, K) {
   let sum = 0;
   for (let n of A) {
     sum = (sum + n) % K;
-    if (sum < 0) sum += K;  // Because -1 % 5 = -1, but we need the positive mod 4
+    if (sum < 0) sum += K; // Because -1 % 5 = -1, but we need the positive mod 4
     if (mods[sum] == null) mods[sum] = 0;
     count += mods[sum];
     mods[sum]++;
@@ -67,7 +67,7 @@ function subarraysDivByK(A, K) {
   for (let n of A) {
     sum += n;
     let mod = sum % K;
-    if (mod < 0) mod += K;  // as the sum can be negative
+    if (mod < 0) mod += K; // as the sum can be negative
     mods[mod]++;
   }
 

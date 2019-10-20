@@ -93,7 +93,7 @@ function coinChange1(coins, amount) {
         res = Math.min(res, count + ~~(amount / coin));
       }
     } else {
-      for (let i = ~~(amount / coin); i >= 0 && count + i < res; i--) {  // count + i < res is for pruning, avoid unnecessary calculation
+      for (let i = ~~(amount / coin); i >= 0 && count + i < res; i--) { // count + i < res is for pruning, avoid unnecessary calculation
         find(k + 1, amount - coin * i, count + i);
       }
     }

@@ -61,7 +61,7 @@ function cutOffTree(forest) {
         const i = x + di;
         const j = y + dj;
         if (i < 0 || i >= h || j < 0 || j >= w) continue;
-        if (forest[i][j] === 0) continue;  // meet obstacle
+        if (forest[i][j] === 0) continue; // meet obstacle
         if (dist[i][j] > d + 1) {
           dist[i][j] = d + 1;
           q.push([[i, j], d + 1]);
@@ -87,7 +87,7 @@ function cutOffTree(forest) {
     getDist(pos, dist);
     const [pos2] = trees.shift();
     const [i, j] = pos2;
-    if (dist[i][j] === Infinity) return -1;  // cannot reach next position
+    if (dist[i][j] === Infinity) return -1; // cannot reach next position
     step += dist[i][j];
     pos = pos2;
   }

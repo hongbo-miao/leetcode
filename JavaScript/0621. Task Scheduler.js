@@ -57,12 +57,12 @@ function leastInterval(tasks, n) {
     map[t]++;
   }
 
-  let max = 0;  // task max frequency
+  let max = 0; // task max frequency
   for (let t in map) {
     max = Math.max(max, map[t]);
   }
 
-  let count = 0;  // the number of tasks with same max frequency
+  let count = 0; // the number of tasks with same max frequency
   for (let t in map) {
     if (map[t] === max) {
       count++;

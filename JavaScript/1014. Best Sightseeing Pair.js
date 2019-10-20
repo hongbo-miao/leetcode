@@ -35,7 +35,7 @@ function maxScoreSightseeingPair1(A) {
 // best index which can make the max A[i] + i.
 function maxScoreSightseeingPair(A) {
   let max = A[0];
-  let i = 0;  // prev best index
+  let i = 0; // prev best index
   for (let j = 1; j < A.length; j++) {
     max = Math.max(max, A[i] + A[j] + i - j);
     if (A[i] + i < A[j] + j) {

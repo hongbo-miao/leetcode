@@ -35,7 +35,7 @@ function findItinerary(tickets) {
     graph[from].push(to);
   }
   for (const from in graph) {
-    graph[from].sort();  // sort 'tos' in lexical order
+    graph[from].sort(); // sort 'tos' in lexical order
   }
 
   // Post-order traversal, DFS
@@ -44,7 +44,7 @@ function findItinerary(tickets) {
   function dfs(from) {
     const tos = graph[from] || [];
     while (tos.length) {
-      const to = tos.shift();  // get the lexical smallest 'to'
+      const to = tos.shift(); // get the lexical smallest 'to'
       dfs(to);
     }
     route.push(from);

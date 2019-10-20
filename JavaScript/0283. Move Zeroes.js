@@ -39,7 +39,7 @@ function moveZeroes1(nums) {
 // Time O(n)
 // Space O(1)
 function moveZeroes(nums) {
-  let pos = 0;  // last non 0 element found
+  let pos = 0; // last non 0 element found
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] !== 0) {
       [nums[pos], nums[i]] = [nums[i], nums[pos]];

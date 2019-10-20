@@ -45,7 +45,7 @@ function minEatingSpeed(piles, H) {
   }
 
   let l = 0;
-  let r = Math.max(...piles);  // when the max speed = biggest pile, it only needs 1h to eat each pile
+  let r = Math.max(...piles); // when the max speed = biggest pile, it only needs 1h to eat each pile
   while (l < r) {
     const m = ~~((l + r) / 2);
     if (!canEatAll(m)) l = m + 1;

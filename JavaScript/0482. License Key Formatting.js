@@ -34,7 +34,7 @@ function licenseKeyFormatting(S, K) {
   let len = s.length;
   const res = [];
   while (len > 0) {
-    res.push(s.substring(len - K, len));  // do not use slice here, since substring works when start index < 0, it will return the string starting from 0
+    res.push(s.substring(len - K, len)); // do not use slice here, since substring works when start index < 0, it will return the string starting from 0
     len -= K;
   }
   return res.reverse().join('-');

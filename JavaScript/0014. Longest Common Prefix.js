@@ -67,5 +67,5 @@ function longestCommonPrefix(strs) {
     if (isCommonPrefix(m)) l = m + 1;
     else r = m - 1;
   }
-  return strs[0].slice(0, (l + r) / 2);  // no need Math.floor or ~~ because it will be used in slice
+  return strs[0].slice(0, (l + r) / 2); // no need Math.floor or ~~ because it will be used in slice
 }

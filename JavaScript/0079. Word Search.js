@@ -38,12 +38,12 @@ function exist(board, word) {
 
     board[i][j] = '*';      // mark as visited
 
-    if (go(i - 1, j, k + 1)) return true;  // up
-    if (go(i + 1, j, k + 1)) return true;  // down
-    if (go(i, j - 1, k + 1)) return true;  // left
-    if (go(i, j + 1, k + 1)) return true;  // right
+    if (go(i - 1, j, k + 1)) return true; // up
+    if (go(i + 1, j, k + 1)) return true; // down
+    if (go(i, j - 1, k + 1)) return true; // left
+    if (go(i, j + 1, k + 1)) return true; // right
 
-    board[i][j] = word[k];  // reset
+    board[i][j] = word[k]; // reset
     return false;
   }
 

@@ -29,7 +29,7 @@ function partitionLabels(S) {
   if (S == null || S.length === 0) return null;
 
   const res = [];
-  const map = {};  // record the last seen index of the each char
+  const map = {}; // record the last seen index of the each char
 
   for (let i = 0; i < S.length; i++) {
     map[S[i]] = i;

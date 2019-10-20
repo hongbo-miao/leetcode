@@ -67,7 +67,7 @@ function subarraysWithKDistinct(A, K) {
   function atMostK(k) {
     let l = 0;
     let sum = 0;
-    const count = new Map();  // if use {} here, when we use Object.keys(count).length later, it will cause time limit exceeded when A has too many elements
+    const count = new Map(); // if use {} here, when we use Object.keys(count).length later, it will cause time limit exceeded when A has too many elements
 
     for (let r = 0; r < A.length; r++) {
       if (!count.has(A[r])) count.set(A[r], 0);

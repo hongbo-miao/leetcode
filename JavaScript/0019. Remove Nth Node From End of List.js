@@ -27,7 +27,7 @@
 // Time O(n)
 // Space O(1)
 function removeNthFromEnd(head, n) {
-  const preHead = new ListNode(null);  // for case n = 1, to remove the last node in the list to avoid slow.next is null in slow.next.next
+  const preHead = new ListNode(null); // for case n = 1, to remove the last node in the list to avoid slow.next is null in slow.next.next
   preHead.next = head;
 
   let slow = preHead;

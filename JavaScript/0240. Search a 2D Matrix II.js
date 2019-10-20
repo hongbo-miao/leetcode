@@ -50,7 +50,7 @@ function searchMatrix2(matrix, target) {
 
     if (matrix[i][j] === target) return true;
 
-    matrix[i][j] = '*';  // mark visited
+    matrix[i][j] = '*'; // mark visited
     return go(i + 1, j) || go(i, j + 1);
   }
 

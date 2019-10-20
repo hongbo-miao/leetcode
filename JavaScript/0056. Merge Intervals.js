@@ -40,7 +40,7 @@ function merge1(intervals) {
 
     if (prev[1] >= curr[0]) {
       // e.g. [1, 3], [2, 6] or [[1, 3], [3, 6]]
-      prev[1] = Math.max(prev[1], curr[1]);  // here will change prev in res which is what we want
+      prev[1] = Math.max(prev[1], curr[1]); // here will change prev in res which is what we want
     } else {
       // e.g. [1, 2], [4, 6]
       res = [...res, curr];

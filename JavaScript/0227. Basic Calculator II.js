@@ -43,7 +43,7 @@ function calculate(s) {
     const c = s[i];
 
     // number
-    if (isNumber(c)) n = n * 10 + Number(c);  // e.g. '14' -> 1 * 10 + 4
+    if (isNumber(c)) n = n * 10 + Number(c); // e.g. '14' -> 1 * 10 + 4
 
     // sign or last number
     if (isSign(c) || i === s.length - 1) {

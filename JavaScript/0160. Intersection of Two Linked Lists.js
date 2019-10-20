@@ -36,7 +36,7 @@
 // Time O(m + n)
 // Space O(m) or O(n)
 function getIntersectionNode1(headA, headB) {
-  let map = new Map();  // {} does not work here, since the key does not support ListNode
+  let map = new Map(); // {} does not work here, since the key does not support ListNode
 
   while (headA) {
     map.set(headA, true);
@@ -57,7 +57,7 @@ function getIntersectionNode2(headA, headB) {
   let b = headB;
 
   while (a !== b) {
-    a = a ? a.next : headA;  // no exchange which is why it is slow
+    a = a ? a.next : headA; // no exchange which is why it is slow
     b = b ? b.next : headB;
   }
 
@@ -79,8 +79,8 @@ function getIntersectionNode(headA, headB) {
 
   // a === b happens at the connecting point or when they are both null at the end which means no intersection
   while (a !== b) {
-    a = a ? a.next : headB;  // move a to head of b if at end
-    b = b ? b.next : headA;  // move b to head of a if at end
+    a = a ? a.next : headB; // move a to head of b if at end
+    b = b ? b.next : headA; // move b to head of a if at end
   }
 
   return a;

@@ -39,8 +39,8 @@ function palindromePairs(words) {
     const word = words[i];
 
     // special treatment for ''
-    if (map[''] != null && isPalindrome(word) && word !== '') {  // word !== '' make sure '' not matching itself
-      res.push([map[''], i]);  // 1) if self is palindrome, covers ['', self]
+    if (map[''] != null && isPalindrome(word) && word !== '') { // word !== '' make sure '' not matching itself
+      res.push([map[''], i]); // 1) if self is palindrome, covers ['', self]
     }
 
     for (let j = 0; j < word.length; j++) {
@@ -48,12 +48,12 @@ function palindromePairs(words) {
       const r = word.slice(j);
 
       // e.g. 'cdc ab' and 'ba'
-      if (isPalindrome(l) && map[r] != null && map[r] !== i) {  // map[r] !== i make sure not matching itself, e.g. exclude 'a' with itself 'a'
+      if (isPalindrome(l) && map[r] != null && map[r] !== i) { // map[r] !== i make sure not matching itself, e.g. exclude 'a' with itself 'a'
         res.push([map[r], i]);
       }
 
       if (isPalindrome(r) && map[l] != null && map[l] !== i) {
-        res.push([i, map[l]]);  // 2) when j = 0, l = '', r = self, so here covers [self, '']
+        res.push([i, map[l]]); // 2) when j = 0, l = '', r = self, so here covers [self, '']
       }
     }
   }

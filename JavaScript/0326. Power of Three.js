@@ -36,7 +36,7 @@ function isPowerOfThree3(n) {
 // i = log3(n)
 // i = log10(n) / log10(3)
 function isPowerOfThree4(n) {
-  return (Math.log10(n) / Math.log10(3)) % 1 === 0;  // using % 1 to get the decimal part
+  return (Math.log10(n) / Math.log10(3)) % 1 === 0; // using % 1 to get the decimal part
 }
 
 /** 5) Similar to 4) */

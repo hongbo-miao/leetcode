@@ -82,7 +82,7 @@ function isRectangleCover1(rectangles) {
 
     if (tls.has(tl) || trs.has(tr) || bls.has(bl) || brs.has(br)) return false;
 
-    if (!bls.delete(tl) && !trs.delete(tl)) tls.add(tl);  // if delete succeed, returns true
+    if (!bls.delete(tl) && !trs.delete(tl)) tls.add(tl); // if delete succeed, returns true
     if (!brs.delete(tr) && !tls.delete(tr)) trs.add(tr);
     if (!brs.delete(bl) && !tls.delete(bl)) bls.add(bl);
     if (!bls.delete(br) && !trs.delete(br)) brs.add(br);

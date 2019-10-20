@@ -19,8 +19,8 @@
  * @return {boolean}
  */
 function increasingTriplet(nums) {
-  let a = Infinity;  // min
-  let b = Infinity;  // second min
+  let a = Infinity; // min
+  let b = Infinity; // second min
 
   for (let n of nums) {
     if (n <= a) a = n;

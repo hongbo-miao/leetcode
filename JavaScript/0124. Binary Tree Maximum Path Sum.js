@@ -45,9 +45,9 @@ function maxPathSum(root) {
   function getMaxGain(node) {
     if (node == null) return 0;
 
-    const l = Math.max(0, getMaxGain(node.left));  // left max gain. If < 0, returning 0 means ignoring this branch
+    const l = Math.max(0, getMaxGain(node.left)); // left max gain. If < 0, returning 0 means ignoring this branch
 
-    const r = Math.max(0, getMaxGain(node.right));  // right max gain
+    const r = Math.max(0, getMaxGain(node.right)); // right max gain
 
     max = Math.max(max, node.val + l + r);
     return node.val + Math.max(l, r);

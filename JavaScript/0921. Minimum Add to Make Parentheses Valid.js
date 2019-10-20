@@ -75,7 +75,7 @@ function minAddToMakeValid(S) {
   let r = 0;
   for (let c of S) {
     if (c === ')') {
-      if (l === 0) r++;  // ) are at the left side cannot be closed by (
+      if (l === 0) r++; // ) are at the left side cannot be closed by (
       else l--;
     } else {
       l++;

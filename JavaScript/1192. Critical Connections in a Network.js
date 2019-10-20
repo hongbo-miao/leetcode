@@ -42,20 +42,20 @@ function criticalConnections(n, connections) {
   }
 
   // Initialize
-  let time = 0;  // time when discover each vertex
+  let time = 0; // time when discover each vertex
   const res = [];
-  const low = [];  // low[u] records the lowest vertex u can reach
-  const disc = [];  // disc[u] records the time when u was discovered
+  const low = []; // low[u] records the lowest vertex u can reach
+  const disc = []; // disc[u] records the time when u was discovered
   for (let i = 0; i < n; i++) {
-    disc.push(Infinity);  // use disc to track if visited (disc[i] == Infinity)
+    disc.push(Infinity); // use disc to track if visited (disc[i] == Infinity)
   }
 
   // DFS
   function dfs(u, pre) {
-    disc[u] = low[u] = time++;  // discover u
+    disc[u] = low[u] = time++; // discover u
     for (const v of g[u]) {
-      if (v === pre) continue;  // if parent vertex, ignore
-      if (disc[v] === Infinity) {  // if not discovered
+      if (v === pre) continue; // if parent vertex, ignore
+      if (disc[v] === Infinity) { // if not discovered
         dfs(v, u);
         low[u] = Math.min(low[u], low[v]);
         if (low[v] > disc[u]) {

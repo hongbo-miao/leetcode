@@ -72,7 +72,7 @@ function invertTree(root) {
   const q = [root];
 
   while (q.length) {
-    const n = q.shift();  // the only difference with DFS is here
+    const n = q.shift(); // the only difference with DFS is here
     if (n != null) {
       [n.left, n.right] = [n.right, n.left];
       q.push(n.left, n.right);

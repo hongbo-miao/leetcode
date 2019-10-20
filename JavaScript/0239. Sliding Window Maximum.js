@@ -58,7 +58,7 @@ function maxSlidingWindow1(nums, k) {
     const j = i + 1 - k;
     if (j >= 0) {
       res.push(q[0]);
-      if (nums[j] === q[0]) q.shift();  // If the biggest element in q is about to exit window, remove it from q
+      if (nums[j] === q[0]) q.shift(); // If the biggest element in q is about to exit window, remove it from q
     }
   }
   return res;
@@ -76,12 +76,12 @@ function maxSlidingWindow(nums, k) {
   right[n - 1] = nums[n - 1];
   for (let i = 1; i < n; i++) {
     // from left to right
-    if (i % k === 0) left[i] = nums[i];  // block_start
+    if (i % k === 0) left[i] = nums[i]; // block_start
     else left[i] = Math.max(left[i - 1], nums[i]);
 
     // from right to left
     const j = n - i - 1;
-    if (j + 1 % k === 0) right[j] = nums[j];  // block_end
+    if (j + 1 % k === 0) right[j] = nums[j]; // block_end
     else right[j] = Math.max(right[j + 1], nums[j]);
   }
 

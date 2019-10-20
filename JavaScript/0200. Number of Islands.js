@@ -41,7 +41,7 @@ function numIslands(grid) {
   function go(i, j) {
     if (i < 0 || i >= h || j < 0 || j >= w || grid[i][j] !== '1') return;
 
-    grid[i][j] = '*';  // go land piece as visited
+    grid[i][j] = '*'; // go land piece as visited
     go(i - 1, j);
     go(i + 1, j);
     go(i, j - 1);

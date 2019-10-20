@@ -57,7 +57,7 @@ function maxSubArray2(nums) {
   let max = nums[0];
 
   for (let i = 1; i < nums.length; i++) {
-    currMax = Math.max(currMax + nums[i], nums[i]);  // if nums[i] is bigger, recalculate from nums[i]
+    currMax = Math.max(currMax + nums[i], nums[i]); // if nums[i] is bigger, recalculate from nums[i]
     max = Math.max(max, currMax);
   }
 

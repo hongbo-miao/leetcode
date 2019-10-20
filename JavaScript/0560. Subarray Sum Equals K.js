@@ -40,7 +40,7 @@ function subarraySum2(nums, k) {
     let sum = 0;
     for (let j = i; j < nums.length; j++) {
       sum += nums[j];
-      if (sum === k) count++;  // cannot break here, because next one might be 0
+      if (sum === k) count++; // cannot break here, because next one might be 0
     }
   }
   return count;

@@ -68,11 +68,11 @@ function search3(nums, target) {
     // When dividing the rotated array into two halves, one must be sorted
     // Check if the left side is sorted
     if (nums[l] <= nums[m]) {
-      if (nums[l] <= target && target <= nums[m]) r = m - 1;  // target is in the left
-      else l = m + 1;  // target is in the right
+      if (nums[l] <= target && target <= nums[m]) r = m - 1; // target is in the left
+      else l = m + 1; // target is in the right
     } else {
-      if (nums[m] <= target && target <= nums[r]) l = m + 1;  // target is in the right
-      else r = m - 1;  // target is in the left
+      if (nums[m] <= target && target <= nums[r]) l = m + 1; // target is in the right
+      else r = m - 1; // target is in the left
     }
   }
 
@@ -89,10 +89,10 @@ function search(nums, target) {
 
     if (nums[m] === target) return m;
 
-    if (nums[l] < nums[m]) {  // e.g. 4, 5, 6, 7
+    if (nums[l] < nums[m]) { // e.g. 4, 5, 6, 7
       if (nums[l] <= target && target <= nums[m]) r = m;
       else l = m;
-    } else {  // e.g. 7, 0, 1, 2
+    } else { // e.g. 7, 0, 1, 2
       if (nums[m] <= target && target <= nums[r]) l = m;
       else r = m;
     }

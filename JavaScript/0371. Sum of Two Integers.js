@@ -14,9 +14,9 @@
 // 0b11 ^ 0b01 = 0b10
 function getSum1(a, b) {
   while (b !== 0) {
-    const carry = a & b;  // carry over
-    a = a ^ b;            // sum without carry over
-    b = carry << 1;       // move the carry over to the correct position
+    const carry = a & b; // carry over
+    a = a ^ b; // sum without carry over
+    b = carry << 1; // move the carry over to the correct position
   }
 
   return a;

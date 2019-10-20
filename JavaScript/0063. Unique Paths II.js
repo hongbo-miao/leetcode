@@ -39,7 +39,7 @@ function uniquePathsWithObstacles(obstacleGrid) {
   dp[0][1] = 1;
   for (let i = 1; i <= h; i++) {
     for (let j = 1; j <= w; j++) {
-      if (obstacleGrid[i - 1][j - 1] === 0) {  // continue moving if it is not obstacle
+      if (obstacleGrid[i - 1][j - 1] === 0) { // continue moving if it is not obstacle
         dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
       }
     }

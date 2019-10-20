@@ -64,7 +64,7 @@ function lengthOfLongestSubstring3(s) {
   let chars = [];
 
   for (let c of s) {
-    chars = chars.slice(chars.indexOf(c) + 1);  // remove everything before when find duplicate one, e.g. awke + w -> ke + w
+    chars = chars.slice(chars.indexOf(c) + 1); // remove everything before when find duplicate one, e.g. awke + w -> ke + w
     max = Math.max(chars.push(c), max);   // push returns the array length
   }
 
@@ -127,10 +127,10 @@ function lengthOfLongestSubstring(s) {
     const c = s[r];
 
     if (map[c] != null) {
-      l = Math.max(map[c], l);  // not l = map[c], because Math.max makes sure l always increase
+      l = Math.max(map[c], l); // not l = map[c], because Math.max makes sure l always increase
     }
 
-    map[c] = r + 1;  // map[c] saves next start point for l
+    map[c] = r + 1; // map[c] saves next start point for l
     max = Math.max(max, r - l + 1);
   }
 

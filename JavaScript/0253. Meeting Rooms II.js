@@ -24,7 +24,7 @@
 // Space O(n)
 function minMeetingRooms(intervals) {
   const starts = intervals
-    .concat()  // make sure shallow copy, otherwise when sort 'ends', 'starts' will change too
+    .concat() // make sure shallow copy, otherwise when sort 'ends', 'starts' will change too
     .map(a => a[0])
     .sort((a, b) => a - b);
 
