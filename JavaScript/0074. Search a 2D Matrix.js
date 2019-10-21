@@ -32,62 +32,61 @@
  */
 
 /** 1) Binary search twice, treat 2d matrix as a long array */
-// Time O(log(mn))
+// Time O(log(hw))
 function searchMatrix1(matrix, target) {
-  if (!matrix.length || !matrix[0].length) return false;
+  if (matrix == null || matrix.length === 0) return false;
 
-  const m = matrix.length;
-  const n = matrix[0].length;
+  const h = matrix.length;
+  const w = matrix[0].length;
 
   let l = 0;
-  let r = m * n - 1;
-  let mid = 0;
+  let r = h * w - 1;
 
   while (l <= r) {
-    mid = ~~((l + r) / 2);
+    const m = ~~((l + r) / 2);
 
-    const i = ~~(mid / n); // row
-    const j = mid % n; // col
+    const i = ~~(m / w); // row
+    const j = m % w; // col
 
     if (matrix[i][j] === target) return true;
-    else if (matrix[i][j] < target) l = mid + 1;
-    else r = mid - 1;
+    else if (matrix[i][j] < target) l = m + 1;
+    else r = m - 1;
   }
 
   return false;
 }
 
 /** 2) Binary search twice, locate row first, then column */
-// Time O(log(m) + log(n))
+// Time O(log(h) + log(w))
 function searchMatrix2(matrix, target) {
-  if (!matrix.length || !matrix[0].length) return false;
+  if (matrix == null || matrix.length === 0) return false;
 
-  const m = matrix.length;
-  const n = matrix[0].length;
+  const h = matrix.length;
+  const w = matrix[0].length;
 
-  if (target < matrix[0][0] || target > matrix[m - 1][n - 1]) return false;
+  if (target < matrix[0][0] || target > matrix[h - 1][w - 1]) return false;
 
   let l = 0;
-  let r = m - 1;
+  let r = h - 1;
 
   while (l <= r) {
-    const mid = ~~((l + r) / 2);
+    const m = ~~((l + r) / 2);
 
-    if (matrix[mid][0] === target) return true;
-    else if (matrix[mid][0] < target) l = mid + 1;
-    else r = mid - 1;
+    if (matrix[m][0] === target) return true;
+    else if (matrix[m][0] < target) l = m + 1;
+    else r = m - 1;
   }
 
   const row = r;
   l = 0;
-  r = n - 1;
+  r = w - 1;
 
   while (l <= r) {
-    const mid = ~~((l + r) / 2);
+    const m = ~~((l + r) / 2);
 
-    if (matrix[row][mid] === target) return true;
-    else if (matrix[row][mid] < target) l = mid + 1;
-    else r = mid - 1;
+    if (matrix[row][m] === target) return true;
+    else if (matrix[row][m] < target) l = m + 1;
+    else r = m - 1;
   }
 
   return false;
@@ -97,14 +96,17 @@ function searchMatrix2(matrix, target) {
 // Similar
 // 240. Search a 2D Matrix II
 //
-// Time O(m + n), rule out one row or one column each time
+// Time O(h + w), rule out one row or one column each time
 function searchMatrix(matrix, target) {
-  if (!matrix.length || !matrix[0].length) return false;
+  if (matrix == null || matrix.length === 0) return false;
+
+  const h = matrix.length;
+  const w = matrix[0].length;
 
   let row = 0;
-  let col = matrix[0].length - 1;
+  let col = w - 1;
 
-  while (col >= 0 && row <= matrix.length - 1) {
+  while (col >= 0 && row <= h - 1) {
     if (target === matrix[row][col]) return true;
     else if (target < matrix[row][col]) col--;
     else if (target > matrix[row][col]) row++;
