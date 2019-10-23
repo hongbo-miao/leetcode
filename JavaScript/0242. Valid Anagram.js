@@ -43,7 +43,7 @@ function isAnagram(s, t) {
   }
 
   for (let c of t) {
-    if (map[c] != null) map[c]--;
+    if (map[c] > 0) map[c]--;
     else return false;
   }
 
