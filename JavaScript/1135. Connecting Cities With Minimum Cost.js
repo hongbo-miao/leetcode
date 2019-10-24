@@ -64,7 +64,7 @@ function minimumCost(N, connections) {
     const p2 = find(v);
 
     if (p1 !== p2) {
-      parents[p1] = p2;
+      parents[p1] = p2; // or parents[p2] = p1 which does not matter
       n--;
     }
   }
@@ -72,8 +72,7 @@ function minimumCost(N, connections) {
   // Find root
   function find(u) {
     if (u === parents[u]) return u;
-    parents[u] = find(parents[u]); // path compression
-    return parents[u];
+    return parents[u] = find(parents[u]); // path compression
   }
 
   connections.sort((a, b) => a[2] - b[2]);
@@ -81,8 +80,8 @@ function minimumCost(N, connections) {
   let res = 0;
   for (const [u, v, cost] of connections) {
     if (find(u) !== find(v)) {
-      res += cost;
       union(u, v);
+      res += cost;
     }
   }
   return n === 1 ? res : -1;

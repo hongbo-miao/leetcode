@@ -51,12 +51,12 @@ function findWords(board, words) {
     if (node[board[i][j]] == null) return;
 
     const c = board[i][j];
-    board[i][j] = '#'; // mark visited
+    board[i][j] = '#'; // Mark visited
     search(node[c], i + 1, j);
     search(node[c], i - 1, j);
     search(node[c], i, j + 1);
     search(node[c], i, j - 1);
-    board[i][j] = c; // reset
+    board[i][j] = c; // Reset
   }
 
   const root = buildTrie();
