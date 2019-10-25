@@ -56,16 +56,16 @@
 // Time O(n), where n is the length of tree
 // Space O(n)
 function totalFruit(tree) {
-  const count = {};
+  const count = new Map();
   let max = 0;
   let l = 0;
   for (let r = 0; r < tree.length; r++) {
-    if (count[tree[r]] == null) count[tree[r]] = 0;
-    count[tree[r]]++;
+    if (!count.has(tree[r])) count.set(tree[r], 0);
+    count.set(tree[r], count.get(tree[r]) + 1);
 
-    while (Object.keys(count).length > 2) {
-      count[tree[l]]--; // count[tree[l]] saves the number of the first fruit
-      if (count[tree[l]] === 0) delete count[tree[l]];
+    while (count.size > 2) {
+      count.set(tree[l], count.get(tree[l]) - 1);
+      if (count.get(tree[l]) === 0) count.delete(tree[l]);
       l++;
     }
     max = Math.max(max, r - l + 1);
