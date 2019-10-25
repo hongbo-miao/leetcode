@@ -119,10 +119,10 @@ function updateBoard(board, click) {
   const w = board[0].length;
 
   function bfs(x, y) {
-    const queue = [[x, y]];
+    const q = [[x, y]];
 
-    while (queue.length > 0) {
-      const [x, y] = queue.shift();
+    while (q.length > 0) {
+      const [x, y] = q.shift();
 
       // Count the adjacent mines
       let minesCount = 0;
@@ -149,7 +149,7 @@ function updateBoard(board, click) {
           const j = y + dy;
 
           if (i >= 0 && i < h && j >= 0 && j < w && board[i][j] === 'E') {
-            queue.push([i, j]);
+            q.push([i, j]);
             board[i][j] = 'B';
           }
         }

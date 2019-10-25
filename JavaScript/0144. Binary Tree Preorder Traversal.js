@@ -27,14 +27,13 @@
 
 /** 1) Recursion */
 function preorderTraversal1(node) {
-  let res = [];
+  const res = [];
   go(node, res);
   return res;
 }
 
 function go(node, res) {
-  if (!node) return;
-
+  if (node == null) return;
   res.push(node.val);
   go(node.left, res);
   go(node.right, res);
@@ -42,20 +41,19 @@ function go(node, res) {
 
 /** 2) Iteration using stack */
 function preorderTraversal(node) {
-  let stack = [];
-  let res = [];
+  const st = [];
+  const res = [];
 
-  while (node || stack.length) {
+  while (node || st.length) {
     // print & drill left
     while (node) {
       res.push(node.val);
-
-      stack.push(node);
+      st.push(node);
       node = node.left;
     }
 
     // go to right child
-    node = stack.pop();
+    node = st.pop();
     node = node.right;
   }
 

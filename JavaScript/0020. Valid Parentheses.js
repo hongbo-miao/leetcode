@@ -47,15 +47,13 @@ function isValid(s) {
     '{': '}',
   };
 
-  const stack = [];
-
+  const st = [];
   for (let c of s) {
     if (map[c]) {
-      stack.push(map[c]);
+      st.push(map[c]);
     } else {
-      if (c !== stack.pop()) return false;
+      if (c !== st.pop()) return false;
     }
   }
-
-  return stack.length === 0;
+  return st.length === 0;
 }

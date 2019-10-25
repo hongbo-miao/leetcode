@@ -47,18 +47,18 @@ function inorderTraversal1(root) {
 // Time O(n)
 // Space O(n)
 function inorderTraversal(node) {
-  let stack = [];
-  let res = [];
+  const st = [];
+  const res = [];
 
-  while (node || stack.length) {
+  while (node || st.length) {
     // drill left
     while (node) {
-      stack.push(node);
+      st.push(node);
       node = node.left;
     }
 
     // print & go to right child
-    node = stack.pop();
+    node = st.pop();
     res.push(node.val);
     node = node.right;
   }

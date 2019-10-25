@@ -27,17 +27,16 @@
 function isPalindrome(head) {
   if (head == null) return true;
 
-  let stack = [];
+  const st = [];
   let oldHead = head;
 
   while (head) {
-    stack.push(head.val);
+    st.push(head.val);
     head = head.next;
   }
 
   while (oldHead) {
-    if (oldHead.val !== stack.pop()) return false;
-
+    if (oldHead.val !== st.pop()) return false;
     oldHead = oldHead.next;
   }
 

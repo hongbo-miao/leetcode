@@ -20,8 +20,8 @@ class MinStack {
    * initialize your data structure here.
    */
   constructor() {
-    this.stack = [];
-    this.minStack = [];
+    this.st = [];
+    this.minSt = [];
   }
 
   /**
@@ -29,10 +29,10 @@ class MinStack {
    * @return {void}
    */
   push(x) {
-    this.stack.push(x);
+    this.st.push(x);
 
-    if (this.minStack.length === 0 || x <= this.minStack[this.minStack.length - 1]) {
-      this.minStack.push(x);
+    if (this.minSt.length === 0 || x <= this.minSt[this.minSt.length - 1]) {
+      this.minSt.push(x);
     }
   }
 
@@ -40,10 +40,10 @@ class MinStack {
    * @return {void}
    */
   pop() {
-    const x = this.stack.pop();
+    const x = this.st.pop();
 
-    if (x === this.minStack[this.minStack.length - 1]) {
-      this.minStack.pop();
+    if (x === this.minSt[this.minSt.length - 1]) {
+      this.minSt.pop();
     }
   }
 
@@ -51,13 +51,13 @@ class MinStack {
    * @return {number}
    */
   top() {
-    return this.stack[this.stack.length - 1];
+    return this.st[this.st.length - 1];
   }
 
   /**
    * @return {number}
    */
   getMin() {
-    return this.minStack[this.minStack.length - 1];
+    return this.minSt[this.minSt.length - 1];
   }
 }
