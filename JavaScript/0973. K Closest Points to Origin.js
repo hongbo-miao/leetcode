@@ -33,17 +33,17 @@
 /** 1) Sort */
 // Time O(n log n)
 function kClosest1(points, K) {
-  const dist = ([x, y]) => x ** 2 + y ** 2;
+  const getDist = ([x, y]) => x ** 2 + y ** 2;
 
   return points
-    .sort((a, b) => dist(a) - dist(b))
+    .sort((a, b) => getDist(a) - getDist(b))
     .slice(0, K);
 }
 
 /** 2) Quick sort */
 // Time O(n)
 function kClosest(points, K) {
-  const dist = ([x, y]) => x ** 2 + y ** 2;
+  const getDist = ([x, y]) => x ** 2 + y ** 2;
 
   const quickSort = (arr, l, r) => {
     let pivot;
@@ -61,11 +61,11 @@ function kClosest(points, K) {
   };
 
   const partition = (arr, pivot, l, r) => {
-    const pivotVal = dist(arr[pivot]);
+    const pivotVal = getDist(arr[pivot]);
     let partitionIdx = l;
 
     for (let i = l; i < r; i++){
-      if (dist(arr[i]) < pivotVal){
+      if (getDist(arr[i]) < pivotVal){
         swap(arr, i, partitionIdx);
         partitionIdx++;
       }

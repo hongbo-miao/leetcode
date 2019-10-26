@@ -59,19 +59,19 @@ function snakesAndLadders(board) {
     return [row, col];
   }
 
-  const dist = {};
-  dist[1] = 0;
+  const dists = {};
+  dists[1] = 0;
 
   const q = [1];
   while (q.length) {
     const n = q.shift();
-    if (n === len * len) return dist[n];
+    if (n === len * len) return dists[n];
 
     for (let n2 = n + 1; n2 <= Math.min(n + 6, len * len); n2++) {
       const [r, c] = get(n2);
       const n2Final = board[r][c] === -1 ? n2 : board[r][c];
-      if (dist[n2Final] == null) {
-        dist[n2Final] = dist[n] + 1;
+      if (dists[n2Final] == null) {
+        dists[n2Final] = dists[n] + 1;
         q.push(n2Final);
       }
     }

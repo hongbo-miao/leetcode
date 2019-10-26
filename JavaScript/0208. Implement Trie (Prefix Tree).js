@@ -24,7 +24,7 @@ class Trie {
 
     // word.split('').forEach(c => node = node[c] = node[c] || {});
     // word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {}));
-    for (let c of word) {
+    for (const c of word) {
       if (node[c] == null) node[c] = {};
       node = node[c];
     }

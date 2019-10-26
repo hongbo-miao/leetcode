@@ -25,6 +25,11 @@
  * @param {number} m
  * @return {number}
  */
+
+/** Binary Search + Greedy */
+// Time O(n * log(sum of array)). The binary search costs O(log(sum of array)), where sum of array is the sum of elements in nums. For each computation of F(x), the time complexity is O(n)O(n) since we only need to go through the whole array.
+// Space O(1)
+//
 // 1. Use binary search to approach the correct answer. We have l = max number of array; r = sum of all numbers in the array
 // 2. Use greedy to narrow down left and right boundaries in binary search.
 //    1) Cut the array from left.
