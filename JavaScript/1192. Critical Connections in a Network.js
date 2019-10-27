@@ -31,6 +31,8 @@
 // Introduction to Tarjan's strongly connected components algorithm
 // https://www.youtube.com/watch?v=TyWtx7q2D7Y
 function criticalConnections(n, connections) {
+  if (n === 0 || connections == null || connections.length === 0) return [];
+
   // Build graph
   const g = [];
   for (let i = 0; i < n; i++) {
