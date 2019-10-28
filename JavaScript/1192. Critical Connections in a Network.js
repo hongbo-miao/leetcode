@@ -30,6 +30,8 @@
 /** Tarjan's strongly connected components algorithm */
 // Introduction to Tarjan's strongly connected components algorithm
 // https://www.youtube.com/watch?v=TyWtx7q2D7Y
+//
+// Time O(V + E)
 function criticalConnections(n, connections) {
   if (n === 0 || connections == null || connections.length === 0) return [];
 

@@ -39,7 +39,7 @@
  * @return {number}
  */
 
-/** Kruskal's algorithm + Union Find with Path Compression */
+/** 1) Kruskal's algorithm + Union Find with Path Compression */
 // Introduction to Kruskal's algorithm https://www.youtube.com/watch?v=71UQH7Pr9kU
 // Introduction to Union Find https://www.youtube.com/watch?v=0jNmHPfA_yE
 // Introduction to Union Find Path Compression https://www.youtube.com/watch?v=VHRhJWacxis
@@ -53,11 +53,11 @@
 // 3. Repeat until minimum spanning tree (MST) is formed and every node is connected.
 //
 // Implemented Union-Find with path compression to improve efficiency.
-function minimumCost(N, connections) {
+function minimumCost1(N, connections) {
   let n = N;
 
-  const parents = [];
-  for (let i = 0; i < N; i++) parents.push(i);
+  const parents = {};
+  for (let i = 0; i < N; i++) parents[i] = i;
 
   function union(u, v) {
     const p1 = find(u);
@@ -73,6 +73,44 @@ function minimumCost(N, connections) {
   function find(u) {
     if (u === parents[u]) return u;
     return parents[u] = find(parents[u]); // path compression
+  }
+
+  connections.sort((a, b) => a[2] - b[2]);
+
+  let res = 0;
+  for (const [u, v, cost] of connections) {
+    if (find(u) !== find(v)) {
+      union(u, v);
+      res += cost;
+    }
+  }
+  return n === 1 ? res : -1;
+}
+
+/** 2) Similar to 1) */
+// Similar
+// 947. Most Stones Removed with Same Row or Column
+// 1135. Connecting Cities With Minimum Cost
+function minimumCost(N, connections) {
+  let n = N;
+
+  const parents = {};
+
+  // Find root
+  function find(u) {
+    if (parents[u] == null) parents[u] = u;
+    else if (parents[u] !== u) parents[u] = find(parents[u]); // path compression
+    return parents[u];
+  }
+
+  function union(u, v) {
+    const p1 = find(u);
+    const p2 = find(v);
+
+    if (p1 !== p2) {
+      parents[p1] = p2; // or parents[p2] = p1 which does not matter
+      n--;
+    }
   }
 
   connections.sort((a, b) => a[2] - b[2]);

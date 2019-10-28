@@ -21,25 +21,21 @@ class Trie {
   // Time O(N), N is the longest length of the word
   insert(word) {
     let node = this.root;
-
     // word.split('').forEach(c => node = node[c] = node[c] || {});
     // word.split('').forEach(c => node = (node[c] ? node[c] : node[c] = {}));
     for (const c of word) {
       if (node[c] == null) node[c] = {};
       node = node[c];
     }
-
     node.isWord = true;
   }
 
   traverse(word) {
     let node = this.root;
-
-    for (let c of word) {
+    for (const c of word) {
       node = node[c];
       if (node == null) return null;
     }
-
     return node;
   }
 
