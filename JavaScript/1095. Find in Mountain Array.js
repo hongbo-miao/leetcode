@@ -58,7 +58,7 @@ const findInMountainArray = (target, mountainArr) => {
   // Find the index of peak
   let peakIdx = 0;
   let l = 0;
-  let r = len - 1;
+  let r = len;
   while (l < r) {
     const m = ~~((l + r) / 2);
     if (mountainArr.get(m) < mountainArr.get(m + 1)) l = peakIdx = m + 1;
@@ -67,7 +67,7 @@ const findInMountainArray = (target, mountainArr) => {
 
   // Find the target on the left side of peak
   l = 0;
-  r = peakIdx;
+  r = peakIdx - 1;
   while (l <= r) {
     const m = ~~((l + r) / 2);
     if (mountainArr.get(m) === target) return m;
