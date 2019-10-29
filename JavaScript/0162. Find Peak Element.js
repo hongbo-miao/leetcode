@@ -60,7 +60,6 @@ function findPeakElement2(nums) {
     if (l === r) return l;
 
     const m = ~~((l + r) / 2);
-
     if (nums[m] > nums[m + 1]) return go(l, m);
     else return go(m + 1, r);
   }
@@ -78,9 +77,8 @@ function findPeakElement3(nums) {
 
   while (l < r) {
     const m = ~~((l + r) / 2);
-
-    if (nums[m] > nums[m + 1]) r = m;
-    else l = m + 1;
+    if (nums[m] < nums[m + 1]) l = m + 1;
+    else r = m;
   }
 
   return l;
@@ -93,9 +91,8 @@ function findPeakElement(nums) {
 
   while (l + 1 < r) {
     const m = ~~((l + r) / 2);
-
-    if (nums[m] > nums[m + 1]) r = m;
-    else l = m;
+    if (nums[m] < nums[m + 1]) l = m;
+    else r = m;
   }
 
   if (nums[l] > nums[l + 1]) return l;
