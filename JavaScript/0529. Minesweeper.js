@@ -71,7 +71,7 @@ function updateBoard1(board, click) {
   function dfs(x, y) {
     // Count the adjacent mines
     let minesCount = 0;
-    for (let [dx, dy] of dirs) {
+    for (const [dx, dy] of dirs) {
       const i = x + dx;
       const j = y + dy;
 
@@ -90,7 +90,7 @@ function updateBoard1(board, click) {
       board[x][y] = 'B';
       board[x][y] = 'B';
 
-      for (let [dx, dy] of dirs) {
+      for (const [dx, dy] of dirs) {
         const i = x + dx;
         const j = y + dy;
 
@@ -126,7 +126,7 @@ function updateBoard(board, click) {
 
       // Count the adjacent mines
       let minesCount = 0;
-      for (let [dx, dy] of dirs) {
+      for (const [dx, dy] of dirs) {
         const i = x + dx;
         const j = y + dy;
 
@@ -144,7 +144,7 @@ function updateBoard(board, click) {
         // and all of its adjacent unrevealed squares should be revealed recursively.
         board[x][y] = 'B';
 
-        for (let [dx, dy] of dirs) {
+        for (const [dx, dy] of dirs) {
           const i = x + dx;
           const j = y + dy;
 

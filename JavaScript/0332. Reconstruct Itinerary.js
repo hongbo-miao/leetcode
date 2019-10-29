@@ -23,7 +23,7 @@
  * @return {string[]}
  */
 
-/** Sort children + post-order traversal, DFS */
+/** Sort children + post-order traversal, Backtracking */
 // https://www.youtube.com/watch?v=4udFSOWQpdg
 //
 // Time O(n log n), worst case: one 'from' and the rest are all 'tos', and sort on 'tos'
@@ -41,15 +41,15 @@ function findItinerary(tickets) {
   // Post-order traversal, DFS
   const route = [];
 
-  function dfs(from) {
+  function go(from) {
     const tos = graph[from] || [];
     while (tos.length) {
       const to = tos.shift(); // get the lexical smallest 'to'
-      dfs(to);
+      go(to);
     }
     route.push(from);
   }
 
-  dfs('JFK');
+  go('JFK');
   return route.reverse();
 }

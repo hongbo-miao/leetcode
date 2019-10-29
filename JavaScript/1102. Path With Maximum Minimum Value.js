@@ -45,7 +45,7 @@
  * @return {number}
  */
 function maximumMinimumPath(A) {
-  if (A == null || A.length === 0 || A[0].length === 0) return 0;
+  if (A == null || A.length === 0) return 0;
 
   const h = A.length;
   const w = A[0].length;

@@ -57,9 +57,9 @@ function cutOffTree(forest) {
     const q = [[pos, 0]];
     while (q.length) {
       const [[x, y], d] = q.shift();
-      for (const [di, dj] of dirs) {
-        const i = x + di;
-        const j = y + dj;
+      for (const [dx, dy] of dirs) {
+        const i = x + dx;
+        const j = y + dy;
         if (i < 0 || i >= h || j < 0 || j >= w) continue;
         if (forest[i][j] === 0) continue; // meet obstacle
         if (dist[i][j] > d + 1) {

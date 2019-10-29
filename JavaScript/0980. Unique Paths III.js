@@ -69,9 +69,9 @@ function uniquePathsIII(grid) {
     }
 
     grid[x][y] = Infinity; // Mark visited
-    for (const [di, dj] of dirs) {
-      const i = x + di;
-      const j = y + dj;
+    for (const [dx, dy] of dirs) {
+      const i = x + dx;
+      const j = y + dy;
       if (i < 0 || i >= h || j < 0 || j >= w) continue;
       go(i, j, count + 1);
     }

@@ -63,11 +63,11 @@ class RandomizedSet {
     const i = this.pos[val];
     const lastNum = this.nums[this.nums.length - 1];
 
-    // swap the last num with val
+    // Swap the last num with val
     this.nums[i] = lastNum;
     this.pos[lastNum] = i;
 
-    // remove val
+    // Remove val
     this.nums.pop();
     delete this.pos[val];
 

@@ -65,9 +65,9 @@ function updateMatrix(matrix) {
 
   while (q.length) {
     const [x, y] = q.shift();
-    for (const [di, dj] of dirs) {
-      const i = x + di;
-      const j = y + dj;
+    for (const [dx, dy] of dirs) {
+      const i = x + dx;
+      const j = y + dy;
       if (i < 0 || i >= h || j < 0 || j >= w) continue;
       if (matrix[i][j] > matrix[x][y] + 1) {
         q.push([i, j]);
