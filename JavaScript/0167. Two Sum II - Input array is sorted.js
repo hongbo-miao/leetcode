@@ -19,6 +19,8 @@
  */
 
 /** Two pointers */
+// Time O(n)
+// Space O(1)
 function twoSum(numbers, target) {
   let l = 0;
   let r = numbers.length - 1;
