@@ -20,7 +20,7 @@
 //   resStack: ()   ('')  ('')   ()   ()  (aaa) (aaa) (aaa)  (aaa b) (aaa b)  (aaa) (aaa)     ()
 //        res: ''    ''    a     aaa  aaa   ''   b      b       ''     d      bddd  bdddc  aaabdddcbdddc
 function decodeString(s) {
-  const isNumber = c => /\d/.test(c);
+  const isNum = c => /\d/.test(c);
 
   const countStack = [];
   const resStack = [];
@@ -28,9 +28,9 @@ function decodeString(s) {
   let i = 0;
 
   while (i < s.length) {
-    if (isNumber(s[i])) {
+    if (isNum(s[i])) {
       let count = 0;
-      while (isNumber(s[i])) {
+      while (isNum(s[i])) {
         count = 10 * count + Number(s[i]);
         i++;
       }

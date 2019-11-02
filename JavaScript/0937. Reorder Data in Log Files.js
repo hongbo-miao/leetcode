@@ -25,7 +25,7 @@
  */
 function reorderLogFiles(logs) {
   const body = s => s.slice(s.indexOf(' ') + 1); // get the body after identifier
-  const isNumber = c => /\d/.test(c);
+  const isNum = c => /\d/.test(c);
 
   // if body same then compare identifier
   const compare = (a, b) => {
@@ -37,7 +37,7 @@ function reorderLogFiles(logs) {
   const digitLogs = [];
   const letterLogs = [];
   for (const log of logs) {
-    if (isNumber(body(log))) {
+    if (isNum(body(log))) {
       digitLogs.push(log);
     } else {
       letterLogs.push(log);
