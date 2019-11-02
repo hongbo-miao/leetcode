@@ -25,12 +25,21 @@
  * @param {string} s
  * @return {number}
  */
+
+/** Stack */
+// Similar
+// 224. Basic Calculator
+// 227. Basic Calculator II
+// 772. Basic Calculator III
+//
+// Time O(n)
+// Space O(n)
 const calculate = (s) => {
   s = s.replace(/\s/g, '');
 
-  let st = [];
-  let n = 0;
+  const st = [];
   let op = '+';
+  let n = 0;
 
   for (const c of s) {
     if (isNum(c)) n = n * 10 + Number(c); // e.g. '14' -> 1 * 10 + 4

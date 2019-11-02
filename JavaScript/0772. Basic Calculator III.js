@@ -16,6 +16,15 @@
  * @param {string} s
  * @return {number}
  */
+
+/** Stack */
+// Similar
+// 224. Basic Calculator
+// 227. Basic Calculator II
+// 772. Basic Calculator III
+//
+// Time O(n)
+// Space O(n)
 const calculate = (s) => {
   s = s.replace(/\s/g, '');
   const bracketMap = getBracketMap(s);
@@ -27,7 +36,7 @@ const calculate = (s) => {
     for (let i = start; i < end; i++) {
       const c = s[i];
       if (isNum(c)) {
-        n = n * 10 + Number(c);
+        n = n * 10 + Number(c); // e.g. '14' -> 1 * 10 + 4
       } else if (c === '(') {
         n = calc(i + 1, bracketMap[i]);
         i = bracketMap[i];
