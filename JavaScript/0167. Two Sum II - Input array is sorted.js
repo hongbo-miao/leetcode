@@ -18,10 +18,10 @@
  * @return {number[]}
  */
 
-/** Two pointers */
+/** 1) Two pointers */
 // Time O(n)
 // Space O(1)
-function twoSum(numbers, target) {
+const twoSum1 = function (numbers, target) {
   let l = 0;
   let r = numbers.length - 1;
   while (l < r) {
@@ -31,4 +31,20 @@ function twoSum(numbers, target) {
     else r--;
   }
   return [-1, -1];
-}
+};
+
+/** 2) Two pointers. Similar to 1) */
+// Similar
+// 167. Two Sum II - Input array is sorted
+// 209. Minimum Size Subarray Sum
+const twoSum = function (numbers, target) {
+  for (let l = 0, r = numbers.length - 1; l < r; r--) {
+    while (l < r && numbers[l] + numbers[r] < target) {
+      l++;
+    }
+    if (l !== r && numbers[l] + numbers[r] === target) {
+      return [l + 1, r + 1]
+    }
+  }
+  return [-1, -1];
+};

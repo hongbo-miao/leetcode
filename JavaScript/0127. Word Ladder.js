@@ -48,33 +48,31 @@
 //
 // Space O(M * N), to store all M transformations for each of the N words, in the all_combo_dict dictionary. Visited
 // dictionary is of N size. Queue for BFS in worst case would need space for all N words.
-function ladderLength(beginWord, endWord, wordList) {
+const ladderLength = (beginWord, endWord, wordList) => {
   const dict = new Set(wordList);
   let step = 1;
   let q = [beginWord];
 
   while (q.length) {
-    const next = []; // next level
-    for (let w of q) {
+    const q2 = [];
+    for (const w of q) {
       if (w === endWord) return step;
 
       for (let i = 0; i < w.length; i++) {
         for (let j = 0; j < 26; j++) {
           const w2 = w.slice(0, i) + String.fromCharCode(97 + j) + w.slice(i + 1); // 97 -> 'a'
-
-          if (dict.has(w2)) {
-            next.push(w2);
+          if (dict.has(w2) && w2 !== w) {
+            q2.push(w2);
             dict.delete(w2);
           }
         }
       }
     }
-    q = next;
+    q = q2;
     step++;
   }
-
   return 0;
-}
+};
 
 /** 2) Bidirectional BFS */
 // https://leetcode.com/problems/word-ladder/solution/
