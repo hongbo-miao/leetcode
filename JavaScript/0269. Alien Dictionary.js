@@ -48,17 +48,21 @@
  * @return {string}
  */
 
-/** Topological sorting */
+/** Topological Sorting + BFS */
+// Similar
+// 210. Course Schedule II
+// 269. Alien Dictionary
+//
 // https://www.youtube.com/watch?v=RIrTuf4DfPE
-function alienOrder(words) {
+const alienOrder = (words) => {
   // Build graph
-  const graph = {};
-  const inDegree = {};
+  const g = {};
+  const inDegrees = {};
 
-  for (let w of words) {
-    for (let c of w) {
-      inDegree[c] = 0;
-      graph[c] = new Set();
+  for (const w of words) {
+    for (const c of w) {
+      inDegrees[c] = 0;
+      g[c] = new Set();
     }
   }
 
@@ -72,9 +76,9 @@ function alienOrder(words) {
       const c2 = w2[j];
 
       if (c1 !== c2) {
-        if (!graph[c1].has(c2)) {
-          graph[c1].add(c2);
-          inDegree[c2]++;
+        if (!g[c1].has(c2)) {
+          g[c1].add(c2);
+          inDegrees[c2]++;
         }
         break;
       }
@@ -85,20 +89,20 @@ function alienOrder(words) {
   let s = '';
   const q = [];
 
-  for (let c in inDegree) {
-    if (inDegree[c] === 0) q.push(c);
+  for (const c in inDegrees) {
+    if (inDegrees[c] === 0) q.push(c);
   }
 
   while (q.length) {
     const c1 = q.shift();
     s += c1;
-    for (let c2 of graph[c1]) {
-      inDegree[c2]--;
-      if (inDegree[c2] === 0) {
+    for (const c2 of g[c1]) {
+      inDegrees[c2]--;
+      if (inDegrees[c2] === 0) {
         q.push(c2);
       }
     }
   }
 
-  return s.length === Object.keys(graph).length ? s : '';
-}
+  return s.length === Object.keys(g).length ? s : '';
+};
