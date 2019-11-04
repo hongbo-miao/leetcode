@@ -19,7 +19,14 @@
  * @param {string[]} words
  * @return {string[]}
  */
-/** 1) Reuse any O(n^2) solution in 139. Word Break */
+
+/** Reuse any O(n^2) solution in 139. Word Break */
+// Similar
+// 139. Word Break
+// 472. Concatenated Words
+//
+// Time  O(N * L^2) where L is the word length
+//
 // This problem is just one more step further for the question 139. Word Break.
 // We iterate through each word and see if it can be formed by using other words.
 // A word can only be formed by words shorter than it. So we need first sort the input by length of each word,
@@ -41,8 +48,8 @@ const findAllConcatenatedWordsInADict = (words) => {
   return res;
 };
 
-const wordBreak = (s, set) => {
-  if (set.size === 0) return false;
+const wordBreak = (s, dict) => {
+  if (dict.size === 0) return false;
 
   const dp = Array(s.length + 1).fill(false);
   dp[0] = true;
@@ -50,7 +57,7 @@ const wordBreak = (s, set) => {
   for (let end = 1; end <= s.length; end++) {
     for (let start = 0; start < end; start++) {
       const w = s.slice(start, end);
-      if (dp[start] === true && set.has(w)) {
+      if (dp[start] === true && dict.has(w)) {
         dp[end] = true;
         break;
       }

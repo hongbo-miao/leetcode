@@ -32,25 +32,23 @@
 // 102. Binary Tree Level Order Traversal
 // 103. Binary Tree Zigzag Level Order Traversal
 // 1161. Maximum Level Sum of a Binary Tree
-function zigzagLevelOrder(root) {
+const zigzagLevelOrder = (root) => {
   let res = [];
-  go(root, 0, res);
+
+  const go = (node, lvl) => {
+    if (!node) return;
+    if (res[lvl] == null) res[lvl] = [];
+
+    if (lvl % 2 === 0) {
+      res[lvl].push(node.val);
+    } else {
+      res[lvl].unshift(node.val);
+    }
+
+    go(node.left, lvl + 1);
+    go(node.right, lvl + 1);
+  };
+
+  go(root, 0);
   return res;
-}
-
-function go(node, l, res) { // l means level
-  if (!node) return;
-
-  if (res[l] == null) {
-    res.push([]);
-  }
-
-  if (l % 2 === 0) {
-    res[l].push(node.val);
-  } else {
-    res[l].unshift(node.val);
-  }
-
-  go(node.left, l + 1, res);
-  go(node.right, l + 1, res);
-}
+};

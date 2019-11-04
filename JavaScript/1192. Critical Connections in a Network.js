@@ -32,7 +32,7 @@
 // https://www.youtube.com/watch?v=TyWtx7q2D7Y
 //
 // Time O(V + E)
-function criticalConnections(n, connections) {
+const criticalConnections = (n, connections) => {
   if (n === 0 || connections == null || connections.length === 0) return [];
 
   // Build graph
@@ -55,7 +55,7 @@ function criticalConnections(n, connections) {
   }
 
   // DFS
-  function dfs(u, pre) {
+  const dfs = (u, pre) => {
     disc[u] = low[u] = time++; // discover u
     for (const v of g[u]) {
       if (v === pre) continue; // if parent vertex, ignore
@@ -71,8 +71,8 @@ function criticalConnections(n, connections) {
         low[u] = Math.min(low[u], disc[v]);
       }
     }
-  }
+  };
 
   dfs(0, -1);
   return res;
-}
+};

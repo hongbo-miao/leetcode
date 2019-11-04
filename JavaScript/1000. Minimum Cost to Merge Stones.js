@@ -51,7 +51,7 @@ const mergeStones = (stones, K) => {
   if ((n - 1) % (K - 1)) return -1;
 
   const sums = Array(n + 1).fill(0);
-  for (let i = 0; i < stones.length; i++) {
+  for (let i = 0; i < n; i++) {
     sums[i + 1] = sums[i] + stones[i];
   }
 

@@ -17,13 +17,13 @@
  * @return {number}
  */
 
-/** 1) Brute force */
+/** 1) Brute Force */
 // Time O(n^2)
 // Space O(1)
 //
 // Do as directed in question. For each element in the array, we find the maximum level of water it can trap after the
 // rain, which is equal to the minimum of maximum height of bars on both the sides minus its own height.
-function trap1(height) {
+const trap1 = (height) => {
   if (height == null || height.length === 0) return 0;
 
   let res = 0;
@@ -43,15 +43,15 @@ function trap1(height) {
   }
 
   return res;
-}
+};
 
-/** 2) Dynamic programming */
+/** 2) Dynamic Programming */
 // Time O(n)
 // Space O(n)
 //
 // In brute force, we iterate over the left and right parts again and again just to find the highest bar size upto
 // that index. But, this could be stored. Voila, dynamic programming.
-function trap2(height) {
+const trap2 = (height) => {
   if (height == null || height.length === 0) return 0;
 
   let res = 0;
@@ -74,13 +74,13 @@ function trap2(height) {
   }
 
   return res;
-}
+};
 
 /** 3) Stack */
 // https://www.youtube.com/watch?v=78R14lKv_pE
 // Time O(n)
 // Space O(n)
-function trap3(height) {
+const trap3 = (height) => {
   let res = 0;
   let i = 0;
   const st = [];
@@ -100,35 +100,30 @@ function trap3(height) {
     i++;
   }
   return res;
-}
+};
 
-/** 4) Two pointers */
+/** 4) Two Pointers */
 // Time O(n)
 // Space O(1)
-function trap(height) {
+//
+// As in 2), instead of computing the left and right parts separately, we may think of some way to do it in one iteration.
+const trap = (height) => {
   if (height == null || height.length === 0) return 0;
 
   let l = 0;
   let r = height.length - 1;
-
   let lMax = 0;
   let rMax = 0;
-
   let res = 0;
 
   while (l < r) {
     lMax = Math.max(lMax, height[l]);
-    if (height[l] < lMax) {
-      res += lMax - height[l];
-    }
+    if (lMax - height[l] > 0) res += lMax - height[l];
 
     rMax = Math.max(rMax, height[r]);
-    if (height[r] < rMax) {
-      res += rMax - height[r];
-    }
+    if (rMax - height[r] > 0) res += rMax - height[r];
 
     height[l] < height[r] ? l++ : r--;
   }
-
   return res;
-}
+};

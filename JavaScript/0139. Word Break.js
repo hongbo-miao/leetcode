@@ -103,6 +103,10 @@ const wordBreak3 = (s, wordDict) => {
 };
 
 /** 4) Dynamic programming */
+// Similar
+// 139. Word Break
+// 472. Concatenated Words
+//
 // Time O(n^2). Two loops are their to fill dp array.
 // Space O(n). Length of dp array is n + 1.
 //

@@ -32,33 +32,35 @@
 //
 // Time O(M * N) where M is the number of rows and N is the number of columns.
 // Space O(M * N). Worst case O(M * N) in case that the grid map is filled with lands where DFS goes by M * N deep.
-function numIslands(grid) {
+const numIslands = (grid) => {
   if (grid.length === 0) return 0;
 
   const h = grid.length;
   const w = grid[0].length;
+  const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
 
-  function go(i, j) {
-    if (i < 0 || i >= h || j < 0 || j >= w || grid[i][j] !== '1') return;
+  const go = (x, y) => {
+    grid[x][y] = '*'; // Mark visited
+    for (const [dx, dy] of dirs) {
+      const i = x + dx;
+      const j = y + dy;
+      if (i >= 0 && i < h && j >= 0 && j < w && grid[i][j] === '1') {
+        go(i, j);
+      }
+    }
+  };
 
-    grid[i][j] = '*'; // go land piece as visited
-    go(i - 1, j);
-    go(i + 1, j);
-    go(i, j - 1);
-    go(i, j + 1);
-  }
-
-  let count = 0;
+  let res = 0;
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === '1') {
         go(i, j);
-        count++;
+        res++;
       }
     }
   }
-  return count;
-}
+  return res;
+};
 
 /** 2) BFS */
 // https://leetcode.com/problems/number-of-islands/solution/

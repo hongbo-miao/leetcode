@@ -44,20 +44,20 @@
  */
 
 /** 1) */
-function isSubtree1(s, t) {
+const isSubtree1 = (s, t) => {
   s = JSON.stringify(s);
   t = JSON.stringify(t);
   return s.indexOf(t) !== -1;
-}
+};
 
 /** 2) DFS */
-function isSubtree(s, t) {
+const isSubtree = (s, t) => {
   if (s == null) return false;
   return isEqual(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
-}
+};
 
-function isEqual(n1, n2) {
+const isEqual = (n1, n2) => {
   if (n1 == null || n2 == null) return n1 === n2;
   else if (n1.val !== n2.val) return false;
   else return isEqual(n1.left, n2.left) && isEqual(n1.right, n2.right);
-}
+};

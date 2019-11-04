@@ -29,13 +29,12 @@
  * @param {string[]} banned
  * @return {string}
  */
-function mostCommonWord(paragraph, banned) {
-  const set = new Set(banned);
-
+const mostCommonWord = (paragraph, banned) => {
+  const bannedSet = new Set(banned);
   const words = paragraph.toLowerCase().split(/\W+/);
   const map = {};
   for (const w of words) {
-    if (!set.has(w)) {
+    if (!bannedSet.has(w)) {
       if (map[w] == null) map[w] = 0;
       map[w]++;
     }
@@ -44,13 +43,11 @@ function mostCommonWord(paragraph, banned) {
   let res = '';
   let max = -Infinity;
   for (const w in map) {
-    if (w != null) {
-      const count = map[w];
-      if (count > max) {
-        res = w;
-        max = count;
-      }
+    const count = map[w];
+    if (count > max) {
+      res = w;
+      max = count;
     }
   }
   return res;
-}
+};

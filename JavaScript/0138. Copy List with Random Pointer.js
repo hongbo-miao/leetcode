@@ -30,10 +30,10 @@
  */
 
 /** Recursion */
-function copyRandomList(head) {
+const copyRandomList = (head) => {
   const map = new Map();
 
-  function copy(node)   {
+  const copy = (node) => {
     if (node == null) return null;
     if (map.get(node) != null) return map.get(node);
 
@@ -43,7 +43,7 @@ function copyRandomList(head) {
     n.next = copy(node.next);
     n.random = copy(node.random);
     return n;
-  }
+  };
 
   return copy(head);
-}
+};

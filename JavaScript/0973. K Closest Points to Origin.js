@@ -30,53 +30,49 @@
  * @return {number[][]}
  */
 
-/** 1) Sort */
+/** 1) Sorting */
 // Time O(n log n)
-function kClosest1(points, K) {
+const kClosest1 = (points, K) => {
   const getDist = ([x, y]) => x ** 2 + y ** 2;
-
   return points
     .sort((a, b) => getDist(a) - getDist(b))
     .slice(0, K);
-}
+};
 
-/** 2) Quick sort */
+/** 2) Quick Sort */
 // Time O(n)
-function kClosest(points, K) {
-  const getDist = ([x, y]) => x ** 2 + y ** 2;
-
-  const quickSort = (arr, l, r) => {
-    let pivot;
-    let partitionIdx;
-
-    if (l < r) {
-      pivot = r;
-      partitionIdx = partition(arr, pivot, l, r);
-
-      // sort left and right
-      quickSort(arr, l, partitionIdx - 1);
-      quickSort(arr, partitionIdx + 1, r);
-    }
-    return arr;
-  };
-
-  const partition = (arr, pivot, l, r) => {
-    const pivotVal = getDist(arr[pivot]);
-    let partitionIdx = l;
-
-    for (let i = l; i < r; i++){
-      if (getDist(arr[i]) < pivotVal){
-        swap(arr, i, partitionIdx);
-        partitionIdx++;
-      }
-    }
-    swap(arr, r, partitionIdx);
-    return partitionIdx;
-  };
-
-  const swap = (arr, i, j) => {
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  };
-
+const kClosest = (points, K) => {
   return quickSort(points, 0, points.length - 1).slice(0, K);
-}
+};
+
+const getDist = ([x, y]) => x ** 2 + y ** 2;
+const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
+
+const quickSort = (arr, l, r) => {
+  let pivot;
+  let partitionIdx;
+
+  if (l < r) {
+    pivot = r;
+    partitionIdx = partition(arr, pivot, l, r);
+
+    // sort left and right
+    quickSort(arr, l, partitionIdx - 1);
+    quickSort(arr, partitionIdx + 1, r);
+  }
+  return arr;
+};
+
+const partition = (arr, pivot, l, r) => {
+  const pivotVal = getDist(arr[pivot]);
+  let partitionIdx = l;
+
+  for (let i = l; i < r; i++){
+    if (getDist(arr[i]) < pivotVal){
+      swap(arr, i, partitionIdx);
+      partitionIdx++;
+    }
+  }
+  swap(arr, r, partitionIdx);
+  return partitionIdx;
+};

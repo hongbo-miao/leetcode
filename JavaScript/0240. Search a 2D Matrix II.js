@@ -24,26 +24,28 @@
 // Output: false
 
 /** 1) Brute force */
-function searchMatrix1(matrix, target) {
+// Time O(mn)
+// Space O(1)
+const searchMatrix1 = (matrix, target) => {
+  if (matrix == null || matrix.length === 0) return false;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[0].length; j++) {
-      if (matrix[i][j] === target) {
-        return true;
-      }
+      if (matrix[i][j] === target) return true;
     }
   }
-
   return false;
-}
+};
 
 /** 2) Recursion */
-function searchMatrix2(matrix, target) {
-  if (matrix.length === 0 || matrix[0].length === 0) return false;
+const searchMatrix2 = (matrix, target) => {
+  if (matrix == null || matrix.length === 0) return false;
+  const h = matrix.length;
+  const w = matrix[0].length;
 
-  function go(i, j) {
+  const go = (i, j) => {
     if (
-      i > matrix.length - 1
-      || j > matrix[0].length - 1
+      i >= h
+      || j >= w
       || matrix[i][j] > target
       || matrix[i][j] === '*'
     ) return false;
@@ -52,10 +54,10 @@ function searchMatrix2(matrix, target) {
 
     matrix[i][j] = '*'; // mark visited
     return go(i + 1, j) || go(i, j + 1);
-  }
+  };
 
   return go(0, 0)
-}
+};
 
 /** 3) Binary Search */
 // https://leetcode.com/problems/search-a-2d-matrix-ii/solution/
@@ -65,17 +67,18 @@ function searchMatrix2(matrix, target) {
 // 74. Search a 2D Matrix
 //
 // Time O(m + n), rule out one row or one column each time
-function searchMatrix(matrix, target) {
-  if (matrix.length === 0 || matrix[0].length === 0) return false;
+// Space O(1)
+const searchMatrix = (matrix, target) => {
+  if (matrix == null || matrix.length === 0) return false;
+  const h = matrix.length;
+  const w = matrix[0].length;
 
   let i = 0;
-  let j = matrix[0].length - 1;
-
-  while (j >= 0 && i < matrix.length) {
+  let j = w - 1;
+  while (j >= 0 && i < h) {
     if (target === matrix[i][j]) return true;
     else if (target < matrix[i][j]) j--;
     else i++;
   }
-
   return false;
-}
+};

@@ -68,7 +68,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
 //
 // Space O(1)
 // - We can merge two sorted linked list in O(1) space.
-function mergeKLists4(lists) {
+const mergeKLists4 = (lists) => {
   if (lists.length === 0) return null;
   if (lists.length === 1) return lists[0];
 
@@ -77,7 +77,7 @@ function mergeKLists4(lists) {
     mergeKLists(lists.slice(0, m)),
     mergeKLists(lists.slice(m)),
   );
-}
+};
 
 /** 5) Merge with divide and conquer */
 // This approach walks alongside the one above but is improved a lot. We don't need to traverse most nodes many
@@ -91,7 +91,7 @@ function mergeKLists4(lists) {
 //   l0    l2    l4
 //      l0       l4
 //           l0
-function mergeKLists(lists) {
+const mergeKLists = (lists) => {
   if (lists.length === 0) return null;
 
   let interval = 1;
@@ -102,4 +102,4 @@ function mergeKLists(lists) {
     interval *= 2
   }
   return lists[0];
-}
+};

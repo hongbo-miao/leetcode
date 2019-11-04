@@ -23,7 +23,7 @@
 /** 1) */
 // Time O(n)
 // Space O(1)
-function addTwoNumbers1(l1, l2) {
+const addTwoNumbers1 = (l1, l2) => {
   let l = new ListNode(null);
   const preHead = l;
   let carry = 0;
@@ -49,12 +49,12 @@ function addTwoNumbers1(l1, l2) {
   }
 
   return preHead.next;
-}
+};
 
-/** 2) same to 1), less compact, but easy to understand carry */
+/** 2) Similar to 1), less compact, but easy to understand carry */
 // Time O(n)
 // Space O(1)
-function addTwoNumbers(l1, l2) {
+const addTwoNumbers = (l1, l2) => {
   let l = new ListNode(null);
   const preHead = l;
   let carry = 0;
@@ -84,4 +84,4 @@ function addTwoNumbers(l1, l2) {
   }
 
   return preHead.next;
-}
+};

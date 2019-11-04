@@ -40,7 +40,7 @@
  * @param {number} N
  * @return {number[]}
  */
-function prisonAfterNDays(cells, N) {
+const prisonAfterNDays = (cells, N) => {
   const dp = [];
   const nextCells = [];
   for (let i = 1; i <= N; i++) {
@@ -59,5 +59,5 @@ function prisonAfterNDays(cells, N) {
         .map(c => Number(c));
     }
   }
-  return cells;
-}
+  return nextCells;
+};

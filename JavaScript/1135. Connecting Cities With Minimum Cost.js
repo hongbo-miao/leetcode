@@ -53,13 +53,19 @@
 // 3. Repeat until minimum spanning tree (MST) is formed and every node is connected.
 //
 // Implemented Union-Find with path compression to improve efficiency.
-function minimumCost1(N, connections) {
+const minimumCost1 = (N, connections) => {
   let n = N;
 
   const parents = {};
   for (let i = 0; i < N; i++) parents[i] = i;
 
-  function union(u, v) {
+  // Find root
+  const find = (u) => {
+    if (u === parents[u]) return u;
+    return parents[u] = find(parents[u]); // path compression
+  };
+
+  const union = (u, v) => {
     const p1 = find(u);
     const p2 = find(v);
 
@@ -67,13 +73,7 @@ function minimumCost1(N, connections) {
       parents[p1] = p2; // or parents[p2] = p1 which does not matter
       n--;
     }
-  }
-
-  // Find root
-  function find(u) {
-    if (u === parents[u]) return u;
-    return parents[u] = find(parents[u]); // path compression
-  }
+  };
 
   connections.sort((a, b) => a[2] - b[2]);
 
@@ -85,25 +85,25 @@ function minimumCost1(N, connections) {
     }
   }
   return n === 1 ? res : -1;
-}
+};
 
-/** 2) Similar to 1) */
+/** 2) Similar to 1), set parents value in find */
 // Similar
 // 947. Most Stones Removed with Same Row or Column
 // 1135. Connecting Cities With Minimum Cost
-function minimumCost(N, connections) {
+const minimumCost = (N, connections) => {
   let n = N;
 
   const parents = {};
 
   // Find root
-  function find(u) {
+  const find = (u) => {
     if (parents[u] == null) parents[u] = u;
     else if (parents[u] !== u) parents[u] = find(parents[u]); // path compression
     return parents[u];
-  }
+  };
 
-  function union(u, v) {
+  const union = (u, v) => {
     const p1 = find(u);
     const p2 = find(v);
 
@@ -111,7 +111,7 @@ function minimumCost(N, connections) {
       parents[p1] = p2; // or parents[p2] = p1 which does not matter
       n--;
     }
-  }
+  };
 
   connections.sort((a, b) => a[2] - b[2]);
 
@@ -123,4 +123,4 @@ function minimumCost(N, connections) {
     }
   }
   return n === 1 ? res : -1;
-}
+};

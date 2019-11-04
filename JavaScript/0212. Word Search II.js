@@ -25,10 +25,11 @@
  */
 
 /** Backtracking + Trie */
-function findWords(board, words) {
+const findWords = (board, words) => {
+  const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
   let res = [];
 
-  function buildTrie() {
+  const buildTrie = () => {
     const root = {};
     for (let w of words) {
       let node = root;
@@ -39,25 +40,26 @@ function findWords(board, words) {
       node.word = w;
     }
     return root;
-  }
+  };
 
-  function search(node, i, j) {
+  const search = (node, x, y) => {
     if (node.word != null) {
       res.push(node.word);
       node.word = null; // make sure only print one time for each word
     }
 
-    if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;
-    if (node[board[i][j]] == null) return;
+    if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) return;
+    if (node[board[x][y]] == null) return;
 
-    const c = board[i][j];
-    board[i][j] = '#'; // Mark visited
-    search(node[c], i + 1, j);
-    search(node[c], i - 1, j);
-    search(node[c], i, j + 1);
-    search(node[c], i, j - 1);
-    board[i][j] = c; // Reset
-  }
+    const c = board[x][y];
+    board[x][y] = '#'; // Mark visited
+    for (const [dx, dy] of dirs) {
+      const i = x + dx;
+      const j = y + dy;
+      search(node[c], i, j);
+    }
+    board[x][y] = c; // Reset
+  };
 
   const root = buildTrie();
   for (let i = 0; i < board.length; i++) {
@@ -66,4 +68,4 @@ function findWords(board, words) {
     }
   }
   return res;
-}
+};

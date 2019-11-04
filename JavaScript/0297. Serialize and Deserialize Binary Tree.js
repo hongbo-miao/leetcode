@@ -33,9 +33,9 @@
  * @param {TreeNode} root
  * @return {string}
  */
-function serialize(node) {
-  return JSON.stringify(node);
-}
+const serialize1 = (root) => {
+  return JSON.stringify(root);
+};
 
 /**
  * Decodes your encoded data to tree.
@@ -43,9 +43,9 @@ function serialize(node) {
  * @param {string} data
  * @return {TreeNode}
  */
-function deserialize(data) {
+const deserialize1 = (data) => {
   return JSON.parse(data);
-}
+};
 
 /** 2) BFS */
 //    1
@@ -55,29 +55,28 @@ function deserialize(data) {
 //    4   5
 //
 // data = [1, 2, 3, null, null, 4, 5, null, null, null, null]
-function serialize(node) {
+const serialize2 = (root) => {
   let q = [];
   let data = [];
 
-  if (node) q.push(node);
+  if (root) q.push(root);
 
   while (q.length) {
-    node = q.shift();
+    root = q.shift();
 
-    if (node != null) {
-      data.push(node.val);
+    if (root != null) {
+      data.push(root.val);
 
-      q.push(node.left || null);
-      q.push(node.right || null);
+      q.push(root.left || null);
+      q.push(root.right || null);
     } else {
       data.push(null);
     }
   }
-
   return data;
-}
+};
 
-function deserialize(data) {
+const deserialize2 = (data) => {
   if (!data.length) return null;
 
   const root = new TreeNode(data.shift());
@@ -97,7 +96,7 @@ function deserialize(data) {
   }
 
   return root;
-}
+};
 
 /** 3) DFS */
 // Time O(n)
@@ -111,10 +110,10 @@ function deserialize(data) {
 //    4   5
 //
 // data = [1, 2, null, null, 3, 4, null, null, 5, null, null]
-function serialize(root) {
+const serialize = (root) => {
   let data = [];
 
-  function go(node) {
+  const go = (node) => {
     if (node == null) {
       data.push(null);
       return;
@@ -123,14 +122,14 @@ function serialize(root) {
     data.push(node.val);
     go(node.left);
     go(node.right);
-  }
+  };
 
   go(root);
   return data;
-}
+};
 
-function deserialize(data) {
-  function go() {
+const deserialize = (data) => {
+  const go = () => {
     if (data.length === 0) return;
 
     const val = data.shift();
@@ -140,7 +139,7 @@ function deserialize(data) {
     node.left = go();
     node.right = go();
     return node;
-  }
+  };
 
   return go();
-}
+};
