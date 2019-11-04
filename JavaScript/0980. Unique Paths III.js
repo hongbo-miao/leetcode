@@ -41,7 +41,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
-function uniquePathsIII(grid) {
+const uniquePathsIII = (grid) => {
   if (grid == null || grid.length === 0) return 0;
 
   const h = grid.length;
@@ -60,7 +60,7 @@ function uniquePathsIII(grid) {
     }
   }
 
-  function go(x, y, count) {
+  const go = (x, y, count) => {
     if (grid[x][y] === -1 || grid[x][y] === Infinity) return;
 
     if (x === end[0] && y === end[1]) {
@@ -72,12 +72,13 @@ function uniquePathsIII(grid) {
     for (const [dx, dy] of dirs) {
       const i = x + dx;
       const j = y + dy;
-      if (i < 0 || i >= h || j < 0 || j >= w) continue;
-      go(i, j, count + 1);
+      if (i >= 0 && i < h && j >= 0 && j < w) {
+        go(i, j, count + 1);
+      }
     }
     grid[x][y] = 0; // Reset
-  }
+  };
 
   go(start[0], start[1], 0);
   return res;
-}
+};

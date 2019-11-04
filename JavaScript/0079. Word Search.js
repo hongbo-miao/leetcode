@@ -1,5 +1,4 @@
 // Given a 2D board and a word, find if the word exists in the grid.
-//
 // The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
 //
 // Example:
@@ -25,27 +24,28 @@
 //
 // Time O(mn * 4^l), l = word.length
 // Space O(mn + l)
-function exist(board, word) {
+const exist = (board, word) => {
   if (board.length === 0) return false;
 
   const h = board.length;
   const w = board[0].length;
+  const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
 
-  function go(i, j, k) {
-    if (i < 0 || j < 0 || i >= h || j >= w) return false;
-    if (board[i][j] !== word[k]) return false;
+  const go = (x, y, k) => {
+    if (board[x][y] !== word[k]) return false;
     if (k === word.length - 1) return true;
 
-    board[i][j] = '*';      // mark as visited
-
-    if (go(i - 1, j, k + 1)) return true; // up
-    if (go(i + 1, j, k + 1)) return true; // down
-    if (go(i, j - 1, k + 1)) return true; // left
-    if (go(i, j + 1, k + 1)) return true; // right
-
-    board[i][j] = word[k]; // reset
+    board[x][y] = '*'; // mark as visited
+    for (const [dx, dy] of dirs) {
+      const i = x + dx;
+      const j = y + dy;
+      if (i >= 0 && i < h && j >= 0 && j < w) {
+        if (go(i, j, k + 1)) return true;
+      }
+    }
+    board[x][y] = word[k]; // reset
     return false;
-  }
+  };
 
   for (let i = 0; i < h; i++) {
     for (let j = 0; j < w; j++) {
@@ -54,4 +54,4 @@ function exist(board, word) {
   }
 
   return false;
-}
+};
