@@ -23,7 +23,7 @@
  * @param {string[]} logs
  * @return {string[]}
  */
-function reorderLogFiles(logs) {
+const reorderLogFiles = (logs) => {
   const body = s => s.slice(s.indexOf(' ') + 1); // get the body after identifier
   const isNum = c => /\d/.test(c);
 
@@ -37,11 +37,8 @@ function reorderLogFiles(logs) {
   const digitLogs = [];
   const letterLogs = [];
   for (const log of logs) {
-    if (isNum(body(log))) {
-      digitLogs.push(log);
-    } else {
-      letterLogs.push(log);
-    }
+    if (isNum(body(log))) digitLogs.push(log);
+    else letterLogs.push(log);
   }
   return [...letterLogs.sort(compare), ...digitLogs];
-}
+};

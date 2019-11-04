@@ -49,6 +49,10 @@ function climbStairs2(n) {
 }
 
 /** 3) Dynamic programming - Fibonacci */
+// Similar
+// 70. Climbing Stairs
+// 91. Decode Ways
+//
 // Time O(n)
 // Space O(n)
 function climbStairs3(n) {

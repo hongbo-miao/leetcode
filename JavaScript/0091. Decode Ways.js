@@ -24,42 +24,40 @@
  */
 
 /** Dynamic programming */
+// Similar
+// 70. Climbing Stairs
+// 91. Decode Ways
+//
+// Time O(n)
+// Space O(n)
+//
+// dp[n] =
+//   dp[n - 2] // the number made by s[n - 1] and s[n] should be between 10 to 26
+// + dp[n - 1] // s[n] !== 0
+//
 // e.g. '226'
-// dp =
-// [1, 1, 0, 0]
-// [1, 1, 2, 0]
-// [1, 1, 2, 3]
+// dp = [1, 1, 2, 3]
 //
 // e.g. '236'
-// dp =
-// [1, 1, 0, 0]
-// [1, 1, 2, 0]
-// [1, 1, 2, 2]
+// dp = [1, 1, 2, 2]
 //
 // e.g. '101'
-// dp =
-// [1, 1, 0, 0]
-// [1, 1, 1, 0]
-// [1, 1, 1, 1]
+// dp = [1, 1, 1, 1]
 //
 // e.g. '110'
-// dp =
-// [1, 1, 0, 0]
-// [1, 1, 2, 0]
-// [1, 1, 2, 1]
-function numDecodings(s) {
+// dp = [1, 1, 2, 1]
+const numDecodings = (s) => {
   if (s == null || s.length === 0) return 0;
   if (s[0] === '0') return 0;
 
   const dp = Array(s.length + 1).fill(0);
-
   dp[0] = 1;
   dp[1] = 1;
 
   for (let i = 2; i <= s.length; i++) {
-    const a = Number(s.slice(i - 1, i)); // last one digit
-    if (a >= 1 && a <= 9) {
-      dp[i] = dp[i - 1];
+    const a = Number(s[i - 1]); // last one digit
+    if (a !== 0) {
+      dp[i] += dp[i - 1];
     }
 
     const b = Number(s.slice(i - 2, i)); // last two digits
@@ -67,6 +65,5 @@ function numDecodings(s) {
       dp[i] += dp[i - 2];
     }
   }
-
   return dp[s.length];
-}
+};
