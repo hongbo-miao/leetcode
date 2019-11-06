@@ -35,7 +35,7 @@
 /** 1) Hash map */
 // Time O(m + n)
 // Space O(m) or O(n)
-function getIntersectionNode1(headA, headB) {
+const getIntersectionNode1 = (headA, headB) => {
   let map = new Map(); // {} does not work here, since the key does not support ListNode
 
   while (headA) {
@@ -47,12 +47,11 @@ function getIntersectionNode1(headA, headB) {
     if (map.has(headB)) return headB;
     headB = headB.next;
   }
-
   return null;
-}
+};
 
 /** 2) Two pointers (slow version) */
-function getIntersectionNode2(headA, headB) {
+const getIntersectionNode2 = (headA, headB) => {
   let a = headA;
   let b = headB;
 
@@ -60,9 +59,8 @@ function getIntersectionNode2(headA, headB) {
     a = a ? a.next : headA; // no exchange which is why it is slow
     b = b ? b.next : headB;
   }
-
   return a;
-}
+};
 
 /** 3) Two pointers (fast version) */
 // Time O(m + n)
@@ -73,7 +71,7 @@ function getIntersectionNode2(headA, headB) {
 // first, because b traverses exactly 2 nodes less than a does. By redirecting b to head A, and a to head B, we now ask
 // b to travel exactly 2 more nodes than a would. So in the second iteration, they are guaranteed to reach the
 // intersection node at the same time.
-function getIntersectionNode(headA, headB) {
+const getIntersectionNode = (headA, headB) => {
   let a = headA;
   let b = headB;
 
@@ -82,6 +80,5 @@ function getIntersectionNode(headA, headB) {
     a = a ? a.next : headB; // move a to head of b if at end
     b = b ? b.next : headA; // move b to head of a if at end
   }
-
   return a;
-}
+};
