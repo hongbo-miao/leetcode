@@ -27,7 +27,7 @@ const countSmaller = (nums) => {
   for (let i = nums.length - 1; i >= 0; i--) {
     const idx = lowerBound(sorted, nums[i]);
     res[i] = idx;
-    sorted.splice(idx, 0, nums[i]);  // insert nums[i] at idx
+    sorted.splice(idx, 0, nums[i]); // insert nums[i] at idx
   }
   return res;
 };

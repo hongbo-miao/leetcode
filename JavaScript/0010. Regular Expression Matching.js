@@ -63,16 +63,16 @@
 // the pattern. A recursive solution is a straightforward way to represent this relationship.
 // Without a Kleene star, our solution would look like this:
 //
-// function isMatch(s, p) {
+// const = isMatch(s, p) => {
 //   if (p.length === 0) return s.length === 0;
 //   const firstMatch = s.length > 0 && (p[0] === s[0] || p[0] === '.');
 //   return firstMatch && isMatch(s.slice(1), p.slice(1));
-// }
+// };
 //
 // If a star is present in the pattern, it will be in the second position pattern[1]. Then, we may
 // ignore this part of the pattern, or delete a matching character in the text. If we have a match on the remaining
 // strings after any of these operations, then the initial inputs matched.
-function isMatch1(s, p) {
+const isMatch1 = (s, p) => {
   if (p.length === 0) return s.length === 0;
   const firstMatch = s.length > 0 && (p[0] === s[0] || p[0] === '.');
 
@@ -81,7 +81,7 @@ function isMatch1(s, p) {
   } else {
     return firstMatch && isMatch(s.slice(1), p.slice(1));
   }
-}
+};
 
 /** 2) Dynamic programming (top-down variation, recursion) */
 // Time O(S * P). S and P are the lengths of the text and the pattern
@@ -90,7 +90,7 @@ function isMatch1(s, p) {
 // match(s[i:], p[j:]), we use dp(i, j) to handle those calls instead, saving us expensive string-building
 // operations and allowing us to cache the intermediate results.
 
-function isMatch2(s, p) {
+const isMatch2 = (s, p) => {
   // init 2D matrix dp[s.length][p.length]
   const dp = [];
   for (let i = 0; i <= s.length; i++) {
@@ -99,7 +99,7 @@ function isMatch2(s, p) {
     dp.push(r);
   }
 
-  function go(i, j) {
+  const go = (i, j) => {
     if (dp[i][j] != null) return dp[i][j] === true;
 
     let res;
@@ -116,13 +116,13 @@ function isMatch2(s, p) {
     }
     dp[i][j] = res === true;
     return res;
-  }
+  };
 
   return go(0, 0);
-}
+};
 
 /** 3) Dynamic programming (bottom-up variation) */
-function isMatch3(s, p) {
+const isMatch3 = (s, p) => {
   // init 2D matrix dp[s.length][p.length]
   const dp = [];
   for (let i = 0; i <= s.length; i++) {
@@ -144,7 +144,7 @@ function isMatch3(s, p) {
     }
   }
   return dp[0][0];
-}
+};
 
 /** 4) Dynamic programming */
 // https://www.youtube.com/watch?v=qza1UKNHAys
@@ -189,7 +189,7 @@ function isMatch3(s, p) {
 // 3 4 a F F F T T
 // 4 5 a F F F F T
 
-function isMatch(s, p) {
+const isMatch = (s, p) => {
   // init 2D matrix dp[s.length][p.length]
   const dp = [];
   for (let i = 0; i <= s.length; i++) {
@@ -225,4 +225,4 @@ function isMatch(s, p) {
   }
 
   return dp[s.length][p.length];
-}
+};
