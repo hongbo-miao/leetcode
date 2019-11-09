@@ -22,9 +22,9 @@
 /** 1) Sorting */
 // Time O(n log n)
 // Space O(1)
-function findKthLargest1(nums, k) {
+const findKthLargest1 = (nums, k) => {
   return nums.sort((a, b) => b - a)[k - 1];
-}
+};
 
 /** 2) */
 // Time O(n)
@@ -33,12 +33,10 @@ function findKthLargest1(nums, k) {
 // https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
 
 /** 3) Quick sort idea */
-function findKthLargest(nums, k) {
-  function swap(i, j) {
-    [nums[i], nums[j]] = [nums[j], nums[i]];
-  }
+const findKthLargest = (nums, k) => {
+  const swap = (i, j) => [nums[i], nums[j]] = [nums[j], nums[i]];
 
-  function quickSelect(l, r, k) {
+  const quickSelect = (l, r, k) => {
     // Quick sort idea
     // put nums that are <= pivot to the left
     // put nums that are > pivot to the right
@@ -63,7 +61,9 @@ function findKthLargest(nums, k) {
     } else {
       return nums[p];
     }
-  }
+  };
 
   return quickSelect(0, nums.length - 1, k);
-}
+};
+
+export default findKthLargest;

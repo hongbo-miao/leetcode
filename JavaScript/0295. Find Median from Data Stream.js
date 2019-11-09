@@ -39,7 +39,7 @@ class MedianFinder {
     let r = this.nums.length;
 
     while (l < r) {
-      const m = ~~((r + l) / 2);
+      const m = ~~((l + r) / 2);
       if (this.nums[m] < num) l = m + 1;
       else r = m;
     }

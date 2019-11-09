@@ -149,7 +149,8 @@ const isMatch3 = (s, p) => {
 /** 4) Dynamic programming */
 // https://www.youtube.com/watch?v=qza1UKNHAys
 //
-// Idea
+// dp[i][j] denotes whether s[0 : i - 1] matches p[0 : j - 1]
+//
 // 1. if p[j] === s[i]
 //    dp[i][j] = dp[i - 1][j - 1]
 //
@@ -190,15 +191,7 @@ const isMatch3 = (s, p) => {
 // 4 5 a F F F F T
 
 const isMatch = (s, p) => {
-  // init 2D matrix dp[s.length][p.length]
-  const dp = [];
-  for (let i = 0; i <= s.length; i++) {
-    const r = [];
-    for (let j = 0; j <= p.length; j++) r.push(false);
-    dp.push(r);
-  }
-
-  // init dp[0][0]
+  const dp = [...Array(s.length + 1)].map(() => Array(p.length + 1).fill(false));
   dp[0][0] = true;
 
   // init dp[0][i] to true if p[i] is *
