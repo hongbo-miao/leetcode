@@ -21,8 +21,8 @@
  */
 
 /** Binary Search + Rabin-Karp */
-// Time O(NlogN). O(logN) for the binary search and O(N) for Rabin-Karp algorithm.
-// Space O(N) to keep the hashset.
+// Time O(n log n). O(log n) for the binary search and O(N) for Rabin-Karp algorithm.
+// Space O(n) to keep the hashset.
 //
 // Split into two subtasks
 // Here we have "two in one" problem :

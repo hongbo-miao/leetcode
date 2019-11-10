@@ -44,6 +44,9 @@ Priority queue
 #
 # Since you dont have any values in the heap you check if the res string is == S, why ? (if your input is like 'aaa' then the heap approach will give you 'aaa' which is same as S)
 
+"""
+Priority queue
+"""
 import heapq
 from collections import Counter
 

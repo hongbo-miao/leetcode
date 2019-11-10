@@ -24,7 +24,6 @@
 """
 Priority queue
 """
-
 import heapq
 from collections import Counter
 
