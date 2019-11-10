@@ -31,9 +31,9 @@ const findWords = (board, words) => {
 
   const buildTrie = () => {
     const root = {};
-    for (let w of words) {
+    for (const w of words) {
       let node = root;
-      for (let c of w) {
+      for (const c of w) {
         if (node[c] == null) node[c] = {};
         node = node[c];
       }

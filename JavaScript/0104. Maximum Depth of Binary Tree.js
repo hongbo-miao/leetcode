@@ -28,26 +28,26 @@
  */
 
 /** 1) DFS (top-down) */
-function maxDepth1(root) {
+const maxDepth1 = (root) => {
   let max = 0;
 
-  function go(node, depth) {
+  const go = (node, depth) => {
     if (node == null) return;
     if (node.left == null && node.right == null) {
       max = Math.max(max, depth);
     }
     go(node.left, depth + 1);
     go(node.right, depth + 1);
-  }
+  };
 
   go(root, max + 1);
   return max;
-}
+};
 
 /** 2) DFS (bottom-up) */
-function maxDepth(root) {
+const maxDepth = (root) => {
   if (root == null) return 0;
   const l = maxDepth(root.left);
   const r = maxDepth(root.right);
   return Math.max(l, r) + 1;
-}
+};

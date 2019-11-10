@@ -27,7 +27,7 @@
  */
 
 /** Binary Search */
-function numSmallerByFrequency(queries, words) {
+const numSmallerByFrequency = (queries, words) => {
   const w = [];
   for (const s of words) w.push(calc(s));
   w.sort((a, b) => a - b);
@@ -38,9 +38,9 @@ function numSmallerByFrequency(queries, words) {
     res.push(words.length - idx);
   }
   return res;
-}
+};
 
-function upperBound(w, target) {
+const upperBound = (w, target) => {
   let l = 0;
   let r = w.length;
   while (l < r) {
@@ -49,9 +49,9 @@ function upperBound(w, target) {
     else r = m;
   }
   return l;
-}
+};
 
-function calc(s) {
+const calc = (s) => {
   const map = {};
   for (const c of s) {
     if (map[c] == null) map[c] = 0;
@@ -61,4 +61,4 @@ function calc(s) {
     const c = String.fromCharCode(97 + i);
     if (c in map) return map[c];
   }
-}
+};

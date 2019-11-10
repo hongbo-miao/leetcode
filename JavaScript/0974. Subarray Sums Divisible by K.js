@@ -36,7 +36,7 @@ function subarraysDivByK1(A, K) {
   mods[0] = 1;
   let count = 0;
   let sum = 0;
-  for (let n of A) {
+  for (const n of A) {
     sum = (sum + n) % K;
     if (sum < 0) sum += K; // Because -1 % 5 = -1, but we need the positive mod 4
     if (mods[sum] == null) mods[sum] = 0;
@@ -64,7 +64,7 @@ function subarraysDivByK(A, K) {
   const mods = Array(K).fill(0);
 
   let sum = 0;
-  for (let n of A) {
+  for (const n of A) {
     sum += n;
     let mod = sum % K;
     if (mod < 0) mod += K; // as the sum can be negative

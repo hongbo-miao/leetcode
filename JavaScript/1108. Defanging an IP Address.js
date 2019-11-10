@@ -19,6 +19,6 @@
  * @param {string} address
  * @return {string}
  */
-function defangIPaddr(address) {
+const defangIPaddr = (address) => {
   return address.replace(/\./g, '[.]');
-}
+};

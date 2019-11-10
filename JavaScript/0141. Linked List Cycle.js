@@ -17,7 +17,7 @@
  */
 
 /** Two pointers slow and fast */
-function hasCycle(head) {
+const hasCycle = (head) => {
   let slow = head;
   let fast = head;
 
@@ -28,4 +28,4 @@ function hasCycle(head) {
   }
 
   return false;
-}
+};

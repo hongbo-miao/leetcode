@@ -36,7 +36,7 @@ const zigzagLevelOrder = (root) => {
   let res = [];
 
   const go = (node, lvl) => {
-    if (!node) return;
+    if (node == null) return;
     if (res[lvl] == null) res[lvl] = [];
 
     if (lvl % 2 === 0) {

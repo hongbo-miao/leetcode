@@ -47,7 +47,7 @@ function maxProduct(nums) {
   let max = -Infinity;
   let currMin = 1;
   let currMax = 1;
-  for (let n of nums) {
+  for (const n of nums) {
     [currMin, currMax] = [
       Math.min(n, currMin * n, currMax * n),
       Math.max(n, currMin * n, currMax * n),

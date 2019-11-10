@@ -25,14 +25,14 @@
  */
 
 /** 1) Cheating */
-function divide1(dividend, divisor) {
+const divide1 = (dividend, divisor) => {
   if (dividend === -(2 ** 31) && divisor === -1) return 2 ** 31 - 1;
   return ~~(dividend / divisor);
-}
+};
 
 /** 2) */
 // https://leetcode.com/problems/divide-two-integers/discuss/13407/Detailed-Explained-8ms-C++-solution
-function divide(dividend, divisor) {
+const divide = (dividend, divisor) => {
   if (dividend === -(2 ** 31) && divisor === -1) return 2 ** 31 - 1;
 
   const sign = Math.sign(dividend) * Math.sign(divisor);
@@ -56,6 +56,5 @@ function divide(dividend, divisor) {
     res += multiple;
     dividend -= tmp;
   }
-
   return sign * res;
-}
+};

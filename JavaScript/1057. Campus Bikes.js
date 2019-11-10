@@ -32,7 +32,7 @@
 /** Bucket Sort */
 // Time: O(M * N)
 // Space: O(M * N)
-function assignBikes(workers, bikes) {
+const assignBikes = (workers, bikes) => {
   const getDist = ([x1, y1], [x2, y2]) => Math.abs(x1 - x2) + Math.abs(y1 - y2);
 
   const dists = [];
@@ -57,4 +57,4 @@ function assignBikes(workers, bikes) {
     }
   }
   return res;
-}
+};

@@ -33,17 +33,20 @@
  * }
  */
 /**
- * @param {TreeNode} node
+ * @param {TreeNode} root
  * @return {boolean}
  */
 
 /** Recursion */
-function isValidBST(node, min = -Infinity, max = Infinity) {
-  if (!node) return true;
-  if (node.val <= min || node.val >= max) return false;
+const isValidBST = (root) => {
+  const isValid = (node, min, max) => {
+    if (node == null) return true;
+    if (node.val <= min || node.val >= max) return false;
 
-  if (node.left && !isValidBST(node.left, min, node.val)) return false;
-  if (node.right && !isValidBST(node.right, node.val, max)) return false;
+    if (node.left && !isValid(node.left, min, node.val)) return false;
+    if (node.right && !isValid(node.right, node.val, max)) return false;
+    return true;
+  };
 
-  return true;
-}
+  return isValid(root, -Infinity, Infinity);
+};

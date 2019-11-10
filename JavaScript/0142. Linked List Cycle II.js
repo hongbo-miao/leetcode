@@ -21,7 +21,7 @@
 /** 1) Hash set */
 // Time O(n)
 // Space O(n)
-function detectCycle1(head) {
+const detectCycle1 = (head) => {
   const visited = new Set();
 
   let node = head;
@@ -32,15 +32,15 @@ function detectCycle1(head) {
   }
 
   return null;
-}
+};
 
 /** 2) Floyd's Tortoise and Hare */
 // Time O(n)
 // Space O(1)
-function detectCycle(head) {
+const detectCycle = (head) => {
   if (head == null) return null;
 
-  function getIntersect(head) {
+  const getIntersect = (head) => {
     let slow = head;
     let fast = head;
 
@@ -50,7 +50,7 @@ function detectCycle(head) {
       if (slow === fast) return fast;
     }
     return null;
-  }
+  };
 
   const intersect = getIntersect(head);
   if (intersect == null) return null;
@@ -63,4 +63,4 @@ function detectCycle(head) {
     fast = fast.next;
   }
   return fast;
-}
+};

@@ -48,16 +48,16 @@
  */
 
 /** BFS */
-function snakesAndLadders(board) {
+const snakesAndLadders = (board) => {
   const len = board.length;
 
   // Given a square num n, return board coordinates (r, c) as r * len + c
-  function get(n) {
+  const get = (n) => {
     const row = len - 1 - ~~((n - 1) / len);
     const rem = (n - 1) % len;
     const col = row % 2 !== len % 2 ? rem : len - 1 - rem;
     return [row, col];
-  }
+  };
 
   const dists = {};
   dists[1] = 0;
@@ -67,7 +67,7 @@ function snakesAndLadders(board) {
     const n = q.shift();
     if (n === len * len) return dists[n];
 
-    for (let n2 = n + 1; n2 <= Math.min(n + 6, len * len); n2++) {
+    for (const n2 = n + 1; n2 <= Math.min(n + 6, len * len); n2++) {
       const [r, c] = get(n2);
       const n2Final = board[r][c] === -1 ? n2 : board[r][c];
       if (dists[n2Final] == null) {
@@ -77,4 +77,4 @@ function snakesAndLadders(board) {
     }
   }
   return -1;
-}
+};

@@ -34,28 +34,28 @@
 //
 // Time O(n)
 // Space O(n)
-function levelOrder1(root) {
+const levelOrder1 = (root) => {
   const res = [];
 
-  function go(node, lvl) {
-    if (!node) return;
+  const go = (node, lvl) => {
+    if (node == null) return;
 
     if (res.length === lvl) res.push([]);
     res[lvl].push(node.val);
 
     go(node.left, lvl + 1);
     go(node.right, lvl + 1);
-  }
+  };
 
   go(root, 0);
   return res;
-}
+};
 
 /** BFS - level-order traversal */
 // Similar
 // 102. Binary Tree Level Order Traversal
 // 116. Populating Next Right Pointers in Each Node
-function levelOrder(root) {
+const levelOrder = (root) => {
   if (root == null) return [];
 
   const res = [];
@@ -75,4 +75,4 @@ function levelOrder(root) {
     res.push(row);
   }
   return res;
-}
+};

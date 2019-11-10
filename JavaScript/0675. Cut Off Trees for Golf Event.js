@@ -45,14 +45,14 @@
  */
 
 /** BFS */
-function cutOffTree(forest) {
+const cutOffTree = (forest) => {
   if (forest == null || forest.length === 0 || forest[0].length === 0) return 0;
   const h = forest.length;
   const w = forest[0].length;
   const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
 
   // BFS
-  function getDist(pos, dist) {
+  const getDist = (pos, dist) => {
     dist[pos[0]][pos[1]] = 0;
     const q = [[pos, 0]];
     while (q.length) {
@@ -68,7 +68,7 @@ function cutOffTree(forest) {
         }
       }
     }
-  }
+  };
 
   const trees = [];
   for (let i = 0; i < h; i++) {
@@ -92,4 +92,4 @@ function cutOffTree(forest) {
     pos = pos2;
   }
   return step;
-}
+};

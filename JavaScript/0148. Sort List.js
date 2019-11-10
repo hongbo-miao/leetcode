@@ -25,7 +25,7 @@
 /** Merge sort */
 // Time O(n log n)
 // Space O(n)
-function sortList(head) {
+const sortList = (head) => {
   if (!head || !head.next) return head;
 
   const { left, right } = split(head);
@@ -34,9 +34,9 @@ function sortList(head) {
   const l2 = sortList(right);
 
   return merge(l1, l2);
-}
+};
 
-function split(head) {
+const split = (head) => {
   let preSlow;
   let slow = head;
   let fast = head;
@@ -50,9 +50,9 @@ function split(head) {
   preSlow.next = null;
 
   return { left: head, right: slow };
-}
+};
 
-function merge(l1, l2) {
+const merge = (l1, l2) => {
   const preHead = new ListNode(null);
   let p = preHead;
 
@@ -71,4 +71,4 @@ function merge(l1, l2) {
   p.next = l1 || l2;
 
   return preHead.next;
-}
+};

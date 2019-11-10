@@ -20,10 +20,10 @@
 // Space O((2^2n) * n)
 //
 // We can generate all 2^2n sequences of '(' and ')' characters. Then, we will check if each one is valid.
-function generateParenthesis1(n) {
+const generateParenthesis1 = (n) => {
   let res = [];
 
-  function generate(arr) {
+  const generate = (arr) => {
     if (arr.length === 2 * n) {
       if (valid(arr)) {
         res.push(arr.join(''));
@@ -36,21 +36,21 @@ function generateParenthesis1(n) {
       generate(arr);
       arr.pop();
     }
-  }
+  };
 
-  function valid(arr) {
+  const valid = (arr) => {
     let bal = 0;
-    for (let c of arr) {
+    for (const c of arr) {
       if (c === '(') bal += 1;
       else bal -= 1;
       if (bal < 0) return false
     }
     return bal === 0;
-  }
+  };
 
   generate([]);
   return res;
-}
+};
 
 /** 2) Backtracking */
 // The complexity analysis rests on understanding how many elements there are in generateParenthesis(n). It turns out
@@ -58,10 +58,10 @@ function generateParenthesis1(n) {
 // Time O(4^n / sqrt(n)). Each valid sequence has at most n steps during the backtracking procedure.
 // Space O(4^n / sqrt(n)). As described above, and using O(n) space to store the sequence.
 
-function generateParenthesis2(n) {
+const generateParenthesis2 = (n) => {
   const res = [];
 
-  function go(l, r, s) {
+  const go = (l, r, s) => {
     if (s.length === 2 * n) {
       res.push(s);
       return;
@@ -69,17 +69,17 @@ function generateParenthesis2(n) {
 
     if (l < n) go(l + 1, r, s + '(');
     if (r < l) go(l, r + 1, s + ')');
-  }
+  };
 
   go(0, 0, '');
   return res;
-}
+};
 
 /** 3) Backtracking, similar to 2) */
-function generateParenthesis3(n) {
+const generateParenthesis3 = (n) => {
   const res = [];
 
-  function go(l, r, s) { // l: left remaining, r: right remaining
+  const go = (l, r, s) => { // l: left remaining, r: right remaining
     if (l > r) return; // Check valid by the number of '(' should be always >= ')'
 
     if (l === 0 && r === 0) {
@@ -89,11 +89,11 @@ function generateParenthesis3(n) {
 
     if (l > 0) go(l - 1, r, s + '(');
     if (r > 0) go(l, r - 1, s + ')');
-  }
+  };
 
   go(n, n, '');
   return res;
-}
+};
 
 /** 4) Closure number */
 // Time O(4^n / sqrt(n))
@@ -109,18 +109,18 @@ function generateParenthesis3(n) {
 //
 // For each closure number i, we know the starting and ending brackets must be at index 0 and 2*i + 1. Then, the
 // 2*i elements between must be a valid sequence, plus the rest of the elements must be a valid sequence.
-function generateParenthesis(n) {
+const generateParenthesis = (n) => {
   const res = [];
   if (n === 0) {
       res.push('');
   } else {
     for (let i = 0; i < n; i++) {
-      for (let l of generateParenthesis(i)) {
-        for (let r of generateParenthesis(n - 1 - i)) {
+      for (const l of generateParenthesis(i)) {
+        for (const r of generateParenthesis(n - 1 - i)) {
           res.push('(' + l + ')' + r);
         }
       }
     }
   }
   return res;
-}
+};

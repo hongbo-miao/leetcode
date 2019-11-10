@@ -46,7 +46,7 @@
 // [5, 3]           5
 // [6]              6
 // [7]              7
-function maxSlidingWindow1(nums, k) {
+const maxSlidingWindow1 = (nums, k) => {
   const res = [];
   const q = [];
 
@@ -62,10 +62,10 @@ function maxSlidingWindow1(nums, k) {
     }
   }
   return res;
-}
+};
 
 /** 2) Dynamic programming */
-function maxSlidingWindow(nums, k) {
+const maxSlidingWindow = (nums, k) => {
   let n = nums.length;
   if (n === 0) return [];
   if (n * k === 0) return [0];
@@ -80,14 +80,15 @@ function maxSlidingWindow(nums, k) {
     else left[i] = Math.max(left[i - 1], nums[i]);
 
     // from right to left
-    const j = n - i - 1;
-    if (j + 1 % k === 0) right[j] = nums[j]; // block_end
+    let j = n - i - 1;
+    if ((j + 1) % k === 0) right[j] = nums[j]; // block_end
     else right[j] = Math.max(right[j + 1], nums[j]);
   }
 
-  const output = [];
-  for (let i = 0; i < n - k + 1; i++)
-  output[i] = Math.max(left[i + k - 1], right[i]);
+  const res = [];
+  for (let i = 0; i < n - k + 1; i++) {
+    res[i] = Math.max(left[i + k - 1], right[i]);
+  }
+  return res;
+};
 
-  return output;
-}

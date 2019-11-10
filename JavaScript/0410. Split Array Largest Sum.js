@@ -37,8 +37,8 @@
 //    3) We'll end up with two results: either we can divide the array into more than m subarrays or we cannot.
 //       If we can, it means that the mid value we pick is too small because we've already tried our best to make sure each part holds as many non-negative numbers as we can but we still have numbers left. So, it is impossible to cut the array into m parts and make sure each parts is no larger than mid. We should increase m. This leads to l = mid + 1;
 //       If we can't, it is either we successfully divide the array into m parts and the sum of each part is less than mid, or we used up all numbers before we reach m. Both of them mean that we should lower mid because we need to find the minimum one. This leads to r = mid - 1;
-function splitArray(nums, m) {
-  function isValid(max) {
+const splitArray = (nums, m) => {
+  const isValid = (max) => {
     let sum = 0;
     let count = 1; // subarray group count
     for (const n of nums) {
@@ -50,7 +50,7 @@ function splitArray(nums, m) {
       sum += n;
     }
     return true;
-  }
+  };
 
   let l = -Infinity; // max
   let r = 0; // sum
@@ -66,4 +66,4 @@ function splitArray(nums, m) {
     else r = mid;
   }
   return l;
-}
+};

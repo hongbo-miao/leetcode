@@ -27,7 +27,7 @@
 //
 // Time O(n^2)
 // Space O(n^2), can be optimized to O(n)
-function maximalSquare(matrix) {
+const maximalSquare = (matrix) => {
   if (matrix == null || matrix.length === 0) return 0;
 
   const h = matrix.length;
@@ -63,4 +63,4 @@ function maximalSquare(matrix) {
   }
 
   return max * max;
-}
+};

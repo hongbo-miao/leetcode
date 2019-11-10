@@ -42,8 +42,8 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-function lowestCommonAncestor(root, p, q) {
-  function find(node) {
+const lowestCommonAncestor = (root, p, q) => {
+  const find = (node) => {
     if (node == null) return null;
     if (node === p || node === q) return node;
 
@@ -53,7 +53,7 @@ function lowestCommonAncestor(root, p, q) {
     if (l == null) return r; // p and q are both in the right side
     if (r == null) return l; // p and q are both in the left side
     return node; // p and q are in different sides
-  }
+  };
 
   return find(root);
-}
+};

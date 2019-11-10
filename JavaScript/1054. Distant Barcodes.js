@@ -32,13 +32,13 @@
 // idx 0
 // idx 2
 // idx 4
-function rearrangeBarcodes(barcodes) {
+const rearrangeBarcodes = (barcodes) => {
   const map = {};
   barcodes.forEach(b => map[b] = (map[b] || 0) + 1);
   const nums = Object.keys(map).sort((k1, k2) => map[k1] - map[k2]);
 
   let idx = 1;
-  for (let n of nums) {
+  for (const n of nums) {
     const count = map[n];
 
     for (let i = 0; i < count; i++) {
@@ -49,7 +49,7 @@ function rearrangeBarcodes(barcodes) {
   }
 
   return barcodes;
-}
+};
 
 /** 2) Priority queue */
 // Similar

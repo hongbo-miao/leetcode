@@ -62,21 +62,21 @@
  */
 
 // https://leetcode.com/problems/text-justification/discuss/24898/Short-JavaScript-O(n)-solution
-function fullJustify(words, maxWidth) {
-  let res = [[]];
+const fullJustify = (words, maxWidth) => {
+  const res = [[]];
   res[0].letters = 0;
 
-  for (let word of words) {
+  for (const w of words) {
     let row = res[res.length - 1];
 
-    if (row.length && row.letters + row.length + word.length > maxWidth) {
+    if (row.length && row.letters + row.length + w.length > maxWidth) {
       res.push([]);
       row = res[res.length - 1];
       row.letters = 0;
     }
 
-    row.push(word);
-    row.letters += word.length;
+    row.push(w);
+    row.letters += w.length;
   }
 
   for (let i = 0; i < res.length; i++) {
@@ -99,6 +99,5 @@ function fullJustify(words, maxWidth) {
       res[i] = line;
     }
   }
-
   return res;
-}
+};

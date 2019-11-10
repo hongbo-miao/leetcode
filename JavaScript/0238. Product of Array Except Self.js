@@ -22,7 +22,7 @@
 // The trick is to construct the arrays (in the case for 4 elements)
 // [             1,       a[0],  a[0]*a[1],  a[0]*a[1]*a[2]]
 // [a[1]*a[2]*a[3],  a[2]*a[3],       a[3],               1]
-function productExceptSelf1(nums) {
+const productExceptSelf1 = (nums) => {
   const l = [];
   for (let i = 0, p = 1; i < nums.length; i++) {
     l[i] = p;
@@ -41,12 +41,12 @@ function productExceptSelf1(nums) {
   }
 
   return res;
-}
+};
 
 /** 2) Improvement by saving some space which is less clear */
 // Time O(n)
 // Space O(1)
-function productExceptSelf(nums) {
+const productExceptSelf = (nums) => {
   const res = [1];
 
   for (let i = 1; i < nums.length; i++) {
@@ -59,4 +59,4 @@ function productExceptSelf(nums) {
   }
 
   return res;
-}
+};

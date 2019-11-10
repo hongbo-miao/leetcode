@@ -25,32 +25,31 @@
  */
 
 /** 1) Cheating */
-function strStr1(haystack, needle) {
+const strStr1 = (haystack, needle) => {
+  if (needle == null || needle === '') return 0;
   return haystack.indexOf(needle);
-}
+};
 
 /** 2) Brute force */
-function strStr2(haystack, needle) {
+const strStr2 = (haystack, needle) => {
+  if (needle == null || needle === '') return 0;
   for (let i = 0; i < haystack.length - needle.length + 1; i++) {
     if (haystack.substr(i, needle.length) === needle) return i;
   }
-
   return -1;
-}
+};
 
 /** 3) Same to 2) */
-function strStr(haystack, needle) {
+const strStr = (haystack, needle) => {
   if (needle == null || needle === '') return 0;
-
   for (let i = 0; i < haystack.length - needle.length + 1; i++) {
     for (let j = 0; j < needle.length; j++) {
       if (haystack[i + j] !== needle[j]) break;
       if (j === needle.length - 1) return i;
     }
   }
-
   return -1;
-}
+};
 
 /** 4) KMP */
 // https://www.zhihu.com/question/21923021

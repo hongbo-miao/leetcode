@@ -23,7 +23,7 @@
 
 /** 1) */
 // Time O(n)
-function merge1(nums1, m, nums2, n) {
+const merge1 = (nums1, m, nums2, n) => {
   let i = m + n;
   m--;
   n--;
@@ -50,11 +50,11 @@ function merge1(nums1, m, nums2, n) {
       }
     }
   }
-}
+};
 
 /** 2) */
 // Time O(n)
-function merge(nums1, m, nums2, n) {
+const merge = (nums1, m, nums2, n) => {
   let i = m + n;
   m--;
   n--;
@@ -66,4 +66,4 @@ function merge(nums1, m, nums2, n) {
       nums1[i] = nums2[n--];
     }
   }
-}
+};

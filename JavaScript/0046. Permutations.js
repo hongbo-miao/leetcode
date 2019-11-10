@@ -27,10 +27,10 @@
 //   Let's do a rough estimation of the result: N! <= ∑(k = 1 to N) (N! / (N - k)!) = ∑(k = 1 to N) P(N, k) <= N * N!,
 //   i.e. the algorithm performs better than O(N * N!) and a bit slower than N!.
 // Space O(N!) since one has to keep N! solutions.
-function permute(nums) {
+const permute = (nums) => {
   const res = [];
 
-  function go(curr, rest) {
+  const go = (curr, rest) => {
     if (!rest.length) {
       res.push(curr);
       return;
@@ -43,8 +43,8 @@ function permute(nums) {
         [...rest.slice(0, i), ...rest.slice(i + 1)],
       );
     }
-  }
+  };
 
   go([], nums);
   return res;
-}
+};

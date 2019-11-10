@@ -31,15 +31,15 @@
 /** 1) DFS */
 // Time O(n)
 // Space O(d) = O(log n) to keep the recursion stack, where d is a tree depth
-function countNodes1(root) {
+const countNodes1 = (root) => {
   if (root == null) return 0;
   return countNodes(root.left) + countNodes(root.right) + 1;
-}
+};
 
 /** 2) Binary Search */
 // Time O(d^2) = O((log n)^2), where d is a tree depth
 // Space O(1)
-function countNodes(root) {
+const countNodes = (root) => {
   // if the tree is empty
   if (root == null) return 0;
 
@@ -58,22 +58,22 @@ function countNodes(root) {
   // The tree contains 2^d - 1 nodes on the first (d - 1) levels
   // and l nodes on the last level.
   return 2 ** d - 1 + l;
-}
+};
 
 // Return tree depth in O(d) time.
-function getDepth(node) {
+const getDepth = (node) => {
   let d = 0;
   while (node.left != null) {
     node = node.left;
     d++;
   }
   return d;
-}
+};
 
 // Last level nodes are enumerated from 0 to 2^d - 1 (left -> right).
 // Return true if last level node idx exists.
 // Binary search with O(d) complexity.
-function exists(idx, d, node) {
+const exists = (idx, d, node) => {
   let l = 0;
   let r = 2 ** d - 1;
   while (l < r) {
@@ -87,4 +87,4 @@ function exists(idx, d, node) {
     }
   }
   return node != null;
-}
+};

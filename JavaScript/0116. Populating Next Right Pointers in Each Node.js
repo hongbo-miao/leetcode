@@ -51,7 +51,7 @@
 /** 1) */
 // Time O(n)
 // Space O(1)
-function connect1(root) {
+const connect1 = (root) => {
   if (root == null || root.left == null) return root;
 
   root.left.next = root.right; // connect left -> right
@@ -61,7 +61,7 @@ function connect1(root) {
   connect(root.right);
 
   return root;
-}
+};
 
 /** 2) BFS - level-order traversal */
 // Similar
@@ -69,7 +69,7 @@ function connect1(root) {
 // 116. Populating Next Right Pointers in Each Node
 //
 // Time O(n)
-function connect(root) {
+const connect = (root) => {
   if (root == null) return null;
 
   let q = [root];
@@ -86,4 +86,4 @@ function connect(root) {
     }
   }
   return root;
-}
+};

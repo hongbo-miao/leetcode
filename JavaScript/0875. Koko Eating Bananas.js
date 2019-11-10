@@ -35,7 +35,7 @@
 function minEatingSpeed(piles, H) {
   function canEatAll(speed) {
     let time = 0;
-    for (let p of piles) {
+    for (const p of piles) {
       time += Math.ceil(p / speed);
     }
     return time <= H;

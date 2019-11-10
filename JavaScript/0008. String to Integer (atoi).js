@@ -41,7 +41,7 @@
  * @param {string} str
  * @return {number}
  */
-function myAtoi1(str) {
+const myAtoi1 = (str) => {
   // (abc)  capture group
   //
   // [abc]  any of a, b, or c
@@ -66,9 +66,9 @@ function myAtoi1(str) {
   if (n > max) return max;
 
   return n;
-}
+};
 
-function myAtoi(str) {
+const myAtoi = (str) => {
   const s = str.replace(/\s*/, '').match(/^[-+\d]*/);
   const n = parseInt(s);
 
@@ -82,4 +82,4 @@ function myAtoi(str) {
   }
 
   return 0;
-}
+};

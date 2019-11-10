@@ -29,8 +29,8 @@
  * @return {TreeNode}
  */
 /** 1) Recursion */
-function invertTree1(root) {
-  function go(node) {
+const invertTree1 = (root) => {
+  const go = (node) => {
     if (node == null) return;
 
     const n = node.left;
@@ -39,21 +39,21 @@ function invertTree1(root) {
 
     go(node.left);
     go(node.right);
-  }
+  };
 
   go(root);
   return root;
-}
+};
 
 /** 2) Recursion */
-function invertTree3(root) {
+const invertTree2 = (root) => {
   if (root == null) return root;
   [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
   return root;
-}
+};
 
 /** 3) DFS */
-function invertTree4(root) {
+const invertTree3 = (root) => {
   const st = [root];
 
   while (st.length) {
@@ -65,10 +65,10 @@ function invertTree4(root) {
   }
 
   return root;
-}
+};
 
 /** 4) BFS */
-function invertTree(root) {
+const invertTree = (root) => {
   const q = [root];
 
   while (q.length) {
@@ -80,4 +80,4 @@ function invertTree(root) {
   }
 
   return root;
-}
+};

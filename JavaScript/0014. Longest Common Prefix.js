@@ -33,7 +33,7 @@ function longestCommonPrefix1(strs) {
   const str0 = strs[0];
   for (let i = 0; i < str0.length; i++) {
     const c = str0[i];
-    for (let s of strs) {
+    for (const s of strs) {
       if (s[i] !== c) return str0.slice(0, i);
     }
   }
@@ -56,7 +56,7 @@ function longestCommonPrefix(strs) {
   }
 
   let minLen = Infinity;
-  for (let s of strs) {
+  for (const s of strs) {
     minLen = Math.min(minLen, s.length);
   }
 

@@ -21,7 +21,7 @@
 //   M is the number of digits in the input that maps to 4 letters (e.g. 7, 9), and N+M is the total number digits in the input.
 //
 // Space O(3^N * 4^M) since one has to keep O(3^N * 4^M) solutions.
-function letterCombinations(digits) {
+const letterCombinations = (digits) => {
   if (digits == null || digits.length === 0) return [];
 
   const map = {
@@ -36,17 +36,17 @@ function letterCombinations(digits) {
   };
 
   const res = [];
-  function go(i, s) {
+  const go = (i, s) => {
     if (i === digits.length) {
       res.push(s);
       return;
     }
 
-    for (let c of map[digits[i]]) {
+    for (const c of map[digits[i]]) {
       go(i + 1, s + c);
     }
-  }
+  };
 
   go(0, '');
   return res;
-}
+};

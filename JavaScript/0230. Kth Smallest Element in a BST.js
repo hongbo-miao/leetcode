@@ -29,8 +29,8 @@
  * @return {number}
  */
 /** 1) In-order traversal, DFS */
-function kthSmallest1(root, k) {
-  function go(node) {
+const kthSmallest1 = (root, k) => {
+  const go = (node) => {
     if (node == null) return [];
 
     return [
@@ -38,23 +38,23 @@ function kthSmallest1(root, k) {
       node.val,
       ...go(node.right)
     ];
-  }
+  };
 
   return go(root)[k - 1];
-}
+};
 
 /** 2) Similar to 1 */
-function kthSmallest(root, k) {
+const kthSmallest = (root, k) => {
   const arr = [];
 
-  function go(node) {
+  const go = (node) => {
     if (node == null) return;
 
     go(node.left);
     arr.push(node.val);
     go(node.right);
-  }
+  };
 
   go(root, k);
   return arr[k - 1];
-}
+};

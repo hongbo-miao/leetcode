@@ -46,7 +46,7 @@ function maxLevelSum(root) {
   const levels = [];
 
   function go(node, lvl) {
-    if (!node) return;
+    if (node == null) return;
 
     if (levels.length === lvl) levels.push(0);
     levels[lvl] += node.val;

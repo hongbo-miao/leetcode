@@ -45,14 +45,14 @@
 //
 // Generally, we will get 0 matches from the master.guess. The probability of two words with 0 match is (25/26)^6 = 80%.
 // As a result, the size of wordlist reduces slowly.
-function findSecretWord1(wordlist, master) {
-  function match(a, b) {
+const findSecretWord1 = (wordlist, master) => {
+  const match = (a, b) => {
     let matches = 0;
     for (let i = 0; i < a.length; i++) {
       if (a[i] === b[i]) matches++;
     }
     return matches;
-  }
+  };
 
   for (let i = 0, n = 0; i < 10 && n < 6; i++) {
     const word = wordlist[~~(Math.random() * wordlist.length)];
@@ -67,7 +67,7 @@ function findSecretWord1(wordlist, master) {
     }
     wordlist = wordlist2;
   }
-}
+};
 
 
 /** 2) Minimax (100% time can pass the test) */
@@ -82,14 +82,14 @@ function findSecretWord1(wordlist, master) {
 // Then we guess the word with minimum words of 0 matches.
 // In this solution, we apply a minimax idea.
 // We minimize our worst case, where the worst case is max(the number of words with i matches)
-function findSecretWord(wordlist, master) {
-  function match(a, b) {
+const findSecretWord = (wordlist, master) => {
+  const match = (a, b) => {
     let matches = 0;
     for (let i = 0; i < a.length; i++) {
       if (a[i] === b[i]) matches++;
     }
     return matches;
-  }
+  };
 
   for (let i = 0, n = 0; i < 10 && n < 6; i++) {
     const count = {};
@@ -119,4 +119,4 @@ function findSecretWord(wordlist, master) {
     }
     wordlist = wordlist2;
   }
-}
+};

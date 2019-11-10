@@ -49,8 +49,8 @@
 // - make values in B equal to B[0]
 //
 // For each case we count rotations and we get the min rotations among them.
-function minDominoRotations(A, B) {
-  function count(target, A, B) {
+const minDominoRotations = (A, B) => {
+  const count = (target, A, B) => {
     let rotate = 0;
     for (let i = 0; i < A.length; i++) {
       if (A[i] !== target) {
@@ -59,7 +59,7 @@ function minDominoRotations(A, B) {
       }
     }
     return rotate;
-  }
+  };
 
   const min = Math.min(
     count(A[0], A, B),
@@ -68,4 +68,4 @@ function minDominoRotations(A, B) {
     count(B[0], B, A),
   );
   return min !== Infinity ? min : -1;
-}
+};

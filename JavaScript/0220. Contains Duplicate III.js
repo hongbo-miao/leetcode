@@ -21,7 +21,7 @@
  * @param {number} t
  * @return {boolean}
  */
-function containsNearbyAlmostDuplicate(nums, k, t) {
+const containsNearbyAlmostDuplicate = (nums, k, t) => {
   const map = nums
     .map((val, idx) => ({ val, idx }))
     .sort((a, b) => a.val - b.val);
@@ -41,4 +41,4 @@ function containsNearbyAlmostDuplicate(nums, k, t) {
   }
 
   return false;
-}
+};

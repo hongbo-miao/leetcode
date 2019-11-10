@@ -52,7 +52,7 @@
 // source (t == s.length), we increase the number of subsequences and reset the source index (t = 0).
 // Since the number of subsequences cannot be larger than the target, we can use this fact to exist and return -1
 // when a character is missing in the source.
-function shortestWay1(source, target) {
+const shortestWay1 = (source, target) => {
   let t = 0;
   let s = 0;
   let res = 0;
@@ -70,12 +70,12 @@ function shortestWay1(source, target) {
     }
   }
   return res > t ? -1 : res + 1 ;
-}
+};
 
 /** 2) Greedy + Hash Set, taking more space, but easier to understand */
 // Time O(ST), where S and T are sizes of the source and target.
 // Space O(S)
-function shortestWay(source, target) {
+const shortestWay = (source, target) => {
   const set = new Set(source);
   let t = 0;
   let s = 0;
@@ -96,7 +96,7 @@ function shortestWay(source, target) {
     }
   }
   return res + 1;
-}
+};
 
 /** 3) Binary Search */
 // Time O(S + TlogT)

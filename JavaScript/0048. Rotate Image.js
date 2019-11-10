@@ -56,14 +56,14 @@
 // 1 2 3    7 8 9    7 4 1
 // 4 5 6 -> 4 5 6 -> 8 5 2
 // 7 8 9    1 2 3    9 6 3
-function rotate1(matrix) {
+const rotate1 = (matrix) => {
   matrix.reverse();
 
   for (let i = 0; i < matrix.length; i++) {
     for (let j = i + 1; j < matrix[i].length; j++)
       [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
   }
-}
+};
 
 /** 2) Swap three times from outside to inside */
 // Time O(n^2)
@@ -78,11 +78,8 @@ function rotate1(matrix) {
 // 7 8 9    7 8 9    7 8 3    9 8 3
 //
 // Step 2: from outside to inside
-function rotate2(matrix) {
-  function swap(x1, y1, x2, y2) {
-    [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
-  }
-
+const rotate2 = (matrix) => {
+  const swap = (x1, y1, x2, y2) => [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
   const last = matrix.length - 1;
 
   for (let i = 0; i < matrix.length / 2; i++) { // i is layer level
@@ -92,16 +89,13 @@ function rotate2(matrix) {
       swap(i, j, last - j, i);
     }
   }
-}
+};
 
 /** 3) Similar to 2) */
 // Time O(n^2)
 // Space O(1)
-function rotate3(matrix) {
-  function swap(x1, y1, x2, y2) {
-    [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
-  }
-
+const rotate3 = (matrix) => {
+  const swap = (x1, y1, x2, y2) => [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
   const last = matrix.length - 1;
 
   for (let i = 0; i < ~~(matrix.length / 2); i++) {
@@ -111,16 +105,13 @@ function rotate3(matrix) {
       swap(i, j, last - j, i);
     }
   }
-}
+};
 
 /** 4) Rotate four rectangles, easier to understand than 2) and 3) */
 // Time O(n^2)
 // Space O(1)
-function rotate(matrix) {
-  function swap(x1, y1, x2, y2) {
-    [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
-  }
-
+const rotate = (matrix) => {
+  const swap = (x1, y1, x2, y2) => [matrix[x1][y1], matrix[x2][y2]] = [matrix[x2][y2], matrix[x1][y1]];
   const last = matrix.length - 1;
 
   for (let i = 0; i < ~~(matrix.length / 2); i++) {
@@ -128,8 +119,8 @@ function rotate(matrix) {
       const tmp = matrix[i][j];
       swap(i, j, last - j, i);
       swap(last - j, i, last - i, last - j);
-      swap(last - i, last - j, j, last -i);
+      swap(last - i, last - j, j, last - i);
       matrix[j][last - i] = tmp;
     }
   }
-}
+};

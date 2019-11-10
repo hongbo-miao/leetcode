@@ -29,7 +29,7 @@ function firstUniqChar1(s) {
 function firstUniqChar(s) {
   const map = {};
 
-  for (let c of s) {
+  for (const c of s) {
     if (map[c] == null) map[c] = 1;
     else map[c]++;
   }

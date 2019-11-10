@@ -90,7 +90,7 @@ const braceExpansionII = (expression) => {
   // Flatten result. Some browsers do not support st.flat()
   const set = new Set();
   while (st.length) {
-    for (let c of st.pop()) {
+    for (const c of st.pop()) {
       set.add(c);
     }
   }

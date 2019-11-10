@@ -27,15 +27,15 @@
  * @param {number} n
  * @return {string}
  */
-function countAndSay(n) {
+const countAndSay = (n) => {
   let res = '1';
   for (let i = 1; i < n; i++) {
     res = say(res);
   }
   return res;
-}
+};
 
-function say(s) {
+const say = (s) => {
   let res = '';
   let count = 0;
   let num = s[0];
@@ -49,6 +49,5 @@ function say(s) {
       num = s[i];
     }
   }
-
   return res + count + num;
-}
+};

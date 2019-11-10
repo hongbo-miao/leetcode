@@ -45,7 +45,7 @@
  * @return {number}
  */
 
-/** Sliding window + hash map */
+/** Sliding Window + Hash Map */
 // Similar
 // 3. Longest Substring Without Repeating Characters
 // 904. Fruit Into Baskets
@@ -55,7 +55,7 @@
 //
 // Time O(n), where n is the length of tree
 // Space O(n)
-function totalFruit(tree) {
+const totalFruit = (tree) => {
   const count = new Map();
   let max = 0;
   let l = 0;
@@ -71,4 +71,4 @@ function totalFruit(tree) {
     max = Math.max(max, r - l + 1);
   }
   return max;
-}
+};

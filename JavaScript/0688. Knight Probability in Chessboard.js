@@ -30,7 +30,7 @@ const knightProbability1 = (N, K, r, c) => {
   const map = {};
   const dirs = [[-2, -1], [-1, -2], [1, -2], [2, -1], [2, 1], [1, 2], [-1, 2], [-2, 1]];
 
-  function go(x, y, k) {
+  const go = (x, y, k) => {
     const key = `${k}:${x}:${y}`;
     if (map[key]) return map[key];
     if (k === 0) return 1;
@@ -46,8 +46,7 @@ const knightProbability1 = (N, K, r, c) => {
     }
     map[key] = count;
     return count;
-  }
-
+  };
   return go(r, c, K) / 8 ** K;
 };
 

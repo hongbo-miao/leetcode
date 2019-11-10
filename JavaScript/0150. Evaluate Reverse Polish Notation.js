@@ -47,7 +47,7 @@ function evalRPN1(tokens) {
 
   const st = [];
 
-  for (let n of tokens) {
+  for (const n of tokens) {
     if (ops[n] != null) {
       const fn = ops[n];
       const b = st.pop();

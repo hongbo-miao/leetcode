@@ -25,10 +25,8 @@
 //
 // 0 0 | 1 | 2 1 | 2
 //   l       i     r
-function sortColors(nums) {
-  function swap(i, j) {
-    [nums[i], nums[j]] = [nums[j], nums[i]];
-  }
+const sortColors = (nums) => {
+  const swap = (i, j) => [nums[i], nums[j]] = [nums[j], nums[i]];
 
   let l = 0;
   let r = nums.length - 1;
@@ -47,4 +45,4 @@ function sortColors(nums) {
       i++;
     }
   }
-}
+};

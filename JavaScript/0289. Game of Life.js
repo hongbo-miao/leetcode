@@ -43,13 +43,13 @@
 // To get the next state, simply do
 //   board[i][j] >> 1
 
-function gameOfLife(board) {
+const gameOfLife = (board) => {
   if (board == null || board.length === 0) return;
 
   const h = board.length;
   const w = board[0].length;
 
-  function liveNeighbors(x, y) {
+  const liveNeighbors = (x, y) => {
     let lives = 0;
     for (let i = Math.max(x - 1, 0); i <= Math.min(x + 1, h - 1); i++) {
       for (let j = Math.max(y - 1, 0); j <= Math.min(y + 1, w - 1); j++) {
@@ -58,7 +58,7 @@ function gameOfLife(board) {
     }
     lives -= board[x][y] & 1; // subtract itself
     return lives;
-  }
+  };
 
   for (let i = 0; i < h; i++) {
     for (let j = 0; j < w; j++) {
@@ -80,4 +80,4 @@ function gameOfLife(board) {
       board[i][j] >>= 1; // Get the 2nd bit
     }
   }
-}
+};

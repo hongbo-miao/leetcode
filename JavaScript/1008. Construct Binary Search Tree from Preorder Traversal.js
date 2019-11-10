@@ -28,11 +28,11 @@
  * @param {number[]} preorder
  * @return {TreeNode}
  */
-function bstFromPreorder(preorder) {
+const bstFromPreorder = (preorder) => {
   if (preorder == null || preorder.length === 0) return null;
   const [mid, ...rest] = preorder;
   const root = new TreeNode(mid);
   root.left = bstFromPreorder(rest.filter(n => n < mid));
   root.right = bstFromPreorder(rest.filter(n => n > mid));
   return root;
-}
+};

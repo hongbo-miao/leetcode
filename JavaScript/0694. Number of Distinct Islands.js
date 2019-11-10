@@ -54,7 +54,7 @@ const numDistinctIslands = (grid) => {
   const w = grid[0].length;
   const set = new Set();
 
-  function go(x, y, dir) {
+  const go = (x, y, dir) => {
     if (x < 0 || x >= h || y < 0 || y >= w || grid[x][y] === 0) return '';
     grid[x][y] = 0; // Mark visited
     return dir +
@@ -63,7 +63,7 @@ const numDistinctIslands = (grid) => {
       go(x, y + 1, 'r') +
       go(x, y - 1, 'l') +
       'b'; // Mark 'back', because e.g. down -> right (dr) is not same as down -> back -> right (dbr)
-  }
+  };
 
   for (let i = 0; i < h; i++) {
     for (let j = 0; j < w; j++) {

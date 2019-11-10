@@ -34,8 +34,8 @@
  */
 
 /** Post-order traversal, DFS */
-function maximumAverageSubtree(root) {
-  function go(node) {
+const maximumAverageSubtree = (root) => {
+  const go = (node) => {
     if (node == null) return { sum: 0, count: 0, maxAvg: 0 };
 
     const l = go(node.left);
@@ -46,7 +46,7 @@ function maximumAverageSubtree(root) {
     const maxAvg = Math.max(l.maxAvg, r.maxAvg, sum  / count);
 
     return { sum, count, maxAvg };
-  }
+  };
 
   return go(root).maxAvg;
-}
+};

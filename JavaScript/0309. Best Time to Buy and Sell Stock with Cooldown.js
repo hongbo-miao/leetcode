@@ -50,7 +50,7 @@ function maxProfit(prices) {
   let hold = -Infinity;
   let rest = 0;
 
-  for (let p of prices) {
+  for (const p of prices) {
     hold = Math.max(hold, rest - p);
     rest = Math.max(rest, sold);
     sold = hold + p;
