@@ -35,7 +35,7 @@
 const wordBreak1 = (s, wordDict) => {
   if (wordDict == null || wordDict.length === 0) return false;
 
-  function go(rest) {
+  const go = (rest) => {
     if (rest === '') return true;
     for (let w of wordDict) {
       if (rest.startsWith(w)) {
@@ -43,40 +43,65 @@ const wordBreak1 = (s, wordDict) => {
       }
     }
     return false;
-  }
+  };
 
   return go(s);
 };
 
-/** 2) Recursion with memoization */
+/** 2) Backtracking + Memoization */
 // Time O(n^2). Size of recursion tree can go up to n^2.
 // Space O(n). The depth of recursion tree can go up to n.
 const wordBreak2 = (s, wordDict) => {
   if (wordDict == null || wordDict.length === 0) return false;
   const dict = new Set(wordDict);
-  const map = {};
+  const cache = new Map();
 
-  function go(s, start) {
+  const go = (s, start) => {
     if (start === s.length) return true;
-    if (map[start] != null) return map[start];
+    if (cache.has(start)) return cache.get(start);
 
     for (let end = start + 1; end <= s.length; end++) {
       if (dict.has(s.slice(start, end)) && go(s, end)) {
-        map[start] = true;
+        cache.set(start, true);
         return true;
       }
     }
-    map[start] = false;
+    cache.set(start, false);
     return false;
-  }
+  };
 
   return go(s, 0);
 };
 
-/** 3) BFS */
+/** 3) Similar to 2), but cleaner, easier, faster */
+// Similar
+// 139. Word Break
+// 140. Word Break II
+const wordBreak3 = (s, wordDict) => {
+  if (wordDict == null || wordDict.length === 0) return false;
+
+  const cache = new Map([['', true]]);
+  const go = (s) => {
+    if (cache.has(s)) return cache.get(s);
+
+    for (const w of wordDict) {
+      if (s.startsWith(w) && go(s.slice(w.length))) {
+        cache.set(s, true);
+        return true;
+      }
+    }
+
+    cache.set(s, false);
+    return false;
+  };
+
+  return go(s);
+};
+
+/** 4) BFS */
 // Time O(n^2). For every starting index, the search can continue till the end of the given string.
 // Space O(n). Queue of at most n size is needed.
-const wordBreak3 = (s, wordDict) => {
+const wordBreak4 = (s, wordDict) => {
   if (wordDict == null || wordDict.length === 0) return false;
   const set = new Set(wordDict);
 
@@ -102,7 +127,7 @@ const wordBreak3 = (s, wordDict) => {
   return false;
 };
 
-/** 4) Dynamic programming */
+/** 5) Dynamic programming */
 // Similar
 // 139. Word Break
 // 472. Concatenated Words

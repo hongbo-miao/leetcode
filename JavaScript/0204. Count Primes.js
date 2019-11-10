@@ -17,7 +17,7 @@ function countPrimes(n) {
   const map = {};
   let count = 0;
 
-  for (let i = 2; i < n; i++){
+  for (let i = 2; i < n; i++) {
     if (map[i] === false) continue;
 
     // mark as prime

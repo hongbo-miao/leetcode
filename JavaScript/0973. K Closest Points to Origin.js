@@ -67,8 +67,8 @@ const partition = (arr, pivot, l, r) => {
   const pivotVal = getDist(arr[pivot]);
   let partitionIdx = l;
 
-  for (let i = l; i < r; i++){
-    if (getDist(arr[i]) < pivotVal){
+  for (let i = l; i < r; i++) {
+    if (getDist(arr[i]) < pivotVal) {
       swap(arr, i, partitionIdx);
       partitionIdx++;
     }

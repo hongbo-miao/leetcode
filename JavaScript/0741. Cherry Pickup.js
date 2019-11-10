@@ -26,7 +26,7 @@ function cherryPickup(grid) {
   for (let k = 1; k < steps; k++) {
     // notice that we iterate from n-1 to 0 because we want to reuse the results in dp we calculated the last iteration. see my graph below to understand it.
     for (let i = n - 1; i >= 0; i--) {
-      for (let x = n - 1; x >= 0; x--){
+      for (let x = n - 1; x >= 0; x--) {
         let j = k-i, y = k-x;
         if (j < 0 || y < 0 || j > n-1 || y > n-1 || grid[i][j] === -1 || grid[x][y] === -1) {
           dp[i][x] = -1;
