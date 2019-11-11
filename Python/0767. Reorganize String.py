@@ -17,7 +17,7 @@
 
 
 """
-Priority queue
+Priority Queue
 """
 # So at max we need the top 2 highest counts.
 # so pre_count, pre_c is to store the previous count and c which is (count and value)
@@ -45,7 +45,7 @@ Priority queue
 # Since you dont have any values in the heap you check if the res string is == S, why ? (if your input is like 'aaa' then the heap approach will give you 'aaa' which is same as S)
 
 """
-Priority queue
+Priority Queue
 """
 import heapq
 from collections import Counter

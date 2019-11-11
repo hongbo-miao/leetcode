@@ -19,7 +19,7 @@
 
 
 """
-Priority queue
+Priority Queue
 """
 import heapq
 

@@ -26,7 +26,7 @@
  * @return {string}
  */
 
-/** Priority queue */
+/** Priority Queue */
 // Similar
 // 358. Rearrange String k Distance Apart
 // 767. Reorganize String

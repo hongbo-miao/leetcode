@@ -24,7 +24,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
  * @return {ListNode}
  */
 
-/** 1）Brute force */
+/** 1）Brute Force */
 // Time O(n log n) where n is the total number of nodes.
 // - Collecting all the values costs O(n) time.
 // - A stable sorting algorithm costs O(n log n) time.
@@ -49,7 +49,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
 // Compare every k nodes (head of every linked list) and get the node with the smallest value.
 // Extend the final sorted linked list with the selected nodes.
 
-/** 3）Priority queue, optimize 2) */
+/** 3）Priority Queue, optimize 2) */
 // Time O(n log k) where k is the number of linked lists.
 // - The comparison cost will be reduced to O(log k) for every pop and insertion to priority queue. But finding the
 //   node with the smallest value just costs O(1) time.

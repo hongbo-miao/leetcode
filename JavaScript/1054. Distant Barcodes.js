@@ -51,7 +51,7 @@ const rearrangeBarcodes = (barcodes) => {
   return barcodes;
 };
 
-/** 2) Priority queue */
+/** 2) Priority Queue */
 // Similar
 // 358. Rearrange String k Distance Apart
 // 767. Reorganize String

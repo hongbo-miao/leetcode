@@ -22,7 +22,7 @@
 
 
 """
-Priority queue
+Priority Queue
 """
 import heapq
 from collections import Counter

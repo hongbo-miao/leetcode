@@ -16,5 +16,5 @@
  * @return {number[][]}
  */
 
-/** Priority queue */
+/** Priority Queue */
 // JavaScript is lack of priority queue, check Python version

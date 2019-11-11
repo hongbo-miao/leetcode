@@ -13,7 +13,7 @@
 
 
 """
-Priority queue
+Priority Queue
 """
 # http://zxi.mytechroad.com/blog/tree/leetcode-218-the-skyline-problem/
 import heapq
