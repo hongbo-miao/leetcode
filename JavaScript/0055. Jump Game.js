@@ -22,11 +22,11 @@
 
 // Time O(n)
 // Space O(1)
-function canJump(nums) {
+const canJump = (nums) => {
   let max = 0;
   for (let i = 0; i < nums.length; i++) {
     if (max < i) return false; // max steps cannot reach position i
     max = Math.max(max, i + nums[i]);
   }
   return true;
-}
+};

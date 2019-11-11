@@ -49,10 +49,9 @@
 //
 // Now, consider the balance of every prefix of S. If it is ever negative (say, -1), we must add a '(' bracket.
 // Also, if the balance of S is positive (say, +B), we must add B ')' brackets at the end.
-function minAddToMakeValid1(S) {
+const minAddToMakeValid1 = (S) => {
   let count = 0;
   let bal = 0;
-
   for (let c of S) {
     bal += c === '(' ? 1 : -1;
     if (bal === -1) {
@@ -60,9 +59,8 @@ function minAddToMakeValid1(S) {
       bal++;
     }
   }
-
   return count + bal;
-}
+};
 
 /** 2) Easier to understand than 1) */
 // O(n)
@@ -70,10 +68,10 @@ function minAddToMakeValid1(S) {
 //
 // The key to solve this problem is in recognizing that right ) parentheses that are at the left side cannot be
 // closed by left ( parentheses. That why in my solution I have two counters and the right one only goes up.
-function minAddToMakeValid(S) {
+const minAddToMakeValid = (S) => {
   let l = 0;
   let r = 0;
-  for (let c of S) {
+  for (const c of S) {
     if (c === ')') {
       if (l === 0) r++; // ) are at the left side cannot be closed by (
       else l--;
@@ -82,4 +80,4 @@ function minAddToMakeValid(S) {
     }
   }
   return l + r;
-}
+};

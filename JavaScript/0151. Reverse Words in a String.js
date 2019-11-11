@@ -29,6 +29,6 @@
  * @param {string} s
  * @return {string}
  */
-function reverseWords(s) {
+const reverseWords = (s) => {
   return s.split(' ').reverse().join(' ').replace(/\s+/g, ' ').trim();
-}
+};

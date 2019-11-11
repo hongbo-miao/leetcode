@@ -27,7 +27,7 @@
 //   In the worst case there will be nn equal strings with length m and the algorithm performs S = m * n character comparisons
 //   In the best case there are at most n * minLen comparisons where minLen is the length of the shortest string in the array
 // Space O(1)
-function longestCommonPrefix1(strs) {
+const longestCommonPrefix1 = (strs) => {
   if (strs == null || strs.length === 0) return '';
 
   const str0 = strs[0];
@@ -38,22 +38,22 @@ function longestCommonPrefix1(strs) {
     }
   }
   return str0;
-}
+};
 
 /** 2) Binary search */
 // Time O(S * log(n)), where S is the sum of all characters in all strings.
 //   The algorithm makes log(n) iterations, for each of them there are S = m * n comparisons, which gives in total O(S * log(n)) time complexity.
 // Space O(1)
-function longestCommonPrefix(strs) {
+const longestCommonPrefix = (strs) => {
   if (strs == null || strs.length === 0) return '';
 
-  function isCommonPrefix(len) {
+  const isCommonPrefix = (len) => {
     const prefix = strs[0].slice(0, len);
     for (let i = 1; i < strs.length; i++) {
       if (!strs[i].startsWith(prefix)) return false;
     }
     return true;
-  }
+  };
 
   let minLen = Infinity;
   for (const s of strs) {
@@ -68,4 +68,4 @@ function longestCommonPrefix(strs) {
     else r = m - 1;
   }
   return strs[0].slice(0, (l + r) / 2); // no need Math.floor or ~~ because it will be used in slice
-}
+};

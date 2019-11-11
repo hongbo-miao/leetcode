@@ -50,7 +50,7 @@
 //  Final  head -> 1 -> 3 -> 5 -> 2 -> 4 -> null
 //                             evenHead     even
 //
-function oddEvenList1(head) {
+const oddEvenList = (head) => {
   if (head == null) return null;
 
   let odd = head;
@@ -65,4 +65,4 @@ function oddEvenList1(head) {
 
   odd.next = evenHead;
   return head;
-}
+};

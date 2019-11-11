@@ -25,30 +25,26 @@
 /** 1) Brute force */
 // Time O(n^2)
 // Space O(1)
-function maxProfit1(prices) {
+const maxProfit1 = (prices) => {
   let max = 0;
-
   for (let i = 0; i < prices.length; i++) {
     for (let j = i + 1; j < prices.length; j++) {
       const diff = prices[j] - prices[i];
       if (diff > max) max = diff;
     }
   }
-
   return max;
-}
+};
 
 /** 2) One pass using min and max */
 // Time O(n)
 // Space O(1)
-function maxProfit(prices) {
+const maxProfit = (prices) => {
   let min = Infinity;
   let max = 0;
-
   for (let i = 0; i < prices.length - 1; i++) {
     min = Math.min(min, prices[i]);
     max = Math.max(max, prices[i + 1] - min)
   }
-
   return max;
-}
+};

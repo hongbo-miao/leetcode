@@ -30,8 +30,8 @@
 /** 1) Binary search */
 // Time O(n log n)
 // Space O(1)
-function findPairs1(nums, k) {
-  function binarySearch(l, r, target) {
+const findPairs1 = (nums, k) => {
+  const binarySearch = (l, r, target) => {
     while (l <= r) {
       const m = ~~((l + r) / 2);
       if (nums[m] === target) return true;
@@ -39,7 +39,7 @@ function findPairs1(nums, k) {
       else r = m - 1;
     }
     return false;
-  }
+  };
 
   nums.sort((a, b) => a - b);
   let count = 0;
@@ -50,36 +50,34 @@ function findPairs1(nums, k) {
     }
   }
   return count;
-}
+};
 
 /** 2) Hash map */
 // Time O(n)
 // Space O(n)
-function findPairs(nums, k) {
+const findPairs = (nums, k) => {
   if (k < 0) return 0;
 
   const map = new Map();
-
-  for (let num of nums) {
-    if (map.has(num)) {
-      map.set(num, map.get(num) + 1);
+  for (const n of nums) {
+    if (map.has(n)) {
+      map.set(n, map.get(n) + 1);
     } else {
-      map.set(num, 1);
+      map.set(n, 1);
     }
   }
 
   let res = 0;
-  for (let [num] of map.entries()) {
+  for (let [n] of map.entries()) {
     if (k === 0) {
-      if (map.get(num) >= 2) {
+      if (map.get(n) >= 2) {
         res++;
       }
     } else {
-      if (map.has(num + k)) {
+      if (map.has(n + k)) {
         res++;
       }
     }
   }
-
   return res;
-}
+};

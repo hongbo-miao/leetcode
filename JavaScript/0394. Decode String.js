@@ -19,7 +19,7 @@
 // countStack: (3)  (3)   (3)    ()   (2)  (2)  (2)   (2 3)   (2 3)   (2 3)   (2)    (2)      ()
 //   resStack: ()   ('')  ('')   ()   ()  (aaa) (aaa) (aaa)  (aaa b) (aaa b)  (aaa) (aaa)     ()
 //        res: ''    ''    a     aaa  aaa   ''   b      b       ''     d      bddd  bdddc  aaabdddcbdddc
-function decodeString(s) {
+const decodeString = (s) => {
   const isNum = c => /\d/.test(c);
 
   const countStack = [];
@@ -49,4 +49,4 @@ function decodeString(s) {
     }
   }
   return res;
-}
+};

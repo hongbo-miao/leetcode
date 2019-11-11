@@ -16,22 +16,21 @@
 /** Brute force (time limit exceeded) */
 // Time O(n^3). Note 'includes' has another O(n)
 // Space O(1)
-function longestConsecutive1(nums) {
+const longestConsecutive1 = (nums) => {
   let max = 0;
 
-  for (let num of nums) {
-    let currNum = num;
-    let currMax = 1;
+  for (const n of nums) {
+    let curN = n;
+    let curMax = 1;
 
-    while (nums.includes(currNum + 1)) {
-      currNum += 1;
-      currMax += 1;
+    while (nums.includes(curN + 1)) {
+      curN += 1;
+      curMax += 1;
     }
-    max = Math.max(max, currMax);
+    max = Math.max(max, curMax);
   }
-
   return max;
-}
+};
 
 /** 2) Hash set and intelligent sequence building */
 // Time O(n). Although the time complexity appears to be quadratic due to the while loop nested within the for loop,
@@ -52,27 +51,26 @@ function longestConsecutive1(nums) {
 // not already part of a longer sequence. This is accomplished by first ensuring that the number that would
 // immediately precede the current number in a sequence is not present, as that number would necessarily be part
 // of a longer sequence.
-function longestConsecutive2(nums) {
+const longestConsecutive2 = (nums) => {
   if (nums == null || nums.length === 0) return 0;
 
   const set = new Set(nums);
   let max = 0;
 
-  for (let num of set) {
-    if (set.has(num - 1)) continue; // make sure starting from the beginning of sequence
+  for (const n of set) {
+    if (set.has(n - 1)) continue; // make sure starting from the beginning of sequence
 
-    let currNum = num;
-    let currMax = 1;
+    let curN = n;
+    let curMax = 1;
 
-    while (set.has(currNum + 1)) {
-      currNum++;
-      currMax++;
+    while (set.has(curN + 1)) {
+      curN++;
+      curMax++;
     }
-    max = Math.max(max, currMax);
+    max = Math.max(max, curMax);
   }
-
   return max;
-}
+};
 
 /** 3) */
 // https://leetcode.com/problems/longest-consecutive-sequence/discuss/41055/My-really-simple-Java-O(n)-solution-Accepted
@@ -89,11 +87,11 @@ function longestConsecutive2(nums) {
 // lens { 1: 1, 4: 1, 100: 1, 200: 1 }
 // lens { 1: 1, 3: 2, 4: 2, 100: 1, 200: 1 }
 // lens { 1: 4, 2: 4, 3: 2, 4: 4, 100: 1, 200: 1 }
-function longestConsecutive(nums) {
+const longestConsecutive = (nums) => {
   let max = 0;
   const lens = {};
 
-  for (let n of nums) {
+  for (const n of nums) {
     if (lens[n] != null) continue;
 
     const l = lens[n - 1] || 0;   // left length
@@ -108,6 +106,5 @@ function longestConsecutive(nums) {
 
     max = Math.max(max, len);
   }
-
   return max;
-}
+};

@@ -11,7 +11,7 @@
  * @param {number} upper
  * @return {string[]}
  */
-function findMissingRanges(nums, lower, upper) {
+const findMissingRanges = (nums, lower, upper) => {
   const res = [];
   nums = [lower - 1, ...nums, upper + 1];
 
@@ -24,6 +24,5 @@ function findMissingRanges(nums, lower, upper) {
       res.push(`${nums[i - 1] + 1}->${nums[i] - 1}`);
     }
   }
-
   return res;
-}
+};

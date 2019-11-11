@@ -25,7 +25,7 @@
  * @param {number[]} nums
  * @return {TreeNode}
  */
-function sortedArrayToBST(nums) {
+const sortedArrayToBST = (nums) => {
   if (!nums.length) return null;
 
   const m = ~~(nums.length / 2);
@@ -34,4 +34,4 @@ function sortedArrayToBST(nums) {
   node.left = sortedArrayToBST(nums.slice(0, m));
   node.right = sortedArrayToBST(nums.slice(m + 1));   // make sure + 1, because middle number is root node, so need skip it
   return node;
-}
+};

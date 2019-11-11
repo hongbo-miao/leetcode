@@ -30,7 +30,7 @@
 // Example
 // -1, 0, 1, 2, -1, -4
 //  a  b             c
-function threeSum(nums) {
+const threeSum = (nums) => {
   if (nums == null || nums.length === 0) return [];
   nums = nums.sort((a, b) => a - b); // if sort() only will cause [-1, -2, -3, 1, 2, 3]
 
@@ -62,6 +62,5 @@ function threeSum(nums) {
       }
     }
   }
-
   return res;
-}
+};

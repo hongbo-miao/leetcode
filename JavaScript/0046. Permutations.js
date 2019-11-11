@@ -30,16 +30,16 @@
 const permute = (nums) => {
   const res = [];
 
-  const go = (curr, rest) => {
+  const go = (cur, rest) => {
     if (!rest.length) {
-      res.push(curr);
+      res.push(cur);
       return;
     }
 
     for (let i = 0; i < rest.length; i++) {
       // note if using array push and splice here, it will cause mutation
       go(
-        [...curr, rest[i]],
+        [...cur, rest[i]],
         [...rest.slice(0, i), ...rest.slice(i + 1)],
       );
     }

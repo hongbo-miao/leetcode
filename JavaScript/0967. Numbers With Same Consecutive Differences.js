@@ -32,7 +32,7 @@
 // Let's try to write some number in the answer digit by digit.
 // For each digit except the first, there are at most 2 choices for that digit. This means that there are at most
 // 9 * 2^8  possible 9 digit numbers, for example. This is small enough to brute force.
-function numsSameConsecDiff(N, K) {
+const numsSameConsecDiff = (N, K) => {
   let set = new Set();
   for (let i = 1; i <= 9; i++) {
     set.add(i);
@@ -51,4 +51,4 @@ function numsSameConsecDiff(N, K) {
   // Be careful about leading zeroes - only 1 digit numbers will start with 0.
   if (N === 1) set.add(0);
   return Array.from(set);
-}
+};

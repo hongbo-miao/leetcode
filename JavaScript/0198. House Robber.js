@@ -24,10 +24,10 @@
 /** 1) Recursion */
 // Time O(n)
 // Space O(n)
-function rob1(nums) {
+const rob1 = (nums) => {
   const map = {};
 
-  function count(n) {
+  const count = (n) => {
     if (n < 0) return 0;
     if (map[n] != null) return map[n];
 
@@ -36,16 +36,15 @@ function rob1(nums) {
       count(n - 1),
     );
     return map[n];
-  }
+  };
 
   return count(nums.length - 1)
-}
-
+};
 
 /** 2) Iteration (dynamic programming) */
 // Time O(n)
 // Space O(n)
-function rob2(nums) {
+const rob2 = (nums) => {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
 
@@ -55,12 +54,12 @@ function rob2(nums) {
     dp.push(Math.max(dp[i - 2] + nums[i], dp[i - 1]));
   }
   return dp[dp.length - 1];
-}
+};
 
 /** 3) Iteration */
 // Time O(n)
 // Space O(1)
-function rob(nums) {
+const rob = (nums) => {
   if (nums.length === 0) return 0;
   if (nums.length === 1) return nums[0];
 
@@ -73,4 +72,4 @@ function rob(nums) {
     b = max;
   }
   return b;
-}
+};

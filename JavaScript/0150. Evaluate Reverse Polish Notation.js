@@ -36,8 +36,8 @@
  * @param {string[]} tokens
  * @return {number}
  */
-/** 1) */
-function evalRPN1(tokens) {
+/** 1) Stack */
+const evalRPN1 = (tokens) => {
   const ops = {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
@@ -46,7 +46,6 @@ function evalRPN1(tokens) {
   };
 
   const st = [];
-
   for (const n of tokens) {
     if (ops[n] != null) {
       const fn = ops[n];
@@ -58,12 +57,11 @@ function evalRPN1(tokens) {
       st.push(Number(n));
     }
   }
-
   return st[0];
-}
+};
 
-/** 2) Slower than 1) */
-function evalRPN(tokens) {
+/** 2) Similar to 1), but slower */
+const evalRPN = (tokens) => {
   if (tokens.length === 1) return Number(tokens[0]);
 
   const ops = {
@@ -90,4 +88,4 @@ function evalRPN(tokens) {
     }
   }
   return tokens[0]
-}
+};

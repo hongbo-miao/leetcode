@@ -63,12 +63,12 @@
  */
 
 /** 1) DFS */
-function updateBoard1(board, click) {
+const updateBoard1 = (board, click) => {
   const dirs = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1]];
   const h = board.length;
   const w = board[0].length;
 
-  function dfs(x, y) {
+  const dfs = (x, y) => {
     // Count the adjacent mines
     let minesCount = 0;
     for (const [dx, dy] of dirs) {
@@ -100,7 +100,7 @@ function updateBoard1(board, click) {
         }
       }
     }
-  }
+  };
 
   const [x, y] = click;
   if (board[x][y] === 'M') {
@@ -110,15 +110,15 @@ function updateBoard1(board, click) {
     dfs(x, y);
   }
   return board;
-}
+};
 
 /** 2) BFS */
-function updateBoard(board, click) {
+const updateBoard = (board, click) => {
   const dirs = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1]];
   const h = board.length;
   const w = board[0].length;
 
-  function bfs(x, y) {
+  const bfs = (x, y) => {
     const q = [[x, y]];
 
     while (q.length > 0) {
@@ -155,7 +155,7 @@ function updateBoard(board, click) {
         }
       }
     }
-  }
+  };
 
   const [x, y] = click;
   if (board[x][y] === 'M') {
@@ -165,4 +165,4 @@ function updateBoard(board, click) {
     bfs(x, y);
   }
   return board;
-}
+};

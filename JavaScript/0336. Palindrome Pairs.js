@@ -25,7 +25,7 @@
 //   In the inner loop, split into left part and right part have k possibilities, let k be the average length of words, then when using isPalindrome for each combination, it's also k time in average, so in total it's n * (k * k)
 // Space O(n)
 
-function palindromePairs(words) {
+const palindromePairs = (words) => {
   const map = {};
 
   for (let i = 0; i < words.length; i++) {
@@ -36,16 +36,16 @@ function palindromePairs(words) {
   let res = [];
 
   for (let i = 0; i < words.length; i++) {
-    const word = words[i];
+    const w = words[i];
 
     // special treatment for ''
-    if (map[''] != null && isPalindrome(word) && word !== '') { // word !== '' make sure '' not matching itself
+    if (map[''] != null && isPalindrome(w) && w !== '') { // w !== '' make sure '' not matching itself
       res.push([map[''], i]); // 1) if self is palindrome, covers ['', self]
     }
 
-    for (let j = 0; j < word.length; j++) {
-      const l = word.slice(0, j);
-      const r = word.slice(j);
+    for (let j = 0; j < w.length; j++) {
+      const l = w.slice(0, j);
+      const r = w.slice(j);
 
       // e.g. 'cdc ab' and 'ba'
       if (isPalindrome(l) && map[r] != null && map[r] !== i) { // map[r] !== i make sure not matching itself, e.g. exclude 'a' with itself 'a'
@@ -58,11 +58,11 @@ function palindromePairs(words) {
     }
   }
   return res;
-}
+};
 
-function isPalindrome(word) {
-  for (let i = 0; i < word.length / 2; i++) {
-    if (word[i] !== word[word.length - 1 - i]) return false;
+const isPalindrome = (w) => {
+  for (let i = 0; i < w.length / 2; i++) {
+    if (w[i] !== w[w.length - 1 - i]) return false;
   }
   return true;
-}
+};

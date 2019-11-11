@@ -18,33 +18,24 @@
  * @param {number[]} nums
  * @return {number}
  */
-/** 1) */
-function singleNumber1(nums) {
-  return nums.reduce((sum, num) => sum ^ num); // ^ is XOR
-}
-
-/** 2) */
+/** 1) Hash Map */
 // Time O(n)
 // Space O(n)
-function singleNumber2(nums) {
+const singleNumber2 = (nums) => {
   const map = {};
-  for (let n of nums) {
+  for (const n of nums) {
     if (map[n] == null) map[n] = 0;
     map[n]++;
   }
 
-  for (let k in map) {
+  for (const k in map) {
     if (map[k] === 1) return Number(k);
   }
-}
+};
 
-/** 3) Bit manipulation */
+/** 2) Bit manipulation */
 // Time O(n)
 // Space O(1)
-function singleNumber(nums) {
-  let num = 0;
-  for (let n of nums) {
-    num ^= n;
-  }
-  return num;
-}
+const singleNumber = (nums) => {
+  return nums.reduce((sum, n) => sum ^ n); // ^ is XOR
+};

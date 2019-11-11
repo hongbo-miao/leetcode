@@ -20,7 +20,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-function findMin(nums) {
+const findMin = (nums) => {
   let l = 0;
   let r = nums.length - 1;
   while (l < r) {
@@ -29,4 +29,4 @@ function findMin(nums) {
     else r = m;
   }
   return nums[l];
-}
+};

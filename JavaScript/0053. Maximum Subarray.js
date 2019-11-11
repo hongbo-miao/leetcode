@@ -18,7 +18,7 @@
 /** 1) Brute force (time limit exceeded) */
 // Time O(n^3)
 // Space O(1)
-function maxSubArray1(nums) {
+const maxSubArray1 = (nums) => {
   let max = -Infinity;
   for (let i = 0; i < nums.length; i++) {
     for (let j = i; j < nums.length; j++) {
@@ -29,9 +29,8 @@ function maxSubArray1(nums) {
       if (sum > max) max = sum;
     }
   }
-
   return max;
-}
+};
 
 /** 2) Dynamic programming - Kadane's algorithm */
 // Similar
@@ -52,7 +51,7 @@ function maxSubArray1(nums) {
 //     5
 //       10 (recalculate from nums[i])
 //       10
-function maxSubArray2(nums) {
+const maxSubArray2 = (nums) => {
   let currMax = nums[0];
   let max = nums[0];
 
@@ -60,12 +59,11 @@ function maxSubArray2(nums) {
     currMax = Math.max(currMax + nums[i], nums[i]); // if nums[i] is bigger, recalculate from nums[i]
     max = Math.max(max, currMax);
   }
-
   return max;
-}
+};
 
-/** 3) Same to 2 */
-function maxSubArray(nums) {
+/** 3) Similar to 2 */
+const maxSubArray = (nums) => {
   let currMax = -Infinity;
   let max = -Infinity;
 
@@ -77,6 +75,5 @@ function maxSubArray(nums) {
     }
     max = Math.max(max, currMax);
   }
-
   return max;
-}
+};

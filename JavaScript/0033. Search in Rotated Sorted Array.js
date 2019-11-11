@@ -27,9 +27,9 @@
 /** 1) Cheating */
 // Time O(n)
 // Space O(1)
-function search1(nums, target) {
+const search1 = (nums, target) => {
   return nums.indexOf(target);
-}
+};
 
 /** 2) Brute force / Linear scan */
 // Time O(n)
@@ -56,7 +56,7 @@ function search1(nums, target) {
 //   then target is here
 // ELSE
 //   then target is on the other side
-function search3(nums, target) {
+const search3 = (nums, target) => {
   let l = 0;
   let r = nums.length - 1;
 
@@ -75,12 +75,11 @@ function search3(nums, target) {
       else r = m - 1; // target is in the left
     }
   }
-
   return -1;
-}
+};
 
 /** 4) Similar to 3) */
-function search(nums, target) {
+const search = (nums, target) => {
   let l = 0;
   let r = nums.length - 1;
 
@@ -100,6 +99,5 @@ function search(nums, target) {
 
   if (nums[l] === target) return l;
   if (nums[r] === target) return r;
-
   return -1;
-}
+};

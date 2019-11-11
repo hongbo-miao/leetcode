@@ -17,7 +17,7 @@
  * @param {number[]} citations
  * @return {number}
  */
-function hIndex(citations) {
+const hIndex = (citations) => {
   citations.sort((a, b) => a - b);
   // finding h-index by linear search
   let i = 0;
@@ -25,4 +25,4 @@ function hIndex(citations) {
     i++;
   }
   return i; // after the while loop, i = i' + 1
-}
+};

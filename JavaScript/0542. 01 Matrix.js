@@ -45,7 +45,7 @@
 // Initially, distance for each 0 cell is 0 and distance for each 1 is Infinity, which is updated during the BFS.
 // Pop the cell from queue, and examine its neighbours. If the new calculated distance for neighbour {i,j} is smaller,
 // we add {i,j} to q and update matrix[i][j].
-function updateMatrix(matrix) {
+const updateMatrix = (matrix) => {
   if (matrix == null || matrix.length === 0 || matrix[0].length === 0) return matrix;
 
   const h = matrix.length;
@@ -76,7 +76,7 @@ function updateMatrix(matrix) {
     }
   }
   return matrix;
-}
+};
 
 /** 2) Dynamic programming */
 // Time O(r * c). 2 passes of r * c each

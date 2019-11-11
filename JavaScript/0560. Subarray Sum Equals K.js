@@ -17,7 +17,7 @@
 /** 1) Brute force (time limit exceeded) */
 // Time O(n^3)
 // Space O(1)
-function subarraySum1(nums, k) {
+const subarraySum1 = (nums, k) => {
   let count = 0;
   for (let start = 0; start < nums.length; start++) {
     for (let end = start + 1; end <= nums.length; end++) {
@@ -29,12 +29,12 @@ function subarraySum1(nums, k) {
     }
   }
   return count;
-}
+};
 
 /** 2) */
 // Time O(n^2)
 // Space O(1)
-function subarraySum2(nums, k) {
+const subarraySum2 = (nums, k) => {
   let count = 0;
   for (let i = 0; i < nums.length; i++) {
     let sum = 0;
@@ -44,19 +44,19 @@ function subarraySum2(nums, k) {
     }
   }
   return count;
-}
+};
 
 /** 3) Hash map */
 // Time O(n)
 // Space O(n)
-function subarraySum(nums, k) {
+const subarraySum = (nums, k) => {
   let count = 0;
   let sum = 0;
 
   const map = {};
   map[0] = 1;
 
-  for (let n of nums) {
+  for (const n of nums) {
     sum += n;
 
     if (map[sum - k] != null) {
@@ -67,4 +67,4 @@ function subarraySum(nums, k) {
     map[sum]++;
   }
   return count;
-}
+};

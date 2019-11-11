@@ -52,12 +52,11 @@
 // Thus, we can make use of a direction matrix that records the offset for all directions, then an array of two
 // elements that stores the number of shifts for horizontal and vertical movements, respectively. This way, we really
 // just need one for loop instead of four.
-function spiralOrder(matrix) {
+const spiralOrder = (matrix) => {
   if (matrix == null || matrix.length === 0) return [];
 
-  const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]; // right, down, left, up
+  const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
   const steps = [matrix[0].length, matrix.length - 1];
-
   let dir = 0;
   let x = 0;
   let y = -1;
@@ -73,6 +72,5 @@ function spiralOrder(matrix) {
     steps[dir % 2]--;
     dir = (dir + 1) % 4;
   }
-
   return res;
-}
+};

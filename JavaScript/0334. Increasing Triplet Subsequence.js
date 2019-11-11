@@ -18,15 +18,15 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-function increasingTriplet(nums) {
+const increasingTriplet = (nums) => {
   let a = Infinity; // min
   let b = Infinity; // second min
 
-  for (let n of nums) {
+  for (const n of nums) {
     if (n <= a) a = n;
     else if (n <= b) b = n;
     else return true;
   }
 
   return false;
-}
+};

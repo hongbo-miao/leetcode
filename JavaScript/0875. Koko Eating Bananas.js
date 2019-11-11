@@ -32,14 +32,14 @@
 
 // Time O(N log W), where N is the number of piles, and W is the maximum size of a pile
 // Space O(1)
-function minEatingSpeed(piles, H) {
-  function canEatAll(speed) {
+const minEatingSpeed = (piles, H) => {
+  const canEatAll = (speed) => {
     let time = 0;
     for (const p of piles) {
       time += Math.ceil(p / speed);
     }
     return time <= H;
-  }
+  };
 
   let l = 0;
   let r = Math.max(...piles); // when the max speed = biggest pile, it only needs 1h to eat each pile
@@ -49,4 +49,4 @@ function minEatingSpeed(piles, H) {
     else r = m;
   }
   return l;
-}
+};

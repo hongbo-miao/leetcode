@@ -36,8 +36,8 @@
 // Similar
 // 200. Number of Islands
 // 547. Friend Circles
-function findCircleNum(M) {
-  function go(i) {
+const findCircleNum = (M) => {
+  const go = (i) => {
     // visit all friends
     for (let j = 0; j < M.length; j++) {
       if (M[i][j] === 1) {
@@ -46,7 +46,7 @@ function findCircleNum(M) {
         go(j); // visit friend's friends
       }
     }
-  }
+  };
 
   let count = 0;
   for (let i = 0; i < M.length; i++) {
@@ -56,4 +56,4 @@ function findCircleNum(M) {
     }
   }
   return count;
-}
+};

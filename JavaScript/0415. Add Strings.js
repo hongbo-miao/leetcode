@@ -12,7 +12,7 @@
  * @param {string} num2
  * @return {string}
  */
-function addStrings(num1, num2) {
+const addStrings = (num1, num2) => {
   let s = '';
   for (let i = num1.length - 1, j = num2.length - 1, carry = 0; i >= 0 || j >= 0 || carry === 1; i--, j--) {
     const n1 = i < 0 ? 0 : Number(num1[i]);
@@ -22,4 +22,4 @@ function addStrings(num1, num2) {
     carry = ~~(sum / 10);
   }
   return s;
-}
+};

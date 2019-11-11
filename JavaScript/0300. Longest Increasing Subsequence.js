@@ -31,11 +31,10 @@
 // nums: [10,9,2,5,3,7,101,18]
 // dp:   [ 1,1,1,2,2,3,  4, 4]
 // res:  4
-function lengthOfLIS1(nums) {
-  if (nums.length === 0) return 0;
+const lengthOfLIS1 = (nums) => {
+  if (nums == null || nums.length === 0) return 0;
 
   const dp = Array(nums.length).fill(1);
-
   for (let i = 1; i < nums.length; i++) {
     for (let j = 0; j < i; j++) {
       if (nums[j] < nums[i]) {
@@ -46,9 +45,8 @@ function lengthOfLIS1(nums) {
       }
     }
   }
-
   return Math.max(...dp);
-}
+};
 
 /** 2) Dynamic programming with binary search */
 // https://leetcode.com/problems/longest-increasing-subsequence/discuss/74824/JavaPython-Binary-search-O(nlogn)-time-with-explanation
@@ -84,12 +82,12 @@ function lengthOfLIS1(nums) {
 // [2, 3, 7]
 // [2, 3, 7, 101]
 // [2, 3, 7, 18]
-function lengthOfLIS(nums) {
-  if (nums.length === 0) return 0;
+const lengthOfLIS = (nums) => {
+  if (nums == null || nums.length === 0) return 0;
 
   const tails = [nums[0]];
 
-  for (let n of nums) {
+  for (const n of nums) {
     let l = 0;
     let r = tails.length;
 
@@ -102,4 +100,4 @@ function lengthOfLIS(nums) {
     tails[r] = n;
   }
   return tails.length;
-}
+};

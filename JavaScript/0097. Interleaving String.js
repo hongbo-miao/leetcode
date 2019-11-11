@@ -22,7 +22,7 @@
 // 4. When both s1 and s2 is not empty, then
 //   1) if we arrive i, j from i - 1, j, then if i - 1, j is already interleaving and i and current s3 position equal, it is interleaving.
 //   2) if we arrive i, j from i, j - 1, then if i, j - 1 is already interleaving and j and current s3 position equal, it is interleaving.
-function isInterleave(s1, s2, s3) {
+const isInterleave = (s1, s2, s3) => {
   if (s1.length + s2.length !== s3.length) return false;
 
   const dp = [];
@@ -47,4 +47,4 @@ function isInterleave(s1, s2, s3) {
     }
   }
   return dp[s1.length][s2.length];
-}
+};

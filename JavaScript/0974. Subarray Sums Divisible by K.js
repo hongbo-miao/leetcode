@@ -31,7 +31,7 @@
 //   step 4  {0:1,4:3}      n=-2   sum=7  mod=2  count = 3+0 =3
 //   step 6  {0:1,4:3,2:1}  n=-3   sum=4  mod=4  count = 3+3 =6
 //   step 7  {0:1,4:4,2:1}  n=1    sum=5  mod=0  count = 6+1 =7
-function subarraysDivByK1(A, K) {
+const subarraysDivByK1 = (A, K) => {
   const mods = {};
   mods[0] = 1;
   let count = 0;
@@ -44,7 +44,7 @@ function subarraysDivByK1(A, K) {
     mods[sum]++;
   }
   return count;
-}
+};
 
 /** 2) Similar to 1), but easier to understand */
 // https://www.geeksforgeeks.org/count-sub-arrays-sum-divisible-k/
@@ -60,7 +60,7 @@ function subarraysDivByK1(A, K) {
 //     rem1 = Sum of subarray (0, j) % k
 //     rem2 = Sum of subarray (0, i-1) % k
 // So if any sub-array sum from index i’th to j’th is divisible by k then we can saya[0]+…a[i-1] (mod k) = a[0]+…+a[j] (mod k)
-function subarraysDivByK(A, K) {
+const subarraysDivByK = (A, K) => {
   const mods = Array(K).fill(0);
 
   let sum = 0;
@@ -82,4 +82,4 @@ function subarraysDivByK(A, K) {
   // add the elements which are divisible by K itself. i.e., the elements whose sum = 0
   res += mods[0];
   return res;
-}
+};

@@ -30,7 +30,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-function pivotIndex(nums) {
+const pivotIndex = (nums) => {
   if (nums == null || nums.length === 0) return -1;
 
   let sum = 0;
@@ -44,4 +44,4 @@ function pivotIndex(nums) {
     lSum += nums[i];
   }
   return -1;
-}
+};

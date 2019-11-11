@@ -20,17 +20,15 @@
  * @param {number[]} digits
  * @return {number[]}
  */
-function plusOne(digits) {
+const plusOne = (digits) => {
   let i = digits.length;
 
   while (i--) {
     digits[i] += 1;
-
     if (digits[i] < 10) return digits;
-
     digits[i] = 0;
   }
 
   digits.unshift(1);
   return digits;
-}
+};

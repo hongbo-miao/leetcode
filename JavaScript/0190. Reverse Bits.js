@@ -14,7 +14,7 @@
  * @param {number} n - a positive integer
  * @return {number} - a positive integer
  */
-function reverseBits(n) {
+const reverseBits = (n) => {
   return parseInt( // Binary string to decimal, parseInt('101', 2) -> 5
     n
       .toString(2) // '5'.toString(2) -> '101'
@@ -23,4 +23,4 @@ function reverseBits(n) {
       .reverse()
       .join(''),
     2);
-}
+};

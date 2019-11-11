@@ -18,20 +18,20 @@
  * @return {number[]}
  */
 
-function intersect(nums1, nums2) {
+const intersect = (nums1, nums2) => {
   let res = [];
   const map = {};
 
-  for (let n of nums1) {
+  for (const n of nums1) {
     if (map[n] == null) map[n] = 0;
     map[n]++;
   }
 
-  for (let n of nums2) {
+  for (const n of nums2) {
     if (map[n] > 0) {
       res.push(n);
       map[n]--;
     }
   }
   return res;
-}
+};

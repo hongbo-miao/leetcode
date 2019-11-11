@@ -44,7 +44,7 @@ class WordDictionary {
    * @return {boolean}
    */
   search(word) {
-    function match(node, i) {
+    const match = (node, i) => {
       if (node == null) return false;
       if (i === word.length) return node.isWord === true; // note node.isWord can be undefined, do not just return return node.isWord
       if (word[i] === '.') {
@@ -55,7 +55,7 @@ class WordDictionary {
       } else {
         return match(node[word[i]], i + 1);
       }
-    }
+    };
 
     return match(this.root, 0);
   }

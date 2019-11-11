@@ -28,12 +28,12 @@
  */
 
 /** 1) Cheating */
-function myPow1(x, n) {
+const myPow1 = (x, n) => {
   return x ** n;
-}
+};
 
 /** 2) Brute force (time limit exceeded) */
-function myPow2(x, n) {
+const myPow2 = (x, n) => {
   if (n < 0) {
     x = 1 / x;
     n = -n;
@@ -44,12 +44,12 @@ function myPow2(x, n) {
     res = res * x;
   }
   return res;
-}
+};
 
 /** 3) Fast power algorithm (recursive) */
 // Time O(log n)
 // Space O(log n)
-function myPow3(x, n) {
+const myPow3 = (x, n) => {
   if (n === 0) return 1;
   if (n === -1) return 1 / x;
 
@@ -59,18 +59,18 @@ function myPow3(x, n) {
     const m = myPow(x, n / 2); // 3^4 -> 3^2 * 3^2
     return m * m;
   }
-}
+};
 
 /** 4) Similar to 3), but easier to understand */
 // Time O(log n)
 // Space O(log n)
-function myPow4(x, n) {
+const myPow4 = (x, n) => {
   if (n < 0) {
     x = 1 / x;
     n = -n;
   }
 
-  function go(x, n) {
+  const go= (x, n) => {
     if (n === 0) return 1;
 
     if (n % 2 === 1) {
@@ -79,15 +79,15 @@ function myPow4(x, n) {
       const m = go(x, n / 2);
       return m * m;
     }
-  }
+  };
 
   return go(x, n);
-}
+};
 
 /** 5) Fast power algorithm (iterative) */
 // Time O(log n)
 // Space O(1)
-function myPow(x, n) {
+const myPow = (x, n) => {
   if (n < 0) {
     x = 1 / x;
     n = -n;
@@ -102,4 +102,4 @@ function myPow(x, n) {
     product = product * product;
   }
   return res;
-}
+};

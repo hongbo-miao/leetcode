@@ -21,7 +21,7 @@
 /** 1) Two pointers */
 // Time O(n)
 // Space O(1)
-const twoSum1 = function (numbers, target) {
+const twoSum1 = (numbers, target) => {
   let l = 0;
   let r = numbers.length - 1;
   while (l < r) {
@@ -37,7 +37,7 @@ const twoSum1 = function (numbers, target) {
 // Similar
 // 167. Two Sum II - Input array is sorted
 // 209. Minimum Size Subarray Sum
-const twoSum = function (numbers, target) {
+const twoSum = (numbers, target) => {
   for (let l = 0, r = numbers.length - 1; l < r; r--) {
     while (l < r && numbers[l] + numbers[r] < target) {
       l++;

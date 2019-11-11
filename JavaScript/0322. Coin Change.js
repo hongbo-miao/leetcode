@@ -18,7 +18,7 @@
  * @param {number} amount
  * @return {number}
  */
-/** 1) Dynamic programming */
+/** 1) Dynamic Programming */
 // Similar
 // 279. Perfect Squares
 // 300. Longest Increasing Subsequence
@@ -60,7 +60,7 @@
 // [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, I, I]
 // [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, I]
 // [0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3]
-function coinChange(coins, amount) {
+const coinChange1 = (coins, amount) => {
   // dp[i] represents the least amount of coins that can make the value equals to the i
   const dp = Array(amount + 1).fill(Infinity);
   dp[0] = 0;
@@ -75,16 +75,16 @@ function coinChange(coins, amount) {
     }
   }
   return dp[amount] === Infinity ? -1 : dp[amount];
-}
+};
 
-/** 2) DFS + greedy + pruning */
+/** 2) DFS + Greedy + Pruning */
 // https://youtu.be/uUETHdijzkA
-function coinChange1(coins, amount) {
+const coinChange = (coins, amount) => {
   coins.sort((a, b) => b - a);
 
   let res = Infinity;
 
-  function find(k, amount, count) {
+  const find = (k, amount, count) => {
     const coin = coins[k];
 
     // last smallest coin
@@ -97,8 +97,8 @@ function coinChange1(coins, amount) {
         find(k + 1, amount - coin * i, count + i);
       }
     }
-  }
+  };
 
   find(0, amount, 0);
   return res === Infinity ? -1 : res;
-}
+};

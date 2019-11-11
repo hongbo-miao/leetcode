@@ -50,12 +50,12 @@
  * @param {function} knows()
  * @return {function}
  */
-function solution(knows) {
+const solution = (knows) => {
   /**
    * @param {integer} n Total people
    * @return {integer} The celebrity
    */
-  return function(n) {
+  return (n) => {
     let c = 0;
     for (let i = 1; i < n; i++) {
       if (knows(c, i)) {
@@ -69,4 +69,4 @@ function solution(knows) {
     }
     return c;
   };
-}
+};

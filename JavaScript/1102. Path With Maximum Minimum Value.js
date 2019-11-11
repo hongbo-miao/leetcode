@@ -44,7 +44,7 @@
  * @param {number[][]} A
  * @return {number}
  */
-function maximumMinimumPath(A) {
+const maximumMinimumPath = (A) => {
   if (A == null || A.length === 0) return 0;
 
   const h = A.length;
@@ -68,6 +68,5 @@ function maximumMinimumPath(A) {
       }
     }
   }
-
   return dp[h - 1][w - 1];
-}
+};

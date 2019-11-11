@@ -25,52 +25,32 @@
  */
 
 /** 1) Recursion */
-function postorderTraversal1(node) {
+const postorderTraversal1 = (root) => {
   const res = [];
-  go(node, res);
-  return res;
-}
 
-function go(node, res) {
-  if (node == null) return;
-  go(node.left, res);
-  go(node.right, res);
-  res.push(node.val);
-}
+  const go = (node) => {
+    if (node == null) return;
+    go(node.left);
+    go(node.right);
+    res.push(node.val);
+  };
+
+  go(root);
+  return res;
+};
 
 /** 2) Iteration using stack */
-function postorderTraversal(node) {
+const postorderTraversal2 = (root) => {
   const st = [];
   const res = [];
 
-  if (node) st.push(node);
+  if (root != null) st.push(root);
 
   while (st.length) {
-    node = st.pop();
-    res.unshift(node.val);
-    if (node.left) st.push(node.left);
-    if (node.right) st.push(node.right);
+    root = st.pop();
+    res.unshift(root.val);
+    if (root.left) st.push(root.left);
+    if (root.right) st.push(root.right);
   }
-
   return res;
-}
-
-/**
- * Level Order Traversal / BFS
- * Iteration using queue
- */
-function levelOrderTraversal(node) {
-  const q = [];
-  const res = [];
-
-  if (node) q.push(node);
-
-  while (q.length) {
-    node = q.shift();
-    res.push(node.val);
-    if (node.left) q.push(node.left);
-    if (node.right) q.push(node.right);
-  }
-
-  return res;
-}
+};

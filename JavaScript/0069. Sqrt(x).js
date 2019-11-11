@@ -21,38 +21,35 @@
  * @return {number}
  */
 /** 1) Cheating */
-function mySqrt1(x) {
+const mySqrt1 = (x) => {
   return ~~(x ** 0.5);
-}
+};
 
 /** 2) */
 // Time O(n)
 // Space O(1)
-function mySqrt2(x) {
+const mySqrt2 = (x) => {
   for (let i = 0; i <= x; i++) {
     if (i * i === x) return i;
     else if (i * i > x) return i - 1;
   }
-
   return x;
-}
+};
 
 /** 3) Integer square root */
 // https://en.wikipedia.org/wiki/Integer_square_root
-function mySqrt3(x) {
+const mySqrt3 = (x) => {
   let r = x;
-
   while (r * r > x) {
     r = ((r + x / r) / 2) | 0;
   }
-
   return r;
-}
+};
 
 /** 4) Binary search */
 // Time O(log n)
 // Space O(1)
-function mySqrt(x) {
+const mySqrt = (x) => {
   let l = 1;
   let r = x;
 
@@ -64,6 +61,5 @@ function mySqrt(x) {
     if (m * m < x) l = m + 1;
     else r = m - 1;
   }
-
   return r;
-}
+};

@@ -24,7 +24,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-function isPalindrome(head) {
+const isPalindrome = (head) => {
   if (head == null) return true;
 
   const st = [];
@@ -41,4 +41,4 @@ function isPalindrome(head) {
   }
 
   return true;
-}
+};

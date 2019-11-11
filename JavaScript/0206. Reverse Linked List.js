@@ -22,27 +22,26 @@
  */
 
 /** 1) Iteration */
-function reverseList1(head) {
+const reverseList1 = (head) => {
   if (head == null) return head;
 
-  let curr = head;
+  let cur = head;
   while (head.next != null) {
     const p = head.next;
     head.next = p.next;
-    p.next = curr;
-    curr = p;
+    p.next = cur;
+    cur = p;
   }
-  return curr;
-}
+  return cur;
+};
 
 /** 2) Recursion */
 // https://leetcode.com/problems/reverse-linked-list/solution/
-function reverseList(head) {
-  if (!head || !head.next) return head;
+const reverseList = (head) => {
+  if (head == null || head.next == null) return head;
 
   const newHead = reverseList(head.next);
   head.next.next = head;
   head.next = null;
-
   return newHead;
-}
+};

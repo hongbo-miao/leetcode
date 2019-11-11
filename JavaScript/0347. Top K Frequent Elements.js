@@ -16,7 +16,7 @@
 /** 1) Bucket sorting */
 // Time O(n)
 // Space O(n) array -> O(k) hashtable
-function topKFrequent1(nums, k) {
+const topKFrequent1 = (nums, k) => {
   // number frequency map
   const map = {};
   for (let n of nums) {
@@ -40,12 +40,11 @@ function topKFrequent1(nums, k) {
 
     if (res.length === k) return res;
   }
-
   return res;
-}
+};
 
 /** 2) */
-function topKFrequent(nums, k) {
+const topKFrequent = (nums, k) => {
   const map = {};
   for (let n of nums) {
     if (map[n] == null) map[n] = 0;
@@ -61,4 +60,4 @@ function topKFrequent(nums, k) {
     .sort((a, b) => b.count - a.count)
     .slice(0, k)
     .map(a => Number(a.n));
-}
+};

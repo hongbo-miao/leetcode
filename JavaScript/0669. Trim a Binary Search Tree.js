@@ -55,7 +55,7 @@
 // When node.val > R, we know that the trimmed binary tree must occur to the left of the node.
 // Similarly, when node.val < L, the trimmed binary tree occurs to the right of the node.
 // Otherwise, we will trim both sides of the tree.
-function trimBST(root, L, R) {
+const trimBST = (root, L, R) => {
   if (root == null) return root;
   if (root.val > R) return trimBST(root.left, L, R);
   if (root.val < L) return trimBST(root.right, L, R);
@@ -63,4 +63,4 @@ function trimBST(root, L, R) {
   root.left = trimBST(root.left, L, R);
   root.right = trimBST(root.right, L, R);
   return root;
-}
+};

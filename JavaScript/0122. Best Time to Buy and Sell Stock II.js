@@ -31,8 +31,8 @@
  */
 
 /** 1) */
-function maxProfit1(prices) {
-  let profit = 0;
+const maxProfit1 = (prices) => {
+  let res = 0;
   let slow = 0;
   let fast = 1;
 
@@ -40,24 +40,21 @@ function maxProfit1(prices) {
     while (prices[fast] > prices[fast - 1]) {
       fast++;
     }
-    profit += prices[fast - 1] - prices[slow];
+    res += prices[fast - 1] - prices[slow];
     slow = fast;
     fast = slow + 1;
   }
-
-  return profit;
-}
+  return res;
+};
 
 /** 2) */
 // Time O(n)
 // Space O(1)
-function maxProfit(prices) {
-  let profit = 0;
-
+const maxProfit = (prices) => {
+  let res = 0;
   for (let i = 0; i < prices.length - 1; i++) {
     const diff = prices[i + 1] - prices[i];
-    if (diff > 0) profit += diff;
+    if (diff > 0) res += diff;
   }
-
-  return profit;
-}
+  return res;
+};

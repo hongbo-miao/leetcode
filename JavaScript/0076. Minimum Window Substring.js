@@ -18,7 +18,7 @@
 
 /** 1) */
 // https://www.youtube.com/watch?v=9qFR2WQGqkU
-function minWindow1(s, t) {
+const minWindow1 = (s, t) => {
   let res = '';
 
   // e.g. ABC -> { A: 1, B: 1, C: 1 }
@@ -53,13 +53,12 @@ function minWindow1(s, t) {
       if (map[c] === 0) count--;
     }
   }
-
   return res;
-}
+};
 
 /** 2) */
 // https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
-function minWindow(s, t) {
+const minWindow = (s, t) => {
   const map = {};
   t.split('').forEach(c => map[c] = (map[c] || 0) + 1);
 
@@ -83,9 +82,8 @@ function minWindow(s, t) {
       if (map[s[l++]]++ === 0) count++; // make it invalid
     }
   }
-
   return minLen === Infinity ? '' : s.substr(start, minLen);
-}
+};
 
 /** 3) Sliding window */
 // https://leetcode.com/problems/minimum-window-substring/solution/

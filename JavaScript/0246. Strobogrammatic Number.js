@@ -25,7 +25,7 @@
 /** Two pointers */
 // Time O(n)
 // Space O(1)
-function isStrobogrammatic(num) {
+const isStrobogrammatic = (num) => {
   const map = {
     '0': '0',
     '1': '1',
@@ -42,4 +42,4 @@ function isStrobogrammatic(num) {
     r--;
   }
   return true;
-}
+};

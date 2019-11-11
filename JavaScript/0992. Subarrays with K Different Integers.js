@@ -34,8 +34,8 @@
 //
 // Just need one more step to reach the following equation:
 // exactly(K) = atMost(K) - atMost(K-1)
-function subarraysWithKDistinct1(A, K) {
-  function atMostK(k) {
+const subarraysWithKDistinct1 = (A, K) => {
+  const atMostK = (k) => {
     let l = 0;
     let sum = 0;
     const count = {};
@@ -53,18 +53,18 @@ function subarraysWithKDistinct1(A, K) {
       sum += r - l + 1;
     }
     return sum;
-  }
+  };
 
   return atMostK(K) - atMostK(K - 1);
-}
+};
 
 /** 2) Similar to 1), but easier to understand */
 // Similar
 // 3. Longest Substring Without Repeating Characters
 // 904. Fruit Into Baskets
 // 992. Subarrays with K Different Integers
-function subarraysWithKDistinct(A, K) {
-  function atMostK(k) {
+const subarraysWithKDistinct = (A, K) => {
+  const atMostK = (k) => {
     let l = 0;
     let sum = 0;
     const count = new Map(); // if use {} here, when we use Object.keys(count).length later, it will cause time limit exceeded when A has too many elements
@@ -89,7 +89,7 @@ function subarraysWithKDistinct(A, K) {
       sum += r - l + 1;
     }
     return sum;
-  }
+  };
 
   return atMostK(K) - atMostK(K - 1);
-}
+};

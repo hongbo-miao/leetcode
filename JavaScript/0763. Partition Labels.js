@@ -25,7 +25,7 @@
 // For example, in "abccaddbeffe", the minimum first partition is "abccaddb".
 // This gives us the idea for the algorithm: For each letter encountered, process the last occurrence of that letter,
 // extending the current partition [start, end] appropriately.
-function partitionLabels(S) {
+const partitionLabels = (S) => {
   if (S == null || S.length === 0) return null;
 
   const res = [];
@@ -46,4 +46,4 @@ function partitionLabels(S) {
     }
   }
   return res;
-}
+};

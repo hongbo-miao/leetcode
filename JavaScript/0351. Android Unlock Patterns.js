@@ -46,10 +46,10 @@
 //   - The middle element mid in the line which connects ii and last was previously selected. In case ii and last are positioned at both ends of the diagonal, digit mid = 5 should be previously selected.
 //   - last and ii are adjacent digits in a diagonal
 // In case one of the conditions above is satisfied, digit ii becomes part of partially generated valid pattern and the algorithm continues with the next candidate digit till the pattern is fully generated. Then it counts it. In case none of the conditions are satisfied, the algorithm rejects the current digit ii, backtracks and continues to search for other valid digits among the unused ones.
-function numberOfPatterns(m, n) {
+const numberOfPatterns = (m, n) => {
   const used = [];
 
-  function isValid(idx, last) {
+  const isValid = (idx, last) => {
     if (used[idx]) return false;
 
     // first digit of the pattern
@@ -67,9 +67,9 @@ function numberOfPatterns(m, n) {
 
     // all other cells which are not adjacent
     return used[m];
-  }
+  };
 
-  function calcPatterns(last, len) {
+  const calcPatterns = (last, len) => {
     if (len === 0) return 1;
     let sum = 0;
     for (let i = 0; i < 9; i++) {
@@ -80,7 +80,7 @@ function numberOfPatterns(m, n) {
       }
     }
     return sum;
-  }
+  };
 
   let res = 0;
   for (let len = m; len <= n; len++) {
@@ -90,4 +90,4 @@ function numberOfPatterns(m, n) {
     }
   }
   return res;
-}
+};

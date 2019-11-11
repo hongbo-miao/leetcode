@@ -1,5 +1,4 @@
 // Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
-//
 // A region is captured by flipping all 'O's into 'X's in that surrounded region.
 //
 // Example:
@@ -35,38 +34,40 @@
 // X X O X  ->  X X O X  ->  X X X X
 // X O X X      X # X X      X O X X
 // X O X X      X # X X      X O X X
-function solve(board) {
+const solve = (board) => {
   if (board == null || board.length === 0) return;
 
-  const m = board.length;
-  const n = board[0].length;
+  const h = board.length;
+  const w = board[0].length;
+  const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
 
-  function mark(i ,j) {
-    if (i < 0 || i > m - 1 || j < 0 || j > n - 1) return;
-    if (board[i][j] !== 'O') return;
+  const go = (x ,y) => {
+    if (board[x][y] !== 'O') return;
 
-    board[i][j] = '#';
-
-    mark(i - 1, j);
-    mark(i + 1, j);
-    mark(i, j - 1);
-    mark(i, j + 1);
-  }
+    board[x][y] = '#';
+    for (const [dx, dy] of dirs) {
+      const i = x + dx;
+      const j = y + dy;
+      if (i >= 0 && i < h && j >= 0 && j < w) {
+        go(i, j);
+      }
+    }
+  };
 
   // change every square connected to left and right borders from O to temporary #
-  for (let i = 0; i < m; i++) {
-    mark(i, 0);
-    mark(i, n - 1);
+  for (let i = 0; i < h; i++) {
+    go(i, 0);
+    go(i, w - 1);
   }
 
   // change every square connected to top and bottom borders from O to temporary #
-  for (let i = 1; i < n - 1; i++) {
-    mark(0, i);
-    mark(m - 1, i);
+  for (let i = 1; i < w - 1; i++) {
+    go(0, i);
+    go(h - 1, i);
   }
 
-  for (let i = 0; i < m; i++) {
-    for (let j = 0; j < n; j++) {
+  for (let i = 0; i < h; i++) {
+    for (let j = 0; j < w; j++) {
       // change the rest of O to X
       if (board[i][j] === 'O') board[i][j] = 'X';
 
@@ -74,4 +75,4 @@ function solve(board) {
       if (board[i][j] === '#') board[i][j] = 'O';
     }
   }
-}
+};

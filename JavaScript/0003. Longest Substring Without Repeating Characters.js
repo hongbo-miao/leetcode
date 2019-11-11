@@ -15,8 +15,8 @@
 // Time O(n^3)
 // Space O(min(n,m)). We need O(k) space for checking a substring has no duplicate characters, where k is the size of the Set.
 //   The size of the Set is upper bounded by the size of the string nn and the size of the charset/alphabet m.
-function lengthOfLongestSubstring1(s) {
-  function isUnique(start, end) {
+const lengthOfLongestSubstring1 = (s) => {
+  const isUnique = (start, end) => {
     const map = {};
     for (let i = start; i < end; i++) {
       const c = s[i];
@@ -24,7 +24,7 @@ function lengthOfLongestSubstring1(s) {
       map[c] = true;
     }
     return true;
-  }
+  };
 
   let max = 0;
   for (let i = 0; i < s.length; i++) {
@@ -35,16 +35,16 @@ function lengthOfLongestSubstring1(s) {
     }
   }
   return max;
-}
+};
 
 
 /** 2) */
-function lengthOfLongestSubstring2(s) {
+const lengthOfLongestSubstring2 = (s) => {
   let max = 0;
   let localMax = 0;
   let str = '';
 
-  for (let c of s) {
+  for (const c of s) {
     if (!str.includes(c)) {
       str += c;
       localMax++;
@@ -54,22 +54,20 @@ function lengthOfLongestSubstring2(s) {
     }
     max = Math.max(localMax, max);
   }
-
   return max;
-}
+};
 
 /** 3) */
-function lengthOfLongestSubstring3(s) {
+const lengthOfLongestSubstring3 = (s) => {
   let max = 0;
   let chars = [];
 
-  for (let c of s) {
+  for (const c of s) {
     chars = chars.slice(chars.indexOf(c) + 1); // remove everything before when find duplicate one, e.g. awke + w -> ke + w
     max = Math.max(chars.push(c), max);   // push returns the array length
   }
-
   return max;
-}
+};
 
 /** 4) Sliding window + hash map */
 // Similar
@@ -83,7 +81,7 @@ function lengthOfLongestSubstring3(s) {
 //
 // In the brute force approaches, we repeatedly check a substring to see if it has duplicate character. But it is unnecessary.
 // If a substring from index l to r - 1 is already checked to have no duplicate characters. We only need to check if s[r] is already in the substring
-function lengthOfLongestSubstring4(s) {
+const lengthOfLongestSubstring4 = (s) => {
   const map = {};
   let max = 0;
   let l = 0;
@@ -100,7 +98,7 @@ function lengthOfLongestSubstring4(s) {
     }
   }
   return max;
-}
+};
 
 /** 5) Sliding window (optimized) */
 // Time O(n)
@@ -119,7 +117,7 @@ function lengthOfLongestSubstring4(s) {
 // l = 2, r = 3, map = { p: 1, w: 3, k: 4 }
 // l = 2, r = 4, map = { p: 1, w: 3, k: 4, e: 5 }
 // l = 3, r = 5, map = { p: 1, w: 6, k: 4, e: 5 }
-function lengthOfLongestSubstring(s) {
+const lengthOfLongestSubstring = (s) => {
   let max = 0;
   const map = {};
 
@@ -133,6 +131,5 @@ function lengthOfLongestSubstring(s) {
     map[c] = r + 1; // map[c] saves next start point for l
     max = Math.max(max, r - l + 1);
   }
-
   return max;
-}
+};

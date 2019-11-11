@@ -66,7 +66,7 @@
 // If no corner is in the same position, we add the corner.
 //
 // After all corners have been considered, we have a rectangle cover if each set contains exactly one corner.
-function isRectangleCover1(rectangles) {
+const isRectangleCover1 = (rectangles) => {
   const corner = (x, y) => `${x} ${y}`;
 
   const tls = new Set();
@@ -74,7 +74,7 @@ function isRectangleCover1(rectangles) {
   const bls = new Set();
   const brs = new Set();
 
-  for (let [l, b, r, t] of rectangles) {
+  for (const [l, b, r, t] of rectangles) {
     const tl = corner(t, l);
     const tr = corner(t, r);
     const bl = corner(b, l);
@@ -89,10 +89,10 @@ function isRectangleCover1(rectangles) {
   }
 
   return tls.size === 1 && trs.size === 1 && bls.size === 1 && brs.size === 1;
-}
+};
 
 /** 2) Same to 1), but easier to understand */
-function isRectangleCover(rectangles) {
+const isRectangleCover = (rectangles) => {
   const corner = (x, y) => `${x} ${y}`;
 
   const tls = new Set();
@@ -100,7 +100,7 @@ function isRectangleCover(rectangles) {
   const bls = new Set();
   const brs = new Set();
 
-  for (let [l, b, r, t] of rectangles) {
+  for (const [l, b, r, t] of rectangles) {
     const tl = corner(t, l);
     const tr = corner(t, r);
     const bl = corner(b, l);
@@ -126,4 +126,4 @@ function isRectangleCover(rectangles) {
   }
 
   return tls.size === 1 && trs.size === 1 && bls.size === 1 && brs.size === 1;
-}
+};

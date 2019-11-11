@@ -32,7 +32,7 @@
 /** Hash map */
 // Time O(n)
 // Space O(1)
-function calculateTime(keyboard, word) {
+const calculateTime = (keyboard, word) => {
   const map = {};
   for (let i = 0; i < keyboard.length; i++) {
     const c = keyboard[i];
@@ -46,6 +46,5 @@ function calculateTime(keyboard, word) {
     res += Math.abs(i - pre);
     pre = i;
   }
-
   return res;
-}
+};

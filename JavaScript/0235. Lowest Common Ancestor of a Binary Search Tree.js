@@ -33,17 +33,17 @@
  */
 
 /** 1) Recursion */
-function lowestCommonAncestor(root, p, q) {
+const lowestCommonAncestor1 = (root, p, q) => {
   if (p.val < root.val && q.val < root.val) return lowestCommonAncestor(root.left, p, q);
   else if (p.val > root.val && q.val > root.val) return lowestCommonAncestor(root.right, p, q);
   else return root;
-}
+};
 
 /** 2) Iteration */
-function lowestCommonAncestor(root, p, q) {
+const lowestCommonAncestor = (root, p, q) => {
   while (root != null) {
     if (p.val > root.val && q.val > root.val) root = root.right;
     else if (p.val < root.val && q.val < root.val) root = root.left;
     else return root;
   }
-}
+};

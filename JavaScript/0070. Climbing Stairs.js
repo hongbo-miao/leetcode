@@ -29,24 +29,24 @@
 /** 1) Recursion (time limit exceeded) */
 // Time O(2^n) - O(branch ^ recursion depth)
 // Space O(n) - O(recursion depth)
-function climbStairs1(n) {
+const climbStairs1 = (n) => {
   if (n < 2) return 1;
   return climbStairs(n - 2) + climbStairs(n - 1);
-}
+};
 
 /** 2) Recursion (memoization) */
 // Time O(n)
 // Space O(n)
-function climbStairs2(n) {
+const climbStairs2 = (n) => {
   const map = {};
-  function go(n) {
+  const go = (n) => {
     if (n < 2) return 1;
     if (map[n] != null) return map[n];
     map[n] = go(n - 2) + go(n - 1);
     return map[n];
-  }
+  };
   return go(n);
-}
+};
 
 /** 3) Dynamic programming - Fibonacci */
 // Similar
@@ -55,18 +55,18 @@ function climbStairs2(n) {
 //
 // Time O(n)
 // Space O(n)
-function climbStairs3(n) {
+const climbStairs3 = (n) => {
   const dp = [1, 1];
   for (let i = 2; i <= n; i++) {
     dp[i] = dp[i - 2] + dp[i - 1];
   }
   return dp[n];
-}
+};
 
 /** 4) Dynamic programming - Fibonacci (optimization) */
 // Time O(n)
 // Space O(1)
-function climbStairs(n) {
+const climbStairs = (n) => {
   let a = 1;
   let b = 1;
 
@@ -76,7 +76,7 @@ function climbStairs(n) {
     b = c;
   }
   return b;
-}
+};
 
 /** 5) Binet's Fibonacci number formula */
 // Time O(log n)

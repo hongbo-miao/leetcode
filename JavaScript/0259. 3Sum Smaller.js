@@ -45,10 +45,10 @@
 // How many pairs with one of the index = left that satisfy the condition?
 // You can tell by the difference between right and left which is 3, namely (1,2), (1,3), (1,5).
 // Therefore, we move left one step to its right.
-function threeSumSmaller(nums, target) {
+const threeSumSmaller = (nums, target) => {
   nums.sort((a, b) => a - b);
 
-  function twoSumSmaller(startIdx, target) {
+  const twoSumSmaller = (startIdx, target) => {
     let count = 0;
     let l = startIdx;
     let r = nums.length - 1;
@@ -61,11 +61,11 @@ function threeSumSmaller(nums, target) {
       }
     }
     return count;
-  }
+  };
 
   let count = 0;
   for (let i = 0; i < nums.length - 2; i++) {
     count += twoSumSmaller(i + 1, target - nums[i]);
   }
   return count;
-}
+};

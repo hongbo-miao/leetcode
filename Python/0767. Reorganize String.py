@@ -25,7 +25,7 @@ Priority queue
 # e.g. "aab"
 # If you take the counts and put that in heap it becomes [(-2, 'a'), (-1, 'b')]
 # Now you need a way to alternate the top 2 picks (just so their adj characters are different)
-# You already know pre_count and pre_c is to store the prev counts, so initially they are 0 and "" (0 counts and no string)
+# You already know pre_count and pre_c is to store the pre counts, so initially they are 0 and "" (0 counts and no string)
 #
 # 1st iteration:
 #
@@ -37,7 +37,7 @@ Priority queue
 # 2nd iteration:
 # Now the heap only has (-1, 'b') (why? heappoped (-2, a) in 1st iteration
 # Now perform 1, 2 from 1st iteration => result string becomes "ab"
-# Now check your prev pre_count and pre_c since there is a remaining count of -1 for pre_count which means the prev top element is not exhausted yet, so push it back to heap heapq.heappush(pq, (pre_count, pre_c))
+# Now check your pre_count and pre_c since there is a remaining count of -1 for pre_count which means the pre top element is not exhausted yet, so push it back to heap heapq.heappush(pq, (pre_count, pre_c))
 #
 # 3 iteration:
 # Same as 1st iteration.

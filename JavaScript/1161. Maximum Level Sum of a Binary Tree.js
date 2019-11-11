@@ -42,10 +42,10 @@
 //
 // Time O(n), n is the number of total nodes
 // space O(n)
-function maxLevelSum(root) {
+const maxLevelSum = (root) => {
   const levels = [];
 
-  function go(node, lvl) {
+  const go = (node, lvl) => {
     if (node == null) return;
 
     if (levels.length === lvl) levels.push(0);
@@ -53,8 +53,8 @@ function maxLevelSum(root) {
 
     go(node.left, lvl + 1);
     go(node.right, lvl + 1);
-  }
+  };
 
   go(root, 0);
   return levels.indexOf(Math.max(...levels)) + 1;
-}
+};

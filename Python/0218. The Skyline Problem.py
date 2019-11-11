@@ -26,7 +26,7 @@ class Solution:
         positions = sorted(set([building[0] for building in buildings] + [building[1] for building in buildings]))
         lives = []
         res = []
-        prevH = 0
+        preH = 0
         i = 0
 
         for pos in positions:
@@ -44,9 +44,9 @@ class Solution:
             # Now lives[0] must be the largest height at the current positions
             if lives:
                 h = -lives[0][0]
-                if h != prevH:
+                if h != preH:
                     res.append([pos, h])
-                    prevH = h
+                    preH = h
             else:  # No building -> horizon
                 res.append([pos, 0])
         return res

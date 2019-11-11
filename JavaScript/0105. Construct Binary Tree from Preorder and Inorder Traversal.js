@@ -31,8 +31,8 @@
 
 // preorder: (3) 9 20 15 7
 // inorder: 9 (3) 15 20 7
-function buildTree(preorder, inorder) {
-  function build(l, r) {
+const buildTree = (preorder, inorder) => {
+  const build = (l, r) => {
     if (l > r) return null;
 
     const val = preorder.shift();
@@ -42,7 +42,7 @@ function buildTree(preorder, inorder) {
     node.left = build(l, i - 1);
     node.right = build(i + 1, r);
     return node;
-  }
+  };
 
   return build(0, inorder.length - 1);
-}
+};

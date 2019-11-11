@@ -50,22 +50,19 @@
  * @param {string} s
  * @return {number}
  */
-function romanToInt(s) {
+const romanToInt = (s) => {
   const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
 
-  let prevNum = 0;
+  let preN = 0;
   let sum = 0;
 
-  for (let c of s) {
-    const num = map[c];
-
-    sum += num;
-    if (prevNum < num) {
-      sum -= prevNum * 2;
+  for (const c of s) {
+    const n = map[c];
+    sum += n;
+    if (preN < n) {
+      sum -= preN * 2;
     }
-
-    prevNum = num;
+    preN = n;
   }
-
   return sum;
-}
+};

@@ -24,7 +24,7 @@
  */
 
 /** 1) */
-function reverse1(x) {
+const reverse1 = (x) => {
   const n = Math.sign(x) *
     parseInt(String(x)
       .split('')
@@ -33,7 +33,7 @@ function reverse1(x) {
 
   if (n < -(2 ** 31) || n > 2 ** 31 - 1) return 0;
   return n;
-}
+};
 
 /** 2) Pop and push */
 // Time O(n)
@@ -43,7 +43,7 @@ function reverse1(x) {
 // d: 3, x: 12, n: 3
 // d: 2, x: 1,  n: 32
 // d: 1, x: 0,  n: 321
-function reverse(x) {
+const reverse = (x) => {
   let n = 0;
 
   while (x !== 0) {
@@ -60,6 +60,5 @@ function reverse(x) {
 
     if (n < -(2 ** 31) || n > 2 ** 31 - 1) return 0;
   }
-
   return n;
-}
+};

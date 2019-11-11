@@ -52,7 +52,7 @@
 // 0 && -0    0
 // -0 && 0   -0
 // -0 && -0  -0
-function setZeroes1(matrix) {
+const setZeroes1 = (matrix) => {
   const height = matrix.length;
   const width = matrix[0].length;
 
@@ -68,7 +68,7 @@ function setZeroes1(matrix) {
       }
     }
   }
-}
+};
 
 /** 2) Use first row and col to store states */
 // https://leetcode.com/problems/set-matrix-zeroes/discuss/26014/Any-shorter-O(1)-space-solution
@@ -79,7 +79,7 @@ function setZeroes1(matrix) {
 //
 // In the first phase, use matrix elements to set states in a top-down way
 // In the second phase, use states to set matrix elements in a bottom-up way
-function setZeroes2(matrix) {
+const setZeroes2 = (matrix) => {
   const h = matrix.length;
   const w = matrix[0].length;
 
@@ -104,10 +104,10 @@ function setZeroes2(matrix) {
 
     if (col0 === 0) matrix[i][0] = 0;
   }
-}
+};
 
 /** 3) similar to method 2), but less compact */
-function setZeroes(matrix) {
+const setZeroes = (matrix) => {
   const h = matrix.length;
   const w = matrix[0].length;
 
@@ -163,6 +163,5 @@ function setZeroes(matrix) {
       matrix[0][j] = 0;
     }
   }
-
   return matrix;
-}
+};

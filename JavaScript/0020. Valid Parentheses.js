@@ -40,7 +40,7 @@
 // Time O(n)
 // Space O(n), as we push all opening brackets onto the stack and in the worst case, we will end up pushing all the
 //   brackets onto the stack. e.g. ((((((((((.
-function isValid(s) {
+const isValid = (s) => {
   const map = {
     '(': ')',
     '[': ']',
@@ -56,4 +56,4 @@ function isValid(s) {
     }
   }
   return st.length === 0;
-}
+};

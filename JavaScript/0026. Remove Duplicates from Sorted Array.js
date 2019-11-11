@@ -43,7 +43,7 @@
 /** Two pointers slow and fast */
 // Time O(n)
 // Space O(1)
-function removeDuplicates(nums) {
+const removeDuplicates = (nums) => {
   let slow = 0;
   let fast = 1;
 
@@ -52,9 +52,7 @@ function removeDuplicates(nums) {
       slow++;
       nums[slow] = nums[fast];
     }
-
     fast++;
   }
-
   return slow + 1;
-}
+};

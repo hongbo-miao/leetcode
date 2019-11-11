@@ -23,24 +23,20 @@
 // Time O(numRows^2), consider how many overall loop iterations there are. The outer loop obviously runs numRows times, but for each iteration of the outer loop, the inner loop runs rowNum times
 //   Therefore, the overall number of triangle updates that occur is 1 + 2 + 3 + ... + numRows, which, according to Gauss' formula, is (1 + numRows) * numRows / 2 -> O(numRows^2)
 // Space O(numRows^2), we need to store each number that we update in triangle, so the space requirement is the same as the time complexity
-function generate1(numRows) {
-  let res = [];
-
+const generate1 = (numRows) => {
+  const res = [];
   for (let i = 0; i < numRows; i++) {
     const row = Array(i + 1).fill(1);
-
     for (let j = 1; j < i; j++) {
       row[j] = res[i - 1][j - 1] + res[i - 1][j]
     }
-
     res.push(row);
   }
-
-  return res
-}
+  return res;
+};
 
 /** 2) Similar to 1 */
-function generate(numRows) {
+const generate = (numRows) => {
   if (numRows === 0) return [];
   if (numRows === 1) return [[1]];
 
@@ -54,4 +50,4 @@ function generate(numRows) {
     res.push(row);
   }
   return res;
-}
+};

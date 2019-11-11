@@ -29,7 +29,7 @@
  * @param {number} n
  * @return {string[]}
  */
-function fizzBuzz(n) {
+const fizzBuzz = (n) => {
   const res = [];
   for (let i = 1; i <= n; i++) {
     if (i % 15 === 0) res.push('FizzBuzz');
@@ -38,4 +38,4 @@ function fizzBuzz(n) {
     else res.push(String(i));
   }
   return res;
-}
+};

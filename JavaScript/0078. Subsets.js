@@ -25,49 +25,47 @@
 /** 1) Backtracking */
 // Similar
 // 46. Permutations
-function subsets1(nums) {
+const subsets1 = (nums) => {
   const res = [];
 
-  function go(curr, rest, start) {
-    res.push(curr);
+  const go = (cur, rest, start) => {
+    res.push(cur);
 
     for (let i = start; i < rest.length; i++) {
       go(
-        [...curr, rest[i]],
+        [...cur, rest[i]],
         [...rest.slice(0, i), ...rest.slice(i + 1)],
         start,
       );
-
       start++;
     }
   }
 
   go([], nums, 0);
   return res;
-}
+};
 
 /** 2) Similar to 1) */
-function subsets(nums) {
+const subsets = (nums) => {
   const res = [];
 
-  function go(curr, rest, l) {
-    if (l === curr.length) {
-      res.push(curr);
+  const go = (cur, rest, l) => {
+    if (l === cur.length) {
+      res.push(cur);
       return;
     }
 
     for (let i = 0; i < rest.length; i++) {
       go(
-        [...curr, rest[i]],
+        [...cur, rest[i]],
         [...rest.slice(i + 1)],
         l,
       );
     }
-  }
+  };
 
   for (let i = 0; i <= nums.length; i++) {
     go([], nums, i);
   }
-
   return res;
-}
+};

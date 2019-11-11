@@ -13,7 +13,7 @@
 
 /** Sieve of Eratosthenes */
 // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-function countPrimes(n) {
+const countPrimes = (n) => {
   const map = {};
   let count = 0;
 
@@ -29,6 +29,5 @@ function countPrimes(n) {
       map[i * j] = false;
     }
   }
-
   return count;
-}
+};

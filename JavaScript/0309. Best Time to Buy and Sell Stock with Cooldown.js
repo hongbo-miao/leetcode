@@ -20,7 +20,7 @@
 // Check the state machine image at https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75928/Share-my-DP-solution-(By-State-Machine-Thinking)
 // Time O(n)
 // Space O(n)
-function maxProfit1(prices) {
+const maxProfit1 = (prices) => {
   if (prices == null || prices.length === 0) return 0;
 
   const s0 = Array(prices.length).fill(0);
@@ -38,12 +38,12 @@ function maxProfit1(prices) {
   }
 
   return Math.max(s0[prices.length - 1], s2[prices.length - 1]);
-}
+};
 
 /** 2) Improved version of 1) */
 // Time O(n)
 // Space O(1)
-function maxProfit(prices) {
+const maxProfit = (prices) => {
   if (prices == null || prices.length === 0) return 0;
 
   let sold = 0;
@@ -57,4 +57,4 @@ function maxProfit(prices) {
   }
 
   return Math.max(sold, rest);
-}
+};

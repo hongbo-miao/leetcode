@@ -34,7 +34,7 @@
 // 4. Go up 1 times.
 // 5. Go right 3 times
 // 6. Go down 0 times -> quit
-function generateMatrix(n) {
+const generateMatrix = (n) => {
   const matrix = [...Array(n)].map(() => Array(n).fill(null));
   const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]; // right, down, left, up
   const steps = [n, n - 1];
@@ -54,6 +54,5 @@ function generateMatrix(n) {
     steps[dir % 2]--;
     dir = (dir + 1) % 4;
   }
-
   return matrix;
-}
+};

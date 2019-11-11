@@ -20,11 +20,10 @@
 /** 1) Brute force */
 // Time O(n^2)
 // Space O(1)
-function maxProduct1(nums) {
+const maxProduct1 = (nums) => {
   if (nums.length === 1) return nums[0];
 
   let max = -Infinity;
-
   for (let i = 0; i < nums.length; i++) {
     let p = nums[i];
     max = Math.max(max, p);
@@ -35,7 +34,7 @@ function maxProduct1(nums) {
     }
   }
   return max;
-}
+};
 
 /** 2) */
 // Similar
@@ -43,7 +42,7 @@ function maxProduct1(nums) {
 //
 // Time O(n)
 // Space O(1)
-function maxProduct(nums) {
+const maxProduct = (nums) => {
   let max = -Infinity;
   let currMin = 1;
   let currMax = 1;
@@ -55,4 +54,4 @@ function maxProduct(nums) {
     max = Math.max(max, currMax);
   }
   return max;
-}
+};

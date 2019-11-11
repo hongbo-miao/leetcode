@@ -27,7 +27,7 @@
 // https://www.youtube.com/watch?v=4udFSOWQpdg
 //
 // Time O(n log n), worst case: one 'from' and the rest are all 'tos', and sort on 'tos'
-function findItinerary(tickets) {
+const findItinerary = (tickets) => {
   // create graph
   const graph = {};
   for (const [from, to] of tickets) {
@@ -41,15 +41,15 @@ function findItinerary(tickets) {
   // Post-order traversal, DFS
   const route = [];
 
-  function go(from) {
+  const go = (from) => {
     const tos = graph[from] || [];
     while (tos.length) {
       const to = tos.shift(); // get the lexical smallest 'to'
       go(to);
     }
     route.push(from);
-  }
+  };
 
   go('JFK');
   return route.reverse();
-}
+};

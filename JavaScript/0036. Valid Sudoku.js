@@ -59,7 +59,7 @@
 /** 1) Three iterations */
 // Time O(1), since it is const 81 cells
 // Space O(1)
-function isValidSudoku1(board) {
+const isValidSudoku1 = (board) => {
   // row
   for (let i = 0; i < 9; i++) {
     const map = {};
@@ -92,12 +92,12 @@ function isValidSudoku1(board) {
   }
 
   return true;
-}
+};
 
 /** 2) One iterations */
 // Time O(1), since all we do here is just one iteration over the board with 81 cells
 // Space O(1)
-function isValidSudoku(board) {
+const isValidSudoku = (board) => {
   // const row = Array(9).fill({}); // wrong, all will point to same {} reference
   // const row = [{}, {}, {}, {}, {}, {}, {}, {}, {}]; // correct
   const row = Array.from(Array(9), () => ({}));
@@ -119,6 +119,5 @@ function isValidSudoku(board) {
       block[blockIdx][c] = true;
     }
   }
-
   return true;
-}
+};

@@ -29,7 +29,7 @@
  * @param {number} K
  * @return {string}
  */
-function licenseKeyFormatting(S, K) {
+const licenseKeyFormatting = (S, K) => {
   const s = S.replace(/-/g, '').toUpperCase();
   let len = s.length;
   const res = [];
@@ -38,4 +38,4 @@ function licenseKeyFormatting(S, K) {
     len -= K;
   }
   return res.reverse().join('-');
-}
+};

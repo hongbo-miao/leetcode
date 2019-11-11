@@ -23,9 +23,9 @@
 /** 1) Cheating */
 // Time O(n)
 // Space O(1)
-function searchRange1(nums, target) {
+const searchRange1 = (nums, target) => {
   return [nums.indexOf(target), nums.lastIndexOf(target)];
-}
+};
 
 /** 2) Brute force / Linear scan */
 // Time O(n)
@@ -34,7 +34,7 @@ function searchRange1(nums, target) {
 /** 3) Binary search */
 // Time O(log n)
 // Space O(1)
-function searchRange3(nums, target) {
+const searchRange3 = (nums, target) => {
   let res = [-1, -1];
 
   // find the left
@@ -61,12 +61,11 @@ function searchRange3(nums, target) {
   }
 
   res[1] = r;
-
   return res;
-}
+};
 
 /** 4) Similar to 3), not optimized, but easier to understand */
-function searchRange(nums, target) {
+const searchRange = (nums, target) => {
   const res = [-1, -1];
 
   // find the left
@@ -93,6 +92,5 @@ function searchRange(nums, target) {
   }
 
   if (nums[r] === target) res[1] = r;
-
   return res;
-}
+};

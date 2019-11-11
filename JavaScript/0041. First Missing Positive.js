@@ -47,10 +47,8 @@
 // i++
 // i = 3
 // i++
-function firstMissingPositive(nums) {
-  function swap(i, j) {
-    [nums[i], nums[j]] = [nums[j], nums[i]];
-  }
+const firstMissingPositive = (nums) => {
+  const swap = (i, j) => [nums[i], nums[j]] = [nums[j], nums[i]];
 
   let i = 0;
   while (i < nums.length) {
@@ -68,6 +66,5 @@ function firstMissingPositive(nums) {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] !== i + 1) return i + 1;
   }
-
   return nums.length + 1;
-}
+};

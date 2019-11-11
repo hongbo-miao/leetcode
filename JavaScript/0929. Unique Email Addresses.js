@@ -30,10 +30,10 @@
  * @param {string[]} emails
  * @return {number}
  */
-function numUniqueEmails(emails) {
+const numUniqueEmails = (emails) => {
   const set = new Set();
 
-  emails.forEach(email => {
+  for (const email of emails) {
     let [addr, domain] = email.split('@');
 
     // get everything before first +
@@ -42,7 +42,7 @@ function numUniqueEmails(emails) {
     // remove .
     addr = addr.replace(/\./g, '');
     set.add(`${addr}@${domain}`);
-  });
+  }
 
   return set.size;
-}
+};

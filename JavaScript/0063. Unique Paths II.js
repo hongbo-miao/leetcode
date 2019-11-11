@@ -27,7 +27,7 @@
  */
 
 /** Dynamic programming */
-function uniquePathsWithObstacles(obstacleGrid) {
+const uniquePathsWithObstacles = (obstacleGrid) => {
   if (obstacleGrid == null || obstacleGrid.length === 0 || obstacleGrid[0].length === 0) return 0;
 
   const h = obstacleGrid.length;
@@ -45,4 +45,4 @@ function uniquePathsWithObstacles(obstacleGrid) {
     }
   }
   return dp[h][w];
-}
+};

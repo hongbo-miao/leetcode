@@ -30,12 +30,10 @@
  * @param {string} s
  * @return {number}
  */
-function titleToNumber(s) {
+const titleToNumber = (s) => {
   let n = 0;
-
-  for (let c of s) {
+  for (const c of s) {
     n = n * 26 + (c.charCodeAt(0) - 'A'.charCodeAt(0) + 1);
   }
-
   return n;
-}
+};

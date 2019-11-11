@@ -32,22 +32,22 @@
 //
 // Time O(n^2)
 // Space O(n^2)
-function fourSumCount(A, B, C, D) {
+const fourSumCount = (A, B, C, D) => {
   const map = {};
-  for (let a of A) {
-    for (let b of B) {
+  for (const a of A) {
+    for (const b of B) {
       if (map[a + b] == null) map[a + b] = 0;
       map[a + b]++;
     }
   }
 
   let count = 0;
-  for (let c of C) {
-    for (let d of D) {
+  for (const c of C) {
+    for (const d of D) {
       if (map[- c - d] != null) {
         count += map[- c - d];
       }
     }
   }
   return count;
-}
+};

@@ -45,7 +45,7 @@ class LFUCache {
 
   getNode(key) {
     const node = this.keyMap.get(key);
-    if (node) {
+    if (node != null) {
       let freq = this.freqMap.get(node.freq);
       freq.delete(node.key);
       if (freq.size === 0) {
@@ -80,7 +80,7 @@ class LFUCache {
   put(key, value) {
     if (this.capacity === 0) return;
     let node = this.getNode(key);
-    if (node) {
+    if (node != null) {
       node.value = value;
     } else {
       if (this.keyMap.size === this.capacity) {

@@ -18,7 +18,7 @@
 /** 1) Brute force */
 // Time O(n^2)
 // Space O(1)
-function maxArea1(heights) {
+const maxArea1 = (heights) => {
   let max = 0;
   for (let i = 0; i < heights.length; i++) {
     for (let j = i + 1; j < heights.length; j++) {
@@ -29,7 +29,8 @@ function maxArea1(heights) {
     }
   }
   return max;
-}
+};
+
 /** 2) Two pointers */
 // Time O(n)
 // Space O(1)
@@ -74,7 +75,7 @@ function maxArea1(heights) {
 // 5 x x x x x |
 // 6 x x x x x x
 
-function maxArea(heights) {
+const maxArea = (heights) => {
   let max = 0;
 
   let l = 0;
@@ -89,6 +90,5 @@ function maxArea(heights) {
     if (heights[l] < heights[r]) l++;
     else r--;
   }
-
   return max;
-}
+};

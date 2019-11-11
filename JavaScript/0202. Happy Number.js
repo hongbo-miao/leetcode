@@ -17,28 +17,26 @@
  * @return {boolean}
  */
 /** 1) */
-function isHappy1(n) {
+const isHappy1 = (n) => {
   const map = {};
-
   while (n !== 1 && map[n] == null) {
     map[n] = true;
     n = sumOfSquares(n);
   }
-
   return n === 1;
-}
+};
 
-function sumOfSquares(num) {
+const sumOfSquares = (num) => {
   return String(num)
     .split('')
     .reduce((sum, n) => sum + Number(n) ** 2, 0);
-}
+};
 
 /** 2) */
-function isHappy(n) {
+const isHappy = (n) => {
   const map = {};
 
-  function go(num) {
+  const go = (num) => {
     if (num === 1) return true;
     if (map[num] != null) return false;
     map[num] = true;
@@ -49,7 +47,7 @@ function isHappy(n) {
       sum += Number(s[i]) ** 2;
     }
     return go(sum);
-  }
+  };
 
   return go(n);
-}
+};
