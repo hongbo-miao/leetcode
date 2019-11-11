@@ -62,7 +62,9 @@ const knightProbability1 = (N, K, r, c) => {
 const knightProbability = (N, K, r, c) => {
   const dirs = [[-2, -1], [-1, -2], [1, -2], [2, -1], [2, 1], [1, 2], [-1, 2], [-2, 1]];
 
-  const dp = [...Array(K + 1)].map(() => [...Array(N)].map(() => Array(N).fill(0)));
+  const dp = [...Array(K + 1)].map(() =>
+    [...Array(N)].map(() => Array(N).fill(0))
+  );
   dp[0][r][c] = 1;
 
   for (let k = 1; k <= K; k++) {

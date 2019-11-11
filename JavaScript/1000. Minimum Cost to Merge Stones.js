@@ -56,7 +56,9 @@ const mergeStones = (stones, K) => {
   }
 
   // dp[i][j][k] is min cost to merge subarray i ~ j into k piles.
-  const dp = [...Array(n)].map(() => [...Array(n)].map(() => Array(K + 1).fill(Infinity)));
+  const dp = [...Array(n)].map(() =>
+    [...Array(n)].map(() => Array(K + 1).fill(Infinity))
+  );
   for (let i = 0; i < n; i++) {
     dp[i][i][1] = 0;
   }

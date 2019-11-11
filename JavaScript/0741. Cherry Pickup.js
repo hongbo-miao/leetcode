@@ -17,33 +17,52 @@
  * @return {number}
  */
 
-/** Dynamic programming */
-// https://leetcode.com/problems/cherry-pickup/discuss/161124/javascript-solution-with-graph-and-my-understanding
+/** 1) Dynamic Programming */
+// http://zxi.mytechroad.com/blog/dynamic-programming/leetcode-741-cherry-pickup/
+//
+// Time O(n^3)
+// Space O(n^3)
+//
+// Key observation: (0,0) to (n-1, n-1) to (0, 0) is the same as (n-1,n-1) to (0,0) twice
+//
+// Two people starting from (n-1, n-1) and go to (0, 0).
+// They move one step (left or up) at a time simultaneously. And pick up the cherry within the grid (if there is one).
+// If they ended up at the same grid with a cherry. Only one of them can pick up it.
 const cherryPickup = (grid) => {
-  const n  =  grid.length;
-  const steps  =  2 * n - 1;
-  const dp = [...Array(n)].map(() => Array(n).fill(0));
-  dp[0][0] = grid[0][0];
-  for (let k = 1; k < steps; k++) {
-    // notice that we iterate from n-1 to 0 because we want to reuse the results in dp we calculated the last iteration. see my graph below to understand it.
-    for (let i = n - 1; i >= 0; i--) {
-      for (let x = n - 1; x >= 0; x--) {
-        let j = k - i, y = k - x;
-        if (j < 0 || y < 0 || j > n-1 || y > n-1 || grid[i][j] === -1 || grid[x][y] === -1) {
-          dp[i][x] = -1;
-          continue;
-        }
+  if (grid == null || grid.length === 0) return 0;
 
-        if (i > 0) dp[i][x] = Math.max(dp[i][x], dp[i - 1][x]);
-        if (x > 0) dp[i][x] = Math.max(dp[i][x], dp[i][x - 1]);
+  const n = grid.length;
+  const dp = [...new Array(n)].map(() =>
+    [...new Array(n)].map(() =>
+      Array(n).fill(-Infinity)
+    ),
+  );
+  dp[0][0][0] = grid[0][0];
 
-        // notice that dp[i][x] does not mean grid[i][x], I myself got confused before here
-        if (i > 0 && x > 0) dp[i][x] = Math.max(dp[i][x], dp[i - 1][x - 1]);
+  const go = (x1, y1, x2) => {
+    const y2 = x1 + y1 - x2;
+    if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) return -Infinity;
+    if (grid[y1][x1] === -1 || grid[y2][x2] === -1) return -1;
+    if (dp[y1][x1][x2] !== -Infinity) return dp[y1][x1][x2];
 
-        // check if the paths of a and b cross at grid[i][j]
-        if (dp[i][x] >= 0) dp[i][x] += grid[i][j] + (i === x ? 0 : grid[x][y]);
-      }
+    dp[y1][x1][x2] = Math.max(
+      go(x1 - 1, y1, x2 - 1),
+      go(x1, y1 - 1, x2),
+      go(x1, y1 - 1, x2 - 1),
+      go(x1 - 1, y1, x2),
+    );
+
+    if (dp[y1][x1][x2] >= 0) {
+      dp[y1][x1][x2] += grid[y1][x1];
+      // If they ended up at the same grid with a cherry. Only one of them can pick up it.
+      if (x1 !== x2) dp[y1][x1][x2] += grid[y2][x2];
     }
-  }
-  return Math.max(dp[n - 1][n - 1], 0);
+    return dp[y1][x1][x2];
+  };
+
+  return Math.max(0, go(n - 1, n - 1, n - 1));
 };
+
+/** 2) Dynamic Programming (Optimized) */
+// Time O(n^3)
+// Space O(n^2)
