@@ -17,7 +17,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic Programming */
+/** 1) Dynamic Programming (Recursion) */
 // http://zxi.mytechroad.com/blog/dynamic-programming/leetcode-741-cherry-pickup/
 //
 // Time O(n^3)
@@ -28,7 +28,7 @@
 // Two people starting from (n-1, n-1) and go to (0, 0).
 // They move one step (left or up) at a time simultaneously. And pick up the cherry within the grid (if there is one).
 // If they ended up at the same grid with a cherry. Only one of them can pick up it.
-const cherryPickup = (grid) => {
+const cherryPickup1 = (grid) => {
   if (grid == null || grid.length === 0) return 0;
 
   const n = grid.length;
@@ -41,7 +41,7 @@ const cherryPickup = (grid) => {
 
   const go = (x1, y1, x2) => {
     const y2 = x1 + y1 - x2;
-    if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) return -Infinity;
+    if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) return -1;
     if (grid[y1][x1] === -1 || grid[y2][x2] === -1) return -1;
     if (dp[y1][x1][x2] !== -Infinity) return dp[y1][x1][x2];
 
@@ -60,9 +60,45 @@ const cherryPickup = (grid) => {
     return dp[y1][x1][x2];
   };
 
-  return Math.max(0, go(n - 1, n - 1, n - 1));
+  return Math.max(go(n - 1, n - 1, n - 1), 0);
 };
 
-/** 2) Dynamic Programming (Optimized) */
+/** 2) Dynamic Programming (Iteration) */
+const cherryPickup = (grid) => {
+  if (grid == null || grid.length === 0) return 0;
+
+  const n = grid.length;
+  const dp = [...new Array(n + 1)].map(() =>
+    [...new Array(n + 1)].map(() =>
+      Array(n + 1).fill(-Infinity)
+    ),
+  );
+  dp[1][1][1] = grid[0][0];
+
+  for (let i1 = 1; i1 <= n; i1++) {
+    for (let j1 = 1; j1 <= n; j1++) {
+      for (let i2 = 1; i2 <= n; i2++) {
+        const j2 = i1 + j1 - i2;
+        if (i1 < 1 || j1 < 1 || i2 < 1 || j2 < 1) continue;
+        if (grid[i1 - 1][j1 - 1] === -1 || grid[i2 - 1][j2 - 1] === -1) continue;
+
+        const cur = Math.max(
+          dp[i1 - 1][j1][i2],
+          dp[i1 - 1][j1][i2 - 1],
+          dp[i1][j1 - 1][i2],
+          dp[i1][j1 - 1][i2 - 1],
+        );
+
+        if (cur >= 0) {
+          dp[i1][j1][i2] = cur + grid[i1 - 1][j1 - 1];
+          if (i1 !== i2) dp[i1][j1][i2] += grid[i2 - 1][j2 - 1];
+        }
+      }
+    }
+  }
+  return Math.max(dp[n][n][n], 0);
+};
+
+/** 3) Dynamic Programming (Optimized) */
 // Time O(n^3)
 // Space O(n^2)
