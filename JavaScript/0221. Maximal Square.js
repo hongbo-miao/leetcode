@@ -32,27 +32,17 @@ const maximalSquare = (matrix) => {
 
   const h = matrix.length;
   const w = matrix[0].length;
-
-  // init 2d sizes to 0
-  const dp = [];
-  for (let i = 0; i < h; i++) {
-    const row = [];
-    for (let j = 0; j < w; j++) row.push(0);
-    dp.push(row);
-  }
-
+  const dp = [...Array(h)].map(() => Array(w).fill(0));
   let max = 0;
-
-  for (let j = 0; j < w; j++) {
-    dp[0][j] = Number(matrix[0][j]);
-    max = Math.max(max, dp[0][j]);
-  }
 
   for (let i = 0; i < h; i++) {
     dp[i][0] = Number(matrix[i][0]);
     max = Math.max(max, dp[i][0]);
   }
-
+  for (let i = 1; i < w; i++) {
+    dp[0][i] = Number(matrix[0][i]);
+    max = Math.max(max, dp[0][i]);
+  }
   for (let i = 1; i < h; i++) {
     for (let j = 1; j < w; j++) {
       if (matrix[i][j] === '1') {
@@ -61,6 +51,5 @@ const maximalSquare = (matrix) => {
       }
     }
   }
-
-  return max * max;
+  return max ** 2;
 };
