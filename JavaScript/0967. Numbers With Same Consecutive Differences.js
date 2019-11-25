@@ -40,7 +40,7 @@ const numsSameConsecDiff = (N, K) => {
 
   for (let steps = 1; steps <= N - 1; steps++) {
     const set2 = new Set();
-    for (let n of set) {
+    for (const n of set) {
       const d = n % 10;
       if (d - K >= 0) set2.add(10 * n + (d - K));
       if (d + K <= 9) set2.add(10 * n + (d + K));

@@ -34,7 +34,7 @@ const pivotIndex = (nums) => {
   if (nums == null || nums.length === 0) return -1;
 
   let sum = 0;
-  for (let n of nums) {
+  for (const n of nums) {
     sum += n;
   }
 

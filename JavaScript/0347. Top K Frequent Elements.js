@@ -19,14 +19,14 @@
 const topKFrequent1 = (nums, k) => {
   // number frequency map
   const map = {};
-  for (let n of nums) {
+  for (const n of nums) {
     if (map[n] == null) map[n] = 0;
     map[n]++;
   }
 
   // store map to a bucket based on frequency
   const bucket = [];
-  for (let n in map) {
+  for (const n in map) {
     const freq = map[n];
     if (bucket[freq] == null) bucket[freq] = [];
     bucket[freq].push(Number(n));
@@ -46,13 +46,13 @@ const topKFrequent1 = (nums, k) => {
 /** 2) */
 const topKFrequent = (nums, k) => {
   const map = {};
-  for (let n of nums) {
+  for (const n of nums) {
     if (map[n] == null) map[n] = 0;
     map[n]++;
   }
 
   const arr = [];
-  for (let n in map) {
+  for (const n in map) {
     arr.push({ n, count: map[n] });
   }
 

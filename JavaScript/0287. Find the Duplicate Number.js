@@ -27,7 +27,7 @@
 // Space O(n)
 const findDuplicate1 = (nums) => {
   const set = new Set();
-  for (let n of nums) {
+  for (const n of nums) {
     if (set.has(n)) return n;
     set.add(n);
   }
