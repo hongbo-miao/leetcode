@@ -47,7 +47,7 @@ const wiggleSort = (nums) => {
 
   const len = nums.length;
   const swap = (i, j) => [nums[i], nums[j]] = [nums[j], nums[i]];
-  const newIdx = (i) => (2 * i) % (len | 1);
+  const newIdx = (i) => (2 * i + 1) % (len | 1);
 
   const m = findKthLargest(nums, ~~((nums.length + 1) / 2));
 
