@@ -31,7 +31,7 @@ const permute = (nums) => {
   const res = [];
 
   const go = (cur, rest) => {
-    if (!rest.length) {
+    if (rest.length === 0) {
       res.push(cur);
       return;
     }
