@@ -52,6 +52,7 @@ class WordDictionary {
           const c = String.fromCharCode(97 + j); // 97 -> 'a'
           if (match(node[c], i + 1)) return true;
         }
+        return false;
       } else {
         return match(node[word[i]], i + 1);
       }
