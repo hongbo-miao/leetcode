@@ -4,4 +4,4 @@
 
 # More
 
-To learn full stack, check https://github.com/Hongbo-Miao/hongbomiao.com
+To learn full stack, check https://github.com/Hongbo-Miao/hongbomiao.com (open source)
