@@ -4,4 +4,4 @@
 
 # More
 
-To learn full stack, check https://github.com/Hongbo-Miao/hongbomiao.com (open source)
+To learn web development, please check https://github.com/Hongbo-Miao/hongbomiao.com
