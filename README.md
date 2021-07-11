@@ -2,6 +2,6 @@
 
  High-quality LeetCode solutions
 
-# More
+# One More Thing
 
-To learn web development, please check https://github.com/Hongbo-Miao/hongbomiao.com
+To learn more cutting-edge technologies, please check https://github.com/Hongbo-Miao/hongbomiao.com : )
