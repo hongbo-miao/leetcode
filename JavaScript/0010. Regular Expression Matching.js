@@ -147,7 +147,7 @@ const isMatch3 = (s, p) => {
 };
 
 /** 4) Dynamic programming */
-// https://www.youtube.com/watch?v=qza1UKNHAys
+// https://leetcode.com/problems/regular-expression-matching/discuss/5651/Easy-DP-Java-Solution-with-detailed-Explanation/238767
 //
 // dp[i][j] denotes whether s[0 : i - 1] matches p[0 : j - 1]
 //
@@ -157,47 +157,54 @@ const isMatch3 = (s, p) => {
 // 2. if p[j] === '.'
 //    dp[i][j] = dp[i - 1][j - 1]
 //
-// 3. if p[j] === '*'
+// 3. if p[j] === '*', also need consider p[j - 1]
 //    1) if p[j - 1] !== s[i] and p[j - 1] !== '.'  // a ab* and not a a.*
 //       dp[i][j] = dp[i][j - 2]                    // e.g. a ab* -> p remove 'b*' which is j - 2
 //
-//    2) if p[i - 1] === s[i] or p[i - 1] == '.'
-//       a) dp[i][j] = dp[i][j - 2]                 // c* - empty, e.g. ab ab.*
-//       b) dp[i][j] = dp[i][j - 1]                 // c* - single c, e.g. abc abc*
-//       c) dp[i][j] = dp[i - 1][j]                 // c* - multiple c, e.g. abccc abc*
+//    2) if p[j - 1] === s[i] or p[j - 1] === '.'
+//       a) dp[i][j] = dp[i][j - 2]                 // c* - no 'c', e.g. ab ab.*
+//       b) dp[i][j] = dp[i][j - 1]                 // c* - single 'c', e.g. abc abc*
+//       c) dp[i][j] = dp[i - 1][j]                 // c* - multiple 'c', e.g. abccc abc*
 //
 // Example 1
 // s = 'abcd', p = 'a*.cd'
 //
-//       p 0 1 2 3 4
-//       0 1 2 3 4 5
-// s 0     a * . c d
-// 0 1   T F T F F F
-// 1 2 a F T T T F F
-// 2 3 b F F F T F F
-// 3 4 c F F F F T F
-// 4 5 d F F F F F T
+//     p 0 1 2 3 4
+// s     a * . c d
+// 0   T F T F F F
+// 1 a F T T T F F
+// 2 b F F F T F F
+// 3 c F F F F T F
+// 4 d F F F F F T
 //
 // Example 2
 // s = 'abaa', p = 'ab.*'
 //
-//     p 0 1 2 3 4
-//     0 1 2 3 4 5
-// s 0     a b . *
-// 0 1   T F F F F
-// 1 2 a F T F F F
-// 2 3 b F F T F T
-// 3 4 a F F F T T
-// 4 5 a F F F F T
+//   p 0 1 2 3 4
+// s     a b . *
+// 0   T F F F F
+// 1 a F T F F F
+// 2 b F F T F T
+// 3 a F F F T T
+// 4 a F F F F T
 
 const isMatch = (s, p) => {
   const dp = [...Array(s.length + 1)].map(() => Array(p.length + 1).fill(false));
+
+  // Initialization
+  // 1) empty string matches empty pattern
   dp[0][0] = true;
 
-  // init dp[0][i] to true if p[i] is *
-  for (let i = 1; i < p.length; i++) {
-    if (p[i] === '*' && dp[0][i - 1]) {
-      dp[0][i + 1] = true;
+  // 2) dp[i][0] = false (which is default value of the boolean array) since empty pattern cannot match non-empty string
+  // 3) dp[0][j]: what pattern matches empty string ""? It should be #*#*#*#*..., or (#*)* if allow me to represent regex using regex :P,
+  //    and for this case we need to check manually:
+  //    as we can see, the length of pattern should be even && the character at the even position should be *,
+  //    thus for odd length, dp[0][j] = false which is default. So we can just skip the odd position, i.e. j starts from 2, the interval of j is also 2.
+  //    and notice that the length of repeat sub-pattern #* is only 2, we can just make use of dp[0][j - 2] rather than scanning j length each time
+  //    for checking if it matches #*#*#*#*.
+  for (let j = 2; j < p.length; j += 2) {
+    if (p[j - 1] === '*' && dp[0][j - 2]) {
+      dp[0][j] = true;
     }
   }
 

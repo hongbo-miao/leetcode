@@ -40,7 +40,7 @@
 // This yields a straight forward DP solution, which we first initialize the one and two letters palindromes, and work
 // our way up finding all three letters palindromes, and so on.
 
-/** 3) Expand around center */
+/** 3) Expand from center */
 // https://www.youtube.com/watch?v=m2Mk9JN5T4A
 //
 // Time O(n^2). Expanding a palindrome around its center takes O(n) time, so the overall complexity is O(n^2)
