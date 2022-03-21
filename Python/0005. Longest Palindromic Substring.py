@@ -65,7 +65,7 @@ class Solution:
         return s[l + 1 : r]
 
 
-# Manacher's algorithm
+# 4) Manacher's algorithm
 # Time O(n)
 #
 # It is a non-trivial algorithm
