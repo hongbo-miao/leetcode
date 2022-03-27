@@ -48,11 +48,11 @@ const isValid = (s) => {
   };
 
   const st = [];
-  for (let c of s) {
-    if (map[c]) {
+  for (const c of s) {
+    if (c in map) {
       st.push(map[c]);
     } else {
-      if (c !== st.pop()) return false;
+      if (st.pop() !== c) return false;
     }
   }
   return st.length === 0;

@@ -33,6 +33,7 @@ const removeNthFromEnd = (head, n) => {
   let slow = preHead;
   let fast = head;
 
+  // Move fast first so that the gap between slow and fast becomes n
   while (n--) {
     fast = fast.next;
   }
@@ -42,6 +43,7 @@ const removeNthFromEnd = (head, n) => {
     fast = fast.next;
   }
 
+  // Remove the node
   slow.next = slow.next.next;
   return preHead.next;
 };

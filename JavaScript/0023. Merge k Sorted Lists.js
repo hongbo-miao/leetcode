@@ -64,7 +64,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
 
 /** 4) Merge lists one by one */
 // Time O(k * n) where k is the number of linked lists.
-// - We can merge two sorted linked list in O(n) time where n is the total number of nodes in two lists.
+// - We can merge two sorted linked list in O(n) time, where n is the total number of nodes in two lists.
 //
 // Space O(1)
 // - We can merge two sorted linked list in O(1) space.

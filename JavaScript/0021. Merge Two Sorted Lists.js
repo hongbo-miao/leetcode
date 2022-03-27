@@ -34,12 +34,10 @@ const mergeTwoLists1 = (l1, l2) => {
       l.next = l2;
       l2 = l2.next;
     }
-
     l = l.next;
   }
 
   l.next = l1 || l2;
-
   return preHead.next;
 };
 

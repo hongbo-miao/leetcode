@@ -36,7 +36,7 @@
 #   upper bounded by the size of the string nn and the size of the charset/alphabet m.
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        dic = dict()
+        dic = {}
         max_len = 0
         l = 0
         r = 0
@@ -70,7 +70,7 @@ class Solution:
 # l = 3, r = 5, dic = { p: 1, w: 6, k: 4, e: 5 }
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        dic = dict()
+        dic = {}
         max_len = 0
         l = 0
         for r, c in enumerate(s):
@@ -78,5 +78,5 @@ class Solution:
                 # not l = dic[c], because max makes sure l always increase
                 l = max(l, dic[c])
             dic[c] = r + 1  # dic[c] saves next start point for l
-            max_len = max(max_len, r - l)
+            max_len = max(max_len, r - l + 1)
         return max_len
