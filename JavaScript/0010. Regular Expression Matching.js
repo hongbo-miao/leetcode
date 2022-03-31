@@ -55,7 +55,7 @@
  * @return {boolean}
  */
 
-/** 1) Recursion */
+// 1) Recursion
 // If there were no Kleene stars (the * wildcard character for regular expressions), the problem would be easier -
 // we simply check from left to right if each character of the text matches the pattern.
 //
@@ -83,7 +83,7 @@ const isMatch1 = (s, p) => {
   }
 };
 
-/** 2) Dynamic programming (top-down variation, recursion) */
+// 2) Dynamic programming (top-down variation, recursion)
 // Time O(S * P). S and P are the lengths of the text and the pattern
 // Space O(S * P)
 // We proceed with the same recursion as in Approach 1, except because calls will only ever be made to
@@ -121,7 +121,7 @@ const isMatch2 = (s, p) => {
   return go(0, 0);
 };
 
-/** 3) Dynamic programming (bottom-up variation) */
+// 3) Dynamic programming (bottom-up variation)
 const isMatch3 = (s, p) => {
   // init 2D matrix dp[s.length][p.length]
   const dp = [];
@@ -146,7 +146,7 @@ const isMatch3 = (s, p) => {
   return dp[0][0];
 };
 
-/** 4) Dynamic programming */
+// 4) Dynamic programming
 // https://leetcode.com/problems/regular-expression-matching/discuss/5651/Easy-DP-Java-Solution-with-detailed-Explanation/238767
 //
 // dp[i][j] denotes whether s[0 : i - 1] matches p[0 : j - 1]

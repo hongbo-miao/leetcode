@@ -37,7 +37,7 @@
  * @return {boolean}
  */
 
-/** Recursion */
+// Recursion
 const isValidBST = (root) => {
   const isValid = (node, min, max) => {
     if (node == null) return true;

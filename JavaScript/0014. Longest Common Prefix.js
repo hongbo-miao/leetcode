@@ -22,7 +22,7 @@
  * @return {string}
  */
 
-/** 1) Vertical scanning */
+// 1) Vertical scanning
 // Time O(S), where S is the sum of all characters in all strings
 //   In the worst case there will be nn equal strings with length m and the algorithm performs S = m * n character comparisons
 //   In the best case there are at most n * minLen comparisons where minLen is the length of the shortest string in the array
@@ -40,7 +40,7 @@ const longestCommonPrefix1 = (strs) => {
   return str0;
 };
 
-/** 2) Binary search */
+// 2) Binary search
 // Time O(S * log(n)), where S is the sum of all characters in all strings.
 //   The algorithm makes log(n) iterations, for each of them there are S = m * n comparisons, which gives in total O(S * log(n)) time complexity.
 // Space O(1)

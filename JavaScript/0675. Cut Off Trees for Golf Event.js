@@ -44,7 +44,7 @@
  * @return {number}
  */
 
-/** BFS */
+// BFS
 const cutOffTree = (forest) => {
   if (forest == null || forest.length === 0 || forest[0].length === 0) return 0;
   const h = forest.length;

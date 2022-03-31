@@ -31,7 +31,7 @@
  * @return {boolean}
  */
 
-/** 1) Binary search twice, treat 2d matrix as a long array */
+// 1) Binary search twice, treat 2d matrix as a long array
 // Time O(log(hw))
 const searchMatrix1 = (matrix, target) => {
   if (matrix == null || matrix.length === 0) return false;
@@ -55,7 +55,7 @@ const searchMatrix1 = (matrix, target) => {
   return false;
 };
 
-/** 2) Binary search twice, locate row first, then column */
+// 2) Binary search twice, locate row first, then column
 // Time O(log(h) + log(w))
 const searchMatrix2 = (matrix, target) => {
   if (matrix == null || matrix.length === 0) return false;
@@ -90,7 +90,7 @@ const searchMatrix2 = (matrix, target) => {
   return false;
 };
 
-/** 3) Search from top right corner */
+// 3) Search from top right corner
 // Similar
 // 240. Search a 2D Matrix II
 //

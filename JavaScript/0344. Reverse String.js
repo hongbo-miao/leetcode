@@ -8,12 +8,12 @@
  * @return {string}
  */
 
-/** 1) Cheating */
+// 1) Cheating
 const reverseString1 = (s) => {
   return s.split('').reverse().join('');
 };
 
-/** 2) Two pointers */
+// 2) Two pointers
 const reverseString = (s) => {
   const l = s.length - 1;
   for (let i = 0; i < ~~(s.length / 2); i++) {

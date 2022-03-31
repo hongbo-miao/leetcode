@@ -16,7 +16,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic programming - state machine */
+// 1) Dynamic programming - state machine
 // Check the state machine image at https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75928/Share-my-DP-solution-(By-State-Machine-Thinking)
 // Time O(n)
 // Space O(n)
@@ -40,7 +40,7 @@ const maxProfit1 = (prices) => {
   return Math.max(s0[prices.length - 1], s2[prices.length - 1]);
 };
 
-/** 2) Improved version of 1) */
+// 2) Improved version of 1)
 // Time O(n)
 // Space O(1)
 const maxProfit = (prices) => {

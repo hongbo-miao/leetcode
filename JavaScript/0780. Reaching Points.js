@@ -28,7 +28,7 @@
  * @return {boolean}
  */
 
-/** 1) Work Backwards (Naive Variant). Extremely slow. */
+// 1) Work Backwards (Naive Variant). Extremely slow.
 // Time O(max(tx,ty)). If say ty = 1, we could be subtracting tx times.
 // Space O(1)
 const reachingPoints1 = (sx, sy, tx, ty) => {
@@ -40,7 +40,7 @@ const reachingPoints1 = (sx, sy, tx, ty) => {
   return false;
 };
 
-/** 2) Work Backwards (Modulo Variant)*/
+// 2) Work Backwards (Modulo Variant)*/
 // https://leetcode.com/problems/reaching-points/discuss/114856/JavaC%2B%2BPython-Modulo-from-the-End
 //
 // Time O(log(max(tx, ty))). The analysis is similar to the analysis of the Euclidean algorithm, and we assume that the modulo operation can be done in O(1) time.

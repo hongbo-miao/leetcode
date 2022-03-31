@@ -18,7 +18,7 @@
 //   There are many calls to sumRegion function.
 //   You may assume that row1 ≤ row2 and col1 ≤ col2.
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(mn) time per query. Assume that mm and nn represents the number of rows and columns respectively, each
 //   sumRegion query can go through at most m * n elements.
 //
@@ -51,7 +51,7 @@ class NumMatrix {
   }
 }
 
-/** 2) Caching */
+// 2) Caching
 // https://leetcode.com/problems/range-sum-query-2d-immutable/discuss/75350/Clean-C%2B%2B-Solution-and-Explaination-O(mn)-space-with-O(1)-time
 //
 // sums[i+1][j+1] represents the sum of area from matrix[0][0] to matrix[i][j]

@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-/** Stack */
+// Stack
 // Similar
 // 224. Basic Calculator
 // 227. Basic Calculator II

@@ -23,7 +23,7 @@
  * @return {number}
  */
 
-/** 1) Using two arrays */
+// 1) Using two arrays
 // Time O(n)
 // Space O(n)
 //
@@ -55,7 +55,7 @@ const candy1 = (ratings) => {
   return sum;
 };
 
-/** 2) Using one array, similar to 1) */
+// 2) Using one array, similar to 1)
 // Time O(n)
 // Space O(n)
 const candy = (ratings) => {
@@ -77,7 +77,7 @@ const candy = (ratings) => {
   return sum;
 };
 
-/** 3 Single Pass Approach with Constant Space */
+// 3 Single Pass Approach with Constant Space
 // https://leetcode.com/problems/candy/solution/
 //
 // Time O(n)

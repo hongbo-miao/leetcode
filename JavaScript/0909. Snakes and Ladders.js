@@ -47,7 +47,7 @@
  * @return {number}
  */
 
-/** BFS */
+// BFS
 const snakesAndLadders = (board) => {
   const len = board.length;
 

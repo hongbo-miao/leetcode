@@ -16,7 +16,7 @@
  * @param {number} n
  * @return {boolean}
  */
-/** 1) */
+// 1)
 const isHappy1 = (n) => {
   const map = {};
   while (n !== 1 && map[n] == null) {
@@ -32,7 +32,7 @@ const sumOfSquares = (num) => {
     .reduce((sum, n) => sum + Number(n) ** 2, 0);
 };
 
-/** 2) */
+// 2)
 const isHappy = (n) => {
   const map = {};
 

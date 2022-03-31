@@ -23,7 +23,7 @@
  * @return {string[]}
  */
 
-/** Sort children + post-order traversal, Backtracking */
+// Sort children + post-order traversal, Backtracking
 // https://www.youtube.com/watch?v=4udFSOWQpdg
 //
 // Time O(n log n), worst case: one 'from' and the rest are all 'tos', and sort on 'tos'

@@ -28,14 +28,14 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
-/** 1) */
+// 1)
 const rotate1 = (nums, k) => {
   for (let i = 0; i < k; i++) {
     nums.unshift(nums.pop());
   }
 };
 
-/** 2) */
+// 2)
 const rotate = (nums, k) => {
   nums.unshift(...nums.splice(nums.length - k, k)); // splice mutates original array, and also return removed items
 };

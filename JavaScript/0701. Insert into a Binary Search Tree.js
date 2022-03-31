@@ -42,7 +42,7 @@
  * @return {TreeNode}
  */
 
-/** 1) Recursion */
+// 1) Recursion
 const insertIntoBST1 = (root, val) => {
   if (root == null) return new TreeNode(val);
   if (val < root.val) {
@@ -53,7 +53,7 @@ const insertIntoBST1 = (root, val) => {
   return root;
 };
 
-/** 2) Iteration */
+// 2) Iteration
 const insertIntoBST = (root, val) => {
   let node = root;
   while (node != null) {

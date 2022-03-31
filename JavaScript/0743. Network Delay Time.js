@@ -27,7 +27,7 @@
  * @return {number}
  */
 
-/** Bellman-Ford */
+// Bellman-Ford
 // Introduction to Bellman-Ford https://www.youtube.com/watch?v=obWXjtg0L64
 //
 // Time O(V * E)

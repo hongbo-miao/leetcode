@@ -25,7 +25,7 @@
  * @return {number[]}
  */
 
-/** Brute force */
+// Brute force
 // Time O(2^n)
 // Space O(2^n)
 //

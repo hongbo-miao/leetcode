@@ -33,7 +33,7 @@
  * @return {number}
  */
 
-/** Post-order traversal, DFS */
+// Post-order traversal, DFS
 const maximumAverageSubtree = (root) => {
   const go = (node) => {
     if (node == null) return { sum: 0, count: 0, maxAvg: 0 };

@@ -24,18 +24,18 @@
  * @return {number}
  */
 
-/** 1) Cheating */
+// 1) Cheating
 // Time O(n)
 // Space O(1)
 const search1 = (nums, target) => {
   return nums.indexOf(target);
 };
 
-/** 2) Brute force / Linear scan */
+// 2) Brute force / Linear scan
 // Time O(n)
 // Space O(1)
 
-/** 3) Binary search */
+// 3) Binary search
 // https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/273622/Javascript-Simple-O(log-N)-Binary-Search-Solution
 //
 // Time O(log n)
@@ -78,7 +78,7 @@ const search3 = (nums, target) => {
   return -1;
 };
 
-/** 4) Similar to 3) */
+// 4) Similar to 3)
 const search = (nums, target) => {
   let l = 0;
   let r = nums.length - 1;

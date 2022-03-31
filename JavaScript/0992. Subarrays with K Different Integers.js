@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-/** 1) Sliding window + hash map */
+// 1) Sliding window + Hash map
 // https://leetcode.com/problems/subarrays-with-k-different-integers/discuss/234482/JavaC%2B%2BPython-Sliding-Window-atMost(K)-atMost(K-1)
 //
 // First you may have feeling of using sliding window. Then this idea get stuck in the middle.
@@ -58,7 +58,7 @@ const subarraysWithKDistinct1 = (A, K) => {
   return atMostK(K) - atMostK(K - 1);
 };
 
-/** 2) Similar to 1), but easier to understand */
+// 2) Similar to 1), but easier to understand
 // Similar
 // 3. Longest Substring Without Repeating Characters
 // 904. Fruit Into Baskets

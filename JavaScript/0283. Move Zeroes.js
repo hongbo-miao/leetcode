@@ -16,7 +16,7 @@
  */
 
 
-/** 1) */
+// 1)
 // Time O(n)
 // Space O(1)
 const moveZeroes1 = (nums) => {
@@ -36,7 +36,7 @@ const moveZeroes1 = (nums) => {
   }
 };
 
-/** 2) Similar to 1), but hard to understand */
+// 2) Similar to 1), but hard to understand
 // Time O(n)
 // Space O(1)
 const moveZeroes = (nums) => {

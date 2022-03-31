@@ -16,7 +16,7 @@
  * @return {number}
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O(n log n)
 // Space O(1)
 const majorityElement1 = (nums) => {
@@ -24,7 +24,7 @@ const majorityElement1 = (nums) => {
   return nums[~~(nums.length / 2)];
 };
 
-/** 2) Hash Map */
+// 2) Hash Map
 // Time O(n)
 // Space O(n)
 const majorityElement = (nums) => {

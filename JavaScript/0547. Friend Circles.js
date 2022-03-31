@@ -32,7 +32,7 @@
  * @return {number}
  */
 
-/** DFS */
+// DFS
 // Similar
 // 200. Number of Islands
 // 547. Friend Circles

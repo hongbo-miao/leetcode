@@ -36,7 +36,7 @@
  * @return {number[][]}
  */
 
-/** 1) BFS */
+// 1) BFS
 // Time O(r * c). 2 passes of r * c each
 // Space O(r * c).
 //
@@ -78,6 +78,6 @@ const updateMatrix = (matrix) => {
   return matrix;
 };
 
-/** 2) Dynamic programming */
+// 2) Dynamic programming
 // Time O(r * c). 2 passes of r * c each
 // Space O(r * c)

@@ -18,7 +18,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-/** 1) Hash Map */
+// 1) Hash Map
 // Time O(n)
 // Space O(n)
 const singleNumber2 = (nums) => {
@@ -33,7 +33,7 @@ const singleNumber2 = (nums) => {
   }
 };
 
-/** 2) Bit manipulation */
+// 2) Bit manipulation
 // Time O(n)
 // Space O(1)
 const singleNumber = (nums) => {

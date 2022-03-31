@@ -22,7 +22,7 @@
  * @return {number[][]}
  */
 
-/** 1) Backtracking */
+// 1) Backtracking
 // Similar
 // 46. Permutations
 const subsets1 = (nums) => {
@@ -45,7 +45,7 @@ const subsets1 = (nums) => {
   return res;
 };
 
-/** 2) Similar to 1) */
+// 2) Similar to 1)
 const subsets = (nums) => {
   const res = [];
 

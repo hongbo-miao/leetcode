@@ -26,7 +26,7 @@
  * @return {string[]}
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O(n log n)
 // Space O(n)
 const topKFrequent = (words, k) => {
@@ -45,5 +45,5 @@ const topKFrequent = (words, k) => {
   return Object.keys(map).sort(compare).slice(0, k);
 };
 
-/** 2) Priority Queue */
+// 2) Priority Queue
 // JavaScript is lack of priority queue, check Python version

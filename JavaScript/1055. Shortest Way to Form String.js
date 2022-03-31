@@ -29,7 +29,7 @@
  * @param {string} target
  * @return {number}
  */
-/** 1) Greedy */
+// 1) Greedy
 // https://leetcode.com/problems/shortest-way-to-form-string/discuss/309404/C%2B%2B-with-picture-greedy
 //
 // Time O(ST), where S and T are sizes of the source and target.
@@ -72,7 +72,7 @@ const shortestWay1 = (source, target) => {
   return res > t ? -1 : res + 1 ;
 };
 
-/** 2) Greedy + Hash Set, taking more space, but easier to understand */
+// 2) Greedy + Hash Set, taking more space, but easier to understand
 // Time O(ST), where S and T are sizes of the source and target.
 // Space O(S)
 const shortestWay = (source, target) => {
@@ -98,10 +98,10 @@ const shortestWay = (source, target) => {
   return res + 1;
 };
 
-/** 3) Binary Search */
+// 3) Binary Search
 // Time O(S + TlogT)
 // space: O(S)
 
-/** 4) Inverted Index */
+// 4) Inverted Index
 // Time O(S + T)
 // space: O(S)

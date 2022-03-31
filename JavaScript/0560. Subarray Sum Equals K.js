@@ -14,7 +14,7 @@
  * @return {number}
  */
 
-/** 1) Brute force (time limit exceeded) */
+// 1) Brute force (time limit exceeded)
 // Time O(n^3)
 // Space O(1)
 const subarraySum1 = (nums, k) => {
@@ -31,7 +31,7 @@ const subarraySum1 = (nums, k) => {
   return count;
 };
 
-/** 2) */
+// 2)
 // Time O(n^2)
 // Space O(1)
 const subarraySum2 = (nums, k) => {
@@ -46,7 +46,7 @@ const subarraySum2 = (nums, k) => {
   return count;
 };
 
-/** 3) Hash map */
+// 3) Hash map
 // Time O(n)
 // Space O(n)
 const subarraySum = (nums, k) => {

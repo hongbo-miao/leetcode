@@ -61,11 +61,11 @@
  * @return {number}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(n^2)
 // Space O(1)
 
-/** 2) Treemap (JavaScript is lack of this data structure */
+// 2) Treemap (JavaScript is lack of this data structure
 // Time O(n log n)
 // Space O(n)
 // https://leetcode.com/problems/odd-even-jump/discuss/217981/JavaC%2B%2BPython-DP-idea-Using-TreeMap-or-Stack

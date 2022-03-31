@@ -33,7 +33,7 @@
  * @return {TreeNode[]}
  */
 
-/** Recursion */
+// Recursion
 // Note it only needs to add each new tree root node to res
 // e.g. root = [1, 2, 3, 4, 5, 6, 7], to_delete = [3, 5]
 // Only need push 1, 6, 7 to res which will prints [[1, 2, null, 4], [6], [7]]

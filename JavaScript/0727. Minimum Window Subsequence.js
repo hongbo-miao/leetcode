@@ -22,7 +22,7 @@
  * @return {string}
  */
 
-/** 1) Dynamic Programming */
+// 1) Dynamic Programming
 // https://leetcode.com/problems/minimum-window-subsequence/discuss/109362/Java-Super-Easy-DP-Solution-(O(mn)
 //
 // Time O(S * T)
@@ -74,6 +74,6 @@ const minWindow = (S, T) => {
   return len === n + 1 ? '' : S.slice(start, start + len);
 };
 
-/** 2) Dynamic Programming (Optimized) */
+// 2) Dynamic Programming (Optimized)
 // Time O(S * T)
 // Space O(S)

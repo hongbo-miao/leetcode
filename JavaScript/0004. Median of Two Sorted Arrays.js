@@ -22,7 +22,7 @@
  * @return {T}
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O((m + n)log(m + n))
 // Space O(m + n)
 const findMedianSortedArrays1 = (nums1, nums2) => {
@@ -32,7 +32,7 @@ const findMedianSortedArrays1 = (nums1, nums2) => {
   else return (nums[~~(nums.length / 2) - 1] + nums[~~(nums.length / 2)]) / 2;
 };
 
-/** 2) Binary Search */
+// 2) Binary Search
 // https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-4-median-of-two-sorted-arrays/
 //
 // Time O(log(m + n))

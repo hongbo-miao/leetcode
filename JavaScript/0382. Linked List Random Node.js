@@ -22,7 +22,7 @@
  * }
  */
 
-/** 1) Calculate the length first */
+// 1) Calculate the length first
 class Solution {
   /**
    * @param head The linked list's head.
@@ -56,7 +56,7 @@ class Solution {
   }
 }
 
-/** 2) Reservoir sampling */
+// 2) Reservoir sampling
 // https://www.youtube.com/watch?v=A1iwzSew5QY
 //
 // When we read the first node head, if the stream ListNode stops here, we can just return the head.val. The possibility is 1/1.

@@ -21,7 +21,7 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 
-/** 1) */
+// 1)
 // Time O(n)
 const merge1 = (nums1, m, nums2, n) => {
   let i = m + n;
@@ -52,7 +52,7 @@ const merge1 = (nums1, m, nums2, n) => {
   }
 };
 
-/** 2) */
+// 2)
 // Time O(n)
 const merge = (nums1, m, nums2, n) => {
   let i = m + n;

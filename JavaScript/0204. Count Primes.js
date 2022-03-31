@@ -11,7 +11,7 @@
  * @return {number}
  */
 
-/** Sieve of Eratosthenes */
+// Sieve of Eratosthenes
 // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 const countPrimes = (n) => {
   const map = {};

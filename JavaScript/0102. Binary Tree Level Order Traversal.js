@@ -26,7 +26,7 @@
  * @return {number[][]}
  */
 
-/** DFS - preorder traversal */
+// DFS - preorder traversal
 // Similar
 // 102. Binary Tree Level Order Traversal
 // 103. Binary Tree Zigzag Level Order Traversal
@@ -51,7 +51,7 @@ const levelOrder1 = (root) => {
   return res;
 };
 
-/** BFS - level-order traversal */
+// BFS - level-order traversal
 // Similar
 // 102. Binary Tree Level Order Traversal
 // 116. Populating Next Right Pointers in Each Node

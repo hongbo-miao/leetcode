@@ -52,7 +52,7 @@
  * @return {boolean}
  */
 
-/** 1) */
+// 1)
 // Check the image at https://leetcode.com/problems/perfect-rectangle/discuss/87201/might-be-the-simplest-on-solution-only-count-cornersno-area-no-maxminwith-comments to help understand
 //
 // We keep four sets that collectively act like a difference set -- one for each type (direction) of corner.
@@ -91,7 +91,7 @@ const isRectangleCover1 = (rectangles) => {
   return tls.size === 1 && trs.size === 1 && bls.size === 1 && brs.size === 1;
 };
 
-/** 2) Same to 1), but easier to understand */
+// 2) Same to 1), but easier to understand
 const isRectangleCover = (rectangles) => {
   const corner = (x, y) => `${x} ${y}`;
 

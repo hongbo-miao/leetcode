@@ -26,7 +26,7 @@
  * @return {number[]}
  */
 
-/** Binary Search */
+// Binary Search
 const numSmallerByFrequency = (queries, words) => {
   const w = [];
   for (const s of words) w.push(calc(s));

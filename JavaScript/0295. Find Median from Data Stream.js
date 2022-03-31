@@ -21,7 +21,7 @@
 // If all integer numbers from the stream are between 0 and 100, how would you optimize it?
 // If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?
 
-/** Binary search */
+// Binary search
 class MedianFinder {
   /**
    * initialize your data structure here.

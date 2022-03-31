@@ -19,7 +19,7 @@
  * @return {number}
  */
 
-/** 1) Prefix sum */
+// 1) Prefix sum
 // Time O(N)
 // Space O(K)
 //
@@ -46,7 +46,7 @@ const subarraysDivByK1 = (A, K) => {
   return count;
 };
 
-/** 2) Similar to 1), but easier to understand */
+// 2) Similar to 1), but easier to understand
 // https://www.geeksforgeeks.org/count-sub-arrays-sum-divisible-k/
 //
 // Let there be a subarray (i, j) whose sum is divisible by k

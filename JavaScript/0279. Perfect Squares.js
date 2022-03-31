@@ -17,7 +17,7 @@
  * @return {number}
  */
 
-/** Dynamic programming */
+// Dynamic programming
 // Similar
 // 279. Perfect Squares
 // 300. Longest Increasing Subsequence

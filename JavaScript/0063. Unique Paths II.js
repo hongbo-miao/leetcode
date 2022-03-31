@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-/** Dynamic programming */
+// Dynamic programming
 const uniquePathsWithObstacles = (obstacleGrid) => {
   if (obstacleGrid == null || obstacleGrid.length === 0 || obstacleGrid[0].length === 0) return 0;
 

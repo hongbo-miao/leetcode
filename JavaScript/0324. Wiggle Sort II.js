@@ -23,7 +23,7 @@ import findKthLargest from './0215. Kth Largest Element in an Array';
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
-/** 1) */
+// 1)
 const wiggleSort1 = (nums) => {
   nums.sort((a, b) => a - b);
 
@@ -40,7 +40,7 @@ const wiggleSort1 = (nums) => {
   }
 };
 
-/** 2) */
+// 2)
 // https://leetcode.com/problems/wiggle-sort-ii/discuss/77682/Step-by-step-explanation-of-index-mapping-in-Java
 const wiggleSort = (nums) => {
   if (nums == null || nums.length === 0) return;

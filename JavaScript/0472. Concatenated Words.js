@@ -20,7 +20,7 @@
  * @return {string[]}
  */
 
-/** Reuse any O(n^2) solution in 139. Word Break */
+// Reuse any O(n^2) solution in 139. Word Break
 // Similar
 // 139. Word Break
 // 472. Concatenated Words

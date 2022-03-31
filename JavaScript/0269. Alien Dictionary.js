@@ -48,7 +48,7 @@
  * @return {string}
  */
 
-/** Topological Sorting + BFS */
+// Topological Sorting + BFS
 // Similar
 // 210. Course Schedule II
 // 269. Alien Dictionary

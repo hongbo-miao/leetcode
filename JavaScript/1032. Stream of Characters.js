@@ -27,7 +27,7 @@
 // Queries will only consist of lowercase English letters.
 // The number of queries is at most 40000.
 
-/** 1) Trie */
+// 1) Trie
 class StreamChecker {
   /**
    * @param {string[]} words
@@ -76,5 +76,5 @@ class Trie {
   }
 }
 
-/** 2) Extends Map */
+// 2) Extends Map
 // https://leetcode.com/problems/stream-of-characters/discuss/278713/JavaScript-trie-O(nl)-runtime-O(ml)-space

@@ -22,7 +22,7 @@
  * @return {number}
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O(n)
 // Space O(n)
 const findDuplicate1 = (nums) => {
@@ -34,7 +34,7 @@ const findDuplicate1 = (nums) => {
   return null;
 };
 
-/** 2) Sorting */
+// 2) Sorting
 // Time O(n log n)
 // Space O(1)
 const findDuplicate2 = (nums) => {
@@ -45,7 +45,7 @@ const findDuplicate2 = (nums) => {
   return null;
 };
 
-/** 3) Cycle detection - Floyd's Tortoise and Hare */
+// 3) Cycle detection - Floyd's Tortoise and Hare
 // Similar
 // 142. Linked List Cycle II
 //

@@ -48,7 +48,7 @@
  * @return {Node}
  */
 
-/** 1) */
+// 1)
 // Time O(n)
 // Space O(1)
 const connect1 = (root) => {
@@ -63,7 +63,7 @@ const connect1 = (root) => {
   return root;
 };
 
-/** 2) BFS - level-order traversal */
+// 2) BFS - level-order traversal
 // Similar
 // 102. Binary Tree Level Order Traversal
 // 116. Populating Next Right Pointers in Each Node

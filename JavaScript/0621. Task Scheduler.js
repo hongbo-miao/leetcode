@@ -19,7 +19,7 @@
  * @return {number}
  */
 
-/** 1) */
+// 1)
 // https://leetcode.com/problems/task-scheduler/discuss/104496/concise-Java-Solution-O(N)-time-O(26)-space
 const leastInterval1 = (tasks, n) => {
   const arr = Array(26).fill(0);
@@ -47,7 +47,7 @@ const leastInterval1 = (tasks, n) => {
   );
 };
 
-/** 2) Similar to 1), but easier to understand */
+// 2) Similar to 1), but easier to understand
 const leastInterval = (tasks, n) => {
   if (n === 0) return tasks.length;
 

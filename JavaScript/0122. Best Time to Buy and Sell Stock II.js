@@ -30,7 +30,7 @@
  * @return {number}
  */
 
-/** 1) */
+// 1)
 const maxProfit1 = (prices) => {
   let res = 0;
   let slow = 0;
@@ -47,7 +47,7 @@ const maxProfit1 = (prices) => {
   return res;
 };
 
-/** 2) */
+// 2)
 // Time O(n)
 // Space O(1)
 const maxProfit = (prices) => {

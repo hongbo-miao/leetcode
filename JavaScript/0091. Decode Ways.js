@@ -23,7 +23,7 @@
  * @return {number}
  */
 
-/** Dynamic programming */
+// Dynamic programming
 // Similar
 // 70. Climbing Stairs
 // 91. Decode Ways

@@ -27,7 +27,7 @@
  * @return {number}
  */
 
-/** 1) Binary search */
+// 1) Binary search
 // Time O(n log n)
 // Space O(1)
 const findPairs1 = (nums, k) => {
@@ -52,7 +52,7 @@ const findPairs1 = (nums, k) => {
   return count;
 };
 
-/** 2) Hash map */
+// 2) Hash map
 // Time O(n)
 // Space O(n)
 const findPairs = (nums, k) => {

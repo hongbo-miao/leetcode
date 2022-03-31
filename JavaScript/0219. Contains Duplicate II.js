@@ -21,7 +21,7 @@
  * @return {boolean}
  */
 
-/** Hash map */
+// Hash map
 // Time O(n)
 // Space O(n)
 const containsNearbyDuplicate = (nums, k) => {

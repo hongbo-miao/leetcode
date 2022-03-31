@@ -20,7 +20,7 @@
  * @return {ListNode}
  */
 
-/** 1) */
+// 1)
 // Time O(n)
 // Space O(1)
 const addTwoNumbers1 = (l1, l2) => {
@@ -51,7 +51,7 @@ const addTwoNumbers1 = (l1, l2) => {
   return preHead.next;
 };
 
-/** 2) Similar to 1), less compact, but easy to understand carry */
+// 2) Similar to 1), less compact, but easy to understand carry
 // Time O(n)
 // Space O(1)
 const addTwoNumbers = (l1, l2) => {

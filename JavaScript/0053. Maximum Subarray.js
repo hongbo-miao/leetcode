@@ -15,7 +15,7 @@
  * @return {number}
  */
 
-/** 1) Brute force (time limit exceeded) */
+// 1) Brute force (time limit exceeded)
 // Time O(n^3)
 // Space O(1)
 const maxSubArray1 = (nums) => {
@@ -32,7 +32,7 @@ const maxSubArray1 = (nums) => {
   return max;
 };
 
-/** 2) Dynamic programming - Kadane's algorithm */
+// 2) Dynamic programming - Kadane's algorithm
 // Similar
 // 152. Maximum Product Subarray
 //
@@ -62,7 +62,7 @@ const maxSubArray2 = (nums) => {
   return max;
 };
 
-/** 3) Similar to 2 */
+// 3) Similar to 2
 const maxSubArray = (nums) => {
   let currMax = -Infinity;
   let max = -Infinity;

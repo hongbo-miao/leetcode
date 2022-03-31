@@ -18,7 +18,7 @@
 //
 // Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.
 
-/** 1) Cheating */
+// 1) Cheating
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -47,7 +47,7 @@ const deserialize1 = (data) => {
   return JSON.parse(data);
 };
 
-/** 2) BFS */
+// 2) BFS
 //    1
 //   / \
 //  2   3
@@ -98,7 +98,7 @@ const deserialize2 = (data) => {
   return root;
 };
 
-/** 3) DFS */
+// 3) DFS
 // Time O(n)
 // Space O(n)
 //

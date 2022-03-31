@@ -16,13 +16,13 @@
  * @return {string}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(n^3)
 // Space O(1)
 //
 // Pick all possible starting and ending positions for a substring, and verify if it is a palindrome
 
-/** 2) Dynamic programming */
+// 2) Dynamic programming
 // Time O(n^2)
 // Space O(n^2)
 //
@@ -40,7 +40,7 @@
 // This yields a straight forward DP solution, which we first initialize the one and two letters palindromes, and work
 // our way up finding all three letters palindromes, and so on.
 
-/** 3) Expand from center */
+// 3) Expand from center
 // https://www.youtube.com/watch?v=m2Mk9JN5T4A
 //
 // Time O(n^2). Expanding a palindrome around its center takes O(n) time, so the overall complexity is O(n^2)
@@ -65,7 +65,7 @@ const longestPalindrome = (s) => {
   return res;
 };
 
-/** 4) Manacher's algorithm */
+// 4) Manacher's algorithm
 // Time O(n)
 //
 // It is a non-trivial algorithm

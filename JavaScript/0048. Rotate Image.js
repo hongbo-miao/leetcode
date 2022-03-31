@@ -45,7 +45,7 @@
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
 
-/** 1) Reverse up to down, then swap the symmetry */
+// 1) Reverse up to down, then swap the symmetry
 // Time O(n^2)
 // Space O(1)
 //
@@ -65,7 +65,7 @@ const rotate1 = (matrix) => {
   }
 };
 
-/** 2) Swap three times from outside to inside */
+// 2) Swap three times from outside to inside
 // Time O(n^2)
 // Space O(1)
 //
@@ -91,7 +91,7 @@ const rotate2 = (matrix) => {
   }
 };
 
-/** 3) Similar to 2) */
+// 3) Similar to 2)
 // Time O(n^2)
 // Space O(1)
 const rotate3 = (matrix) => {
@@ -107,7 +107,7 @@ const rotate3 = (matrix) => {
   }
 };
 
-/** 4) Rotate four rectangles, easier to understand than 2) and 3) */
+// 4) Rotate four rectangles, easier to understand than 2) and 3)
 // Time O(n^2)
 // Space O(1)
 const rotate = (matrix) => {

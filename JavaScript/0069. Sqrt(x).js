@@ -20,12 +20,12 @@
  * @param {number} x
  * @return {number}
  */
-/** 1) Cheating */
+// 1) Cheating
 const mySqrt1 = (x) => {
   return ~~(x ** 0.5);
 };
 
-/** 2) */
+// 2)
 // Time O(n)
 // Space O(1)
 const mySqrt2 = (x) => {
@@ -36,7 +36,7 @@ const mySqrt2 = (x) => {
   return x;
 };
 
-/** 3) Integer square root */
+// 3) Integer square root
 // https://en.wikipedia.org/wiki/Integer_square_root
 const mySqrt3 = (x) => {
   let r = x;
@@ -46,7 +46,7 @@ const mySqrt3 = (x) => {
   return r;
 };
 
-/** 4) Binary search */
+// 4) Binary search
 // Time O(log n)
 // Space O(1)
 const mySqrt = (x) => {

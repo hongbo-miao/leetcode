@@ -20,7 +20,7 @@
  * @return {number[]}
  */
 
-/** 1) */
+// 1)
 // Time O(max(KlogK, N))
 //
 // map { '1': 2, '2': 3 }
@@ -51,7 +51,7 @@ const rearrangeBarcodes = (barcodes) => {
   return barcodes;
 };
 
-/** 2) Priority Queue */
+// 2) Priority Queue
 // Similar
 // 358. Rearrange String k Distance Apart
 // 767. Reorganize String

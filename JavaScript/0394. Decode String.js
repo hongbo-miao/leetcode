@@ -14,7 +14,7 @@
  * @return {string}
  */
 
-/** Stack */
+// Stack
 // After read:  3    [     a     ]     2    [    b      3       [      d       ]      c       ]
 // countStack: (3)  (3)   (3)    ()   (2)  (2)  (2)   (2 3)   (2 3)   (2 3)   (2)    (2)      ()
 //   resStack: ()   ('')  ('')   ()   ()  (aaa) (aaa) (aaa)  (aaa b) (aaa b)  (aaa) (aaa)     ()

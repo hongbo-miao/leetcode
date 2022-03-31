@@ -15,11 +15,11 @@
  * @return {number}
  */
 
-/** 1) Brute Force */
+// 1) Brute Force
 // Time O(n^3)
 // Space O(1)
 
-/** 2) Two Pointers / Sliding Window */
+// 2) Two Pointers / Sliding Window
 // Similar
 // 167. Two Sum II - Input array is sorted
 // 209. Minimum Size Subarray Sum

@@ -36,7 +36,7 @@
  * @param {string[]} tokens
  * @return {number}
  */
-/** 1) Stack */
+// 1) Stack
 const evalRPN1 = (tokens) => {
   const ops = {
     '+': (a, b) => a + b,
@@ -60,7 +60,7 @@ const evalRPN1 = (tokens) => {
   return st[0];
 };
 
-/** 2) Similar to 1), but slower */
+// 2) Similar to 1), but slower
 const evalRPN = (tokens) => {
   if (tokens.length === 1) return Number(tokens[0]);
 

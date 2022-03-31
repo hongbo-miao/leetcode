@@ -13,7 +13,7 @@
  * @return {number[]}
  */
 
-/** 1) Bucket sorting */
+// 1) Bucket sorting
 // Time O(n)
 // Space O(n) array -> O(k) hashtable
 const topKFrequent1 = (nums, k) => {
@@ -43,7 +43,7 @@ const topKFrequent1 = (nums, k) => {
   return res;
 };
 
-/** 2) */
+// 2)
 const topKFrequent = (nums, k) => {
   const map = {};
   for (const n of nums) {

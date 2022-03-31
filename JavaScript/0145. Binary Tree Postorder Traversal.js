@@ -24,7 +24,7 @@
  * @return {number[]}
  */
 
-/** 1) Recursion */
+// 1) Recursion
 const postorderTraversal1 = (root) => {
   const res = [];
 
@@ -39,7 +39,7 @@ const postorderTraversal1 = (root) => {
   return res;
 };
 
-/** 2) Iteration using stack */
+// 2) Iteration using stack
 const postorderTraversal2 = (root) => {
   const st = [];
   const res = [];

@@ -33,7 +33,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic Programming */
+// 1) Dynamic Programming
 // https://leetcode.com/problems/new-21-game/discuss/132334/One-Pass-DP-O(N)
 //
 // Time O(n)
@@ -57,7 +57,7 @@ const new21Game1 = (N, K, W) => {
   return res;
 };
 
-/** 2) Dynamic Programming, easier to understand than 1) */
+// 2) Dynamic Programming, easier to understand than 1)
 // https://www.youtube.com/watch?v=-zBuTO4sIwQ
 //
 // Time O(n)

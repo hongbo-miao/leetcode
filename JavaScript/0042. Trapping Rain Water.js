@@ -17,7 +17,7 @@
  * @return {number}
  */
 
-/** 1) Brute Force */
+// 1) Brute Force
 // Time O(n^2)
 // Space O(1)
 //
@@ -45,7 +45,7 @@ const trap1 = (height) => {
   return res;
 };
 
-/** 2) Dynamic Programming */
+// 2) Dynamic Programming
 // Time O(n)
 // Space O(n)
 //
@@ -76,7 +76,7 @@ const trap2 = (height) => {
   return res;
 };
 
-/** 3) Stack */
+// 3) Stack
 // https://www.youtube.com/watch?v=78R14lKv_pE
 // Time O(n)
 // Space O(n)
@@ -102,7 +102,7 @@ const trap3 = (height) => {
   return res;
 };
 
-/** 4) Two Pointers */
+// 4) Two Pointers
 // Time O(n)
 // Space O(1)
 //

@@ -41,7 +41,7 @@
  * @return {number}
  */
 
-/** 1) BFS */
+// 1) BFS
 // Time O(M * N), where M is the length of words and N is the total number of words in the input word list. Finding
 //   out all the transformations takes M iterations for each of the N words. Also, breadth first search in the worst
 //   case might go to each of the N words.
@@ -74,7 +74,7 @@ const ladderLength = (beginWord, endWord, wordList) => {
   return 0;
 };
 
-/** 2) Bidirectional BFS */
+// 2) Bidirectional BFS
 // https://leetcode.com/problems/word-ladder/solution/
 //
 // Time O(M * N), where M is the length of words and NN is the total number of words in the input word list. Similar

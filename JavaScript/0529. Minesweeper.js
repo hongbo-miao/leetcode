@@ -62,7 +62,7 @@
  * @return {character[][]}
  */
 
-/** 1) DFS */
+// 1) DFS
 const updateBoard1 = (board, click) => {
   const dirs = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1]];
   const h = board.length;
@@ -112,7 +112,7 @@ const updateBoard1 = (board, click) => {
   return board;
 };
 
-/** 2) BFS */
+// 2) BFS
 const updateBoard = (board, click) => {
   const dirs = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1]];
   const h = board.length;

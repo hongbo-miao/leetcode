@@ -18,7 +18,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic programming */
+// 1) Dynamic programming
 // Similar
 // 279. Perfect Squares
 // 300. Longest Increasing Subsequence
@@ -48,7 +48,7 @@ const lengthOfLIS1 = (nums) => {
   return Math.max(...dp);
 };
 
-/** 2) Dynamic programming with binary search */
+// 2) Dynamic programming with binary search
 // https://leetcode.com/problems/longest-increasing-subsequence/discuss/74824/JavaPython-Binary-search-O(nlogn)-time-with-explanation
 //
 // Time O(n log n)

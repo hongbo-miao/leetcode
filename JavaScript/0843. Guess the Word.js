@@ -39,7 +39,7 @@
  * @return {void}
  */
 
-/** 1) Random (Only 80% time can pass the test) */
+// 1) Random (Only 80% time can pass the test)
 // https://leetcode.com/problems/guess-the-word/discuss/133862/Random-Guess-and-Minimax-Guess-with-Comparison
 // O(n), average 6.5 guess, worst case 14 guess.
 //
@@ -70,7 +70,7 @@ const findSecretWord1 = (wordlist, master) => {
 };
 
 
-/** 2) Minimax (100% time can pass the test) */
+// 2) Minimax (100% time can pass the test)
 // https://leetcode.com/problems/guess-the-word/discuss/133862/Random-Guess-and-Minimax-Guess-with-Comparison
 // O(n^2), average 5.5 guess, worst case 10 guess.
 //

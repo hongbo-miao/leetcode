@@ -15,7 +15,7 @@
  * @return {number}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(n^2)
 // Space O(1)
 const maxArea1 = (heights) => {
@@ -31,7 +31,7 @@ const maxArea1 = (heights) => {
   return max;
 };
 
-/** 2) Two pointers */
+// 2) Two pointers
 // Time O(n)
 // Space O(1)
 //

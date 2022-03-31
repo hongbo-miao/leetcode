@@ -18,7 +18,7 @@
  * @return {ListNode}
  */
 
-/** 1) Hash set */
+// 1) Hash set
 // Time O(n)
 // Space O(n)
 const detectCycle1 = (head) => {
@@ -34,7 +34,7 @@ const detectCycle1 = (head) => {
   return null;
 };
 
-/** 2) Floyd's Tortoise and Hare */
+// 2) Floyd's Tortoise and Hare
 // Time O(n)
 // Space O(1)
 const detectCycle = (head) => {

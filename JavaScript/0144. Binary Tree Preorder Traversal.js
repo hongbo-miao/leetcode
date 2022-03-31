@@ -25,7 +25,7 @@
  * @return {number[]}
  */
 
-/** 1) Recursion */
+// 1) Recursion
 const preorderTraversal1 = (root) => {
   const res = [];
 
@@ -40,7 +40,7 @@ const preorderTraversal1 = (root) => {
   return res;
 };
 
-/** 2) Iteration using stack */
+// 2) Iteration using stack
 const preorderTraversal = (root) => {
   const st = [];
   const res = [];

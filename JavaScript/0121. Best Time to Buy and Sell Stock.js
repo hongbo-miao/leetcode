@@ -22,7 +22,7 @@
  * @return {number}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(n^2)
 // Space O(1)
 const maxProfit1 = (prices) => {
@@ -36,7 +36,7 @@ const maxProfit1 = (prices) => {
   return max;
 };
 
-/** 2) One pass using min and max */
+// 2) One pass using min and max
 // Time O(n)
 // Space O(1)
 const maxProfit = (prices) => {

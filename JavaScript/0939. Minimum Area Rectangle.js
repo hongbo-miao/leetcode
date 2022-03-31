@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-/** Count by Diagonal */
+// Count by Diagonal
 // Time O(n^2)
 // Space O(n)
 // For each pair of points in the array, consider them to be the long diagonal of a potential rectangle.

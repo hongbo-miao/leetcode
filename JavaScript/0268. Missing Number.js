@@ -18,7 +18,7 @@
  * @return {number}
  */
 
-/** 1) Gauss' Formula */
+// 1) Gauss' Formula
 // Time O(n)
 // Space O(1)
  const missingNumber1 = (nums) => {
@@ -26,7 +26,7 @@
   return (1 + nums.length) * nums.length / 2 - sum;
 };
 
-/** 2) Hash Set */
+// 2) Hash Set
 // Time O(n)
 // Space O(n)
 const missingNumber = (nums) => {

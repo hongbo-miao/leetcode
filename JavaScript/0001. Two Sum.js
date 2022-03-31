@@ -15,7 +15,7 @@
  * @return {number[]}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(n^2)
 // Space O(1)
 const twoSum1 = (nums, target) => {
@@ -26,7 +26,7 @@ const twoSum1 = (nums, target) => {
   }
 };
 
-/** 2) */
+// 2)
 // Time O(n)
 // Space O(n)
 const twoSum = (nums, target) => {

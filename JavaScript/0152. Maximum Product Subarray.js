@@ -17,7 +17,7 @@
  * @return {number}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(n^2)
 // Space O(1)
 const maxProduct1 = (nums) => {
@@ -36,7 +36,7 @@ const maxProduct1 = (nums) => {
   return max;
 };
 
-/** 2) */
+// 2)
 // Similar
 // 53. Maximum Subarray
 //

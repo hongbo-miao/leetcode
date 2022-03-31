@@ -11,7 +11,7 @@
  * @return {number}
  */
 
-/** 1) Brute force (time limit exceeded) */
+// 1) Brute force (time limit exceeded)
 // Time O(n^3)
 // Space O(min(n,m)). We need O(k) space for checking a substring has no duplicate characters, where k is the size of the Set.
 //   The size of the Set is upper bounded by the size of the string nn and the size of the charset/alphabet m.
@@ -38,7 +38,7 @@ const lengthOfLongestSubstring1 = (s) => {
 };
 
 
-/** 2) */
+// 2)
 const lengthOfLongestSubstring2 = (s) => {
   let max = 0;
   let localMax = 0;
@@ -57,7 +57,7 @@ const lengthOfLongestSubstring2 = (s) => {
   return max;
 };
 
-/** 3) */
+// 3)
 const lengthOfLongestSubstring3 = (s) => {
   let max = 0;
   let chars = [];
@@ -69,7 +69,7 @@ const lengthOfLongestSubstring3 = (s) => {
   return max;
 };
 
-/** 4) Sliding window + hash map */
+// 4) Sliding window + Hash map
 // Similar
 // 3. Longest Substring Without Repeating Characters
 // 904. Fruit Into Baskets
@@ -100,7 +100,7 @@ const lengthOfLongestSubstring4 = (s) => {
   return max;
 };
 
-/** 5) Sliding window (optimized) */
+// 5) Sliding window (optimized)
 // Time O(n)
 // Space O(min(m, n)), m is the size of the hash map
 //

@@ -18,7 +18,7 @@
  * @return {number}
  */
 
-/** 1) */
+// 1)
 // https://leetcode.com/problems/best-sightseeing-pair/discuss/260850/JavaC%2B%2BPython-One-Pass
 const maxScoreSightseeingPair1 = (A) => {
   let max = 0;
@@ -30,7 +30,7 @@ const maxScoreSightseeingPair1 = (A) => {
   return max;
 };
 
-/** 2) Similar to 1), but easier to understand */
+// 2) Similar to 1), but easier to understand
 // We want to get the max value of (A[i] + i) + (A[j] - j), where i < j, so we need to keep record of the previous
 // best index which can make the max A[i] + i.
 const maxScoreSightseeingPair = (A) => {

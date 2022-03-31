@@ -16,7 +16,7 @@
  * @return {number}
  */
 
-/** Chronological ordering */
+// Chronological ordering
 // https://leetcode.com/problems/meeting-rooms-ii/discuss/67855/Explanation-of-%22Super-Easy-Java-Solution-Beats-98.8%22-from-%40pinkfloyda
 // For simulation, check @JobQ' comment under the post.
 //

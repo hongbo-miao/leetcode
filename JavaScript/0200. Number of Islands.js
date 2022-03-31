@@ -25,7 +25,7 @@
  * @return {number}
  */
 
-/** 1) DFS */
+// 1) DFS
 // Similar
 // 200. Number of Islands
 // 547. Friend Circles
@@ -62,13 +62,13 @@ const numIslands = (grid) => {
   return res;
 };
 
-/** 2) BFS */
+// 2) BFS
 // https://leetcode.com/problems/number-of-islands/solution/
 // Time O(M * N) where M is the number of rows and N is the number of columns.
 // Space O(min(M, N)) because in worst case where the grid is filled with lands, the size of queue can grow up to min(M,N).
 
 
-/** 3) Union Find */
+// 3) Union Find
 // Time O(M * N) where M is the number of rows and N is the number of columns. Note that Union operation takes
 //   essentially constant time[1] when UnionFind is implemented with both path compression and union by rank.
 // Space O(M * N) as required by UnionFind data structure.

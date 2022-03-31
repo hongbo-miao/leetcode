@@ -54,7 +54,7 @@
  * @return {boolean}
  */
 
-/** 1) Dynamic programming */
+// 1) Dynamic programming
 // Time O(mn)
 // Space O(mn)
 //
@@ -88,7 +88,7 @@ const isMatch1 = (s, p) => {
   return dp[s.length][p.length];
 };
 
-/** 2) Two pointers */
+// 2) Two pointers
 // s[i] === p[j] || p[j] === '?' in these cases, it's matched, advance both pointers.
 // p[j] === '*' in this case, there are two cases that we need to try. [i, j + 1] and [i + 1, j].
 // So we try one case and store another case into the stack. Whenever one path is not matched, restore i, j from stack.

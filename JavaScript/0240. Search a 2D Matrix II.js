@@ -23,7 +23,7 @@
 // Input: matrix, target = 20
 // Output: false
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(mn)
 // Space O(1)
 const searchMatrix1 = (matrix, target) => {
@@ -36,7 +36,7 @@ const searchMatrix1 = (matrix, target) => {
   return false;
 };
 
-/** 2) Recursion */
+// 2) Recursion
 const searchMatrix2 = (matrix, target) => {
   if (matrix == null || matrix.length === 0) return false;
   const h = matrix.length;
@@ -59,10 +59,10 @@ const searchMatrix2 = (matrix, target) => {
   return go(0, 0)
 };
 
-/** 3) Binary Search */
+// 3) Binary Search
 // https://leetcode.com/problems/search-a-2d-matrix-ii/solution/
 
-/** 4) Search from top right corner */
+// 4) Search from top right corner
 // Similar
 // 74. Search a 2D Matrix
 //

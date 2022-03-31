@@ -41,7 +41,7 @@
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
 
-/** 1) Hacking solution, set to -0 */
+// 1) Hacking solution, set to -0
 // https://leetcode.com/problems/set-matrix-zeroes/discuss/26047/Quiet-simple-answer-'hacking'-with-javascript
 //
 // Background
@@ -70,7 +70,7 @@ const setZeroes1 = (matrix) => {
   }
 };
 
-/** 2) Use first row and col to store states */
+// 2) Use first row and col to store states
 // https://leetcode.com/problems/set-matrix-zeroes/discuss/26014/Any-shorter-O(1)-space-solution
 //
 // Idea
@@ -106,7 +106,7 @@ const setZeroes2 = (matrix) => {
   }
 };
 
-/** 3) similar to method 2), but less compact */
+// 3) similar to method 2), but less compact
 const setZeroes = (matrix) => {
   const h = matrix.length;
   const w = matrix[0].length;

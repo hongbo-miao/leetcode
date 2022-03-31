@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-/** Binary Search + Greedy */
+// Binary Search + Greedy
 // Time O(n * log(sum of array)). The binary search costs O(log(sum of array)), where sum of array is the sum of elements in nums. For each computation of F(x), the time complexity is O(n)O(n) since we only need to go through the whole array.
 // Space O(1)
 //

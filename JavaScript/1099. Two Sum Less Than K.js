@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-/** Sorting + Two Pointers */
+// Sorting + Two Pointers
 // Time O(n log n)
 // Space O(1)
 const twoSumLessThanK = (A, K) => {

@@ -18,7 +18,7 @@
  * @param {number} amount
  * @return {number}
  */
-/** 1) Dynamic Programming */
+// 1) Dynamic Programming
 // Similar
 // 279. Perfect Squares
 // 300. Longest Increasing Subsequence
@@ -77,7 +77,7 @@ const coinChange1 = (coins, amount) => {
   return dp[amount] === Infinity ? -1 : dp[amount];
 };
 
-/** 2) DFS + Greedy + Pruning */
+// 2) DFS + Greedy + Pruning
 // https://youtu.be/uUETHdijzkA
 const coinChange = (coins, amount) => {
   coins.sort((a, b) => b - a);

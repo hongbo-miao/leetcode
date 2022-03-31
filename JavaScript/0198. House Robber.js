@@ -21,7 +21,7 @@
  * @return {number}
  */
 
-/** 1) Recursion */
+// 1) Recursion
 // Time O(n)
 // Space O(n)
 const rob1 = (nums) => {
@@ -41,7 +41,7 @@ const rob1 = (nums) => {
   return count(nums.length - 1)
 };
 
-/** 2) Iteration (dynamic programming) */
+// 2) Iteration (dynamic programming)
 // Time O(n)
 // Space O(n)
 const rob2 = (nums) => {
@@ -56,7 +56,7 @@ const rob2 = (nums) => {
   return dp[dp.length - 1];
 };
 
-/** 3) Iteration */
+// 3) Iteration
 // Time O(n)
 // Space O(1)
 const rob = (nums) => {

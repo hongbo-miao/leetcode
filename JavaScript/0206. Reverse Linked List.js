@@ -21,7 +21,7 @@
  * @return {ListNode}
  */
 
-/** 1) Iteration */
+// 1) Iteration
 const reverseList1 = (head) => {
   if (head == null) return head;
 
@@ -35,7 +35,7 @@ const reverseList1 = (head) => {
   return cur;
 };
 
-/** 2) Recursion */
+// 2) Recursion
 // https://leetcode.com/problems/reverse-linked-list/solution/
 const reverseList = (head) => {
   if (head == null || head.next == null) return head;

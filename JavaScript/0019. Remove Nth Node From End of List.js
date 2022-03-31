@@ -23,7 +23,7 @@
  * @return {ListNode}
  */
 
-/** Two pointers slow and fast */
+// Two pointers slow and fast
 // Time O(n)
 // Space O(1)
 const removeNthFromEnd = (head, n) => {

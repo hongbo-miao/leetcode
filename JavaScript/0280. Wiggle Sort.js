@@ -10,7 +10,7 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O(n log n)
 // Space O(1)
 const wiggleSort1 = (nums) => {
@@ -22,7 +22,7 @@ const wiggleSort1 = (nums) => {
   }
 };
 
-/** 2) One-pass swap */
+// 2) One-pass swap
 // Time O(n)
 // Space O(1)
 const wiggleSort = (nums) => {

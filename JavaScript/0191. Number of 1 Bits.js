@@ -17,12 +17,12 @@
  * @return {number}
  */
 
-/** 1) */
+// 1)
 const hammingWeight1 = (n) => {
   return n.toString(2).split('0').join('').length;
 };
 
-/** 2) */
+// 2)
 const hammingWeight = (n) => {
   let w = 0;
   for (let c of n.toString(2)) {

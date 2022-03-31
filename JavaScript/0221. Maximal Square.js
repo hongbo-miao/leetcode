@@ -16,7 +16,7 @@
  * @return {number}
  */
 
-/** Dynamic programming */
+// Dynamic programming
 // https://leetcode.com/problems/maximal-square/discuss/61803/Easy-DP-solution-in-C++-with-detailed-explanations-(8ms-O(n2)-time-and-O(n)-space)
 //
 // 1. topmost row: P[0][j] = matrix[0][j]

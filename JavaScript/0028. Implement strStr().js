@@ -24,13 +24,13 @@
  * @return {number}
  */
 
-/** 1) Cheating */
+// 1) Cheating
 const strStr1 = (haystack, needle) => {
   if (needle == null || needle === '') return 0;
   return haystack.indexOf(needle);
 };
 
-/** 2) Brute force */
+// 2) Brute force
 const strStr2 = (haystack, needle) => {
   if (needle == null || needle === '') return 0;
   for (let i = 0; i < haystack.length - needle.length + 1; i++) {
@@ -39,7 +39,7 @@ const strStr2 = (haystack, needle) => {
   return -1;
 };
 
-/** 3) Same to 2) */
+// 3) Same to 2)
 const strStr = (haystack, needle) => {
   if (needle == null || needle === '') return 0;
   for (let i = 0; i < haystack.length - needle.length + 1; i++) {
@@ -51,5 +51,5 @@ const strStr = (haystack, needle) => {
   return -1;
 };
 
-/** 4) KMP */
+// 4) KMP
 // https://www.zhihu.com/question/21923021

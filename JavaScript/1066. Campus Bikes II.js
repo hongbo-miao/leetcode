@@ -29,7 +29,7 @@
  * @return {number}
  */
 
-/** Backtracking */
+// Backtracking
 const assignBikes = (workers, bikes) => {
   const usedBikes = {};
   let res = Infinity;

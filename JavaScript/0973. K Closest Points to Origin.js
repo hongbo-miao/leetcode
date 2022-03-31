@@ -30,7 +30,7 @@
  * @return {number[][]}
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O(n log n)
 const kClosest1 = (points, K) => {
   const getDist = ([x, y]) => x ** 2 + y ** 2;
@@ -39,7 +39,7 @@ const kClosest1 = (points, K) => {
     .slice(0, K);
 };
 
-/** 2) Quick Sort */
+// 2) Quick Sort
 // Time O(n)
 const kClosest = (points, K) => {
   return quickSort(points, 0, points.length - 1).slice(0, K);

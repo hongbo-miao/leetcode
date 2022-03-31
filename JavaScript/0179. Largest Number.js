@@ -16,7 +16,7 @@
  * @return {string}
  */
 
-/** Sorting */
+// Sorting
 // Time O(n log n)
 const largestNumber = (nums) => {
   return nums

@@ -19,7 +19,7 @@
  * @return {number[][]}
  */
 
-/** 1) Dynamic programming */
+// 1) Dynamic programming
 // Time O(numRows^2), consider how many overall loop iterations there are. The outer loop obviously runs numRows times, but for each iteration of the outer loop, the inner loop runs rowNum times
 //   Therefore, the overall number of triangle updates that occur is 1 + 2 + 3 + ... + numRows, which, according to Gauss' formula, is (1 + numRows) * numRows / 2 -> O(numRows^2)
 // Space O(numRows^2), we need to store each number that we update in triangle, so the space requirement is the same as the time complexity
@@ -35,7 +35,7 @@ const generate1 = (numRows) => {
   return res;
 };
 
-/** 2) Similar to 1 */
+// 2) Similar to 1
 const generate = (numRows) => {
   if (numRows === 0) return [];
   if (numRows === 1) return [[1]];

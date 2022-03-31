@@ -28,7 +28,7 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-/** 1) Recursion */
+// 1) Recursion
 const invertTree1 = (root) => {
   const go = (node) => {
     if (node == null) return;
@@ -45,14 +45,14 @@ const invertTree1 = (root) => {
   return root;
 };
 
-/** 2) Recursion */
+// 2) Recursion
 const invertTree2 = (root) => {
   if (root == null) return root;
   [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
   return root;
 };
 
-/** 3) DFS */
+// 3) DFS
 const invertTree3 = (root) => {
   const st = [root];
 
@@ -67,7 +67,7 @@ const invertTree3 = (root) => {
   return root;
 };
 
-/** 4) BFS */
+// 4) BFS
 const invertTree = (root) => {
   const q = [root];
 

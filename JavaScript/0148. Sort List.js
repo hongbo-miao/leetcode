@@ -22,7 +22,7 @@
  * @return {ListNode}
  */
 
-/** Merge sort */
+// Merge sort
 // Time O(n log n)
 // Space O(n)
 const sortList = (head) => {

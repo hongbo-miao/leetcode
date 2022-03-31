@@ -27,7 +27,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic programming */
+// 1) Dynamic programming
 // Time O(mn)
 // Space O(n)
 //
@@ -45,7 +45,7 @@ const uniquePaths1 = (m, n) => {
   return row[n - 1];
 };
 
-/** 2) */
+// 2)
 // Time O(mn)
 // Space O(mn)
 const uniquePaths = (m, n) => {

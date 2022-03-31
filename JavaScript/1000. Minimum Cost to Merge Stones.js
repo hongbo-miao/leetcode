@@ -41,7 +41,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic Programming */
+// 1) Dynamic Programming
 // https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1000-minimum-cost-to-merge-stones/
 //
 // Time O(n^3 * k)
@@ -77,7 +77,7 @@ const mergeStones = (stones, K) => {
   return dp[0][n - 1][1];
 };
 
-/** 2) Dynamic Programming (Optimized) */
+// 2) Dynamic Programming (Optimized)
 // https://zxi.mytechroad.com/blog/dynamic-programming/leetcode-1000-minimum-cost-to-merge-stones/
 //
 // Time O(n^3 / k)

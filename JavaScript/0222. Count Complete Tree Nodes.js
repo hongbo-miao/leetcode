@@ -28,7 +28,7 @@
  * @return {number}
  */
 
-/** 1) DFS */
+// 1) DFS
 // Time O(n)
 // Space O(d) = O(log n) to keep the recursion stack, where d is a tree depth
 const countNodes1 = (root) => {
@@ -36,7 +36,7 @@ const countNodes1 = (root) => {
   return countNodes(root.left) + countNodes(root.right) + 1;
 };
 
-/** 2) Binary Search */
+// 2) Binary Search
 // Time O(d^2) = O((log n)^2), where d is a tree depth
 // Space O(1)
 const countNodes = (root) => {

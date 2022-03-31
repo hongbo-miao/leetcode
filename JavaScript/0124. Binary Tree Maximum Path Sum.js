@@ -36,7 +36,7 @@
  * @return {number}
  */
 
-/** Recursion */
+// Recursion
 // Time O(N) where N is number of nodes, since we visit each node not more than 2 times.
 // Space O(log(N)). We have to keep a recursion stack of the size of the tree height, which is O(log(N)) for the binary tree.
 const maxPathSum = (root) => {

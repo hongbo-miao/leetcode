@@ -25,7 +25,7 @@
  * @return {number[]}
  */
 
-/** 1) Recursion */
+// 1) Recursion
 // Time O(n), the time complexity is O(n) because the recursive function is T(n) = 2 * T(n / 2) + 1
 // Space O(log n), n is number of nodes. The worst case space is O(n)
 const inorderTraversal1 = (root) => {
@@ -43,7 +43,7 @@ const inorderTraversal1 = (root) => {
   return res;
 };
 
-/** 2) Iteration using stack */
+// 2) Iteration using stack
 // Time O(n)
 // Space O(n)
 const inorderTraversal = (root) => {

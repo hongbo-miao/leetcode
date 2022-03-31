@@ -24,7 +24,7 @@
  * @param {string[]} words
  * @return {number}
  */
-/** Four pointers */
+// Four pointers
 // https://leetcode.com/problems/expressive-words/discuss/122660/C%2B%2BJavaPython-2-Pointers-and-4-pointers
 // Easier to understand than two pointers method
 const expressiveWords = (S, words) => {

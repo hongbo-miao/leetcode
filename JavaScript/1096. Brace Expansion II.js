@@ -43,7 +43,7 @@
  * @return {string[]}
  */
 
-/** Recursion + Stack */
+// Recursion + Stack
 // https://leetcode.com/problems/brace-expansion-ii/discuss/318366/Java-Solution-using-stack
 //
 // Time O(N) traverse whole string , N means the item number of result list.

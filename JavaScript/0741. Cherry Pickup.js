@@ -17,7 +17,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic Programming (Recursion) */
+// 1) Dynamic Programming (Recursion)
 // http://zxi.mytechroad.com/blog/dynamic-programming/leetcode-741-cherry-pickup/
 //
 // Time O(n^3)
@@ -63,7 +63,7 @@ const cherryPickup1 = (grid) => {
   return Math.max(go(n - 1, n - 1, n - 1), 0);
 };
 
-/** 2) Dynamic Programming (Iteration) */
+// 2) Dynamic Programming (Iteration)
 const cherryPickup = (grid) => {
   if (grid == null || grid.length === 0) return 0;
 
@@ -99,6 +99,6 @@ const cherryPickup = (grid) => {
   return Math.max(dp[n][n][n], 0);
 };
 
-/** 3) Dynamic Programming (Optimized) */
+// 3) Dynamic Programming (Optimized)
 // Time O(n^3)
 // Space O(n^2)

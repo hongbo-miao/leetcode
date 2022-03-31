@@ -43,7 +43,7 @@
  * @return {TreeNode}
  */
 
-/** 1) */
+// 1)
 // Time O(n)
 // Space O(n)
 const inorderSuccessor1 = (root, p) => {
@@ -67,7 +67,7 @@ const inorderSuccessor1 = (root, p) => {
   return null;
 };
 
-/** 2) Recursion */
+// 2) Recursion
 // Check the link, it also has a similar predecessor solution
 // https://leetcode.com/problems/inorder-successor-in-bst/discuss/72653/Share-my-Java-recursive-solution
 const inorderSuccessor2 = (root, p) => {
@@ -81,7 +81,7 @@ const inorderSuccessor2 = (root, p) => {
   }
 };
 
-/** 3) */
+// 3)
 // Time O(h), h is the depth of the result node. In a balanced BST O(h) = O(log n). In the worst case, O(h) = O(n)
 // Space O(1)1b
 const inorderSuccessor = (root, p) => {

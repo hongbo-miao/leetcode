@@ -24,7 +24,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
  * @return {ListNode}
  */
 
-/** 1）Brute Force */
+// 1）Brute Force
 // Time O(n log n) where n is the total number of nodes.
 // - Collecting all the values costs O(n) time.
 // - A stable sorting algorithm costs O(n log n) time.
@@ -38,7 +38,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
 // Sort and iterate over this array to get the proper value of nodes.
 // Create a new sorted linked list and extend it with the new nodes.
 
-/** 2）Compare one by one */
+// 2）Compare one by one
 // Time O(k * n) where k is the number of linked lists.
 // - Almost every selection of node in final linked costs O(k) (k-1 times comparison).
 // - There are n nodes in the final linked list.
@@ -49,7 +49,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
 // Compare every k nodes (head of every linked list) and get the node with the smallest value.
 // Extend the final sorted linked list with the selected nodes.
 
-/** 3）Priority Queue, optimize 2) */
+// 3）Priority Queue, optimize 2)
 // Time O(n log k) where k is the number of linked lists.
 // - The comparison cost will be reduced to O(log k) for every pop and insertion to priority queue. But finding the
 //   node with the smallest value just costs O(1) time.
@@ -62,7 +62,7 @@ import mergeTwoLists from './0021. Merge Two Sorted Lists';
 //
 // Almost the same as 2) but optimize the comparison process by priority queue.
 
-/** 4) Merge lists one by one */
+// 4) Merge lists one by one
 // Time O(k * n) where k is the number of linked lists.
 // - We can merge two sorted linked list in O(n) time, where n is the total number of nodes in two lists.
 //
@@ -79,7 +79,7 @@ const mergeKLists4 = (lists) => {
   );
 };
 
-/** 5) Merge with divide and conquer */
+// 5) Merge with divide and conquer
 // This approach walks alongside the one above but is improved a lot. We don't need to traverse most nodes many
 // times repeatedly
 // - Pair up k lists and merge each pair.

@@ -18,7 +18,7 @@
  * @return {number[]}
  */
 
-/** 1) Two pointers */
+// 1) Two pointers
 // Time O(n)
 // Space O(1)
 const twoSum1 = (numbers, target) => {
@@ -33,7 +33,7 @@ const twoSum1 = (numbers, target) => {
   return [-1, -1];
 };
 
-/** 2) Two pointers. Similar to 1) */
+// 2) Two pointers. Similar to 1)
 // Similar
 // 167. Two Sum II - Input array is sorted
 // 209. Minimum Size Subarray Sum

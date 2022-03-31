@@ -21,7 +21,7 @@
  * @return {string}
  */
 
-/** Balance */
+// Balance
 // Using balance idea for each digit
 //
 // The idea is to iterate over the numbers in secret and in guess and count all bulls right away.

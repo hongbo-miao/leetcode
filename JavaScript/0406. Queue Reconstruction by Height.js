@@ -16,7 +16,7 @@
  * @return {number[][]}
  */
 
-/** Sorting */
+// Sorting
 // Time O(n log n)
 //
 // Pick out tallest group of people and sort them in a subarray (S). Since there's no other groups of people taller than them, therefore each guy's index will be just as same as his k value.

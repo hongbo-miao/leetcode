@@ -28,7 +28,7 @@
  * @param {number} k
  * @return {number}
  */
-/** 1) In-order traversal, DFS */
+// 1) In-order traversal, DFS
 const kthSmallest1 = (root, k) => {
   const go = (node) => {
     if (node == null) return [];
@@ -43,7 +43,7 @@ const kthSmallest1 = (root, k) => {
   return go(root)[k - 1];
 };
 
-/** 2) Similar to 1 */
+// 2) Similar to 1 */
 const kthSmallest = (root, k) => {
   const arr = [];
 

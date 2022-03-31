@@ -23,7 +23,7 @@
  * @return {number}
  */
 
-/** 1) */
+// 1)
 const reverse1 = (x) => {
   const n = Math.sign(x) *
     parseInt(String(x)
@@ -35,7 +35,7 @@ const reverse1 = (x) => {
   return n;
 };
 
-/** 2) Pop and push */
+// 2) Pop and push
 // Time O(n)
 // Space O(1)
 //

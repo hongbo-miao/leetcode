@@ -22,7 +22,7 @@
  * @return {number}
  */
 
-/** 1) Dynamic Programming */
+// 1) Dynamic Programming
 // https://www.youtube.com/watch?v=zd20HrEb5dg
 //
 // Time O(n)
@@ -56,7 +56,7 @@ const checkRecord1 = (n) => {
   return (dp00[n] + dp01[n] + dp02[n] + dp10[n] + dp11[n] + dp12[n]) % mod;
 };
 
-/** 2) Dynamic Programming (Optimized) */
+// 2) Dynamic Programming (Optimized)
 // Time O(n)
 // Space O(1)
 const checkRecord = (n) => {

@@ -13,7 +13,7 @@
  * @return {number}
  */
 
-/** Brute force (time limit exceeded) */
+// Brute force (time limit exceeded)
 // Time O(n^3). Note 'includes' has another O(n)
 // Space O(1)
 const longestConsecutive1 = (nums) => {
@@ -32,7 +32,7 @@ const longestConsecutive1 = (nums) => {
   return max;
 };
 
-/** 2) Hash set and intelligent sequence building */
+// 2) Hash set and intelligent sequence building
 // Time O(n). Although the time complexity appears to be quadratic due to the while loop nested within the for loop,
 //   closer inspection reveals it to be linear. Because the while loop is reached only when currentNum marks the
 //   beginning of a sequence (i.e. currentNum-1 is not present in nums), the while loop can only run for n iterations
@@ -72,7 +72,7 @@ const longestConsecutive2 = (nums) => {
   return max;
 };
 
-/** 3) */
+// 3)
 // https://leetcode.com/problems/longest-consecutive-sequence/discuss/41055/My-really-simple-Java-O(n)-solution-Accepted
 //
 // Time O(n)

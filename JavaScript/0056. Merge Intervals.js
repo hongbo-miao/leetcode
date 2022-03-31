@@ -25,7 +25,7 @@
  * @return {number[][]}
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O(n log n), other than the sort invocation, we do a simple linear scan of the list, so the runtime is dominated by the O(n log n) complexity of sorting
 // Space O(1)
 const merge1 = (intervals) => {
@@ -50,7 +50,7 @@ const merge1 = (intervals) => {
   return res;
 };
 
-/** 2) Similar to 1, but slower */
+// 2) Similar to 1, but slower
 const merge = (intervals) => {
   if (intervals == null || intervals.length === 0) return intervals;
   intervals.sort((a, b) => a[0] - b[0]);

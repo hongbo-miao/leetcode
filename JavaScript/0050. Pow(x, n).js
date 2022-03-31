@@ -27,12 +27,12 @@
  * @return {number}
  */
 
-/** 1) Cheating */
+// 1) Cheating
 const myPow1 = (x, n) => {
   return x ** n;
 };
 
-/** 2) Brute force (time limit exceeded) */
+// 2) Brute force (time limit exceeded)
 const myPow2 = (x, n) => {
   if (n < 0) {
     x = 1 / x;
@@ -46,7 +46,7 @@ const myPow2 = (x, n) => {
   return res;
 };
 
-/** 3) Fast power algorithm (recursive) */
+// 3) Fast power algorithm (recursive)
 // Time O(log n)
 // Space O(log n)
 const myPow3 = (x, n) => {
@@ -61,7 +61,7 @@ const myPow3 = (x, n) => {
   }
 };
 
-/** 4) Similar to 3), but easier to understand */
+// 4) Similar to 3), but easier to understand
 // Time O(log n)
 // Space O(log n)
 const myPow4 = (x, n) => {
@@ -84,7 +84,7 @@ const myPow4 = (x, n) => {
   return go(x, n);
 };
 
-/** 5) Fast power algorithm (iterative) */
+// 5) Fast power algorithm (iterative)
 // Time O(log n)
 // Space O(1)
 const myPow = (x, n) => {

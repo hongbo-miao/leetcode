@@ -15,7 +15,7 @@
  * @return {string[][]}
  */
 
-/** Backtracking */
+// Backtracking
 const partition = (s) => {
   const res = [];
 

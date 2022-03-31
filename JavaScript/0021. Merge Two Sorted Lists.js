@@ -19,7 +19,7 @@
  * @return {ListNode}
  */
 
-/** 1) Iteration */
+// 1) Iteration
 // Time O(n + m)
 // Space O(1)
 const mergeTwoLists1 = (l1, l2) => {
@@ -41,7 +41,7 @@ const mergeTwoLists1 = (l1, l2) => {
   return preHead.next;
 };
 
-/** 2) Recursion */
+// 2) Recursion
 // Time O(n + m)
 // Space O(n + m). The first call to mergeTwoLists does not return until the ends of both l1 and l2 have been reached,
 //   so n + mn+m stack frames consume O(n + m) space.

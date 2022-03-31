@@ -29,7 +29,7 @@
  * @return {Node}
  */
 
-/** Recursion */
+// Recursion
 const copyRandomList = (head) => {
   const map = new Map();
 

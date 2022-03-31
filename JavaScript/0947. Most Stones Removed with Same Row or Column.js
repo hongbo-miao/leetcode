@@ -27,7 +27,7 @@
  * @return {number}
  */
 
-/** 1) DFS */
+// 1) DFS
 // https://www.jianshu.com/p/30d2058db7f7
   //
 // Time O(n^2)
@@ -69,7 +69,7 @@ const removeStones1 = (stones) => {
   return stones.length - islands;
 };
 
-/** 2) Union Find */
+// 2) Union Find
 // Similar
 // 947. Most Stones Removed with Same Row or Column
 // 1135. Connecting Cities With Minimum Cost

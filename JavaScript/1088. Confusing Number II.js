@@ -31,7 +31,7 @@
  * @return {number}
  */
 
-/** Backtracking */
+// Backtracking
 const confusingNumberII = (N) => {
   const nums = [0, 1, 6, 8, 9];
   let res = 0;

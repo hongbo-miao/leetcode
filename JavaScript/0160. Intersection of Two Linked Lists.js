@@ -32,7 +32,7 @@
  * @return {ListNode}
  */
 
-/** 1) Hash map */
+// 1) Hash map
 // Time O(m + n)
 // Space O(m) or O(n)
 const getIntersectionNode1 = (headA, headB) => {
@@ -50,7 +50,7 @@ const getIntersectionNode1 = (headA, headB) => {
   return null;
 };
 
-/** 2) Two pointers (slow version) */
+// 2) Two pointers (slow version)
 const getIntersectionNode2 = (headA, headB) => {
   let a = headA;
   let b = headB;
@@ -62,7 +62,7 @@ const getIntersectionNode2 = (headA, headB) => {
   return a;
 };
 
-/** 3) Two pointers (fast version) */
+// 3) Two pointers (fast version)
 // Time O(m + n)
 // Space O(1)
 //

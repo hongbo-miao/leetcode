@@ -29,7 +29,7 @@
  * @return {function}
  */
 
-/** 1) Binary search (recursion) */
+// 1) Binary search (recursion)
 const solution1 = (isBadVersion) => {
   /**
    * @param {integer} n Total versions
@@ -45,7 +45,7 @@ const solution1 = (isBadVersion) => {
   };
 };
 
-/** 2) Binary search (iteration) */
+// 2) Binary search (iteration)
 const solution = (isBadVersion) => {
   return (n) => {
     let l = 0;

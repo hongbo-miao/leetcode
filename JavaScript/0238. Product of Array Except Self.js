@@ -14,7 +14,7 @@
  * @return {number[]}
  */
 
-/** 1) */
+// 1)
 // Time O(n)
 // Space O(n)
 //
@@ -43,7 +43,7 @@ const productExceptSelf1 = (nums) => {
   return res;
 };
 
-/** 2) Improvement by saving some space which is less clear */
+// 2) Improvement by saving some space which is less clear
 // Time O(n)
 // Space O(1)
 const productExceptSelf = (nums) => {

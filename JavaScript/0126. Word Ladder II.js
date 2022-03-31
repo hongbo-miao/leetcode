@@ -42,7 +42,7 @@
  * @return {string[][]}
  */
 
-/** BFS */
+// BFS
 const findLadders = (beginWord, endWord, wordList) => {
   const dict = new Set(wordList);
   const visited = new Set();
@@ -77,5 +77,5 @@ const findLadders = (beginWord, endWord, wordList) => {
   return res;
 };
 
-/** 2) Bidirectional BFS */
+// 2) Bidirectional BFS
 // http://zxi.mytechroad.com/blog/searching/leetcode-126-word-ladder-ii/

@@ -27,7 +27,7 @@
  * @return {number[][]}
  */
 
-/** Tarjan's strongly connected components algorithm */
+// Tarjan's strongly connected components algorithm
 // Introduction to Tarjan's strongly connected components algorithm
 // https://www.youtube.com/watch?v=TyWtx7q2D7Y
 //

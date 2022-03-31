@@ -16,11 +16,11 @@
  * @return {number}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O(n^3)
 // Space O(1)
 
-/** 2) Two pointers */
+// 2) Two pointers
 // Time O(n^2). The twoSumSmaller function takes O(n) time because both left and right traverse at most n steps.
 //   Therefore, the overall time complexity is O(n^2)
 // Space O(1)

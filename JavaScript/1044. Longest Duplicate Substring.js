@@ -20,7 +20,7 @@
  * @return {string}
  */
 
-/** Binary Search + Rabin-Karp */
+// Binary Search + Rabin-Karp
 // Time O(n log n). O(log n) for the binary search and O(N) for Rabin-Karp algorithm.
 // Space O(n) to keep the hashset.
 //

@@ -27,7 +27,7 @@
  * @return {number}
  */
 
-/** 1) DFS (top-down) */
+// 1) DFS (top-down)
 const maxDepth1 = (root) => {
   let max = 0;
 
@@ -44,7 +44,7 @@ const maxDepth1 = (root) => {
   return max;
 };
 
-/** 2) DFS (bottom-up) */
+// 2) DFS (bottom-up)
 const maxDepth = (root) => {
   if (root == null) return 0;
   const l = maxDepth(root.left);

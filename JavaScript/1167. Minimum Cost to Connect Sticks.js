@@ -22,5 +22,5 @@
  * @return {number}
  */
 
-/** Priority Queue */
+// Priority Queue
 // JavaScript is lack of priority queue, check Python version

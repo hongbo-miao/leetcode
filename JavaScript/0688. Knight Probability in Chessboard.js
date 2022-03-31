@@ -25,7 +25,7 @@
  * @return {number}
  */
 
-/** 1) Backtracking */
+// 1) Backtracking
 const knightProbability1 = (N, K, r, c) => {
   const map = {};
   const dirs = [[-2, -1], [-1, -2], [1, -2], [2, -1], [2, 1], [1, 2], [-1, 2], [-2, 1]];
@@ -50,7 +50,7 @@ const knightProbability1 = (N, K, r, c) => {
   return go(r, c, K) / 8 ** K;
 };
 
-/** 2) Dynamic Programming */
+// 2) Dynamic Programming
 // Time O(N^2 * K)
 // Space O(N^2)
 //

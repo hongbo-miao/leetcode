@@ -15,7 +15,7 @@
  * @return {string[]}
  */
 
-/** 1) Brute force */
+// 1) Brute force
 // Time O((2^2n) * n) For each of 2^2n sequences, we need to create and validate the sequence, which takes O(n) work.
 // Space O((2^2n) * n)
 //
@@ -52,7 +52,7 @@ const generateParenthesis1 = (n) => {
   return res;
 };
 
-/** 2) Backtracking */
+// 2) Backtracking
 // The complexity analysis rests on understanding how many elements there are in generateParenthesis(n). It turns out
 // this is the n-th Catalan number 1 / n+1 (2n n), which is bounded asymptotically by 4^n / (n * sqrt(n))
 // Time O(4^n / sqrt(n)). Each valid sequence has at most n steps during the backtracking procedure.
@@ -75,7 +75,7 @@ const generateParenthesis2 = (n) => {
   return res;
 };
 
-/** 3) Backtracking, similar to 2) */
+// 3) Backtracking, similar to 2)
 const generateParenthesis3 = (n) => {
   const res = [];
 
@@ -95,7 +95,7 @@ const generateParenthesis3 = (n) => {
   return res;
 };
 
-/** 4) Closure number */
+// 4) Closure number
 // Time O(4^n / sqrt(n))
 // Space O(4^n / sqrt(n))
 //

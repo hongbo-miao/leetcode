@@ -19,7 +19,7 @@
  * @return {number[][]}
  */
 
-/** Three pointers */
+// Three pointers
 // https://www.youtube.com/watch?v=y-zBV7uUkyI
 //
 // Idea

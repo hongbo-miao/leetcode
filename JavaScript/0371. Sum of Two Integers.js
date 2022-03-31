@@ -8,7 +8,7 @@
  * @param {number} b
  * @return {number}
  */
-/** 1) Iteration */
+// 1) Iteration
 // e.g. 3 + 1
 // 0b11 & 0b01 = 0b01
 // 0b11 ^ 0b01 = 0b10
@@ -21,7 +21,7 @@ const getSum1 = (a, b) => {
   return a;
 };
 
-/** 2) Recursion */
+// 2) Recursion
 const getSum = (a, b) => {
   if (b === 0) return a;
   return getSum(a ^ b, (a & b) << 1);

@@ -36,7 +36,7 @@
  * @return {number}
  */
 
-/** Backtracking */
+// Backtracking
 // https://leetcode.com/problems/android-unlock-patterns/solution/
 //
 // The algorithm uses backtracking technique to enumerate all possible k combinations of numbers [1...9] where m <= k <= n. During the generation of the recursive solution tree, the algorithm cuts all the branches which lead to patterns which doesn't satisfy the rules and counts only the valid patterns. In order to compute a valid pattern, the algorithm performs the following steps:

@@ -27,7 +27,7 @@
  * @return {string}
  */
 
-/** De Bruijn sequence + Eulerian path */
+// De Bruijn sequence + Eulerian path
 // https://www.youtube.com/watch?v=kRdlLahVZDc
 //
 // If every password shares n - 1 digits suffix of last node

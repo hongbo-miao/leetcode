@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-/** 1) Recursion (time limit exceeded) */
+// 1) Recursion (time limit exceeded)
 // Time O(2^n) - O(branch ^ recursion depth)
 // Space O(n) - O(recursion depth)
 const climbStairs1 = (n) => {
@@ -34,7 +34,7 @@ const climbStairs1 = (n) => {
   return climbStairs(n - 2) + climbStairs(n - 1);
 };
 
-/** 2) Recursion (memoization) */
+// 2) Recursion (memoization)
 // Time O(n)
 // Space O(n)
 const climbStairs2 = (n) => {
@@ -48,7 +48,7 @@ const climbStairs2 = (n) => {
   return go(n);
 };
 
-/** 3) Dynamic programming - Fibonacci */
+// 3) Dynamic programming - Fibonacci
 // Similar
 // 70. Climbing Stairs
 // 91. Decode Ways
@@ -63,7 +63,7 @@ const climbStairs3 = (n) => {
   return dp[n];
 };
 
-/** 4) Dynamic programming - Fibonacci (optimization) */
+// 4) Dynamic programming - Fibonacci (optimization)
 // Time O(n)
 // Space O(1)
 const climbStairs = (n) => {
@@ -78,7 +78,7 @@ const climbStairs = (n) => {
   return b;
 };
 
-/** 5) Binet's Fibonacci number formula */
+// 5) Binet's Fibonacci number formula
 // Time O(log n)
 // Space O(1)
 // https://leetcode.com/problems/climbing-stairs/solution/

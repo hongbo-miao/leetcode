@@ -20,7 +20,7 @@
  * @return {string[][]}
  */
 
-/** 1) Categorize by sorted strings */
+// 1) Categorize by sorted strings
 // Time O(NK log K), where N is the length of strs, and K is the maximum length of a string in strs
 //   The outer loop has complexity O(N) as we iterate through each string. Then, we sort each string in O(K log K) time
 // Space O(NK), the total information content stored in groups.
@@ -34,7 +34,7 @@ const groupAnagrams = (strs) => {
   return Object.values(map);
 };
 
-/** 2) Categorize by character counts */
+// 2) Categorize by character counts
 // Time O(NK), where N is the length of strs, and K is the maximum length of a string in strs. Counting each string
 //   is linear in the size of the string, and we count every string.
 // Space O(NK), the total information content stored in ans.

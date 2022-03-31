@@ -18,7 +18,7 @@
  * @return {number[]}
  */
 
-/** Greedy */
+// Greedy
 // Let's try to repeatedly choose the smallest left-justified partition.
 // Consider the first label, say it's 'a'. The first partition must include it, and also the last occurrence of 'a'.
 // However, between those two occurrences of 'a', there could be other labels that make the minimum size of this partition bigger.

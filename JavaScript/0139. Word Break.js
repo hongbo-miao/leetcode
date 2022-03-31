@@ -28,7 +28,7 @@
  * @return {boolean}
  */
 
-/** 1) Brute force - recursion and backtracking (time limit exceeded) */
+// 1) Brute force - recursion and backtracking (time limit exceeded)
 // Time O(n^n). Consider the worst case where ss = "aaaaaaa" and every prefix of s is present in the dictionary of
 //   words, then the recursion tree can grow upto n^n.
 // Space O(n). The depth of the recursion tree can go upto n.
@@ -48,7 +48,7 @@ const wordBreak1 = (s, wordDict) => {
   return go(s);
 };
 
-/** 2) Backtracking + Memoization */
+// 2) Backtracking + Memoization
 // Time O(n^2). Size of recursion tree can go up to n^2.
 // Space O(n). The depth of recursion tree can go up to n.
 const wordBreak2 = (s, wordDict) => {
@@ -73,7 +73,7 @@ const wordBreak2 = (s, wordDict) => {
   return go(s, 0);
 };
 
-/** 3) Similar to 2), but cleaner, easier, faster */
+// 3) Similar to 2), but cleaner, easier, faster
 // Similar
 // 139. Word Break
 // 140. Word Break II
@@ -98,7 +98,7 @@ const wordBreak3 = (s, wordDict) => {
   return go(s);
 };
 
-/** 4) BFS */
+// 4) BFS
 // Time O(n^2). For every starting index, the search can continue till the end of the given string.
 // Space O(n). Queue of at most n size is needed.
 const wordBreak4 = (s, wordDict) => {
@@ -127,7 +127,7 @@ const wordBreak4 = (s, wordDict) => {
   return false;
 };
 
-/** 5) Dynamic programming */
+// 5) Dynamic programming
 // Similar
 // 139. Word Break
 // 472. Concatenated Words

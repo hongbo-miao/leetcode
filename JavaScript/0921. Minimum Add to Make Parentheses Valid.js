@@ -38,7 +38,7 @@
  * @return {number}
  */
 
-/** 1) Balance */
+// 1) Balance
 // O(n)
 // O(1)
 //
@@ -62,7 +62,7 @@ const minAddToMakeValid1 = (S) => {
   return count + bal;
 };
 
-/** 2) Easier to understand than 1) */
+// 2) Easier to understand than 1)
 // O(n)
 // O(1)
 //

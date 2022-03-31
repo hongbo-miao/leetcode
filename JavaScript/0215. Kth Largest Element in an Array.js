@@ -19,20 +19,20 @@
  * @return {number}
  */
 
-/** 1) Sorting */
+// 1) Sorting
 // Time O(n log n)
 // Space O(1)
 const findKthLargest1 = (nums, k) => {
   return nums.sort((a, b) => b - a)[k - 1];
 };
 
-/** 2) */
+// 2)
 // Time O(n)
 // Space O(1)
 //
 // https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
 
-/** 3) Quick sort idea */
+// 3) Quick sort idea
 const findKthLargest = (nums, k) => {
   const swap = (i, j) => [nums[i], nums[j]] = [nums[j], nums[i]];
 

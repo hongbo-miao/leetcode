@@ -27,7 +27,7 @@
  * @return {number[]}
  */
 
-/** 1) Monotonic Queue */
+// 1) Monotonic Queue
 // https://www.youtube.com/watch?v=2SXqBsTR6a8
 //
 // Time O(n)
@@ -64,7 +64,7 @@ const maxSlidingWindow1 = (nums, k) => {
   return res;
 };
 
-/** 2) Dynamic Programming */
+// 2) Dynamic Programming
 const maxSlidingWindow = (nums, k) => {
   let n = nums.length;
   if (n === 0) return [];

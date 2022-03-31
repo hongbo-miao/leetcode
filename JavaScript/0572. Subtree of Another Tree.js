@@ -43,14 +43,14 @@
  * @return {boolean}
  */
 
-/** 1) */
+// 1)
 const isSubtree1 = (s, t) => {
   s = JSON.stringify(s);
   t = JSON.stringify(t);
   return s.indexOf(t) !== -1;
 };
 
-/** 2) DFS */
+// 2) DFS
 const isSubtree = (s, t) => {
   if (s == null) return false;
   return isEqual(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);

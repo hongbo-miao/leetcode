@@ -20,7 +20,7 @@
  * @return {number}
  */
 
-/** Monotonic Stack */
+// Monotonic Stack
 // https://youtu.be/KkJrGxuQtYo?t=479
 // Time O(n)
 // Space O(n)

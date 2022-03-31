@@ -16,7 +16,7 @@
  * @return {boolean}
  */
 
-/** Two pointers slow and fast */
+// Two pointers slow and fast
 const hasCycle = (head) => {
   let slow = head;
   let fast = head;

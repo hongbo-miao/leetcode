@@ -17,7 +17,7 @@
 // Input: ")("
 // Output: [""]
 
-/** BFS */
+// BFS
 const removeInvalidParentheses = (s) => {
   let q = new Set([s]);
   while (q.size) {

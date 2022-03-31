@@ -47,7 +47,7 @@
 // Please use double-quote instead of single-quote when you write test cases even for a character input.
 // Please remember to RESET your class variables declared in class AutocompleteSystem, as static/class variables are persisted across multiple test cases. Please see here for more details.
 
-/** Trie */
+// Trie
 class AutocompleteSystem {
   /**
    * @param {string[]} sentences

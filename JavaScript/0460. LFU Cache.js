@@ -10,7 +10,7 @@
 //
 // Example:
 //
-// LFUCache cache = new LFUCache( 2 /* capacity */ );
+// LFUCache cache = new LFUCache( 2 /* capacity );
 //
 // cache.put(1, 1);
 // cache.put(2, 2);
@@ -23,7 +23,7 @@
 // cache.get(3);       // returns 3
 // cache.get(4);       // returns 4
 
-/** Hash Map + Double Linked List */
+// Hash Map + Double Linked List
 // https://youtu.be/MCTN3MM8vHA?t=738
 //
 // Time O(1), both get and put are O(1)

@@ -17,7 +17,7 @@
  * @return {number}
  */
 
-/** Dynamic Programming */
+// Dynamic Programming
 // http://zxi.mytechroad.com/blog/dynamic-programming/leetcode-312-burst-balloons/
 //
 // Time O(n^3)

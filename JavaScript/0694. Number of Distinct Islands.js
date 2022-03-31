@@ -29,7 +29,7 @@
  * @return {number}
  */
 
-/** Backtracking */
+// Backtracking
 // Time O(R * C)
 // Space O(R * C)
 //

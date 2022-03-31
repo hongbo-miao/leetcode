@@ -20,18 +20,18 @@
  * @return {number[]}
  */
 
-/** 1) Cheating */
+// 1) Cheating
 // Time O(n)
 // Space O(1)
 const searchRange1 = (nums, target) => {
   return [nums.indexOf(target), nums.lastIndexOf(target)];
 };
 
-/** 2) Brute force / Linear scan */
+// 2) Brute force / Linear scan
 // Time O(n)
 // Space O(1)
 
-/** 3) Binary search */
+// 3) Binary search
 // Time O(log n)
 // Space O(1)
 const searchRange3 = (nums, target) => {
@@ -63,7 +63,7 @@ const searchRange3 = (nums, target) => {
   return res;
 };
 
-/** 4) Similar to 3), not optimized, but easier to understand */
+// 4) Similar to 3), not optimized, but easier to understand
 const searchRange = (nums, target) => {
   const res = [-1, -1];
 

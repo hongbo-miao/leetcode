@@ -32,14 +32,14 @@
  * @return {TreeNode}
  */
 
-/** 1) Recursion */
+// 1) Recursion
 const lowestCommonAncestor1 = (root, p, q) => {
   if (p.val < root.val && q.val < root.val) return lowestCommonAncestor(root.left, p, q);
   else if (p.val > root.val && q.val > root.val) return lowestCommonAncestor(root.right, p, q);
   else return root;
 };
 
-/** 2) Iteration */
+// 2) Iteration
 const lowestCommonAncestor = (root, p, q) => {
   while (root != null) {
     if (p.val > root.val && q.val > root.val) root = root.right;

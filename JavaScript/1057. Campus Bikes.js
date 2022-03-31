@@ -29,7 +29,7 @@
  * @return {number[]}
  */
 
-/** Bucket Sort */
+// Bucket Sort
 // Time: O(M * N)
 // Space: O(M * N)
 const assignBikes = (workers, bikes) => {

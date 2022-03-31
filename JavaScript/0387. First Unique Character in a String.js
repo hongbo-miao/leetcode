@@ -15,7 +15,7 @@
  * @return {number}
  */
 
-/** 1) */
+// 1)
 const firstUniqChar1 = (s) => {
   for (let i = 0; i < s.length; i++) {
     if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) return i;
@@ -23,7 +23,7 @@ const firstUniqChar1 = (s) => {
   return -1;
 };
 
-/** 2) Hash map */
+// 2) Hash map
 // Time O(n)
 // Space O(n)
 const firstUniqChar = (s) => {

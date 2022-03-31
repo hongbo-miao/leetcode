@@ -16,7 +16,7 @@
  * @return {string}
  */
 
-/** 1) */
+// 1)
 // https://www.youtube.com/watch?v=9qFR2WQGqkU
 const minWindow1 = (s, t) => {
   let res = '';
@@ -56,7 +56,7 @@ const minWindow1 = (s, t) => {
   return res;
 };
 
-/** 2) */
+// 2)
 // https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
 const minWindow = (s, t) => {
   const map = {};
@@ -85,7 +85,7 @@ const minWindow = (s, t) => {
   return minLen === Infinity ? '' : s.substr(start, minLen);
 };
 
-/** 3) Sliding window */
+// 3) Sliding window
 // https://leetcode.com/problems/minimum-window-substring/solution/
 //
 // Time O(|S| + |T|) where |S| and |T| represent the lengths of strings S and T. In the worst case we might end up

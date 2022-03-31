@@ -15,7 +15,7 @@
  * @return {number[]}
  */
 
-/** Binary Search */
+// Binary Search
 // Traverse from the back to the beginning of the array, maintain an sorted array of numbers have been visited.
 // Use binary search to find the first element in the sorted array which is larger or equal to target number.
 // For example, [5,2,3,6,1], when we reach 2, we have a sorted array [1,3,6], binary search returns 1,

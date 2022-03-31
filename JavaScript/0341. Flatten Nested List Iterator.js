@@ -41,7 +41,7 @@
  * };
  */
 
-/** 1) */
+// 1)
 class NestedIterator1 {
   /**
    * @constructor
@@ -78,7 +78,7 @@ class NestedIterator1 {
   }
 }
 
-/** 2) Generator */
+// 2) Generator
 class NestedIterator {
   constructor(nestedList) {
     this.gen = this.listGenerator(nestedList);

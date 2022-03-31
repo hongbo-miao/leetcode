@@ -22,7 +22,7 @@
  * @return {boolean}
  */
 
-/** Two pointers */
+// Two pointers
 // Time O(n)
 // Space O(1)
 const isStrobogrammatic = (num) => {
