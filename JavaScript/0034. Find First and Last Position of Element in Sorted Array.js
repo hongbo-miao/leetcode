@@ -55,7 +55,6 @@ const searchRange3 = (nums, target) => {
 
   while (l < r) {
     const m = Math.ceil((l + r) / 2);   // note using Math.ceil
-
     if (nums[m] > target) r = m - 1;
     else l = m;
   }
@@ -86,7 +85,6 @@ const searchRange = (nums, target) => {
 
   while (l < r) {
     const m = Math.ceil((l + r) / 2);   // note using Math.ceil
-
     if (nums[m] > target) r = m - 1;
     else l = m;
   }

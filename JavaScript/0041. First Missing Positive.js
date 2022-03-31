@@ -47,6 +47,7 @@
 // i++
 // i = 3
 // i++
+// i = 4
 const firstMissingPositive = (nums) => {
   const swap = (i, j) => [nums[i], nums[j]] = [nums[j], nums[i]];
 

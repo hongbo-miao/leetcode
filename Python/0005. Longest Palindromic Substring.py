@@ -49,10 +49,10 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
         res = ""
         for i in range(len(s)):
-            s1 = self.expend_from_center(s, i, i)
+            s1 = Solution.expend_from_center(s, i, i)
             if len(s1) > len(res):
                 res = s1
-            s2 = self.expend_from_center(s, i, i + 1)
+            s2 = Solution.expend_from_center(s, i, i + 1)
             if len(s2) > len(res):
                 res = s2
         return res

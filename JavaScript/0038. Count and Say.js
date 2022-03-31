@@ -28,26 +28,26 @@
  * @return {string}
  */
 const countAndSay = (n) => {
-  let res = '1';
-  for (let i = 1; i < n; i++) {
-    res = say(res);
+  let s = '1';
+  for (let i = 0; i < n - 1; i++) {
+    s = say(s);
   }
-  return res;
+  return s;
 };
 
 const say = (s) => {
   let res = '';
   let count = 0;
-  let num = s[0];
+  let n = s[0];
 
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === num) {
+    if (s[i] === n) {
       count++;
     } else {
       res += count + s[i - 1];
       count = 1;
-      num = s[i];
+      n = s[i];
     }
   }
-  return res + count + num;
+  return res + count + n;
 };
