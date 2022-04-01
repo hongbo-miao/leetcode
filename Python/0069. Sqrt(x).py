@@ -45,8 +45,8 @@ class Solution:
 # Space O(1)
 class Solution:
     def mySqrt(self, x: int) -> int:
-        l = 1  # the square root of x cannot be 0, so start from 1
-        r = x  # the square root of x can be x, for example 1^2 = 1
+        l = 1  # the square root of x cannot be 0, so set l to 1 instead of 0
+        r = x  # the square root of x can be x, for example 1^2 = 1, so set r to x instead of x - 1
         while l <= r:
             m = (l + r) // 2
             if m * m == x:
