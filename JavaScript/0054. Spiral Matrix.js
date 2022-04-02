@@ -68,7 +68,6 @@ const spiralOrder = (matrix) => {
       y += dirs[dir][1];
       res.push(matrix[x][y]);
     }
-
     steps[dir % 2]--;
     dir = (dir + 1) % 4;
   }
