@@ -24,8 +24,10 @@ const plusOne = (digits) => {
   let i = digits.length;
 
   while (i--) {
-    digits[i] += 1;
-    if (digits[i] < 10) return digits;
+    if (digits[i] < 9) {
+      digits[i] += 1;
+      return digits;
+    }
     digits[i] = 0;
   }
 

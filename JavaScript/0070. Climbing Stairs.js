@@ -39,11 +39,11 @@ const climbStairs1 = (n) => {
 // Space O(n)
 const climbStairs2 = (n) => {
   const map = {};
-  const go = (n) => {
-    if (n < 2) return 1;
-    if (map[n] != null) return map[n];
-    map[n] = go(n - 2) + go(n - 1);
-    return map[n];
+  const go = (i) => {
+    if (i < 2) return 1;
+    if (map[i] != null) return map[i];
+    map[i] = go(i - 2) + go(i - 1);
+    return map[i];
   };
   return go(n);
 };
