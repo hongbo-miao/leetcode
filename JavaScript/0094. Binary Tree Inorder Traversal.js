@@ -51,13 +51,13 @@ const inorderTraversal = (root) => {
   const res = [];
 
   while (root != null || st.length > 0) {
-    // drill left
+    // Drill left
     while (root) {
       st.push(root);
       root = root.left;
     }
 
-    // print & go to right child
+    // Print & go to right child
     root = st.pop();
     res.push(root.val);
     root = root.right;

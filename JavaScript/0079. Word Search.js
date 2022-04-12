@@ -35,7 +35,7 @@ const exist = (board, word) => {
     if (board[x][y] !== word[k]) return false;
     if (k === word.length - 1) return true;
 
-    board[x][y] = '*'; // mark as visited
+    board[x][y] = '#'; // mark visited
     for (const [dx, dy] of dirs) {
       const i = x + dx;
       const j = y + dy;
