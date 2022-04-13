@@ -37,7 +37,7 @@
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
         matrix = [[None] * n for _ in range(n)]
-        dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+        dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         steps = [n, n - 1]
         dir = 0
         x = 0

@@ -30,7 +30,7 @@ class Solution:
         if not board or not board[0]:
             return False
         m, n = len(board), len(board[0])
-        dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+        dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
         def go(i, j, k):
             if k == len(word):
