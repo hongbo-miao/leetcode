@@ -33,9 +33,7 @@ const maxDepth1 = (root) => {
 
   const go = (node, depth) => {
     if (node == null) return;
-    if (node.left == null && node.right == null) {
-      max = Math.max(max, depth);
-    }
+    max = Math.max(max, depth);
     go(node.left, depth + 1);
     go(node.right, depth + 1);
   };

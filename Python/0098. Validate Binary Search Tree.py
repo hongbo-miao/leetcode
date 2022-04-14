@@ -38,12 +38,12 @@ class Solution:
         ]
         while st:
             node, min, max = st.pop()
+            if not node:
+                continue
             if node.val <= min or node.val >= max:
                 return False
-            if node.right:
-                st.append((node.right, node.val, max))
-            if node.left:
-                st.append((node.left, min, node.val))
+            st.append((node.right, node.val, max))
+            st.append((node.left, min, node.val))
         return True
 
 

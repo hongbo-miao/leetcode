@@ -33,6 +33,23 @@ class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
+        res = []
+
+        def go(node):
+            if not node:
+                return
+            res.append(node.val)
+            go(node.left)
+            go(node.right)
+
+        go(root)
+        return res
+
+
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
         return (
             [root.val]
             + self.preorderTraversal(root.left)

@@ -36,6 +36,23 @@ class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
+        res = []
+
+        def go(node):
+            if not node:
+                return
+            go(node.left)
+            res.append(node.val)
+            go(node.right)
+
+        go(root)
+        return res
+
+
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
         return (
             self.inorderTraversal(root.left)
             + [root.val]
