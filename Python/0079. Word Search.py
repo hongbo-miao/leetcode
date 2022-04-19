@@ -30,19 +30,19 @@ class Solution:
         if not board or not board[0]:
             return False
         m, n = len(board), len(board[0])
-        dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+        dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
         def go(i, j, k):
             if k == len(word):
                 return True
-            if i < 0 or i >= m or j < 0 or j >= n or board[i][j] != word[k]:
+            if 0 <= i < m and 0 <= j < n and board[i][j] == word[k]:
+                c = board[i][j]
+                board[i][j] = "#"  # mark visited
+                for dir in dirs:
+                    if go(i + dir[0], j + dir[1], k + 1):
+                        return True
+                board[i][j] = c  # reset
                 return False
-            c = board[i][j]
-            board[i][j] = "#"  # mark visited
-            for dir in dirs:
-                if go(i + dir[0], j + dir[1], k + 1):
-                    return True
-            board[i][j] = c  # reset
             return False
 
         for i in range(m):

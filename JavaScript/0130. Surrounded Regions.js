@@ -24,6 +24,8 @@
  * @return {void} Do not return anything, modify board in-place instead.
  */
 
+// DFS
+//
 // Idea
 // 1) Check four borders. If it is O, change it and all its neighbor to temporary #
 // 2) Change all O to X
@@ -54,13 +56,13 @@ const solve = (board) => {
     }
   };
 
-  // change every square connected to left and right borders from O to temporary #
+  // Change every square connected to left and right borders from O to temporary #
   for (let i = 0; i < h; i++) {
     go(i, 0);
     go(i, w - 1);
   }
 
-  // change every square connected to top and bottom borders from O to temporary #
+  // Change every square connected to top and bottom borders from O to temporary #
   for (let i = 1; i < w - 1; i++) {
     go(0, i);
     go(h - 1, i);
@@ -68,10 +70,10 @@ const solve = (board) => {
 
   for (let i = 0; i < h; i++) {
     for (let j = 0; j < w; j++) {
-      // change the rest of O to X
+      // Change the rest of O to X
       if (board[i][j] === 'O') board[i][j] = 'X';
 
-      // change temporary # back to O
+      // Change temporary # back to O
       if (board[i][j] === '#') board[i][j] = 'O';
     }
   }

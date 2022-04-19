@@ -71,12 +71,12 @@ class Solution:
         q = [root]
 
         while q:
+            nodes = q.copy()
+            q = []
             row = []
 
-            # Note cannot use "while q" here because q changes.
-            # len(q) stands for the number of nodes in the current level.
-            for _ in range(len(q)):
-                node = q.pop(0)
+            while nodes:
+                node = nodes.pop(0)
                 row.append(node.val)
                 if node.left:
                     q.append(node.left)

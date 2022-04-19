@@ -30,14 +30,14 @@
  * @return {number}
  */
 
-// 1)
+// 1) Two Pointers
 const maxProfit1 = (prices) => {
   let res = 0;
   let slow = 0;
   let fast = 1;
 
-  while (slow < prices.length) {
-    while (prices[fast] > prices[fast - 1]) {
+  while (fast < prices.length) {
+    while ( prices[fast - 1] < prices[fast]) {
       fast++;
     }
     res += prices[fast - 1] - prices[slow];
