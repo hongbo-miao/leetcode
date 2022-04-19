@@ -15,13 +15,32 @@
 # Output: 4
 
 
-import operator
+# 1)
+# Time O(n)
+# Space O(n)
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        return 2 * sum(set(nums)) - sum(nums)
+
+
+# 2)
+# Time O(n)
+# Space O(1)
 from functools import reduce
 
 
 class Solution:
-    def singleNumber1(self, nums: List[int]) -> int:
-        return reduce(operator.xor, nums)
-
     def singleNumber(self, nums: List[int]) -> int:
         return reduce(lambda x, y: x ^ y, nums)
+
+
+# 3)
+# Time O(n)
+# Space O(1)
+from operator import xor
+from functools import reduce
+
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        return reduce(xor, nums)

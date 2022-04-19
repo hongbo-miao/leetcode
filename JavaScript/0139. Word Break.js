@@ -31,7 +31,7 @@
 // 1) Brute force - recursion and backtracking (time limit exceeded)
 // Time O(n^n). Consider the worst case where ss = "aaaaaaa" and every prefix of s is present in the dictionary of
 //   words, then the recursion tree can grow upto n^n.
-// Space O(n). The depth of the recursion tree can go upto n.
+// Space O(n). The depth of the recursion tree can go up to n.
 const wordBreak1 = (s, wordDict) => {
   if (wordDict == null || wordDict.length === 0) return false;
 
