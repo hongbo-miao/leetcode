@@ -18,9 +18,11 @@
  * @return {number}
  */
 
-// 1 */
-// each 2 * 5 will have a 0, since there are a lot of 2, so only need count the number of 5 in n!
-// e.g. 26, res = (25 / 5) + (5 / 5) = 6
+// 1) */
+// Each 2 * 5 will have a 0, since there are a lot of 2, so only need count the number of 5 in n!
+// e.g. 26
+// 25, 20, 15, 10, 5, 0
+// count = (25 / 5) + (5 / 5) = 6
 const trailingZeroes1 = (n) => {
   let count = 0;
   for (let i = n; i > 0; i = ~~(i / 5)) {
@@ -29,7 +31,7 @@ const trailingZeroes1 = (n) => {
   return count;
 };
 
-// 2 */
+// 2) */
 const trailingZeroes = (n) => {
   return n === 0 ?
     0 :

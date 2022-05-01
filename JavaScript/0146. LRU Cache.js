@@ -53,7 +53,7 @@ class LRUCache {
     }
     this.cache.set(key, value);
     if (this.cache.size > this.capacity) {
-      this.cache.delete(this.cache.keys().next().value); // keys().next().value returns the oldest inserted one
+      this.cache.delete(this.cache.keys().next().value); // keys().next().value returns the oldest / first key
     }
   };
 }

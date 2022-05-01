@@ -34,6 +34,9 @@
 # 1) Iteration
 # Time O(n + m)
 # Space O(1)
+#
+# Similar
+# 148. Sort List
 class Solution:
     def mergeTwoLists(
         self, list1: Optional[ListNode], list2: Optional[ListNode]
