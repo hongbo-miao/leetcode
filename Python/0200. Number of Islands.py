@@ -39,11 +39,11 @@ class Solution:
         m, n = len(grid), len(grid[0])
         dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
-        def go(i, j):
-            if 0 <= i < m and 0 <= j < n and grid[i][j] == "1":
-                grid[i][j] = "0"
-                for d in dirs:
-                    go(i + d[0], j + d[1])
+        def go(x, y):
+            if 0 <= x < m and 0 <= y < n and grid[x][y] == "1":
+                grid[x][y] = "0"
+                for dx, dy in dirs:
+                    go(x + dx, y + dy)
 
         count = 0
         for i in range(m):

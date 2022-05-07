@@ -32,16 +32,16 @@ class Solution:
         m, n = len(board), len(board[0])
         dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
-        def go(i, j, k):
+        def go(x, y, k):
             if k == len(word):
                 return True
-            if 0 <= i < m and 0 <= j < n and board[i][j] == word[k]:
-                c = board[i][j]
-                board[i][j] = "#"  # mark visited
-                for dir in dirs:
-                    if go(i + dir[0], j + dir[1], k + 1):
+            if 0 <= x < m and 0 <= y < n and board[x][y] == word[k]:
+                c = board[x][y]
+                board[x][y] = "#"  # mark visited
+                for dx, dy in dirs:
+                    if go(x + dx, y + dy, k + 1):
                         return True
-                board[i][j] = c  # reset
+                board[x][y] = c  # reset
                 return False
             return False
 

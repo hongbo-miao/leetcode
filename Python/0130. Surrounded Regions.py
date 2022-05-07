@@ -44,11 +44,11 @@ class Solution:
         m, n = len(board), len(board[0])
         dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
-        def go(i, j):
-            if 0 <= i < m and 0 <= j < n and board[i][j] == "O":
-                board[i][j] = "#"
-                for d in dirs:
-                    go(i + d[0], j + d[1])
+        def go(x, y):
+            if 0 <= x < m and 0 <= y < n and board[x][y] == "O":
+                board[x][y] = "#"
+                for dx, dy in dirs:
+                    go(x + dx, y + dy)
 
         # Change every square connected to left and right borders from O to temporary #
         for i in range(m):
