@@ -29,7 +29,7 @@
  * @return {number}
  */
 
-// Hash map
+// Hashmap
 // Time O(n)
 // Space O(1)
 const calculateTime = (keyboard, word) => {

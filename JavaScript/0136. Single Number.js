@@ -18,7 +18,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-// 1) Hash Map
+// 1) Hashmap
 // Time O(n)
 // Space O(n)
 const singleNumber2 = (nums) => {

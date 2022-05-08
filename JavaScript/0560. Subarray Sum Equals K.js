@@ -46,7 +46,7 @@ const subarraySum2 = (nums, k) => {
   return count;
 };
 
-// 3) Hash map
+// 3) Hashmap
 // Time O(n)
 // Space O(n)
 const subarraySum = (nums, k) => {

@@ -33,7 +33,7 @@ class Solution:
         return max_area
 
 
-# 2) Two pointers
+# 2) Two pointers left and right
 # Time O(n)
 # Space O(1)
 #

@@ -32,7 +32,7 @@
  * @return {ListNode}
  */
 
-// 1) Hash map
+// 1) Hashmap
 // Time O(m + n)
 // Space O(m) or O(n)
 const getIntersectionNode1 = (headA, headB) => {

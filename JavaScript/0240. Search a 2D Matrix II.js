@@ -68,6 +68,16 @@ const searchMatrix2 = (matrix, target) => {
 //
 // Time O(m + n), rule out one row or one column each time
 // Space O(1)
+//
+// Idea
+//
+// Like tree: https://leetcode.com/problems/search-a-2d-matrix-ii/discuss/66140/My-concise-O(m+n)-Java-solution/68155
+// We start search the matrix from top right corner, # initialize the current position to top right corner.
+// - If the target is greater than the value in current position,
+//   then the target can not be in entire row of current position because the row is sorted.
+// - If the target is less than the value in current position,
+//   then the target can not in the entire column because the column is sorted too.
+// We can rule out one row or one column each time, so the time complexity is O(m + n).
 const searchMatrix = (matrix, target) => {
   if (matrix == null || matrix.length === 0) return false;
   const h = matrix.length;
@@ -76,9 +86,9 @@ const searchMatrix = (matrix, target) => {
   let i = 0;
   let j = w - 1;
   while (j >= 0 && i < h) {
-    if (target === matrix[i][j]) return true;
-    else if (target < matrix[i][j]) j--;
-    else i++;
+    if (matrix[i][j] === target) return true;
+    else if (matrix[i][j] < target) i++;
+    else j--;
   }
   return false;
 };

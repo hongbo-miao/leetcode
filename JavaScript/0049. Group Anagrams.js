@@ -43,4 +43,4 @@ const groupAnagrams = (strs) => {
 // are the same.
 //
 // We can transform each string s into a character count, count, consisting of 26 non-negative integers representing
-// the number of a's, b's, c's, etc. We use these counts as the basis for our hash map.
+// the number of a's, b's, c's, etc. We use these counts as the basis for our hashmap.

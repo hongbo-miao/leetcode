@@ -12,7 +12,7 @@
 # There must be no consecutive horizontal lines of equal height in the output skyline. For instance, [...[2 3], [4 5], [7 5], [11 5], [12 7]...] is not acceptable; the three lines of height 5 should be merged into one in the final output as such: [...[2 3], [4 5], [12 7], ...]
 
 
-# Priority Queue
+# 1) Priority Queue, using heapq
 # http://zxi.mytechroad.com/blog/tree/leetcode-218-the-skyline-problem/
 import heapq
 
@@ -41,12 +41,54 @@ class Solution:
             # Push [negative_height, end_point] of all buildings that start before `pos` onto the priority queue
             # They are candidates for the current highest building
             while i < len(buildings) and buildings[i][0] <= pos:
-                heapq.heappush(lives, [-buildings[i][2], buildings[i][1]])
+                heapq.heappush(lives, (-buildings[i][2], buildings[i][1]))
                 i += 1
 
             # Now lives[0] must be the largest height at the current positions
             if lives:
                 h = -lives[0][0]
+                if h != preH:
+                    res.append([pos, h])
+                    preH = h
+            else:  # No building -> horizon
+                res.append([pos, 0])
+        return res
+
+
+# 2) Similar to 1), using PriorityQueue
+from queue import PriorityQueue
+
+
+class Solution:
+    def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
+        # `positions` stores all coordinates where the largest height may change
+        # `lives` stores all buildings whose ranges cover the current coordinate
+        positions = sorted(
+            set(
+                [building[0] for building in buildings]
+                + [building[1] for building in buildings]
+            )
+        )
+        lives = PriorityQueue()
+        res = []
+        preH = 0
+        i = 0
+
+        for pos in positions:
+            # Pop buildings that end at or before `pos` out of the priority queue
+            # They are no longer "lives"
+            while lives.queue and lives.queue[0][1] <= pos:
+                lives.get()
+
+            # Push [negative_height, end_point] of all buildings that start before `pos` onto the priority queue
+            # They are candidates for the current highest building
+            while i < len(buildings) and buildings[i][0] <= pos:
+                lives.put((-buildings[i][2], buildings[i][1]))
+                i += 1
+
+            # Now lives[0] must be the largest height at the current positions
+            if lives.queue:
+                h = -lives.queue[0][0]
                 if h != preH:
                     res.append([pos, h])
                     preH = h

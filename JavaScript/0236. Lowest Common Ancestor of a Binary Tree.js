@@ -50,9 +50,9 @@ const lowestCommonAncestor = (root, p, q) => {
     const l = find(node.left);
     const r = find(node.right);
 
-    if (l == null) return r; // p and q are both in the right side
-    if (r == null) return l; // p and q are both in the left side
-    return node; // p and q are in different sides
+    if (l == null) return r; // p and q are both on the right side
+    if (r == null) return l; // p and q are both on the left side
+    return node; // p and q are on different sides
   };
 
   return find(root);

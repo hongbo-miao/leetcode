@@ -16,35 +16,35 @@
  */
 
 
-// 1)
+// 1) Two Pointers slow and fast
 // Time O(n)
 // Space O(1)
 const moveZeroes1 = (nums) => {
   // If the current element is not 0, then we need to append it just in front of last non 0 element we found.
-  let pos = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== 0) {
-      nums[pos] = nums[i];
-      pos++;
+  let slow = 0;
+  for (let fast = 0; fast < nums.length; fast++) {
+    if (nums[fast] !== 0) {
+      nums[slow] = nums[fast];
+      slow++;
     }
   }
 
   // After we have finished processing new elements, all the non-zero elements are already at beginning of array.
   // We just need to fill remaining array with 0's.
-  for (let i = pos; i < nums.length; i++) {
-    nums[i] = 0;
+  for (let fast = slow; fast < nums.length; fast++) {
+    nums[fast] = 0;
   }
 };
 
-// 2) Similar to 1), but hard to understand
+// 2) Two Pointers slow and fast, similar to 1)
 // Time O(n)
 // Space O(1)
 const moveZeroes = (nums) => {
-  let pos = 0; // last non 0 element found
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== 0) {
-      [nums[pos], nums[i]] = [nums[i], nums[pos]];
-      pos++;
+  let slow = 0;
+  for (let fast = 0; fast < nums.length; fast++) {
+    if (nums[fast] !== 0) {
+      [nums[slow], nums[fast]] = [nums[fast], nums[slow]];
+      slow++;
     }
   }
 };

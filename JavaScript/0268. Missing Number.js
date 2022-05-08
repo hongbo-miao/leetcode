@@ -26,7 +26,7 @@
   return (1 + nums.length) * nums.length / 2 - sum;
 };
 
-// 2) Hash Set
+// 2) Hashset
 // Time O(n)
 // Space O(n)
 const missingNumber = (nums) => {

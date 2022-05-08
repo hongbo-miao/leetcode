@@ -17,6 +17,30 @@
 # What if the inputs contain unicode characters? How would you adapt your solution to such case?
 
 
+# 1) Sorting
+# Time O(n log n)
+# Space O(1). Space depends on the sorting implementation which, usually, costs O(1) auxiliary space if heapsort is used.
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return sorted(s) == sorted(t)
+
+
+# 2) Hashmap
+# Time O(n)
+# Space O(n)
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        dic = {}
+
+        for c in s:
+            dic[c] = dic.get(c, 0) + 1
+
+        for c in t:
+            if c in dic and dic[c] > 0:
+                dic[c] -= 1
+            else:
+                return False
+        return True

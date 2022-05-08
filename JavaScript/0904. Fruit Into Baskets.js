@@ -45,7 +45,7 @@
  * @return {number}
  */
 
-// Sliding Window + Hash map
+// Sliding Window + Hashmap
 // Similar
 // 3. Longest Substring Without Repeating Characters
 // 904. Fruit Into Baskets

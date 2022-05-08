@@ -72,7 +72,7 @@ const shortestWay1 = (source, target) => {
   return res > t ? -1 : res + 1 ;
 };
 
-// 2) Greedy + Hash Set, taking more space, but easier to understand
+// 2) Greedy + Hashset, taking more space, but easier to understand
 // Time O(ST), where S and T are sizes of the source and target.
 // Space O(S)
 const shortestWay = (source, target) => {

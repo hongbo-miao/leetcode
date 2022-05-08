@@ -23,7 +23,7 @@ const firstUniqChar1 = (s) => {
   return -1;
 };
 
-// 2) Hash map
+// 2) Hashmap
 // Time O(n)
 // Space O(n)
 const firstUniqChar = (s) => {

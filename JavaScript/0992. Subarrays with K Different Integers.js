@@ -26,7 +26,7 @@
  * @return {number}
  */
 
-// 1) Sliding window + Hash map
+// 1) Sliding window + Hashmap
 // https://leetcode.com/problems/subarrays-with-k-different-integers/discuss/234482/JavaC%2B%2BPython-Sliding-Window-atMost(K)-atMost(K-1)
 //
 // First you may have feeling of using sliding window. Then this idea get stuck in the middle.

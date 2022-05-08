@@ -24,12 +24,12 @@
 
 // 1) Sorting
 // Time O(n log n)
-// Space O(1). Space depends on the sorting implementation which, usually, costs O(1)O(1) auxiliary space if heapsort is used.
+// Space O(1). Space depends on the sorting implementation which, usually, costs O(1) auxiliary space if heapsort is used.
 const isAnagram1 = (s, t) => {
   return s.split('').sort().join('') === t.split('').sort().join('');
 };
 
-// 2) Hash map
+// 2) Hashmap
 // Time O(n)
 // Space O(n)
 const isAnagram = (s, t) => {

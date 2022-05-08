@@ -69,7 +69,7 @@ const lengthOfLongestSubstring3 = (s) => {
   return max;
 };
 
-// 4) Sliding window + Hash map
+// 4) Sliding window + Hashmap
 // Similar
 // 3. Longest Substring Without Repeating Characters
 // 904. Fruit Into Baskets
@@ -102,7 +102,7 @@ const lengthOfLongestSubstring4 = (s) => {
 
 // 5) Sliding window (optimized)
 // Time O(n)
-// Space O(min(m, n)), m is the size of the hash map
+// Space O(min(m, n)), m is the size of the hashmap
 //
 // The above solution requires at most 2n steps. In fact, it could be optimized to require only n steps. Instead of
 // using a set to tell if a character exists or not, we could define a mapping of the characters to its index. Then

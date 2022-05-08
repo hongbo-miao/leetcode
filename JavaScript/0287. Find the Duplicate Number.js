@@ -22,7 +22,7 @@
  * @return {number}
  */
 
-// 1) Sorting
+// 1) Hashset
 // Time O(n)
 // Space O(n)
 const findDuplicate1 = (nums) => {

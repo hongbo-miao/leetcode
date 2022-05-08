@@ -18,7 +18,7 @@
  * @return {ListNode}
  */
 
-// 1) Hash set
+// 1) Hashset
 // Time O(n)
 // Space O(n)
 const detectCycle1 = (head) => {

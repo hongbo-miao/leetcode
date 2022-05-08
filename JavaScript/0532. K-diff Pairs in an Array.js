@@ -52,7 +52,7 @@ const findPairs1 = (nums, k) => {
   return count;
 };
 
-// 2) Hash map
+// 2) Hashmap
 // Time O(n)
 // Space O(n)
 const findPairs = (nums, k) => {

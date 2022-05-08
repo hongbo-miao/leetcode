@@ -22,7 +22,7 @@
  * @return {boolean}
  */
 
-// Hash set
+// Hashset
 // Time O(n)
 // Space O(n)
 const containsDuplicate = (nums) => {

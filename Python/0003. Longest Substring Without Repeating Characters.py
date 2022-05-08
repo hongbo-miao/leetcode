@@ -25,7 +25,7 @@
 # s consists of English letters, digits, symbols and spaces.
 
 
-# 1) Sliding window + hash map
+# 1) Sliding window + hashmap
 # Similar
 # 3. Longest Substring Without Repeating Characters
 # 904. Fruit Into Baskets
@@ -53,7 +53,7 @@ class Solution:
 
 # 2) Sliding window (optimized)
 # Time O(n)
-# Space O(min(m, n)), m is the size of the hash map
+# Space O(min(m, n)), m is the size of the hashmap
 #
 # The above solution requires at most 2n steps. In fact, it could be optimized to require only n steps. Instead of
 # using a set to tell if a character exists or not, we could define a mapping of the characters to its index. Then

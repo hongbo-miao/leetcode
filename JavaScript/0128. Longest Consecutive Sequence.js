@@ -32,7 +32,7 @@ const longestConsecutive1 = (nums) => {
   return max;
 };
 
-// 2) Hash set and intelligent sequence building
+// 2) Hashset and intelligent sequence building
 // Time O(n). Although the time complexity appears to be quadratic due to the while loop nested within the for loop,
 //   closer inspection reveals it to be linear. Because the while loop is reached only when currentNum marks the
 //   beginning of a sequence (i.e. currentNum-1 is not present in nums), the while loop can only run for n iterations

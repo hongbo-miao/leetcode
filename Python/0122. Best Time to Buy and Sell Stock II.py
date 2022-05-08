@@ -29,7 +29,7 @@
 # 0 <= prices[i] <= 10^4
 
 
-# 1) Two Pointers
+# 1) Two Pointers slow and fast
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if not prices:

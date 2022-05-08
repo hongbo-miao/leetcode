@@ -23,7 +23,7 @@
  * @return {string}
  */
 
-// Use hash map to store the remainder and its index while dividing.
+// Use hashmap to store the remainder and its index while dividing.
 // Whenever a same remainder shows, it is repeating fraction.
 const fractionToDecimal = (numerator, denominator) => {
   // To avoid if numerator = 0, denominator = 1, then Math.sign(numerator) = 0, Math.sign(denominator) = 1, s = '-0'

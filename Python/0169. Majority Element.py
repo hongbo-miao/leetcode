@@ -29,7 +29,7 @@ class Solution:
         return nums[len(nums) // 2]
 
 
-# 2) Hash Map
+# 2) Hashmap
 # Time O(n)
 # Space O(n)
 class Solution:

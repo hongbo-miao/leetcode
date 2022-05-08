@@ -24,7 +24,7 @@ const majorityElement1 = (nums) => {
   return nums[~~(nums.length / 2)];
 };
 
-// 2) Hash Map
+// 2) Hashmap
 // Time O(n)
 // Space O(n)
 const majorityElement = (nums) => {

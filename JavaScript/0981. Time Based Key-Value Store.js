@@ -35,7 +35,7 @@
 // 1 <= timestamp <= 10^7
 // TimeMap.set and TimeMap.get functions will be called a total of 120000 times (combined) per test case.
 
-// Hash Map + Binary Search
+// Hashmap + Binary Search
 // Since the timestamps for all TimeMap.set operations are strictly increasing, we can use binary search
 class TimeMap {
   /**
