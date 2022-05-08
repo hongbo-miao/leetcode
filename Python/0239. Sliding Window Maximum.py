@@ -26,6 +26,7 @@
 # -10^4 <= nums[i] <= 10^4
 # 1 <= k <= nums.length
 
+# Notion
 
 # 1) Monotonic Queue
 # https://www.youtube.com/watch?v=2SXqBsTR6a8

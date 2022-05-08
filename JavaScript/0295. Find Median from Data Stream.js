@@ -36,12 +36,12 @@ class MedianFinder {
    */
   addNum(num) {
     let l = 0 ;
-    let r = this.nums.length;
+    let r = this.nums.length - 1;
 
-    while (l < r) {
+    while (l <= r) {
       const m = ~~((l + r) / 2);
       if (this.nums[m] < num) l = m + 1;
-      else r = m;
+      else r = m - 1;
     }
 
     // insert at index l
