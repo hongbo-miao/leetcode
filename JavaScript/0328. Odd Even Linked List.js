@@ -49,7 +49,6 @@
 //                          odd
 //  Final  head -> 1 -> 3 -> 5 -> 2 -> 4 -> null
 //                             evenHead     even
-//
 const oddEvenList = (head) => {
   if (head == null) return null;
 

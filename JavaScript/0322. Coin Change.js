@@ -18,6 +18,7 @@
  * @param {number} amount
  * @return {number}
  */
+
 // 1) Dynamic Programming
 // Similar
 // 279. Perfect Squares
@@ -49,7 +50,7 @@
 //
 // e.g. coins = [1, 2, 5], amount = 11
 // dp =
-// [0, 1, I, I, I, I, I, I, I, I, I, I]  // I stands for Infinity
+// [0, 1, I, I, I, I, I, I, I, I, I, I]  // "I" stands for Infinity
 // [0, 1, 1, I, I, I, I, I, I, I, I, I]
 // [0, 1, 1, 2, I, I, I, I, I, I, I, I]
 // [0, 1, 1, 2, 2, I, I, I, I, I, I, I]
