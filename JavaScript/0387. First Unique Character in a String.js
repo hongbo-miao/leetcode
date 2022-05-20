@@ -30,8 +30,8 @@ const firstUniqChar = (s) => {
   const map = {};
 
   for (const c of s) {
-    if (map[c] == null) map[c] = 1;
-    else map[c]++;
+    if (map[c] == null) map[c] = 0;
+    map[c]++;
   }
 
   for (let i = 0; i < s.length; i++) {

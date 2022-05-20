@@ -35,10 +35,11 @@ class Solution:
         def isMirror(l: Optional[TreeNode], r: Optional[TreeNode]) -> bool:
             if not l and not r:
                 return True
-            if not l or not r:
+            elif not l or not r:
                 return False
-            if l.val != r.val:
+            elif l.val != r.val:
                 return False
-            return isMirror(l.left, r.right) and isMirror(l.right, r.left)
+            else:
+                return isMirror(l.left, r.right) and isMirror(l.right, r.left)
 
         return isMirror(root.left, root.right)
