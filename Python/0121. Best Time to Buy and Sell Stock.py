@@ -33,7 +33,7 @@ class Solution:
         return mx
 
 
-# 2) One pass using min and max
+# 2) Dynamic programming (Kadane's Algorithm)
 # Time O(n)
 # Space O(1)
 class Solution:

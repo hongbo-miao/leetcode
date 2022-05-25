@@ -48,8 +48,8 @@
 # Space O(n)
 #
 # dp[n] =
-#   dp[n - 2] // the number made by s[n - 1] and s[n] should be between 10 to 26
-# + dp[n - 1] // s[n] != 0
+#   dp[n - 2]  # the number made by s[n - 1] and s[n] should be between 10 to 26
+# + dp[n - 1]  # s[n] != 0
 #
 # e.g. '226'
 # dp = [1, 1, 2, 3]

@@ -64,3 +64,15 @@ class Solution:
             for j in range(1, n):
                 dp[j] += dp[j - 1]
         return dp[-1]
+
+
+# 3) Math - Combination
+# https://leetcode.com/explore/learn/card/dynamic-programming/634/matrix-path-based-dp/4129/
+# Time O(m)
+# Space O(1)
+from math import factorial
+
+
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        return factorial(m + n - 2) // factorial(n - 1) // factorial(m - 1)

@@ -67,9 +67,9 @@ class Solution:
             return False
         dp = [False] * (len(s) + 1)
         dp[0] = True
-        for r in range(1, len(s) + 1):
-            for l in range(r):
-                if dp[l] and s[l:r] in wordDict:
-                    dp[r] = True
+        for i in range(1, len(s) + 1):
+            for j in range(i):
+                if dp[j] and s[j:i] in wordDict:
+                    dp[i] = True
                     break
         return dp[-1]
