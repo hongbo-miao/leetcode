@@ -53,7 +53,7 @@ class Trie:
 
             # Method 2
             node = node.setdefault(c, {})
-        node["#"] = True
+        node["isWord"] = True
 
     def traverse(self, word):
         node = self.root
@@ -65,7 +65,7 @@ class Trie:
 
     def search(self, word: str) -> bool:
         node = self.traverse(word)
-        return node and "#" in node
+        return node and "isWord" in node
 
     def startsWith(self, prefix: str) -> bool:
         node = self.traverse(prefix)

@@ -25,7 +25,6 @@
 
 
 # Backtracking + Trie
-# (Most time got Time Limit Exceeded...)
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         m, n = len(board), len(board[0])
@@ -47,20 +46,28 @@ class Solution:
                 node["word"] = w
             return root
 
-        def search(node, x, y):
-            if node.get("word") is not None:
-                res.append(node["word"])
-                node["word"] = None
+        def search(root, x, y):
+            c = board[x][y]
+            node = root[c]
 
-            if 0 <= x < m and 0 <= y < n and node.get(board[x][y]) is not None:
-                c = board[x][y]
-                board[x][y] = "#"
-                for dx, dy in dirs:
-                    search(node[c], x + dx, y + dy)
-                board[x][y] = c
+            # Optimization: incrementally remove the matched leaf node in Trie.
+            if not node:
+                root.pop(c)
+
+            w = node.pop("word", None)
+            if w:
+                res.append(w)
+
+            board[x][y] = "#"
+            for (dx, dy) in dirs:
+                i, j = x + dx, y + dy
+                if 0 <= i < m and 0 <= j < n and board[i][j] in node:
+                    search(node, i, j)
+            board[x][y] = c
 
         root = build_trie()
         for i in range(m):
             for j in range(n):
-                search(root, i, j)
+                if board[i][j] in root:
+                    search(root, i, j)
         return res

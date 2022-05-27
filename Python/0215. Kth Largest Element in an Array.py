@@ -25,8 +25,19 @@ class Solution:
         return sorted(nums)[-k]
 
 
-# 2)
-# Time O(n)
+# 2) Heap
+# Time O(Nlogk).
+# Space O(k) to store the heap elements.
+import heapq
+
+
+class Solution:
+    def findKthLargest(self, nums, k):
+        return heapq.nlargest(k, nums)[-1]
+
+
+# 3) Quickselect
+# Time O(n) average, O(n^2) worst
 # Space O(1)
 #
 # https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained

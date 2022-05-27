@@ -16,7 +16,6 @@
 # points[i].length == 2
 # -10^4 <= xi, yi <= 10^4
 # All the points are unique.
-from collections import defaultdict
 
 
 class Solution:

@@ -35,7 +35,24 @@
 #         self.val = x
 #         self.next = None
 
-# Two pointers slow and fast
+
+# 1) Hashset
+# Time O(n)
+# Space O(n)
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        seen = set()
+        while head is not None:
+            if head in seen:
+                return True
+            seen.add(head)
+            head = head.next
+        return False
+
+
+# 2) Two pointers slow and fast (Floyd's Cycle Finding Algorithm)
+# Time O(n)
+# Space O(1)
 #
 # Similar
 # 148. Sort List
@@ -43,6 +60,7 @@ class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if head is None:
             return False
+
         slow = head
         fast = head
         while fast.next and fast.next.next:

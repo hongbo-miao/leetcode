@@ -30,6 +30,8 @@
 #         self.next = next
 
 # 1) Iteration
+# Time O(n)
+# Space O(1)
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
@@ -41,10 +43,12 @@ class Solution:
             head.next = p.next
             p.next = cur
             cur = p
-        return cur
+        return cur  # New head
 
 
 # 2) Recursion
+# Time O(n)
+# Space O(n)
 # https://leetcode.com/problems/reverse-linked-list/solution/
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
