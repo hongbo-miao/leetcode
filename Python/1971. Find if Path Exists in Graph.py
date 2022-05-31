@@ -41,18 +41,16 @@ class Solution:
             graph[v].append(u)
 
         q = [source]
-
-        seen = set()
-        seen.add(source)
+        seen = {source}
 
         while q:
-            node = q.pop(0)
-            if node == destination:
+            u = q.pop(0)
+            if u == destination:
                 return True
-            for neighbor in graph[node]:
-                if neighbor not in seen:
-                    q.append(neighbor)
-                    seen.add(neighbor)
+            for v in graph[u]:
+                if v not in seen:
+                    q.append(v)
+                    seen.add(v)
         return False
 
 
@@ -73,13 +71,13 @@ class Solution:
         seen = {source}
 
         while st:
-            node = st.pop()
-            if node == destination:
+            u = st.pop()
+            if u == destination:
                 return True
-            for neighbor in graph[node]:
-                if neighbor not in seen:
-                    st.append(neighbor)
-                    seen.add(neighbor)
+            for v in graph[u]:
+                if v not in seen:
+                    st.append(v)
+                    seen.add(v)
         return False
 
 
