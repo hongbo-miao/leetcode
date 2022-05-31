@@ -70,9 +70,7 @@ class Solution:
             graph[v].append(u)
 
         st = [source]
-
-        seen = set()
-        seen.add(source)
+        seen = {source}
 
         while st:
             node = st.pop()

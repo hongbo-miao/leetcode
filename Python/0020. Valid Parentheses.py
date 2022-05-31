@@ -32,6 +32,6 @@ class Solution:
             if c in dic:
                 st.append(dic[c])
             else:
-                if len(st) == 0 or st.pop() != c:
+                if not st or st.pop() != c:
                     return False
-        return len(st) == 0
+        return not st

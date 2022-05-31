@@ -24,12 +24,12 @@
 
 # 1) Dynamic Programming (Top-Down)
 # https://leetcode.com/explore/learn/card/dynamic-programming/632/common-patterns-in-dp-problems/4116/
-from functools import lru_cache
+from functools import cache
 
 
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
-        @lru_cache(None)
+        @cache
         def dp(i, transactions_remaining, holding):
             # Base case
             if transactions_remaining == 0 or i == len(prices):

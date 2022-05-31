@@ -64,9 +64,12 @@ class Solution:
 # 2) Dynamic Programming (Top-Down). Similar to 1)
 # Time O(n)
 # Space O(n)
+from functools import cache
+
+
 class Solution:
     def numWays(self, n: int, k: int) -> int:
-        @lru_cache(None)
+        @cache
         def total_ways(i):
             if i == 1:
                 return k
