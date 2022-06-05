@@ -36,8 +36,10 @@
 # 5. Now, operation is equal to *, so we pop last element from stack and put -3\4*5 instead, stack = [1*2, -3\4*5].
 # 6. Finally, operation is equal to +, so we put 6 to stack: stack = [1*2, -3\4*5, 6]
 # Now, all we need to do is to return sum of all elements in stack.
+
+
 class Solution:
-    def calculate(self, s):
+    def calculate(self, s: str) -> int:
         i = 0
         n = 0
         st = []

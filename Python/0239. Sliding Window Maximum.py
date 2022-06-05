@@ -28,7 +28,7 @@
 
 # Notion
 
-# 1) Monotonic Queue
+# Monotonic Queue
 # https://www.youtube.com/watch?v=2SXqBsTR6a8
 #
 # Time O(n)

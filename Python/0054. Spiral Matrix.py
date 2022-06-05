@@ -55,8 +55,9 @@ class Solution:
         res = []
         while steps[dir % 2] > 0:
             for _ in range(steps[dir % 2]):
-                x += dirs[dir][0]
-                y += dirs[dir][1]
+                dx, dy = dirs[dir]
+                x += dx
+                y += dy
                 res.append(matrix[x][y])
             steps[dir % 2] -= 1
             dir = (dir + 1) % 4

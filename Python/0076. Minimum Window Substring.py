@@ -31,5 +31,37 @@
 # Follow up: Could you find an algorithm that runs in O(m + n) time?
 
 
+# Notion
+
+# Sliding window
+import collections
+
+
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
+        need = collections.Counter(t)  # hash table to store char frequency
+        missing = len(t)  # total number of chars we care
+        start, end = 0, 0
+        l = 0
+        # Move the right pointer until the window contains all the chars from string t
+        for r, c in enumerate(s, 1):
+            if need[c] > 0:
+                missing -= 1
+            need[c] -= 1
+
+            # Now the window has all chars
+            if missing == 0:
+                # Remove chars to find the real start
+                while l < r and need[s[l]] < 0:
+                    need[s[l]] += 1
+                    l += 1
+
+                # Update window
+                if end == 0 or r - l < end - start:
+                    start, end = l, r
+
+                # Move left pointer again which makes the window no more desirable to find next window
+                need[s[l]] += 1
+                missing += 1
+                l += 1
+        return s[start:end]

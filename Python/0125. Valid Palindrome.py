@@ -29,5 +29,6 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower()
+        # isalnum() -> True if all chars are alphanumeric (alphabet + number)
         s = "".join(c for c in s if c.isalnum())
         return s == s[::-1]
