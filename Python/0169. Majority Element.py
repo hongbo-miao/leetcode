@@ -39,3 +39,25 @@ class Solution:
             dic[n] = dic.get(n, 0) + 1
             if dic[n] > len(nums) / 2:
                 return n
+
+
+# 3) Boyer-Moore Voting Algorithm
+# Check 229. Majority Element II
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        if not nums:
+            return []
+
+        # 1st pass
+        count1 = 0
+        n1 = None  # potential candidates
+        for n in nums:
+            if n1 == n:
+                count1 += 1
+            elif count1 == 0:
+                n1 = n
+                count1 += 1
+            else:
+                count1 -= 1
+
+        return n1

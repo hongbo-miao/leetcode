@@ -20,7 +20,7 @@
 # Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
 
 
-# 1)
+# 1) Left and Right product lists
 # Time O(n)
 # Space O(n)
 #
@@ -47,7 +47,7 @@ class Solution:
         return [l[i] * r[i] for i in range(n)]
 
 
-# 2) Improvement by saving some space which is less clear
+# 2) Left and Right product lists, similar to 1), but less clear
 # Time O(n)
 # Space O(1)
 class Solution:

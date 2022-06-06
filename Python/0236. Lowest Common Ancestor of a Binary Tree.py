@@ -52,7 +52,7 @@ class Solution:
 
         if l and r:  # p and q are on different sides
             return root
-        if not l:  # p and q are both on the right side
-            return r
-        if not r:  # p and q are both on the left side
+        if l:  # p and q are both on the left side
             return l
+        if r:  # p and q are both on the right side
+            return r

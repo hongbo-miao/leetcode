@@ -25,7 +25,7 @@
 #         self.right = right
 
 
-# 1) DFS (top-down)
+# 1) Recursion DFS (top-down)
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
@@ -46,7 +46,10 @@ class Solution:
         return max_depth
 
 
-# 2) DFS (bottom-up)
+# 2) Recursion DFS (bottom-up)
+# Time O(n)
+# Space O(logn) for the best case of completely balanced tree
+#   O(N) in the worst case of completely unbalanced tree, to keep a recursion stack.
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
@@ -54,3 +57,23 @@ class Solution:
         l = self.maxDepth(root.left)
         r = self.maxDepth(root.right)
         return max(l, r) + 1
+
+
+# 3) Iteration
+# Time O(n)
+# Space O(logn) for the best case of completely balanced tree
+#   O(N) in the worst case of completely unbalanced tree, to keep a recursion stack.
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+
+        st = [(root, 1)]
+        max_depth = 0
+        while st:
+            root, depth = st.pop()
+            if root:
+                max_depth = max(max_depth, depth)
+                st.append((root.left, depth + 1))
+                st.append((root.right, depth + 1))
+        return max_depth

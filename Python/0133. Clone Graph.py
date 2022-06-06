@@ -67,8 +67,8 @@ class Solution:
                 return cache[u0]
             u1 = Node(u0.val)
             cache[u0] = u1
-            for v in u0.neighbors:
-                u1.neighbors.append(clone(v))
+            for v0 in u0.neighbors:
+                u1.neighbors.append(clone(v0))
             return u1
 
         return clone(node)
