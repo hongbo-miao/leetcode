@@ -39,22 +39,23 @@
 #
 # data = [1, 2, null, null, 3, 4, null, null, 5, null, null]
 
-# Old version (not pass any more)
-# class Codec:
-#     def serialize(self, root):
-#         if not root:
-#             return "x"
-#         return root.val, self.serialize(root.left), self.serialize(root.right)
-#
-#     def deserialize(self, data):
-#         if data[0] == "x":
-#             return None
-#         node = TreeNode(data[0])
-#         node.left = self.deserialize(data[1])
-#         node.right = self.deserialize(data[2])
-#         return node
+# 1) Old version, not pass the tests anymore
+class Codec:
+    def serialize(self, root):
+        if not root:
+            return "x"
+        return root.val, self.serialize(root.left), self.serialize(root.right)
+
+    def deserialize(self, data):
+        if data[0] == "x":
+            return None
+        node = TreeNode(data[0])
+        node.left = self.deserialize(data[1])
+        node.right = self.deserialize(data[2])
+        return node
 
 
+# 2) New version
 class Codec:
     def serialize(self, root):
         if not root:

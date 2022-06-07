@@ -47,7 +47,8 @@ class Solution:
                     if not s2:
                         res.append(w)
                     else:
-                        res += [w + " " + x for x in go(s2)]
+                        # res += [w + " " + x for x in go(s2)]
+                        res.extend([w + " " + x for x in go(s2)])
             dic[s] = res
             return res
 

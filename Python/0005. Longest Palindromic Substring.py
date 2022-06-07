@@ -47,18 +47,14 @@
 # Space O(1)
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        res = ""
+        str = ""
         for i in range(len(s)):
-            s1 = Solution.expend_from_center(s, i, i)
-            if len(s1) > len(res):
-                res = s1
-            s2 = Solution.expend_from_center(s, i, i + 1)
-            if len(s2) > len(res):
-                res = s2
-        return res
+            s1 = self.get_longest_s(s, i, i)
+            s2 = self.get_longest_s(s, i, i + 1)
+            str = max([str, s1, s2], key=len)
+        return str
 
-    @staticmethod
-    def expend_from_center(s: str, l: int, r: int) -> str:
+    def get_longest_s(self, s, l, r):
         while l >= 0 and r < len(s) and s[l] == s[r]:
             l -= 1
             r += 1

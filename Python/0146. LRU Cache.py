@@ -41,11 +41,13 @@
 
 
 # 1) Dictionary, dict() / {} is ordered.
+# Space O(N)
 class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.cache = {}
 
+    # Time O(1)
     def get(self, key: int) -> int:
         if key not in self.cache:
             return -1
@@ -53,6 +55,7 @@ class LRUCache:
         self.cache[key] = val
         return val
 
+    # Time O(1)
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
             self.cache.pop(key)
@@ -67,6 +70,7 @@ class LRUCache:
 
 
 # 2) OrderedDict
+# Space O(N)
 from collections import OrderedDict
 
 
@@ -75,12 +79,14 @@ class LRUCache:
         self.capacity = capacity
         self.cache = OrderedDict()
 
+    # Time O(1)
     def get(self, key: int) -> int:
         if key not in self.cache:
             return -1
         self.cache.move_to_end(key)
         return self.cache[key]
 
+    # Time O(1)
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
             self.cache.pop(key)

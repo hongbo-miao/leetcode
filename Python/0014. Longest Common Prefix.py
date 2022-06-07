@@ -36,14 +36,14 @@ class Solution:
         return str0
 
 
-# 2) Vertical scanning
+# 2) Vertical scanning, similar to 1)
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if not strs:
             return ""
-        short_str = min(strs, key=len)
-        for i, c in enumerate(short_str):
+        min_s = min(strs, key=len)
+        for i, c in enumerate(min_s):
             for s in strs:
                 if c != s[i]:
-                    return short_str[:i]
-        return short_str
+                    return min_s[:i]
+        return min_s

@@ -34,10 +34,28 @@ class Solution:
             return False
 
         dic = {}
-
         for c in s:
             dic[c] = dic.get(c, 0) + 1
+        for c in t:
+            if c in dic and dic[c] > 0:
+                dic[c] -= 1
+            else:
+                return False
+        return True
 
+
+# 3) Hashmap, similar to 2)
+# Time O(n)
+# Space O(n)
+import collections
+
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        dic = collections.Counter(s)
         for c in t:
             if c in dic and dic[c] > 0:
                 dic[c] -= 1
