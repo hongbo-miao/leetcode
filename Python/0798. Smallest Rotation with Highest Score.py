@@ -53,10 +53,10 @@ class Solution:
                 bad[0] -= 1
 
         best = -N
-        ans = cur = 0
+        res = cur = 0
         for i, score in enumerate(bad):
             cur += score
             if cur > best:
                 best = cur
-                ans = i
-        return ans
+                res = i
+        return res
