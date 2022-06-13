@@ -27,14 +27,14 @@
 
 
 # Topological Sorting
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
         # Build graph
         graph = defaultdict(set)
-        in_degree = defaultdict(int)
+        in_degree = Counter()
         for w in words:
             for c in w:
                 in_degree[c] = 0

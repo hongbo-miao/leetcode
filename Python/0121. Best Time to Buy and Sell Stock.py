@@ -26,11 +26,11 @@
 # Space O(1)
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        mx = 0
+        ma = 0
         for i in range(len(prices)):
             for j in range(i + 1, len(prices)):
-                mx = max(mx, prices[j] - prices[i])
-        return mx
+                ma = max(ma, prices[j] - prices[i])
+        return ma
 
 
 # 2) Dynamic programming (Kadane's Algorithm)
@@ -40,9 +40,9 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if len(prices) < 2:
             return 0
-        mn = float("inf")
-        mx = float("-inf")
+        mi = float("inf")
+        ma = float("-inf")
         for p in prices:
-            mn = min(mn, p)
-            mx = max(mx, p - mn)
-        return mx
+            mi = min(mi, p)
+            ma = max(ma, p - mi)
+        return ma

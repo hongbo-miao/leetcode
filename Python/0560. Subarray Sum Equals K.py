@@ -44,12 +44,12 @@ class Solution:
 # Check how many prefix sum (j's) equals to sum - k
 # If nums[0] + ... + nums[j] = sum - k
 # then there same number of j's that nums[j+1] + ... + nums[i] = k
-import collections
+from collections import Counter
 
 
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        dic = collections.defaultdict(int)
+        dic = Counter()
         dic[0] = 1
         count = 0
         sum = 0

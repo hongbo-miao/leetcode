@@ -38,17 +38,17 @@ class Solution:
         def go(x, y):
             if cache[x][y] is not None:
                 return cache[x][y]
-            mx = 1
+            ma = 1
             for dx, dy in dirs:
                 i = x + dx
                 j = y + dy
                 if 0 <= i < m and 0 <= j < n and matrix[i][j] > matrix[x][y]:
-                    mx = max(mx, go(i, j) + 1)
-            cache[x][y] = mx
-            return mx
+                    ma = max(ma, go(i, j) + 1)
+            cache[x][y] = ma
+            return ma
 
-        mx = 0
+        ma = 0
         for i in range(m):
             for j in range(n):
-                mx = max(mx, go(i, j))
-        return mx
+                ma = max(ma, go(i, j))
+        return ma

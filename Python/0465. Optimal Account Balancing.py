@@ -33,12 +33,12 @@
 # Notion
 
 # https://www.youtube.com/watch?v=HHKJPtsOGwk
-import collections
+from collections import Counter
 
 
 class Solution:
     def minTransfers(self, transactions: List[List[int]]) -> int:
-        balances = collections.defaultdict(int)
+        balances = Counter()
         for u, v, n in transactions:
             balances[u] += n
             balances[v] -= n
@@ -54,15 +54,15 @@ class Solution:
         if cur == 0:
             return self.dfs(k + 1, vals)
 
-        mn = float("inf")
+        mi = float("inf")
         for i in range(k + 1, len(vals)):
             next = vals[i]
             if cur * next < 0:
                 vals[i] = cur + next
-                mn = min(mn, 1 + self.dfs(k + 1, vals))
+                mi = min(mi, 1 + self.dfs(k + 1, vals))
                 vals[i] = next  # Backtracking, restore the original value
 
                 # Optimization
                 if cur + next == 0:
                     break
-        return mn
+        return mi

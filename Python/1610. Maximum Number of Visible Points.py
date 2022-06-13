@@ -58,10 +58,10 @@ class Solution:
         # Convert angle to radian
         radian = angle * math.pi / 180
 
-        mx = 0
+        ma = 0
         l = 0
         for r in range(len(radians)):
             while radians[r] - radians[l] > radian:
                 l += 1
-            mx = max(mx, r - l + 1)
-        return mx + extra
+            ma = max(ma, r - l + 1)
+        return ma + extra

@@ -45,28 +45,13 @@ class Solution:
 
 
 # 3) Hashmap, similar to 2)
-import collections
+from collections import Counter
 
 
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        dic = collections.defaultdict(int)
-        for c in s:
-            dic[c] += 1
+        dic = Counter(s)
         for i, c in enumerate(s):
             if dic[c] == 1:
-                return i
-        return -1
-
-
-# 4) Hashmap
-import collections
-
-
-class Solution:
-    def firstUniqChar(self, s: str) -> int:
-        counter = collections.Counter(s)
-        for i, c in enumerate(s):
-            if counter[c] == 1:
                 return i
         return -1

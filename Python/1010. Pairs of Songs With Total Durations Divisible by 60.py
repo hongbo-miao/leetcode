@@ -26,12 +26,12 @@
 # Similar to Two Sum
 # Let target in Two Sum be 60 and each item in time % 60, then the two problems are very similar to each other.
 # Any multiple of 60 will complement itself. Maps multiple of 60 to 0, theOther is 0, correspondingly.
-from collections import defaultdict
+from collections import Counter
 
 
 class Solution:
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
-        dic = defaultdict(int)
+        dic = Counter()
         res = 0
         for t in time:
             diff = -t % 60

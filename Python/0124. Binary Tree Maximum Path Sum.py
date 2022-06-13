@@ -31,7 +31,7 @@
 # Recursion
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        mx = float("-inf")
+        ma = float("-inf")
 
         def get_max_gain(node):
             if not node:
@@ -42,9 +42,9 @@ class Solution:
             # right max gain
             r = max(get_max_gain(node.right), 0)
 
-            nonlocal mx
-            mx = max(mx, l + r + node.val)
+            nonlocal ma
+            ma = max(ma, l + r + node.val)
             return max(l, r) + node.val
 
         get_max_gain(root)
-        return mx
+        return ma
