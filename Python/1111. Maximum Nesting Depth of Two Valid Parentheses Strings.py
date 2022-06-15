@@ -31,6 +31,19 @@
 
 
 # https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/discuss/358419/Confused-by-this-problem-I-was-too-%3A(-Here-is-how-it-became-crystal-clear...
+# Some examples:
+#
+# "(())" can be grouped into A = "()" and B = "()" or, A = "" and B = "(())", but, for example, not A = "((" and B = "))" as those are not VPS
+# "(())()" can be grouped into A = "(())" and B = "()", and many other ways
+# However, the goal is to minimize the max depth of both groups.
+#
+# In the last example ("(())()"), the grouping (A = "(())" and B = "()") is not minimal, because A has a max-depth of 2 while there exists a grouping where both only have a depth of 1, namely: A = ()() and B = (), or to visualize the designation:
+#
+# parentheses =   [ (, (, ), ), (, )]
+# depths =        [ 1, 2, 2, 1, 1, 1 ]
+# groups =        [ A, B, B, A, A, A]
+# solution =      [ 0, 1, 1, 0, 0, 0]
+#
 # Cut any stack in half while making sure that the resulting half-stacks are
 # balanced VPS. There are many ways of doing that, but one of the easiest (
 # and seemingly a very common) approach is the odd/even strategy:

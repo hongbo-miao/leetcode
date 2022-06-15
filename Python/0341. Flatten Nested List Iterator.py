@@ -56,18 +56,22 @@
 #        Return None if this NestedInteger holds a single integer
 #        """
 
+# Your NestedIterator object will be instantiated and called as such:
+# i, v = NestedIterator(nestedList), []
+# while i.hasNext(): v.append(i.next())
+
 
 class NestedIterator:
     def __init__(self, nestedList: [NestedInteger]):
-        self.stack = nestedList[::-1]
+        self.st = nestedList[::-1]
 
     def next(self) -> int:
-        return self.stack.pop().getInteger()
+        return self.st.pop().getInteger()
 
     def hasNext(self) -> bool:
-        while self.stack:
-            top = self.stack[-1]
+        while self.st:
+            top = self.st[-1]
             if top.isInteger():
                 return True
-            self.stack = self.stack[:-1] + top.getList()[::-1]
+            self.st = self.st[:-1] + top.getList()[::-1]
         return False

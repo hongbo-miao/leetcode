@@ -29,14 +29,44 @@ class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         nums = nums1 + nums2
         nums.sort()
-        if len(nums) % 2 != 0:
+        if len(nums) % 2 == 1:
             return nums[len(nums) // 2]
         else:
             return (nums[len(nums) // 2 - 1] + nums[len(nums) // 2]) / 2
 
 
-# Binary Search
+# 2) Binary Search (Notion)
 # https://zxi.mytechroad.com/blog/algorithms/binary-search/leetcode-4-median-of-two-sorted-arrays/
 #
 # Time O(log(m + n))
 # Space O(1)
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        n1 = len(nums1)
+        n2 = len(nums2)
+        if n1 > n2:
+            return self.findMedianSortedArrays(nums2, nums1)
+
+        k = (n1 + n2 + 1) // 2
+        l = 0
+        r = n1
+        while l < r:
+            m1 = (l + r) // 2
+            m2 = k - m1
+            if nums1[m1] < nums2[m2 - 1]:
+                l = m1 + 1
+            else:
+                r = m1
+        m1 = l
+        m2 = k - l
+        c1 = max(
+            -float("inf") if m1 == 0 else nums1[m1 - 1],
+            -float("inf") if m2 == 0 else nums2[m2 - 1],
+        )
+        if (n1 + n2) % 2 == 1:
+            return c1
+        c2 = min(
+            float("inf") if m1 == n1 else nums1[m1],
+            float("inf") if m2 == n2 else nums2[m2],
+        )
+        return (c1 + c2) / 2

@@ -22,7 +22,7 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         res = []
 
-        def go(l: int, r: int, s: str):
+        def go(l, r, s):
             if len(s) == 2 * n:
                 res.append(s)
                 return
@@ -40,7 +40,7 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         res = []
 
-        def go(l: int, r: int, s: str):
+        def go(l, r, s):
             if l == 0 and r == 0:
                 res.append(s)
                 return
