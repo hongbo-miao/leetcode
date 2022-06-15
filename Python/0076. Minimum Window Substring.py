@@ -34,12 +34,12 @@
 # Notion
 
 # Sliding window
-import collections
+from collections import Counter
 
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        need = collections.Counter(t)  # hash table to store char frequency
+        need = Counter(t)  # hash table to store char frequency
         missing = len(t)  # total number of chars we care
         start, end = 0, 0
         l = 0

@@ -35,13 +35,13 @@
 
 
 # Space O(n)
-import collections
+from collections import defaultdict, Counter
 
 
 class FreqStack:
     def __init__(self):
-        self.freq = collections.Counter()
-        self.group = collections.defaultdict(list)
+        self.freq = Counter()
+        self.group = defaultdict(list)
         self.maxfreq = 0
 
     # Time O(1)

@@ -47,7 +47,7 @@ class Solution:
 # 3) Hashmap, similar to 2)
 # Time O(n)
 # Space O(n)
-import collections
+from collections import Counter
 
 
 class Solution:
@@ -55,7 +55,7 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        dic = collections.Counter(s)
+        dic = Counter(s)
         for c in t:
             if c in dic and dic[c] > 0:
                 dic[c] -= 1

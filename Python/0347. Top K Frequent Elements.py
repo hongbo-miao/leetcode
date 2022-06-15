@@ -20,12 +20,12 @@
 # Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
 # 1)
-import collections
+from collections import Counter
 
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        c = collections.Counter(nums)
+        c = Counter(nums)
         return [k for k, _ in c.most_common(k)]
 
 

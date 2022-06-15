@@ -29,16 +29,17 @@
 # Time O(NK log K), where N is the length of strs, and K is the maximum length of a string in strs
 #   The outer loop has complexity O(N) as we iterate through each string. Then, we sort each string in O(K log K) time
 # Space O(NK), the total information content stored in groups.
+from collections import defaultdict
+
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        dic = {}
-        for s in strs:
+        dic = defaultdict(list)
+        for w in strs:
             # sorted("cab") -> ['a', 'b', 'c']
             # "".join(sorted("cab")) -> "abc"
-            k = "".join(sorted(s))
-            if k not in dic:
-                dic[k] = []
-            dic[k].append(s)
+            s = "".join(sorted(w))
+            dic[s].append(w)
         return dic.values()
 
 

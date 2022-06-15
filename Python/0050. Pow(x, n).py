@@ -23,7 +23,7 @@
 # -10^4 <= xn <= 10^4
 
 
-# Recursive
+# Recursion
 # Time O(log n)
 # Space O(log n)
 class Solution:
