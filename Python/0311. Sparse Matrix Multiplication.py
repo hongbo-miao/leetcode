@@ -61,17 +61,21 @@ class Solution:
 # Space O(mk+kn)
 class Solution:
     def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
-        def compress_matrix(matrix: List[List[int]]) -> List[List[int]]:
-            rows, cols = len(matrix), len(matrix[0])
-            compressed_matrix = [[] for _ in range(rows)]
-            for row in range(rows):
-                for col in range(cols):
-                    if matrix[row][col]:
-                        compressed_matrix[row].append([matrix[row][col], col])
+        # [[1, 0, 0],
+        #  [-1, 0, 3]]
+        #  ->
+        #  [[[1, 0]],
+        #   [[-1, 0], [3, 2]]]
+        def compress_matrix(mat: List[List[int]]) -> List[List[int]]:
+            m, n = len(mat), len(mat[0])
+            compressed_matrix = [[] for _ in range(m)]
+            for i in range(m):
+                for j in range(n):
+                    if mat[i][j]:
+                        compressed_matrix[i].append([mat[i][j], j])
             return compressed_matrix
 
         m = len(mat1)
-        k = len(mat1[0])
         n = len(mat2[0])
 
         # Store the non-zero values of each matrix.
@@ -79,11 +83,11 @@ class Solution:
         B = compress_matrix(mat2)
 
         res = [[0] * n for _ in range(m)]
-        for mat1_row in range(m):
+        for mat1_i in range(m):
             # Iterate on all current 'row' non-zero elements of mat1.
-            for element1, mat1_col in A[mat1_row]:
+            for e1, mat1_j in A[mat1_i]:
                 # Multiply and add all non-zero elements of mat2
                 # where the row is equal to col of current element of mat1.
-                for element2, mat2_col in B[mat1_col]:
-                    res[mat1_row][mat2_col] += element1 * element2
+                for e2, mat2_j in B[mat1_j]:
+                    res[mat1_i][mat2_j] += e1 * e2
         return res
