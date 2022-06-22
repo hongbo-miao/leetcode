@@ -38,6 +38,7 @@
 # Now, all we need to do is to return sum of all elements in stack.
 
 
+# Copy from 772. Basic Calculator III
 class Solution:
     def calculate(self, s: str) -> int:
         i = 0
