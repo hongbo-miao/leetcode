@@ -71,9 +71,8 @@ class Solution:
 
         # Find the middle (or middle + 1) node
         fast = slow = head
-        while (
-            fast and fast.next
-        ):  # Note here cannot be while fast.next and fast.next.next
+        # Note here cannot be while fast.next and fast.next.next
+        while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
 
