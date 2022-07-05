@@ -34,7 +34,7 @@
 #
 # Space O(M * N), to store all M transformations for each of the N words, in the all_combo_dict dictionary. Visited
 # dictionary is of N size. Queue for BFS in worst case would need space for all N words.
-import string
+from string import ascii_lowercase
 
 
 class Solution:
@@ -53,7 +53,7 @@ class Solution:
                     return step
                 for i in range(len(w)):
                     # string.ascii_lowercase == "abcdefghijklmnopqrstuvwxyz"
-                    for c in string.ascii_lowercase:
+                    for c in ascii_lowercase:
                         w2 = w[:i] + c + w[i + 1 :]
                         if w2 in wordList:
                             q.append(w2)
